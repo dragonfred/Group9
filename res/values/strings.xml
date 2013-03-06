@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_settings">Settings</string>
+    <string name="log_in_text">Log In</string>
+    <string name="skip_log_in_text">Skip Log In</string>
+    <string name="forgot_password_text">Forgot Password?</string>
+    <string name="create_account">Create Account</string>
+    <string name="exit_application">Exit</string>
+    <string name="app_name">Restaurant Review</string>
+
+</resources>
