@@ -27,5 +27,11 @@
     <string name="zip_code_text">Zip code(optional)</string>
     <string name="search_nearby_button">Search Nearby</string>
     <string name="search_button">Search</string>
+    <string name="title_activity_manage_friends">ManageFriendsActivity</string>
 
+    <string name="show_friends">Show Friends</string>
+    <string name="find_friends">Find Friends</string>
+    <string name="view_notifications">View Notifications</string>
+    <string name="manage_friends_title">Manage Friends</string>
+    
 </resources>

@@ -34,6 +34,10 @@
             android:name="com.example.restaurantreviewapplication.FindRestaurantsActivity"
             android:label="@string/title_activity_find_restaurants" >
         </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.ManageFriendsActivity"
+            android:label="@string/title_activity_manage_friends" >
+        </activity>
     </application>
 
 </manifest>

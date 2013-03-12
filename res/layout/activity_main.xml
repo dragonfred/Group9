@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:padding="4dp"
     android:gravity="center">
-
+    
    	<LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -19,8 +19,9 @@
 	        android:id="@+id/Username"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:ems="10"
-	        android:inputType="text">
+	        android:inputType="text"
+			android:textColor="#888888"
+			android:text="@string/username_text">
 	   		<requestFocus />
 	   	</EditText>
 	    
@@ -28,9 +29,10 @@
 	        android:id="@+id/Password"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:ems="10"
 	        android:longClickable="false"
-	        android:inputType="textPassword">
+	        android:inputType="textPassword"
+			android:textColor="#888888"
+			android:text="@string/password_text">
     	</EditText>
        
     </LinearLayout>
