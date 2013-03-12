@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="menu_settings">Settings</string>
+    <string name="app_name">Restaurant Review</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_create">CreateActivity</string>
     <string name="log_in_text">Log In</string>
     <string name="skip_log_in_text">Skip Log In</string>
     <string name="forgot_password_text">Forgot Password?</string>
     <string name="create_account">Create Account</string>
     <string name="exit_application">Exit</string>
-    <string name="app_name">Restaurant Review</string>
+    <string name="username_text">Username</string>
+    <string name="password_text">Password</string>
+    <string name="confirm_password_text">Confirm Password</string>
+    <string name="email_text">Email</string>
+    <string name="remember_me">Remember Me?</string>
+    <string name="cancel_create_account">Cancel</string>
+    <string name="submit_create_account">Submit</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="find_restaurants_button">Find Restaurants</string>
+    <string name="manage_friends_button">Manage Friends</string>
+    <string name="manage_account_button">Manage Account</string>
+    <string name="log_out_button">Logout</string>
+    <string name="title_activity_find_restaurants">FindRestaurantsActivity</string>
+    <string name="name_keyword_text">Name/Keyword</string>
+    <string name="zip_code_text">Zip code(optional)</string>
+    <string name="search_nearby_button">Search Nearby</string>
+    <string name="search_button">Search</string>
 
 </resources>

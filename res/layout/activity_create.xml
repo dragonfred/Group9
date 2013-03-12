@@ -1,0 +1,80 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="6dp"
+    tools:context=".CreateActivity">
+          
+   <EditText 
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:gravity="left"
+       android:inputType="text"
+       android:id="@+id/usernameText"
+       android:text="@string/username_text"
+       android:textColor="#888888">
+	</EditText> 
+    
+   <EditText
+       android:id="@+id/passwordText"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:gravity="left"
+       android:inputType="text"
+       android:text="@string/password_text"
+       android:textColor="#888888" >
+
+	</EditText>
+    
+   <EditText
+       android:id="@+id/confirmPasswordText"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:gravity="left"
+       android:inputType="text"
+       android:text="@string/confirm_password_text"
+       android:textColor="#888888" >
+
+	</EditText>
+	    
+   <EditText
+       android:id="@+id/emailText"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:inputType="textEmailAddress" 
+       android:gravity="left"
+       android:text="@string/email_text"
+       android:textColor="#888888">
+   </EditText>
+	   
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+       
+       <CheckBox 
+	       android:id="@+id/loginPersist"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@string/remember_me">
+	   </CheckBox>
+	   
+	   <Button
+	       android:id="@+id/cancelCreateAccount"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@string/cancel_create_account">
+	   </Button>
+	    
+	   <Button 
+	       android:id="@+id/submitCreateAccount"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@string/submit_create_account">
+	   </Button>
+
+	</LinearLayout>
+	
+</LinearLayout>

@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="6dp"
+    tools:context=".FindRestaurantsActivity">
+
+    <EditText
+        android:id="@+id/keywordText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_keyword_text"
+        android:inputType="text"
+        android:textColor="#888888">
+    </EditText>
+    
+    <EditText
+        android:id="@+id/zipCodeText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="@string/zip_code_text"
+        android:textColor="#888888">
+
+    </EditText>
+        
+    <Button
+	       android:id="@+id/manageAccount"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/manage_account_button">
+	</Button>
+    
+    <Button
+	       android:id="@+id/logOut"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/log_out_button">
+	</Button>
+    
+</LinearLayout>

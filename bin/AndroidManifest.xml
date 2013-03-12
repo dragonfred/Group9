@@ -22,6 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.CreateActivity"
+            android:label="@string/title_activity_create" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.MainMenuActivity"
+            android:label="@string/title_activity_main_menu" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.FindRestaurantsActivity"
+            android:label="@string/title_activity_find_restaurants" >
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,8 @@ package com.example.restaurantreviewapplication;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,7 +18,8 @@ public class MainActivity extends Activity {
 	private Button skipLoginButton;
 	private Button forgotPassword;
 	private Button exitButton;
-	
+	private AlertDialog.Builder builder;
+	private AlertDialog alert;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,29 @@ public class MainActivity extends Activity {
 		skipLoginButton = (Button)findViewById(R.id.SkipLogin);
 		forgotPassword = (Button)findViewById(R.id.ForgotPassword);
 		exitButton = (Button)findViewById(R.id.ExitApplication);
+		
+		builder = new AlertDialog.Builder(this);
+		builder.setMessage("Are you sure you would like to exit the application?");
+		builder.setCancelable(false);
+		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {		
+				finish();				
+				System.exit(0);
+			}
+		});
+		
+		builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.cancel();
+			}
+		});
+		
+		alert = builder.create();
 		
 		usernameText.setSingleLine();
 		passwordText.setSingleLine();
@@ -68,7 +94,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				
+				alert.show();
 			}
 			
 		});

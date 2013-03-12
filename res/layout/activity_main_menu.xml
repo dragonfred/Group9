@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="6dp"
+    android:gravity="center_vertical"
+    tools:context=".MainMenuActivity" >
+
+    <Button
+	       android:id="@+id/findRestaurants"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/find_restaurants_button">
+	</Button>
+   
+    <Button
+	       android:id="@+id/manageFriends"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/manage_friends_button">
+	</Button>
+    
+    <Button
+	       android:id="@+id/manageAccount"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/manage_account_button">
+	</Button>
+    
+    <Button
+	       android:id="@+id/logOut"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/log_out_button">
+	</Button>
+
+</LinearLayout>
