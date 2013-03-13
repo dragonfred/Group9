@@ -38,6 +38,14 @@
             android:name="com.example.restaurantreviewapplication.ManageFriendsActivity"
             android:label="@string/title_activity_manage_friends" >
         </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.RestaurantActivity"
+            android:label="@string/title_activity_restaurant" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.WriteReviewActivity"
+            android:label="@string/title_activity_write_review" >
+        </activity>
     </application>
 
 </manifest>

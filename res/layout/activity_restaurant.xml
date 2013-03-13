@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".RestaurantActivity" >
+  
+    <TextView
+       android:id="@+id/RestaurantNameText"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:text="@string/restaurant_name_text"
+       android:gravity="center"
+       android:padding="4dp">      
+   </TextView> 
+   
+   <TextView
+       android:id="@+id/RestaurantAddressText"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:text="@string/restaurant_address_text"
+       android:gravity="center"
+       android:padding="4dp">      
+   </TextView> 
+  
+    <TextView
+       android:id="@+id/restaurantPhoneNumberText"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:text="@string/restaurant_phone_number_text"
+       android:gravity="center"
+       android:padding="4dp">      
+   </TextView> 
+   
+    <Button
+	        android:id="@+id/MapButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/map_button"
+	        android:padding="4dp">
+	</Button>
+	
+    <Button
+	        android:id="@+id/readReviewsButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/read_reviews_button"
+	        android:padding="4dp">
+	</Button>
+	
+	<Button
+	        android:id="@+id/writeReviewsButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/write_reviews_button"
+	        android:padding="4dp">
+	</Button>
+	
+    <Button
+	        android:id="@+id/checkInButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/check_in_button"
+	        android:padding="4dp">
+	</Button>
+	
+</LinearLayout>

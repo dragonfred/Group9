@@ -26,17 +26,17 @@
     </EditText>
         
     <Button
-	       android:id="@+id/manageAccount"
+	       android:id="@+id/searchNearby"
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
-	       android:text="@string/manage_account_button">
+	       android:text="@string/search_nearby_button">
 	</Button>
     
     <Button
 	       android:id="@+id/logOut"
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
-	       android:text="@string/log_out_button">
+	       android:text="@string/search_button">
 	</Button>
     
 </LinearLayout>

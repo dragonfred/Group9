@@ -5,6 +5,7 @@
     <string name="app_name">Restaurant Review</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_create">CreateActivity</string>
+    <string name="log_in_title">Log In</string>
     <string name="log_in_text">Log In</string>
     <string name="skip_log_in_text">Skip Log In</string>
     <string name="forgot_password_text">Forgot Password?</string>
@@ -17,6 +18,7 @@
     <string name="remember_me">Remember Me?</string>
     <string name="cancel_create_account">Cancel</string>
     <string name="submit_create_account">Submit</string>
+    <string name="create_account_title">Create Account</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="find_restaurants_button">Find Restaurants</string>
     <string name="manage_friends_button">Manage Friends</string>
@@ -28,10 +30,23 @@
     <string name="search_nearby_button">Search Nearby</string>
     <string name="search_button">Search</string>
     <string name="title_activity_manage_friends">ManageFriendsActivity</string>
-
     <string name="show_friends">Show Friends</string>
     <string name="find_friends">Find Friends</string>
     <string name="view_notifications">View Notifications</string>
     <string name="manage_friends_title">Manage Friends</string>
+    <string name="title_activity_restaurant">RestaurantActivity</string>
+    <string name="restaurant_name_text">[Restaurant Name]</string>
+    <string name="restaurant_address_text">[Restaurant Address]</string>
+    <string name="restaurant_phone_number_text">[Restaurant Phone Number]</string>
+    <string name="map_button">View Map</string>
+    <string name="read_reviews_button">Read Reviews</string>
+    <string name="write_reviews_button">Write Reviews</string>
+    <string name="check_in_button">Check In</string>
+    <string name="title_activity_write_review">WriteReviewActivity</string>
+	<string name="review_text">Review</string>
+	<string name="add_picture_button">Add Picture</string>
+	<string name="submit_review_button">Submit Review</string>
+	<string name="post_to_facebook_button">Post to Facebook</string>
+	
     
 </resources>
