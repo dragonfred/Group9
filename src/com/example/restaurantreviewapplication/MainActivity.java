@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -28,10 +29,10 @@ public class MainActivity extends Activity {
 		
 		usernameText = (EditText)findViewById(R.id.Username);
 		passwordText = (EditText)findViewById(R.id.Password);
-		loginButton = (Button)findViewById(R.id.LogIn);
-		skipLoginButton = (Button)findViewById(R.id.SkipLogin);
-		forgotPassword = (Button)findViewById(R.id.ForgotPassword);
-		exitButton = (Button)findViewById(R.id.ExitApplication);
+		loginButton = (Button)findViewById(R.id.LogInButton);
+		skipLoginButton = (Button)findViewById(R.id.SkipLoginButton);
+		forgotPassword = (Button)findViewById(R.id.ForgotPasswordButton);
+		exitButton = (Button)findViewById(R.id.ExitApplicationButton);
 		
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you would like to exit the application?");
@@ -65,6 +66,12 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
+				if ((usernameText.getText().toString() == "") && (passwordText.getText().toString() == ""))
+				{
+					Toast.makeText(getApplicationContext(), 
+									"Please enter a username and password.", 
+									Toast.LENGTH_SHORT).show();	
+				}
 			}
 			
 		});

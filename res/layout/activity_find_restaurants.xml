@@ -10,8 +10,9 @@
         android:id="@+id/keywordText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name_keyword_text"
+        android:hint="@string/name_keyword_text"
         android:inputType="text"
+        android:padding="4dp"
         android:textColor="#888888">
     </EditText>
     
@@ -20,23 +21,25 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:text="@string/zip_code_text"
+        android:hint="@string/zip_code_text"
+        android:padding="4dp"
         android:textColor="#888888">
-
     </EditText>
         
     <Button
-	       android:id="@+id/searchNearby"
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:text="@string/search_nearby_button">
+	    android:id="@+id/searchNearby"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="4dp"
+	    android:text="@string/search_nearby_button">
 	</Button>
     
     <Button
-	       android:id="@+id/logOut"
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:text="@string/search_button">
+        android:id="@+id/searchButton"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="4dp"
+	    android:text="@string/search_button">
 	</Button>
     
 </LinearLayout>

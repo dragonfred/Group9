@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="6dp"
+    tools:context=".FriendActivity" >
+
+    <TextView
+        android:id="@+id/friendTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/friend_text">
+    </TextView>
+    
+    <Button
+        android:id="@+id/deleteFriend"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="@string/delete_friend_button">
+	</Button>
+   
+    <Button
+	    android:id="@+id/messageFriend"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="4dp"
+	    android:text="@string/message_friend_button">
+	</Button>
+    
+    
+</LinearLayout>

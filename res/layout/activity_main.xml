@@ -5,7 +5,7 @@
     android:id="@+id/Main"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="4dp"
+    android:padding="6dp"
     android:gravity="center">
     
     <TextView
@@ -13,82 +13,61 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/log_in_title"
-       android:layout_marginBottom="6dp"
+       android:layout_marginBottom="4dp"
        android:gravity="center">      
    </TextView> 
+       
+    <EditText
+        android:id="@+id/Username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+		android:hint="@string/username_text">
+   		<requestFocus />
+   	</EditText>
     
-   	<LinearLayout
+    <EditText
+        android:id="@+id/Password"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-       
-	    <EditText
-	        android:id="@+id/Username"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:inputType="text"
-			android:textColor="#888888"
-			android:textSize="20sp"
-			android:text="@string/username_text">
-	   		<requestFocus />
-	   	</EditText>
-	    
-	    <EditText
-	        android:id="@+id/Password"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:longClickable="false"
-	        android:inputType="textPassword"
-			android:textColor="#888888"
-			android:text="@string/password_text">
-    	</EditText>
-       
-    </LinearLayout>
-
-   	<LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-	    android:paddingRight="10dp">
+        android:longClickable="false"
+        android:inputType="textPassword"
+		android:hint="@string/password_text">
+   	</EditText>
 	        	    
-	    <Button
-	        android:id="@+id/LogIn"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/log_in_text">
-	    </Button>
-	
-	    <Button
-	        android:id="@+id/SkipLogin"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/skip_log_in_text">
-	   	</Button>
-	
-	    <Button
-	        android:id="@+id/ForgotPassword"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/forgot_password_text">
-	   	</Button>
-	
-	    <Button
-	        android:id="@+id/CreateAccount"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/create_account">
-	    </Button>
-	
-	    <Button
-	        android:id="@+id/ExitApplication"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/exit_application">
-	    </Button>
-	   		
-   	</LinearLayout>
+    <Button
+        android:id="@+id/LogInButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/log_in_button">
+    </Button>
 
+    <Button
+        android:id="@+id/SkipLoginButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_log_in_button">
+   	</Button>
+
+    <Button
+        android:id="@+id/ForgotPasswordButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password_button">
+   	</Button>
+
+    <Button
+        android:id="@+id/CreateAccountButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_account_button">
+    </Button>
+
+    <Button
+        android:id="@+id/ExitApplicationButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exit_application_button">
+    </Button>
+    
 </LinearLayout>

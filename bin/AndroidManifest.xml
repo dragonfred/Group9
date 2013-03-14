@@ -46,6 +46,38 @@
             android:name="com.example.restaurantreviewapplication.WriteReviewActivity"
             android:label="@string/title_activity_write_review" >
         </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.ReadReviewActivity"
+            android:label="@string/title_activity_read_review" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.ListRestaurantsActivity"
+            android:label="@string/title_activity_list_restaurants" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.CurrentFriendsActivity"
+            android:label="@string/title_activity_current_friends" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.FriendActivity"
+            android:label="@string/title_activity_friend" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.FindFriendActivity"
+            android:label="@string/title_activity_find_friend" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.NotificationsActivity"
+            android:label="@string/title_activity_notifications" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.ManageAccountActivity"
+            android:label="@string/title_activity_manage_account" >
+        </activity>
+        <activity
+            android:name="com.example.restaurantreviewapplication.AddPictureActivity"
+            android:label="@string/title_activity_add_picture" >
+        </activity>
     </application>
 
 </manifest>

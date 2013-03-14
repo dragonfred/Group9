@@ -12,7 +12,7 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/create_account_title"
-       android:layout_margin="6dp"
+       android:padding="4dp"
        android:gravity="center">      
    </TextView> 
     
@@ -22,8 +22,8 @@
        android:gravity="left"
        android:inputType="text"
        android:id="@+id/usernameText"
-       android:text="@string/username_text"
-       android:layout_marginBottom="4dp"
+       android:hint="@string/username_text"
+       android:padding="4dp"
        android:textColor="#888888">
 	</EditText> 
     
@@ -32,9 +32,9 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:gravity="left"
-       android:inputType="text"
-       android:text="@string/password_text"
-       android:layout_marginBottom="4dp"
+       android:inputType="textPassword"
+       android:hint="@string/password_text"
+       android:padding="4dp"
        android:textColor="#888888" >
 
 	</EditText>
@@ -44,9 +44,9 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:gravity="left"
-       android:inputType="text"
-       android:text="@string/confirm_password_text"
-       android:layout_marginBottom="4dp"
+       android:inputType="textPassword"
+       android:hint="@string/confirm_password_text"
+       android:padding="4dp"
        android:textColor="#888888" >
 
 	</EditText>
@@ -57,8 +57,8 @@
        android:layout_height="wrap_content"
        android:inputType="textEmailAddress" 
        android:gravity="left"
-       android:text="@string/email_text"
-       android:layout_marginBottom="4dp"
+       android:hint="@string/email_text"
+       android:padding="4dp"
        android:textColor="#888888">
    </EditText>
 	   

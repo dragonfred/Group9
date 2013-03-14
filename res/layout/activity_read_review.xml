@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="6dp"
-    tools:context=".RestaurantActivity" >
-  
+    tools:context=".ReadReviewActivity" >
+        
     <TextView
        android:id="@+id/RestaurantNameText"
        android:layout_width="fill_parent"
@@ -32,37 +32,12 @@
        android:gravity="center"
        android:padding="4dp">      
    </TextView> 
+	      
+   <ListView
+       android:id="@+id/reviewsList"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:padding="4dp">
+   </ListView>
    
-   <Button
-       android:id="@+id/MapButton"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:text="@string/view_map_button"
-       android:padding="4dp">
-	</Button>
-	
-    <Button
-	   android:id="@+id/readReviewsButton"
-	   android:layout_width="fill_parent"
-	   android:layout_height="wrap_content"
-       android:text="@string/read_reviews_button"
-       android:padding="4dp">
-	</Button>
-	
-	<Button
-       android:id="@+id/writeReviewsButton"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:text="@string/write_reviews_button"
-       android:padding="4dp">
-	</Button>
-	
-    <Button
-       android:id="@+id/checkInButton"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:text="@string/check_in_button"
-       android:padding="4dp">
-	</Button>
-	
 </LinearLayout>
