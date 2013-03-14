@@ -4,13 +4,18 @@
 package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author Matt
  *
  */
-public class User {
+public class User implements Storable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 440442999209371288L;
 	private String userId;
 	private String username;
 	private String password;
@@ -23,6 +28,13 @@ public class User {
 	 */
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	private UUID uuid;
+	  
+	public UUID getUuid() {
+		if(this.uuid==null) this.uuid = UUID.randomUUID();
+		return this.uuid;
 	}
 
 	/**
