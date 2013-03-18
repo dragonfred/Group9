@@ -15,12 +15,12 @@ public class CurrentFriendsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		ListView reviewList = (ListView)findViewById(R.id.restaurantsList);
+	//	ListView reviewList = (ListView)findViewById(R.id.restaurantsList);
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 				this, android.R.layout.simple_list_item_1, friends);
 		
-		reviewList.setAdapter(adapter);
+//		reviewList.setAdapter(adapter);
 		
 		setContentView(R.layout.activity_list_restaurants);
 		

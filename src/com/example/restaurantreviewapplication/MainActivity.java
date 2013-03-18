@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,13 +20,18 @@ public class MainActivity extends Activity {
 	private Button skipLoginButton;
 	private Button forgotPassword;
 	private Button exitButton;
+	private Button createButton;
 	private AlertDialog.Builder builder;
 	private AlertDialog alert;
+	UserApplication app;
+	Server serverConnection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		app = (UserApplication)getApplication();
+		serverConnection = new Server(this);
 		
 		usernameText = (EditText)findViewById(R.id.Username);
 		passwordText = (EditText)findViewById(R.id.Password);
@@ -33,6 +39,9 @@ public class MainActivity extends Activity {
 		skipLoginButton = (Button)findViewById(R.id.SkipLoginButton);
 		forgotPassword = (Button)findViewById(R.id.ForgotPasswordButton);
 		exitButton = (Button)findViewById(R.id.ExitApplicationButton);
+		createButton = (Button)findViewById(R.id.CreateAccountButton);
+		
+		
 		
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you would like to exit the application?");
@@ -61,50 +70,52 @@ public class MainActivity extends Activity {
 		passwordText.setSingleLine();
 		
 		//OnClickListener for "Login" Button
-		loginButton.setOnClickListener(new OnClickListener() {
+//		loginButton.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				
+//				if ((usernameText.getText().toString() == "") && (passwordText.getText().toString() == ""))
+//				{
+//					Toast.makeText(getApplicationContext(), 
+//									"Please enter a username and password.", 
+//									Toast.LENGTH_SHORT).show();	
+//				}
+//			}
+//			
+//		});
 
-			@Override
-			public void onClick(View v) {
-				
-				if ((usernameText.getText().toString() == "") && (passwordText.getText().toString() == ""))
-				{
-					Toast.makeText(getApplicationContext(), 
-									"Please enter a username and password.", 
-									Toast.LENGTH_SHORT).show();	
-				}
-			}
-			
-		});
-
-		//OnClickListener for "Skip Login" Button
-		skipLoginButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				
-			}
-			
-		});
+//		//OnClickListener for "Skip Login" Button
+//		skipLoginButton.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				
+//			}
+//			
+//		});
 		
-		//OnClickListener for "Forgot Password?" Button
-		forgotPassword.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				
-			}
-			
-		});
+//		//OnClickListener for "Forgot Password?" Button
+//		forgotPassword.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				
+//			}
+//			
+//		});
 		
-		//OnClickListener for "Exit" Button
-		exitButton.setOnClickListener(new OnClickListener() {
+//		//OnClickListener for "Exit" Button
+//		exitButton.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				alert.show();
+//			}
+//			
+//		});
+		
 
-			@Override
-			public void onClick(View v) {
-				alert.show();
-			}
-			
-		});
 	}
 
 	@Override
@@ -113,5 +124,54 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+	
+	public void forgotPasswordButton(View v){
+		
+	}
+	
+	public void skipLoginButton(View V){
+		Intent intent = new Intent(this, FindRestaurantsActivity.class);
+		startActivity(intent);
+	}
+
+	public void createAccountButtonHandler(View v){
+		
+		Intent intent = new Intent(this, CreateActivity.class);
+		startActivity(intent);
+		
+	}
+	
+	public void exitButtonHandler(View V){
+		alert.show();
+		
+	}
+	public void logInButtonHandler(View v){
+		
+		boolean result;
+		
+		// check user and password is not length zero
+		if ((usernameText.getText().toString().trim().length() == 0)|| (passwordText.getText().toString().trim().length() == 0))
+		{
+			Toast.makeText(getApplicationContext(), 
+							"Please enter a username and password.", 
+							Toast.LENGTH_SHORT).show();	
+		}else{
+			
+			app.setUsername("" + usernameText.getText());
+			app.setPassword("" + passwordText.getText());
+			result = serverConnection.checkUserPassword();
+		//	System.out.println(app.getPassword());
+
+			if (result) {
+				Intent intent = new Intent(this, MainMenuActivity.class);
+				startActivity(intent);
+			} else {
+				// pop up notice that user/password bad
+			}
+		}
+		
+	}
+	
+	
 
 }

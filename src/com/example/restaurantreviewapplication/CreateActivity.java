@@ -25,10 +25,12 @@ public class CreateActivity extends Activity {
 		_emailText = (EditText)findViewById(R.id.emailText);
 		_loginPersist = (CheckBox)findViewById(R.id.loginPersist);
 		
-		_usernameText.setText("Username");
-		_passwordText.setText("Password");
-		_confirmPasswordText.setText("Confirm Password");
-		_emailText.setText("Email");
+		
+		// THERE IS AN ERROR IN THESE!  Not sure what -Jason
+//		_usernameText.setText("Username");
+//		_passwordText.setText("Password");
+//		_confirmPasswordText.setText("Confirm Password");
+//		_emailText.setText("Email");
 	}
 
 	@Override

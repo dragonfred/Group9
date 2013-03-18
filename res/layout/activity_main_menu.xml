@@ -8,31 +8,39 @@
     tools:context=".MainMenuActivity" >
 
     <Button
-       	android:id="@+id/findRestaurants"
-       	android:layout_width="fill_parent"
-       	android:layout_height="wrap_content"
-       	android:text="@string/find_restaurants_button">
+        android:id="@+id/findRestaurants"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="findRestaurantsButtonHandler"
+        android:text="@string/find_restaurants_button" >
+
 	</Button>
    
     <Button
-	    android:id="@+id/manageFriends"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/manage_friends_button">
+        android:id="@+id/manageFriends"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="manageFriendsButtonHandler"
+        android:text="@string/manage_friends_button" >
+
 	</Button>
     
     <Button
-	    android:id="@+id/manageAccount"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/manage_account_button">
+        android:id="@+id/manageAccount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="manageAccountButtonHandler"
+        android:text="@string/manage_account_button" >
+
 	</Button>
     
     <Button
-	    android:id="@+id/logOut"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/log_out_button">
+        android:id="@+id/logOut"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="logOutButtonHandler"
+        android:text="@string/log_out_button" >
+
 	</Button>
 
 </LinearLayout>

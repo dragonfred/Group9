@@ -5,6 +5,7 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
+
 /**
  * @author Matt
  *
@@ -16,6 +17,7 @@ public class Restaurants {
 	/**
 	 * 
 	 */
+		
 	public Restaurants() {
 		// TODO Auto-generated constructor stub
 	}

@@ -12,15 +12,22 @@ import java.util.ArrayList;
 public class Restaurant {
 
 	private String restaurantId;
+	private String name;
+	private String address;
+	private String phone;
+	private String location;
 	private ArrayList<Review> reviews;
 	
 	/**
 	 * 
 	 */
-	public Restaurant() {
-		// TODO Auto-generated constructor stub
+	public Restaurant(String name, String address, String phone, String location) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+		this.location = location;
 	}
-	
 	/**
 	 * @return the restaurantId
 	 */
@@ -64,6 +71,12 @@ public class Restaurant {
 		//needs to be implemented
 		return reviews;
 	}
+	@Override
+	public String toString() {
+		return "Restaurant [name=" + name + "]";
+	}
+	
+	
 	
 	/*public Review GetReview(Restaurant restaurant)
 	{

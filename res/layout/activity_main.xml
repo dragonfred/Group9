@@ -39,35 +39,42 @@
         android:id="@+id/LogInButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_in_button">
+        android:text="@string/log_in_button"
+        android:onClick="logInButtonHandler">
     </Button>
 
     <Button
         android:id="@+id/SkipLoginButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/skip_log_in_button">
+        android:onClick="skipLoginButton"
+        android:text="@string/skip_log_in_button" >
+
    	</Button>
 
     <Button
         android:id="@+id/ForgotPasswordButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password_button">
+        android:onClick="forgotPasswordButton"
+        android:text="@string/forgot_password_button" >
+
    	</Button>
 
     <Button
         android:id="@+id/CreateAccountButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/create_account_button">
+        android:text="@string/create_account_button"
+   		android:onClick="createAccountButtonHandler">
     </Button>
 
     <Button
         android:id="@+id/ExitApplicationButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/exit_application_button">
+        android:text="@string/exit_application_button"
+        android:onClick="exitButtonHandler">
     </Button>
     
 </LinearLayout>
