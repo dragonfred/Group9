@@ -15,13 +15,13 @@ public class FindRestaurantsActivity extends Activity {
 	private EditText zipCodeText;
 	private EditText keywordText;
 	private UserApplication app;
-	private Server serverConnection;
+	private Server2 serverConnection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		app = (UserApplication)getApplication();
-		serverConnection = new Server(this);
+		serverConnection = new Server2(this);
 		setContentView(R.layout.activity_find_restaurants);
 		setupViews();
 	}

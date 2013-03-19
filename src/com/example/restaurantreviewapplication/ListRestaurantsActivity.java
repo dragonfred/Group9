@@ -15,7 +15,7 @@ public class ListRestaurantsActivity extends Activity {
 //	String[] restaurants = {"Restaurant 1","Restaurant 2","Restaurant 3","Restaurant 4",
 //						"Restaurant 5","Restaurant 6","Restaurant 7","Restaurant 8"};
 	private UserApplication app;
-	private Server serverConnection;
+	private Server2 serverConnection;
 	ArrayList<Restaurant> restaurants;
 	
 	@Override
@@ -23,7 +23,7 @@ public class ListRestaurantsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_restaurants);
 		app = (UserApplication)getApplication();
-		serverConnection = new Server(this);
+		serverConnection = new Server2(this);
 	
 		ListView reviewList = (ListView) findViewById(R.id.restaurantsListView);
 		restaurants = app.getRestaurants();

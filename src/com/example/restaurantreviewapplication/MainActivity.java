@@ -24,14 +24,14 @@ public class MainActivity extends Activity {
 	private AlertDialog.Builder builder;
 	private AlertDialog alert;
 	UserApplication app;
-	Server serverConnection;
+	Server2 serverConnection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		app = (UserApplication)getApplication();
-		serverConnection = new Server(this);
+		serverConnection = new Server2(this);
 		
 		usernameText = (EditText)findViewById(R.id.Username);
 		passwordText = (EditText)findViewById(R.id.Password);
