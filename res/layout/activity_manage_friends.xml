@@ -20,7 +20,8 @@
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
 	       android:layout_marginBottom="4dp"
-	       android:text="@string/show_friends">
+	       android:text="@string/show_friends"
+	       android:onClick="showFriendsButtonHandler">
 	</Button>
 	
     <Button
@@ -28,7 +29,8 @@
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
 	       android:layout_marginBottom="4dp"
-	       android:text="@string/find_friends">
+	       android:text="@string/find_friends"
+	       android:onClick="findFriendsButtonHandler">
 	</Button>
 	
     <Button
@@ -36,7 +38,8 @@
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
 	       android:layout_marginBottom="4dp"
-	       android:text="@string/view_notifications">
+	       android:text="@string/view_notifications"
+	       android:onClick="viewNotificationsButtonHandler">
 	</Button>
 
 </LinearLayout>

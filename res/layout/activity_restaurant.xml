@@ -37,19 +37,18 @@
        android:id="@+id/MapButton"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
-       android:onClick="viewMapButtonHandler"
        android:padding="4dp"
-       android:text="@string/view_map_button" >
-
+       android:text="@string/view_map_button"
+       android:onClick="viewMapButtonHandler">
 	</Button>
 	
     <Button
         android:id="@+id/readReviewsButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="readReviewsButtonHandler"
         android:padding="4dp"
-        android:text="@string/read_reviews_button" >
+        android:text="@string/read_reviews_button"
+        android:onClick="readReviewsButtonHandler">
 
 	</Button>
 	
@@ -57,9 +56,9 @@
 	    android:id="@+id/writeReviewsButton"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:onClick="writeReviewsButtonHandler"
 	    android:padding="4dp"
-	    android:text="@string/write_reviews_button" >
+	    android:text="@string/write_reviews_button"
+	    android:onClick="writeReviewsButtonHandler">
 
 	</Button>
 	
@@ -67,9 +66,9 @@
         android:id="@+id/checkInButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="checkInButtonHandler"
         android:padding="4dp"
-        android:text="@string/check_in_button" >
+        android:text="@string/check_in_button"
+        android:onClick="checkInButtonHandler">
 
 	</Button>
 	

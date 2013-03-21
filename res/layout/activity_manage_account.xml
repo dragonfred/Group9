@@ -56,7 +56,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 		android:padding="4dp"
-       	android:text="@string/update_password_button">
+       	android:text="@string/update_password_button"
+       	android:onClick="updatePasswordButtonHandler">
 	</Button>
     
 </LinearLayout>

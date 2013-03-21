@@ -43,7 +43,7 @@ public class FindRestaurantsActivity extends Activity {
 		
 	}
 	
-	public void searchNearbyHandler(View V){
+	public void searchNearbyButtonHandler(View V){
 
 		//serverConnection.getRestaurants(0, "NA");
 		// sets up dummy data for testing, replace with server call:
@@ -53,7 +53,7 @@ public class FindRestaurantsActivity extends Activity {
 		startActivity(intent);
 	}
 
-	public void searchHandler(View V){
+	public void searchButtonHandler(View V){
 		String keyword;
 		int zip = 0;
 
