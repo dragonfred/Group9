@@ -24,14 +24,14 @@ public class MainActivity extends Activity {
 	private AlertDialog.Builder builder;
 	private AlertDialog alert;
 	UserApplication app;
-	Server2 serverConnection;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		app = (UserApplication)getApplication();
-		serverConnection = new Server2(this);
+		
 		
 		usernameText = (EditText)findViewById(R.id.Username);
 		passwordText = (EditText)findViewById(R.id.Password);
@@ -125,15 +125,18 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	//OnClickListener for "Forgot Password?" Button
 	public void forgotPasswordButton(View v){
 		
 	}
 	
+	//OnClickListener for "Skip Login" Button
 	public void skipLoginButton(View V){
 		Intent intent = new Intent(this, FindRestaurantsActivity.class);
 		startActivity(intent);
 	}
 
+	//OnClickListener for "Create Account" Button
 	public void createAccountButtonHandler(View v){
 		
 		Intent intent = new Intent(this, CreateActivity.class);
@@ -141,10 +144,12 @@ public class MainActivity extends Activity {
 		
 	}
 	
+	//OnClickListener for "Exit" Button
 	public void exitButtonHandler(View V){
 		alert.show();
-		
 	}
+	
+	//OnClickListener for "Login" Button
 	public void logInButtonHandler(View v){
 		
 		boolean result;
@@ -157,17 +162,22 @@ public class MainActivity extends Activity {
 							Toast.LENGTH_SHORT).show();	
 		}else{
 			
-			app.setUsername("" + usernameText.getText());
-			app.setPassword("" + passwordText.getText());
-			result = serverConnection.checkUserPassword();
-		//	System.out.println(app.getPassword());
+			// this needs to be changed to a server call:
+//			app.setUsername("" + usernameText.getText());
+//			app.setPassword("" + passwordText.getText());
+//			result = serverConnection.checkUserPassword();
+			
+			//remove once server call is in
+			result = true;
 
 			if (result) {
 				Intent intent = new Intent(this, MainMenuActivity.class);
 				startActivity(intent);
+				finish();
 			} else {
 				// pop up notice that user/password bad
 			}
+			
 		}
 		
 	}

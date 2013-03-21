@@ -1,5 +1,7 @@
 package com.example.restaurantreviewapplication;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,13 +17,13 @@ public class FindRestaurantsActivity extends Activity {
 	private EditText zipCodeText;
 	private EditText keywordText;
 	private UserApplication app;
-	private Server2 serverConnection;
+	//private Server2 serverConnection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		app = (UserApplication)getApplication();
-		serverConnection = new Server2(this);
+		//serverConnection = new Server2(this);
 		setContentView(R.layout.activity_find_restaurants);
 		setupViews();
 	}
@@ -43,7 +45,9 @@ public class FindRestaurantsActivity extends Activity {
 	
 	public void searchNearbyHandler(View V){
 
-		serverConnection.getRestaurants(0, "NA");
+		//serverConnection.getRestaurants(0, "NA");
+		// sets up dummy data for testing, replace with server call:
+		getRestaurants(0, "NA");
 		
 		Intent intent = new Intent(this, ListRestaurantsActivity.class);
 		startActivity(intent);
@@ -61,10 +65,31 @@ public class FindRestaurantsActivity extends Activity {
 			if (!(rawzip.trim().length() == 0)) {
 				zip = Integer.parseInt(rawzip);
 			}
-			serverConnection.getRestaurants(zip, keyword);
+			//serverConnection.getRestaurants(zip, keyword);
+			
+			getRestaurants(zip, keyword);
+			
 			Intent intent = new Intent(this, ListRestaurantsActivity.class);
 			startActivity(intent);
 		}
 		
+	}
+	
+	
+	// Dummy data for testing.  Replace with call to server
+	public void getRestaurants(int zip, String keyword) {
+		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+		int i;
+
+		Restaurant a;
+
+		
+		for (i = 0; i < 10; i++) {
+			a = new Restaurant("Restaurant " + i, i*2 + " Main St", "407-555-1212", "GPS Coords");
+			restaurants.add(a);
+		}
+		
+		app.setRestaurants(restaurants);
+//		return restaurants;
 	}
 }

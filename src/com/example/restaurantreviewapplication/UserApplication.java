@@ -17,6 +17,9 @@ public class UserApplication extends Application {
 	private ArrayList<Friend> friendList;
 	private boolean verified;
 	private ArrayList<Restaurant> restaurants;
+	private Restaurant selectedRestaurant;
+	
+
 	
 	private UUID uuid;
 	
@@ -84,7 +87,12 @@ public class UserApplication extends Application {
 		this.friendList = friendList;
 	}
 	
-	
-	
+	public Restaurant getSelectedRestaurant() {
+		return selectedRestaurant;
+	}
+
+	public void setSelectedRestaurant(Restaurant selectedRestaurant) {
+		this.selectedRestaurant = selectedRestaurant;
+	}
 	
 }
