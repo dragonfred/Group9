@@ -34,6 +34,19 @@ public class Server {
 	private static String password;
 	private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base64.URL_SAFE;
     private static boolean isReady = true;
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    // Stubs  / Tests
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public static Restaurant[] getRestaurantsByLocation(double lati, double longi) {
+    	Restaurant[] result;
+    	result = new Restaurant[2];
+    	result[0] = new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here");
+    	result[1] = new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There");
+    	return result;
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * @param serverURL Set the URL of the server. It is set by default, hardcoded in this class.
 	 */
@@ -59,6 +72,17 @@ public class Server {
 		Server.password = password;
 	}
 	
+	public static String createAccount(String email) {
+		HashMap<String, String> postData;
+		postData = new HashMap<String, String>();
+		
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("email", email);
+		postData.put("action", "newUser");
+		
+		return postToServer(postData);	
+	}
 	/**
 	 * @param o An object returned from getObject
 	 * @return True if this object is an error. 
@@ -72,6 +96,7 @@ public class Server {
 	 * @param o An object that is an error.
 	 * @return A string containing the error.
 	 */
+
 	public static String getError(Object o) {
 		String str = (String) o;
 		if(o == null) str = "ERR: No object returned.";
