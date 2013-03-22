@@ -1,15 +1,11 @@
 package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
-
-
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -17,8 +13,6 @@ import android.widget.ListView;
 
 public class ListRestaurantsActivity extends Activity {
 	
-//	String[] restaurants = {"Restaurant 1","Restaurant 2","Restaurant 3","Restaurant 4",
-//						"Restaurant 5","Restaurant 6","Restaurant 7","Restaurant 8"};
 	private UserApplication app;
 	ArrayList<Restaurant> restaurants;
 	ListView reviewList;

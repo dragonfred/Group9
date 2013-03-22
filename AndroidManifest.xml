@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <application
-        android:name ="com.example.restaurantreviewapplication.UserApplication"
+        android:name="com.example.restaurantreviewapplication.UserApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -79,14 +79,21 @@
             android:name="com.example.restaurantreviewapplication.AddPictureActivity"
             android:label="@string/title_activity_add_picture" >
         </activity>
-        
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCitsZ7KWrpb85D-0V_GcAaqb8dGnqxSGI" />
+
+        <activity
+            android:name="com.example.restaurantreviewapplication.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot_password" >
+        </activity>
     </application>
-<permission
+
+    <permission
         android:name="com.dragonfred.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.dragonfred.permission.MAPS_RECEIVE" />
+
 </manifest>

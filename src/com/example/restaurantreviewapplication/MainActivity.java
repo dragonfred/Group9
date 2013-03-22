@@ -46,6 +46,7 @@ public class MainActivity extends Activity {
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you would like to exit the application?");
 		builder.setCancelable(false);
+		
 		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			
 			@Override
@@ -68,54 +69,6 @@ public class MainActivity extends Activity {
 		
 		usernameText.setSingleLine();
 		passwordText.setSingleLine();
-		
-		//OnClickListener for "Login" Button
-//		loginButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//				if ((usernameText.getText().toString() == "") && (passwordText.getText().toString() == ""))
-//				{
-//					Toast.makeText(getApplicationContext(), 
-//									"Please enter a username and password.", 
-//									Toast.LENGTH_SHORT).show();	
-//				}
-//			}
-//			
-//		});
-
-//		//OnClickListener for "Skip Login" Button
-//		skipLoginButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//			}
-//			
-//		});
-		
-//		//OnClickListener for "Forgot Password?" Button
-//		forgotPassword.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//			}
-//			
-//		});
-		
-//		//OnClickListener for "Exit" Button
-//		exitButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				alert.show();
-//			}
-//			
-//		});
-		
-
 	}
 
 	@Override
@@ -127,7 +80,8 @@ public class MainActivity extends Activity {
 	
 	//OnClickListener for "Forgot Password?" Button
 	public void forgotPasswordButtonHandler(View v){
-		
+		Intent intent = new Intent(this, ForgotPasswordActivity.class);
+		startActivity(intent);
 	}
 	
 	//OnClickListener for "Skip Login" Button

@@ -1,15 +1,18 @@
 package com.example.restaurantreviewapplication;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.example.restaurantreviewapplication.Review;
 
 public class ReadReviewActivity extends Activity{
-
-	String[] reviews = {"Review 1","Review 2","Review 3","Review 4",
-						"Review 5","Review 6","Review 7","Review 8"};
+		
+	private ArrayList<Review> reviews;
+	ArrayAdapter<Review> adapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +20,9 @@ public class ReadReviewActivity extends Activity{
 		
 		ListView reviewList = (ListView)findViewById(R.id.reviewsList);
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-				this, android.R.layout.simple_list_item_1, reviews);
-		
+		adapter = new ArrayAdapter<Review>(this, android.R.layout.simple_list_item_1, reviews);	
 		reviewList.setAdapter(adapter);
+		
 	}
 
 	@Override
@@ -29,5 +31,19 @@ public class ReadReviewActivity extends Activity{
 		getMenuInflater().inflate(R.menu.activity_read_review, menu);
 		return true;
 	}
-
+	
+	// Dummy data for testing.  Replace with call to server
+	public void getRestaurants(int zip, String keyword) {		
+		int i;
+		
+		for (i = 0; i < 10; i++) {
+			
+			//creates a new review using the review class. 
+			Review review = new Review("Review text" + i + " here.", 0.0f, 0.0f, 0.0f, 0.0f);
+			
+			reviews.add(review);
+		}
+		
+//		return reviews;
+	}
 }
