@@ -13,7 +13,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
+import android.os.AsyncTask;
 //import android.os.StrictMode;
 import android.util.Base64;
 import android.util.Log;
@@ -26,12 +28,12 @@ import android.util.Log;
  *
  */
 public class Server {
-
-	private static String serverURL = "http://cop4331.atmdvdusa.com/server/";
+	private static String serverURL = 
+			"http://cop4331.atmdvdusa.com/server/";
 	private static String username;
 	private static String password;
 	private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base64.URL_SAFE;
-    
+    private static boolean isReady = true;
 	/**
 	 * @param serverURL Set the URL of the server. It is set by default, hardcoded in this class.
 	 */
@@ -39,11 +41,7 @@ public class Server {
 		Log.i("Server.getServer", "Server URL changed to "+serverURL);
 		Server.serverURL = serverURL;
 	}
-//	public static void setPolicy() {
-//		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//
-//		StrictMode.setThreadPolicy(policy);
-//	}
+	
 	/**
 	 * Set the username. It is important to do this before using the server.
 	 * @param username The user's username. 
@@ -69,6 +67,7 @@ public class Server {
 		String str = (String) o;
 		return (o == null) || str.substring(0,4).equals("ERR");
 	}
+	
 	/**
 	 * @param o An object that is an error.
 	 * @return A string containing the error.
@@ -92,7 +91,6 @@ public class Server {
 		}
 		return (User) stringToObject(postToServer(vars));
 	}
-
 	
     /**
      * Put a Storable object on the server.
@@ -131,6 +129,7 @@ public class Server {
     	}
     	else return stringToObject(result);
     }
+    
     /**
      * 
      * Send a POST request to the server and return the response.
@@ -240,7 +239,7 @@ public class Server {
      * @param urlParameters A string containing POST vars/vals. 
      * @return The response from the server.
      */
-    private static String sendServer(String urlParameters) {
+   private static String sendServerInternal(String urlParameters) {
         StringBuilder sb = new StringBuilder();
                 try {
             URL url = new URL(serverURL); 
@@ -258,7 +257,7 @@ public class Server {
             connection.setUseCaches(false);
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream ());
-            Log.e("Server.sendServer", "Sent: "+urlParameters);
+            Log.e("Server.sendServerInternal", "Sent: "+urlParameters);
             wr.writeBytes(urlParameters);
             wr.flush();
             wr.close();
@@ -271,12 +270,48 @@ public class Server {
             }
             connection.disconnect();
         } catch (Exception e) {
-        	Log.i("Server.sendServer", e.toString());
+        	Log.e("Server.sendServerInternal", e.toString());
         }
         Log.i("Server.sendServer", "Got: "+sb.toString());
         return sb.toString();
     }
+   
+    public static String sendServer(String urlParameters) {
+    	setReady(false);
+    	String r;
+    	AsyncTask<String, Void, String> s = new Server.ServerTask();
+    	s.execute(urlParameters);
+    	try {
+			r=s.get();
+		} catch (InterruptedException e) {
+			Log.e("Server.sendServer", e.toString());
+			return "ERR: Interrupted";
+		} catch (ExecutionException e) {
+			Log.e("Server.sendServer", e.toString());
+			return "ERR: Execution Exception";
+		}
+    	return r;
+    }
     
+    private static void setReady(Boolean stat) {
+    	isReady=stat;
+    }
+    
+    public static boolean getReady() {
+    	return isReady;
+    }
+    
+    public static class ServerTask extends AsyncTask<String, Void, String> {
+    	@Override
+    	protected String doInBackground(String... args) {
+    		Server.setReady(false);
+    		return Server.sendServerInternal(args[0]);
+    	}
+    	
+         protected void onPostExecute(String result) {
+             Server.setReady(true);
+         }
+    }
     
     public static void createTestUser(String username, String password) {
     	User user = new User();
