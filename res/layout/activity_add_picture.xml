@@ -20,7 +20,8 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:padding="4dp"
-	    android:text="@string/take_picture_button">
+	    android:text="@string/take_picture_button"
+	    android:onClick="takePictureButtonHandler">
 	</Button>
 	    
 	<Button 
@@ -28,7 +29,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="@string/browse_images_button">
+        android:text="@string/browse_images_button"
+        android:onClick="browseImagesButtonHandler">
 	</Button>
 	
 	<ImageView
@@ -45,7 +47,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="@string/attach_image_button">
+        android:text="@string/attach_image_button"
+        android:onClick="attachImageButtonHandler">
 	</Button>
     
 </LinearLayout>

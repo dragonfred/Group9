@@ -16,33 +16,30 @@
     </TextView>
     
     <Button
-        android:id="@+id/showFriendsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:onClick="showFriendsButtonHandler"
-        android:text="@string/show_friends" >
-
+	       android:id="@+id/showFriends"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_marginBottom="4dp"
+	       android:text="@string/show_friends"
+	       android:onClick="showFriendsButtonHandler">
 	</Button>
 	
     <Button
-        android:id="@+id/findFriendsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:onClick="findFriendsButtonHandler"
-        android:text="@string/find_friends" >
-
+	       android:id="@+id/findFriends"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_marginBottom="4dp"
+	       android:text="@string/find_friends"
+	       android:onClick="findFriendsButtonHandler">
 	</Button>
 	
     <Button
-        android:id="@+id/viewNotificationsButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:onClick="viewNotificationsButtonHandler"
-        android:text="@string/view_notifications" >
-
+	       android:id="@+id/viewNotifications"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_marginBottom="4dp"
+	       android:text="@string/view_notifications"
+	       android:onClick="viewNotificationsButtonHandler">
 	</Button>
 
 </LinearLayout>

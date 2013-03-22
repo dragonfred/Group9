@@ -51,9 +51,9 @@ public class ManageFriendsActivity extends Activity {
 	}
 
 	private void setupViews(){
-		showFriendsButton = (Button) findViewById(R.id.showFriendsButton);
-		findFriendsButton = (Button) findViewById(R.id.findFriendsButton);
-		viewNotificationsButton = (Button) findViewById(R.id.viewNotificationsButton);
+		showFriendsButton = (Button) findViewById(R.id.showFriends);
+		findFriendsButton = (Button) findViewById(R.id.findFriends);
+		viewNotificationsButton = (Button) findViewById(R.id.viewNotifications);
 		
 	}
 }

@@ -3,6 +3,7 @@ package com.example.restaurantreviewapplication;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
@@ -25,12 +26,6 @@ public class CreateActivity extends Activity {
 		_emailText = (EditText)findViewById(R.id.emailText);
 		_loginPersist = (CheckBox)findViewById(R.id.loginPersist);
 		
-		
-		// THERE IS AN ERROR IN THESE!  Not sure what -Jason
-//		_usernameText.setText("Username");
-//		_passwordText.setText("Password");
-//		_confirmPasswordText.setText("Confirm Password");
-//		_emailText.setText("Email");
 	}
 
 	@Override
@@ -38,6 +33,12 @@ public class CreateActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_create, menu);
 		return true;
+	}
+	
+	public void cancelAccountButtonHandler(View v)
+	{
+		//more implementation needed
+		finish();
 	}
 
 }

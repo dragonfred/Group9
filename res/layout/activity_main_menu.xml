@@ -11,8 +11,8 @@
         android:id="@+id/findRestaurants"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="findRestaurantsButtonHandler"
-        android:text="@string/find_restaurants_button" >
+        android:text="@string/find_restaurants_button"
+        android:onClick="findRestaurantsButtonHandler">
 
 	</Button>
    
@@ -20,8 +20,8 @@
         android:id="@+id/manageFriends"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="manageFriendsButtonHandler"
-        android:text="@string/manage_friends_button" >
+        android:text="@string/manage_friends_button" 
+        android:onClick="manageFriendsButtonHandler">
 
 	</Button>
     
@@ -29,8 +29,8 @@
         android:id="@+id/manageAccount"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="manageAccountButtonHandler"
-        android:text="@string/manage_account_button" >
+        android:text="@string/manage_account_button"
+        android:onClick="manageAccountButtonHandler">
 
 	</Button>
     
@@ -38,9 +38,8 @@
         android:id="@+id/logOut"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="logOutButtonHandler"
-        android:text="@string/log_out_button" >
-
+        android:text="@string/log_out_button"
+        android:onClick="logOutButtonHandler">
 	</Button>
 
 </LinearLayout>

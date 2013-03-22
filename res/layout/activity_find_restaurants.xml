@@ -30,9 +30,9 @@
         android:id="@+id/searchNearby"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="searchNearbyHandler"
         android:padding="4dp"
-        android:text="@string/search_nearby_button" >
+        android:text="@string/search_nearby_button"
+        android:onClick="searchNearbyButtonHandler">
 
 	</Button>
     
@@ -40,9 +40,9 @@
         android:id="@+id/searchButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="searchHandler"
         android:padding="4dp"
-        android:text="@string/search_button" >
+        android:text="@string/search_button"
+        android:onClick="searchButtonHandler">
 
 	</Button>
     

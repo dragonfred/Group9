@@ -126,12 +126,12 @@ public class MainActivity extends Activity {
 	}
 	
 	//OnClickListener for "Forgot Password?" Button
-	public void forgotPasswordButton(View v){
+	public void forgotPasswordButtonHandler(View v){
 		
 	}
 	
 	//OnClickListener for "Skip Login" Button
-	public void skipLoginButton(View V){
+	public void skipLoginButtonHandler(View V){
 		Intent intent = new Intent(this, FindRestaurantsActivity.class);
 		startActivity(intent);
 	}

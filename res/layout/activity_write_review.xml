@@ -48,21 +48,24 @@
         android:id="@+id/AddPictureButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_picture_button">
+        android:text="@string/add_picture_button"
+        android:onClick="addPictureButtonHandler">
     </Button>
 
     <Button
         android:id="@+id/submitReviewButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/submit_review_button">
+        android:text="@string/submit_review_button"
+        android:onClick="submitReviewButtonHandler">
    	</Button>
 
     <Button
         android:id="@+id/postToFacebook"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/post_to_facebook_button">
+        android:text="@string/post_to_facebook_button"
+        android:onClick="postToFacebookButtonHandler">
    	</Button>
    	
 </LinearLayout>

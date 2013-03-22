@@ -53,8 +53,8 @@ public class FriendActivity extends Activity {
 	
 	private void setupViews(){
 		friendTitle = (TextView) findViewById(R.id.friendTitle);
-		deleteFriend = (Button) findViewById(R.id.deleteFriendButton);
-		messageFriendButton = (Button) findViewById(R.id.messageFriendButton);
+		deleteFriend = (Button) findViewById(R.id.deleteFriend);
+		messageFriendButton = (Button) findViewById(R.id.messageFriend);
 		
 	}
 

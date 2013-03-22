@@ -47,17 +47,16 @@
         android:id="@+id/SkipLoginButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="skipLoginButton"
-        android:text="@string/skip_log_in_button" >
-
+        android:text="@string/skip_log_in_button"
+        android:onClick="skipLoginButtonHandler">
    	</Button>
 
     <Button
         android:id="@+id/ForgotPasswordButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="forgotPasswordButton"
-        android:text="@string/forgot_password_button" >
+        android:text="@string/forgot_password_button"
+        android:onClick="forgotPasswordButtonHandler">
 
    	</Button>
 
