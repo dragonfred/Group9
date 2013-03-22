@@ -16,19 +16,23 @@
     </TextView>
     
     <Button
-        android:id="@+id/deleteFriend"
+        android:id="@+id/deleteFriendButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:onClick="deleteFriendButtonHandler"
         android:padding="4dp"
-        android:text="@string/delete_friend_button">
+        android:text="@string/delete_friend_button" >
+
 	</Button>
    
     <Button
-	    android:id="@+id/messageFriend"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:padding="4dp"
-	    android:text="@string/message_friend_button">
+        android:id="@+id/messageFriendButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="messageFriendButtonHandler"
+        android:padding="4dp"
+        android:text="@string/message_friend_button" >
+
 	</Button>
     
     

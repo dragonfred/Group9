@@ -34,11 +34,11 @@ public final class R {
         public static final int confirmPasswordText=0x7f070008;
         public static final int createAccountTitle=0x7f070005;
         public static final int currentFriendsTitle=0x7f07000d;
-        public static final int deleteFriend=0x7f070017;
+        public static final int deleteFriendButton=0x7f070017;
         public static final int displayImageView=0x7f070003;
         public static final int emailText=0x7f070009;
         public static final int findFriendTitle=0x7f07000f;
-        public static final int findFriends=0x7f07002e;
+        public static final int findFriendsButton=0x7f07002e;
         public static final int findRestaurants=0x7f070024;
         public static final int friendTitle=0x7f070016;
         public static final int friendsList=0x7f07000e;
@@ -51,7 +51,7 @@ public final class R {
         public static final int manageFriends=0x7f070025;
         public static final int manageFriendsTitle=0x7f07002c;
         public static final int menu_settings=0x7f07003e;
-        public static final int messageFriend=0x7f070018;
+        public static final int messageFriendButton=0x7f070018;
         public static final int newPasswordConfirmText=0x7f07002a;
         public static final int newPasswordText=0x7f070029;
         public static final int notificationsList=0x7f070031;
@@ -67,14 +67,14 @@ public final class R {
         public static final int reviewsList=0x7f070035;
         public static final int searchButton=0x7f070015;
         public static final int searchNearby=0x7f070014;
-        public static final int showFriends=0x7f07002d;
+        public static final int showFriendsButton=0x7f07002d;
         public static final int submitCreateAccount=0x7f07000c;
         public static final int submitReviewButton=0x7f07003c;
         public static final int takePictureButton=0x7f070001;
         public static final int updatePasswordButton=0x7f07002b;
         public static final int usernameSearch=0x7f070010;
         public static final int usernameText=0x7f070006;
-        public static final int viewNotifications=0x7f07002f;
+        public static final int viewNotificationsButton=0x7f07002f;
         public static final int writeReviewsButton=0x7f070038;
         public static final int zipCodeText=0x7f070013;
     }

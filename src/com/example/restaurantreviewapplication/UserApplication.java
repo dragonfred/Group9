@@ -15,9 +15,11 @@ public class UserApplication extends Application {
 	private String facebookUserID;
 	private String facebookPassword;
 	private ArrayList<Friend> friendList;
+	private Friend selectedFriend;
 	private boolean verified;
 	private ArrayList<Restaurant> restaurants;
 	private Restaurant selectedRestaurant;
+	private ArrayList<Message> messages;
 	
 
 	
@@ -89,6 +91,22 @@ public class UserApplication extends Application {
 	
 	public Restaurant getSelectedRestaurant() {
 		return selectedRestaurant;
+	}
+	
+	public ArrayList<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(ArrayList<Message> messages) {
+		this.messages = messages;
+	}
+
+	public Friend getSelectedFriend() {
+		return selectedFriend;
+	}
+
+	public void setSelectedFriend(Friend selectedFriend) {
+		this.selectedFriend = selectedFriend;
 	}
 
 	public void setSelectedRestaurant(Restaurant selectedRestaurant) {

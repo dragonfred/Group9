@@ -41,4 +41,12 @@ public class Friend {
 		//return "Message sent unsuccessfully";
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return userId;
+	}
+	
+	
+
 }

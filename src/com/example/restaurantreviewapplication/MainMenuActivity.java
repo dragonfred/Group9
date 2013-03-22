@@ -16,8 +16,9 @@ public class MainMenuActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setupViews();
+		
 		setContentView(R.layout.activity_main_menu);
+		setupViews();
 	}
 
 	public void findRestaurantsButtonHandler(View v){

@@ -21,6 +21,17 @@ public class Message {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	public Message(String senderUserId, String receiverUserId, String textField) {
+		super();
+		this.senderUserId = senderUserId;
+		this.receiverUserId = receiverUserId;
+		this.textField = textField;
+	}
+
+
+
 	/**
 	 * @return the senderUserId
 	 */
@@ -63,4 +74,13 @@ public class Message {
 		this.textField = textField;
 	}
 
+
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return senderUserId + " - " + textField;
+	}
+
+	
 }
