@@ -82,12 +82,13 @@
 	       android:onClick="cancelAccountButtonHandler">
 	   </Button>
 	    
-	   <Button 
+	   <Button
 	       android:id="@+id/submitCreateAccount"
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       android:text="@string/submit_create_account"
-	       android:onClick="sumbitAccountButtonHandler">   		
+	       android:onClick="submitCreateAccountHandler"
+	       android:text="@string/submit_create_account" >
+   		
 	   </Button>
 
 	</LinearLayout>

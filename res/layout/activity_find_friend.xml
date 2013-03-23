@@ -26,12 +26,13 @@
     </EditText>
 
 	<Button
-        android:id="@+id/logOut"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-		android:padding="4dp"
-       	android:text="@string/search_button"
-       	android:onClick="logOutButtonHandler">>
+	    android:id="@+id/friendSearchButton"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:onClick="friendSearchButtonHandler"
+	    android:padding="4dp"
+	    android:text="@string/search_button" >
+>
 	</Button>
     
 </LinearLayout>

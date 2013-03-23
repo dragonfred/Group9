@@ -24,97 +24,46 @@ public class MainActivity extends Activity {
 	private AlertDialog.Builder builder;
 	private AlertDialog alert;
 	UserApplication app;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		app = (UserApplication)getApplication();
-		
-		
-		usernameText = (EditText)findViewById(R.id.Username);
-		passwordText = (EditText)findViewById(R.id.Password);
-		loginButton = (Button)findViewById(R.id.LogInButton);
-		skipLoginButton = (Button)findViewById(R.id.SkipLoginButton);
-		forgotPassword = (Button)findViewById(R.id.ForgotPasswordButton);
-		exitButton = (Button)findViewById(R.id.ExitApplicationButton);
-		createButton = (Button)findViewById(R.id.CreateAccountButton);
-		
-		
-		
+		app = (UserApplication) getApplication();
+
+		usernameText = (EditText) findViewById(R.id.Username);
+		passwordText = (EditText) findViewById(R.id.Password);
+		loginButton = (Button) findViewById(R.id.LogInButton);
+		skipLoginButton = (Button) findViewById(R.id.SkipLoginButton);
+		forgotPassword = (Button) findViewById(R.id.ForgotPasswordButton);
+		exitButton = (Button) findViewById(R.id.ExitApplicationButton);
+		createButton = (Button) findViewById(R.id.CreateAccountButton);
+
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you would like to exit the application?");
 		builder.setCancelable(false);
 		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-			
+
 			@Override
-			public void onClick(DialogInterface dialog, int which) {		
-				finish();				
+			public void onClick(DialogInterface dialog, int which) {
+				finish();
 				System.exit(0);
 			}
 		});
-		
+
 		builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				dialog.cancel();
 			}
 		});
-		
+
 		alert = builder.create();
-		
+
 		usernameText.setSingleLine();
 		passwordText.setSingleLine();
-		
-		//OnClickListener for "Login" Button
-//		loginButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//				if ((usernameText.getText().toString() == "") && (passwordText.getText().toString() == ""))
-//				{
-//					Toast.makeText(getApplicationContext(), 
-//									"Please enter a username and password.", 
-//									Toast.LENGTH_SHORT).show();	
-//				}
-//			}
-//			
-//		});
-
-//		//OnClickListener for "Skip Login" Button
-//		skipLoginButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//			}
-//			
-//		});
-		
-//		//OnClickListener for "Forgot Password?" Button
-//		forgotPassword.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//			}
-//			
-//		});
-		
-//		//OnClickListener for "Exit" Button
-//		exitButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				alert.show();
-//			}
-//			
-//		});
-		
 
 	}
 
@@ -124,64 +73,126 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
-	//OnClickListener for "Forgot Password?" Button
-	public void forgotPasswordButtonHandler(View v){
-		
+
+	// OnClickListener for "Forgot Password?" Button
+	public void forgotPasswordButtonHandler(View v) {
+		String username;
+		int result;
+		username = usernameText.getText().toString();
+
+		if (username.trim().length() == 0) {
+			Toast.makeText(getApplicationContext(), "Please enter a username.",
+					Toast.LENGTH_SHORT).show();
+		} else {
+			Server.setUsername(usernameText.getText().toString());
+			result = Server.resetPassword();
+			if (result == 0) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("Password Reset")
+						.setMessage(
+								"Your password has been reset.  Please check your email.")
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.cancel();
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+			} else {
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("Password Reset")
+						.setMessage(
+								"There was a problem resetting your password")
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.cancel();
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+			}
+		}
 	}
-	
-	//OnClickListener for "Skip Login" Button
-	public void skipLoginButtonHandler(View V){
+
+	// OnClickListener for "Skip Login" Button
+	public void skipLoginButtonHandler(View V) {
 		Intent intent = new Intent(this, FindRestaurantsActivity.class);
 		startActivity(intent);
 	}
 
-	//OnClickListener for "Create Account" Button
-	public void createAccountButtonHandler(View v){
-		
+	// OnClickListener for "Create Account" Button
+	public void createAccountButtonHandler(View v) {
 		Intent intent = new Intent(this, CreateActivity.class);
 		startActivity(intent);
-		
 	}
-	
-	//OnClickListener for "Exit" Button
-	public void exitButtonHandler(View V){
+
+	// OnClickListener for "Exit" Button
+	public void exitButtonHandler(View V) {
 		alert.show();
 	}
-	
-	//OnClickListener for "Login" Button
-	public void logInButtonHandler(View v){
-		
-		boolean result;
-		
-		// check user and password is not length zero
-		if ((usernameText.getText().toString().trim().length() == 0)|| (passwordText.getText().toString().trim().length() == 0))
-		{
-			Toast.makeText(getApplicationContext(), 
-							"Please enter a username and password.", 
-							Toast.LENGTH_SHORT).show();	
-		}else{
-			
-			// this needs to be changed to a server call:
-//			app.setUsername("" + usernameText.getText());
-//			app.setPassword("" + passwordText.getText());
-//			result = serverConnection.checkUserPassword();
-			
-			//remove once server call is in
-			result = true;
 
-			if (result) {
+	// OnClickListener for "Login" Button
+	public void logInButtonHandler(View v) {
+		User currentUser;
+
+		// check user and password is not length zero
+		if ((usernameText.getText().toString().trim().length() == 0)
+				|| (passwordText.getText().toString().trim().length() == 0)) {
+			Toast.makeText(getApplicationContext(),
+					"Please enter a username and password.", Toast.LENGTH_SHORT)
+					.show();
+		} else {
+			// set up server and see if the username and password is valid
+			Server.setUsername(usernameText.getText().toString());
+			Server.setPassword(passwordText.getText().toString());
+			currentUser = Server.getUser();
+
+			// this is in place of code below
+			Intent intent = new Intent(this, MainMenuActivity.class);
+			startActivity(intent);
+			User fake = new User();
+			fake.setUserId("john");
+			app.setCurrentUser(fake);
+			/*
+			 * Having trouble getting below code to work.  Doesn't find
+			 * a user.  Not sure if bad username/password or bad
+			 * connection.
+			 */
+			/*
+			// if user found continue else pop up dialog saying no user found
+			if (currentUser != null) {
+				app.setCurrentUser(currentUser);
 				Intent intent = new Intent(this, MainMenuActivity.class);
 				startActivity(intent);
 				finish();
 			} else {
-				// pop up notice that user/password bad
-			}
-			
-		}
-		
-	}
-	
-	
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("No user found")
+						.setMessage("Cannot find username/password on server")
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
 
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.cancel();
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+			}
+			*/
+		}
+	}
 }

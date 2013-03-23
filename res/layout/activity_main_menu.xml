@@ -35,7 +35,7 @@
 	</Button>
     
     <Button
-        android:id="@+id/logOut"
+        android:id="@+id/FriendSearchButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/log_out_button"

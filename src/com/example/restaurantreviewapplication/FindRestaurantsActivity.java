@@ -2,8 +2,12 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -43,20 +47,43 @@ public class FindRestaurantsActivity extends Activity {
 		
 	}
 	
+	// needs work	
 	public void searchNearbyButtonHandler(View V){
+		searchNearby.setText("Waiting on GPS");
+		// Acquire a reference to the system Location Manager
+		LocationManager locationManager = (LocationManager) this
+				.getSystemService(Context.LOCATION_SERVICE);
 
-		//serverConnection.getRestaurants(0, "NA");
-		// sets up dummy data for testing, replace with server call:
-		getRestaurants(0, "NA");
-		
-		Intent intent = new Intent(this, ListRestaurantsActivity.class);
-		startActivity(intent);
+		// Define a listener that responds to location updates
+		LocationListener locationListener = new LocationListener() {
+			public void onLocationChanged(Location location) {
+				// Called when a new location is found by the network location
+				// provider.
+				makeUseOfNewLocation(location);
+			}
+
+			public void onStatusChanged(String provider, int status,
+					Bundle extras) {
+			}
+
+			public void onProviderEnabled(String provider) {
+			}
+
+			public void onProviderDisabled(String provider) {
+			}
+		};
+
+		// Register the listener with the Location Manager to receive location
+		// updates
+		locationManager.requestLocationUpdates(
+				LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 	}
 
 	public void searchButtonHandler(View V){
 		String keyword;
 		int zip = 0;
-
+		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+		
 		keyword = keywordText.getText().toString();
 
 		if (!(keyword.trim().length() == 0)) {
@@ -67,15 +94,38 @@ public class FindRestaurantsActivity extends Activity {
 			}
 			//serverConnection.getRestaurants(zip, keyword);
 			
-			getRestaurants(zip, keyword);
-			
-			Intent intent = new Intent(this, ListRestaurantsActivity.class);
-			startActivity(intent);
+			restaurants = Server.getRestaurantsByZipKeyword(zip, keyword);
+			if(restaurants != null){
+				app.setRestaurants(restaurants);
+				Intent intent = new Intent(this, ListRestaurantsActivity.class);
+				startActivity(intent);
+			}else{
+				//pop up no restaurants found
+			}
+		}else{
+			//pop up please enter keyword
 		}
 		
 	}
 	
+	protected void makeUseOfNewLocation(Location location) {
+		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+		restaurants = Server.getRestaurantsByLocation(location);
 	
+		searchNearby.setText("Search Nearby");
+		
+		if (restaurants != null) {
+			app.setRestaurants(restaurants);
+
+			Intent intent = new Intent(this, ListRestaurantsActivity.class);
+			startActivity(intent);
+		} else {
+			// pop up message saying no restaurants found
+
+		}
+		
+	}
+
 	// Dummy data for testing.  Replace with call to server
 	public void getRestaurants(int zip, String keyword) {
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();

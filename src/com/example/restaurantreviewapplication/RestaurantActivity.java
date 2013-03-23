@@ -52,15 +52,15 @@ public class RestaurantActivity extends Activity {
 	
 	public void readReviewsButtonHandler(View v){
 		
-//		Intent intent = new Intent(this, ManageFriendsActivity.class);
-//		startActivity(intent);
+		Intent intent = new Intent(this, ReadReviewActivity.class);
+		startActivity(intent);
 		
 	}
 	
 	public void writeReviewsButtonHandler(View v){
 		
-//		Intent intent = new Intent(this, ManageFriendsActivity.class);
-//		startActivity(intent);
+		Intent intent = new Intent(this, WriteReviewActivity.class);
+		startActivity(intent);
 		
 	}
 	
@@ -72,9 +72,9 @@ public class RestaurantActivity extends Activity {
 	}
 	
 	private void setupViews(){
-		restaurantNameText = (TextView) findViewById(R.id.RestaurantNameText);
-		restaurantAddressText = (TextView) findViewById(R.id.RestaurantAddressText);
-		restaurantPhoneNumberText = (TextView) findViewById(R.id.restaurantPhoneNumberText);
+		restaurantNameText = (TextView) findViewById(R.id.reviewRestaurantName);
+		restaurantAddressText = (TextView) findViewById(R.id.reviewRestaurantAddressText);
+		restaurantPhoneNumberText = (TextView) findViewById(R.id.reviewPhoneNumber);
 		viewMapButton = (Button) findViewById(R.id.MapButton);
 		readReviewsButton = (Button) findViewById(R.id.readReviewsButton);
 		writeReviewsButton = (Button) findViewById(R.id.writeReviewsButton);

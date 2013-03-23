@@ -3,18 +3,20 @@
 
     <string name="menu_settings">Settings</string>
     <string name="app_name">Restaurant Review</string>
-    
+
     <!-- Create Activity -->
     <string name="title_activity_create">CreateActivity</string>
     <string name="create_account_title">Create Account</string>
-<!--<string name="username_text">Username</string>
-    <string name="password_text">Password</string>-->
+    <!--
+    <string name="username_text">Username</string>
+    <string name="password_text">Password</string>
+    -->
     <string name="confirm_password_text">Confirm Password</string>
     <string name="email_text">Email</string>
     <string name="remember_me">Remember Me?</string>
     <string name="cancel_create_account">Cancel</string>
     <string name="submit_create_account">Submit</string>
-    
+
     <!-- Log In Activity -->
     <string name="log_in_title">Log In</string>
     <string name="username_text">Username</string>
@@ -24,28 +26,28 @@
     <string name="forgot_password_button">Forgot Password?</string>
     <string name="create_account_button">Create Account</string>
     <string name="exit_application_button">Exit</string>
-    
+
     <!-- Main Menu Activity -->
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="find_restaurants_button">Find Restaurants</string>
     <string name="manage_friends_button">Manage Friends</string>
     <string name="manage_account_button">Manage Account</string>
     <string name="log_out_button">Logout</string>
-    
+
     <!-- Find Restaurants Activity -->
     <string name="title_activity_find_restaurants">FindRestaurantsActivity</string>
     <string name="name_keyword_text">Name/Keyword</string>
     <string name="zip_code_text">Zip code(optional)</string>
     <string name="search_nearby_button">Search Nearby</string>
     <string name="search_button">Search</string>
-    
+
     <!-- Manage Friends Activity -->
     <string name="title_activity_manage_friends">ManageFriendsActivity</string>
     <string name="manage_friends_title">Manage Friends</string>
     <string name="show_friends">Show Friends</string>
     <string name="find_friends">Find Friends</string>
     <string name="view_notifications">View Notifications</string>
-    
+
     <!-- Restaurant Activity -->
     <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
@@ -55,54 +57,60 @@
     <string name="read_reviews_button">Read Reviews</string>
     <string name="write_reviews_button">Write Reviews</string>
     <string name="check_in_button">Check In</string>
-    
+
     <!-- Write Review Activity -->
     <string name="title_activity_write_review">WriteReviewActivity</string>
-<!--<string name="title_activity_restaurant">RestaurantActivity</string>
+    <!--
+    <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
-    <string name="restaurant_address_text">[Restaurant Address]</string> -->
+    <string name="restaurant_address_text">[Restaurant Address]</string>
+    -->
     <string name="review_text">Review</string>
     <string name="add_picture_button">Add Picture</string>
     <string name="submit_review_button">Submit Review</string>
     <string name="post_to_facebook_button">Post to Facebook</string>
-    
+
     <!-- Read Review Activity -->
     <string name="title_activity_read_review">ReadReviewActivity</string>
-<!--<string name="title_activity_restaurant">RestaurantActivity</string>
+    <!--
+    <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
-    <string name="restaurant_address_text">[Restaurant Address]</string> -->
+    <string name="restaurant_address_text">[Restaurant Address]</string>
+    -->
 
-	<!-- List Restaurants Activity -->
+
+    <!-- List Restaurants Activity -->
     <string name="title_activity_list_restaurants">ListRestaurantsActivity</string>
     <string name="restaurants_list_title">Restaurants List</string>
-    
+
     <!-- Current Friends Activity -->
     <string name="title_activity_current_friends">CurrentFriendsActivity</string>
     <string name="current_friends_title">Current Friends</string>
-    
+
     <!-- Friend Activity -->
     <string name="title_activity_friend">FriendActivity</string>
     <string name="friend_text">[Friend Name]</string>
     <string name="delete_friend_button">Delete Friend</string>
     <string name="message_friend_button">Message Friend</string>
-    
+
     <!-- Find Friend Activity -->
     <string name="title_activity_find_friend">FindFriendActivity</string>
     <string name="find_friend_text">Find Friend</string>
     <string name="username_search_text">Username</string>
-<!--<string name="search_button">Search</string>-->
-    
+    <!-- <string name="search_button">Search</string> -->
+
+
     <!-- Notification Activity -->
     <string name="title_activity_notifications">NotificationsActivity</string>
     <string name="notifications_title">Notifications</string>
-    
+
     <!-- Manage Account Activity -->
     <string name="title_activity_manage_account">ManageAccountActivity</string>
     <string name="manage_account_title">Manage Account</string>
     <string name="new_password_text">New Password</string>
     <string name="new_password_confirm_text">Confirm Password</string>
     <string name="update_password_button">Update Password</string>
-    				
+
     <!-- Add Picture Activity -->
     <string name="title_activity_add_picture">AddPictureActivity</string>
     <string name="add_picture_title">Add Picture</string>
@@ -110,5 +118,12 @@
     <string name="browse_images_button">Browse Images</string>
     <string name="attach_image_button">Attach Image</string>
     <string name="imageview_desc">Insert Image</string>
-    
+    <string name="title_activity_create_message">CreateMessage</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="send_message_to_">Send Message To:</string>
+    <string name="messagename">MessageName</string>
+    <string name="message_text">message_Text</string>
+    <string name="send_message">Send Message</string>
+
 </resources>

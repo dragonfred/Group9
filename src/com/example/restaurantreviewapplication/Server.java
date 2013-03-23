@@ -10,11 +10,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+import android.location.Location;
 import android.os.AsyncTask;
 //import android.os.StrictMode;
 import android.util.Base64;
@@ -39,11 +41,85 @@ public class Server {
     // Stubs  / Tests
     ////////////////////////////////////////////////////////////////////////////////////////////
     
-    public static Restaurant[] getRestaurantsByLocation(double lati, double longi) {
-    	Restaurant[] result;
-    	result = new Restaurant[2];
-    	result[0] = new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here");
-    	result[1] = new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There");
+    //Location has latitude and longitude in it.
+    public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
+    	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
+    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
+    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
+    	return result;
+    }
+    
+    //Zip is "0" (zero) if no zip entered
+    public static ArrayList<Restaurant> getRestaurantsByZipKeyword(int zip, String keyword) {
+    	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
+    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
+    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
+    	return result;
+    }
+    
+    public static void LogOut(User currentUser){
+    	// log user out of server
+    }
+    
+    public static int deleteFriend(User currentUser, Friend friend){
+    	int result;
+    	// 0 for good, 1 for bad
+    	result = 0;
+    	return result;
+    }
+    
+    public static int messageFriend(User currentUser, Friend friend, String message){
+    	int result;
+    	// 0 for good, 1 for bad
+    	result = 0;
+    	return result;
+    }
+    
+    public static int resetPassword(){
+      	int result;
+    	// 0 for good, 1 for bad
+    	result = 0;
+    	return result;
+    }
+    
+    public static ArrayList<Review> getReviews(Restaurant restaurant){
+    	ArrayList<Review> reviews = new ArrayList<Review>();
+    	
+    	Review aReview = new Review();
+    	aReview.setReview("This place rocks!");
+    	reviews.add(aReview);
+    	
+    	aReview = new Review();
+    	aReview.setReview("This place sucks!");
+    	reviews.add(aReview);
+    	
+    	aReview = new Review();
+    	aReview.setReview("This place smells funny!");
+    	reviews.add(aReview);
+    	
+    	return reviews;
+    }
+    
+    public static void addReview(Restaurant restaurant, String Review){
+    	// add review to server
+    }
+    
+    public static Friend findFriend(String friendID){
+    	Friend result;
+    	result = new Friend();
+    	result.setUserId("New Friend");
+    	return result; //return null for not found
+    	
+    }
+    
+    public static void addFriend(User user, Friend newFriend){
+    	// new friend to user
+    }
+    
+    public static int changePassword(String newPassword){
+    	int result;
+    	// 0 for good, 1 for bad
+    	result = 0;
     	return result;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////

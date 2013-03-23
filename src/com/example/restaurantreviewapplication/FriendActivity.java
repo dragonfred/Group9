@@ -2,6 +2,8 @@ package com.example.restaurantreviewapplication;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -14,6 +16,7 @@ public class FriendActivity extends Activity {
 	private Button messageFriendButton;
 	private TextView friendTitle;
 	UserApplication app;
+	Friend currentFriend;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +27,8 @@ public class FriendActivity extends Activity {
 		//connect to global data
 		app = (UserApplication)getApplication();
 		
-		Friend current = app.getSelectedFriend();
-		friendTitle.setText(current.getUserId());
+		currentFriend = app.getSelectedFriend();
+		friendTitle.setText(currentFriend.getUserId());
 	}
 
 	@Override
@@ -36,19 +39,81 @@ public class FriendActivity extends Activity {
 	}
 	
 	//needs to be implemented
-	public void deleteFriendHandler(View v){
-		
-		Intent intent = new Intent(this, ManageFriendsActivity.class);
-		startActivity(intent);
-		
+	public void deleteFriendButtonHandler(View v){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Delete Friend")
+		.setMessage("Would you like to delete: " + currentFriend.getUserId())
+		.setCancelable(false)
+		.setPositiveButton("Yes", 
+				new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						deleteFriend();
+					}
+				});
+		builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.cancel();
+			}
+		});
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
+	
+	private void deleteFriend(){
+		int response = Server.deleteFriend(app.getCurrentUser(), currentFriend);
+
+		if (response == 0) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Friend Deleted")
+					.setMessage("You are no longer friends with: " + currentFriend.getUserId())
+					.setCancelable(false)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+									returnToMenu();
+
+								}
+							});
+			AlertDialog alert = builder.create();
+			alert.show();
+		} else {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Problem deleting friend")
+					.setMessage("There was a problem deleting this friend")
+					.setCancelable(false)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+									returnToMenu();
+								}
+							});
+			AlertDialog alert = builder.create();
+			alert.show();
+		}
 	}
 	
 	//needs to be implemented
 	public void messageFriendButtonHandler(View v){
-		
-		Intent intent = new Intent(this, ManageFriendsActivity.class);
+		Intent intent = new Intent(this, CreateMessage.class);
 		startActivity(intent);
-		
+	}
+	
+	private void returnToMenu(){
+		Intent intent2 = new Intent(this, ManageFriendsActivity.class);
+		startActivity(intent2);
 	}
 	
 	private void setupViews(){

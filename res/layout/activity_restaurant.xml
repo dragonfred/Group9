@@ -7,7 +7,7 @@
     tools:context=".RestaurantActivity" >
   
     <TextView
-       android:id="@+id/RestaurantNameText"
+       android:id="@+id/reviewRestaurantName"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/restaurant_name_text"
@@ -16,7 +16,7 @@
    </TextView> 
    
    <TextView
-       android:id="@+id/RestaurantAddressText"
+       android:id="@+id/reviewRestaurantAddressText"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/restaurant_address_text"
@@ -25,7 +25,7 @@
    </TextView> 
   
     <TextView
-       android:id="@+id/restaurantPhoneNumberText"
+       android:id="@+id/reviewPhoneNumber"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/restaurant_phone_number_text"

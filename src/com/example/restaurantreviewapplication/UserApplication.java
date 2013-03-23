@@ -9,40 +9,27 @@ import com.example.restaurantreviewapplication.Restaurant;
 import android.app.Application;
 
 public class UserApplication extends Application {
-	private String userId;
-	private String username;
-	private String password;
-	private String facebookUserID;
-	private String facebookPassword;
-	private ArrayList<Friend> friendList;
+	private User currentUser;
+	private Restaurants restaurants;	
 	private Friend selectedFriend;
 	private boolean verified;
-	private ArrayList<Restaurant> restaurants;
 	private Restaurant selectedRestaurant;
 	private ArrayList<Message> messages;
-	
-
-	
-	private UUID uuid;
 	
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
-		friendList = new ArrayList<Friend>();
+		currentUser = new User();
+		restaurants = new Restaurants();
+		//friendList = new ArrayList<Friend>();
 		verified = false;
 	}
 	
-	public UUID getUuid() {
-		if(this.uuid==null) this.uuid = UUID.randomUUID();
-		return this.uuid;
-	}
-	
 	public ArrayList<Restaurant> getRestaurants() {
-		return restaurants;
+		return restaurants.getRestaurants();
 	}
 	public void setRestaurants(ArrayList<Restaurant> restaurants) {
-		this.restaurants = restaurants;
+		this.restaurants.setRestaurants(restaurants);
 	}
 
 	public boolean isVerified() {
@@ -52,41 +39,29 @@ public class UserApplication extends Application {
 		this.verified = verified;
 	}
 	public String getUserId() {
-		return userId;
+		return currentUser.getUserId();
 	}
 	public void setUserId(String userId) {
-		this.userId = userId;
+		this.currentUser.setUserId(userId);
 	}
 	public String getUsername() {
-		return username;
+		return currentUser.getUsername();
 	}
 	public void setUsername(String username) {
-		System.out.println(username);
-		this.username = username;
+		this.currentUser.setUsername(username);
 	}
 	public String getPassword() {
-		return password;
+		return currentUser.getPassword();
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.currentUser.setPassword(password);
 	}
-	public String getFacebookUserID() {
-		return facebookUserID;
-	}
-	public void setFacebookUserID(String facebookUserID) {
-		this.facebookUserID = facebookUserID;
-	}
-	public String getFacebookPassword() {
-		return facebookPassword;
-	}
-	public void setFacebookPassword(String facebookPassword) {
-		this.facebookPassword = facebookPassword;
-	}
+
 	public ArrayList<Friend> getFriendList() {
-		return friendList;
+		return currentUser.getFriendList();
 	}
 	public void setFriendList(ArrayList<Friend> friendList) {
-		this.friendList = friendList;
+		this.currentUser.setFriendList(friendList);
 	}
 	
 	public Restaurant getSelectedRestaurant() {
@@ -111,6 +86,14 @@ public class UserApplication extends Application {
 
 	public void setSelectedRestaurant(Restaurant selectedRestaurant) {
 		this.selectedRestaurant = selectedRestaurant;
+	}
+
+	public User getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(User currentUser) {
+		this.currentUser = currentUser;
 	}
 	
 }

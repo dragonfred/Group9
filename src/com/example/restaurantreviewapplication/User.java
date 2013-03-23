@@ -30,6 +30,15 @@ public class User implements Storable {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public User(String userId, String username, String password) {
+		super();
+		this.userId = userId;
+		this.username = username;
+		this.password = password;
+	}
+
+
 	private UUID uuid;
 	  
 	public UUID getUuid() {

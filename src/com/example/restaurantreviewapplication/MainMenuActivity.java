@@ -12,38 +12,35 @@ public class MainMenuActivity extends Activity {
 	private Button manageFriendsButton;
 	private Button manageAccountButton;
 	private Button logOutButton;
-	
+	UserApplication app;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_main_menu);
 		setupViews();
+		app = (UserApplication)getApplication();
 	}
 
 	public void findRestaurantsButtonHandler(View v){
-		
 		Intent intent = new Intent(this, FindRestaurantsActivity.class);
 		startActivity(intent);
-		
 	}
+	
 	public void manageFriendsButtonHandler(View v){
-		
 		Intent intent = new Intent(this, ManageFriendsActivity.class);
-		startActivity(intent);
-		
+		startActivity(intent);	
 	}
+	
 	public void manageAccountButtonHandler(View v){
-		
 		Intent intent = new Intent(this, ManageAccountActivity.class);
 		startActivity(intent);
-		
 	}
+	
 	public void logOutButtonHandler(View v){
-		
-//		Intent intent = new Intent(this, CreateActivity.class);
-//		startActivity(intent);
-		
+		Server.LogOut(app.getCurrentUser());
+		app.setCurrentUser(null);
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 	
 	@Override
@@ -52,12 +49,13 @@ public class MainMenuActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main_menu, menu);
 		return true;
 	}
+	
+	//setup buttons
 	private void setupViews(){
 		findRestaurantsButton = (Button) findViewById(R.id.findRestaurants);
 		manageFriendsButton = (Button) findViewById(R.id.manageFriends);
 		manageAccountButton = (Button) findViewById(R.id.manageAccount);
-		logOutButton = (Button) findViewById(R.id.logOut);
+		logOutButton = (Button) findViewById(R.id.FriendSearchButton);
 		
 	}
-
 }
