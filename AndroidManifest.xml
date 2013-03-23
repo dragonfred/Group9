@@ -90,8 +90,15 @@
             android:name="com.example.restaurantreviewapplication.CreateMessage"
             android:label="@string/title_activity_create_message" >
         </activity>
+
+        <activity
+            android:name="com.example.restaurantreviewapplication.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot_password" >
+        </activity>
     </application>
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+
     <permission
         android:name="com.dragonfred.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />

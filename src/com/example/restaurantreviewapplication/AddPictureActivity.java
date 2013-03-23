@@ -1,7 +1,14 @@
 package com.example.restaurantreviewapplication;
 
+import java.util.List;
+
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +27,9 @@ public class AddPictureActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_picture);
 		setupViews();
+	
+		//dispatchTakePictureIntent(1);
+		
 	}
 
 	@Override

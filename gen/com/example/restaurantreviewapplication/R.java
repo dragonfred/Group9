@@ -24,73 +24,76 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int AddPictureButton=0x7f08003f;
-        public static final int CreateAccountButton=0x7f080026;
-        public static final int ExitApplicationButton=0x7f080027;
-        public static final int ForgotPasswordButton=0x7f080025;
-        public static final int FriendSearchButton=0x7f08002b;
-        public static final int LogInButton=0x7f080023;
-        public static final int Main=0x7f08001f;
-        public static final int MapButton=0x7f08003a;
-        public static final int Password=0x7f080022;
-        public static final int SkipLoginButton=0x7f080024;
-        public static final int Username=0x7f080021;
-        public static final int action_settings=0x7f080043;
+        public static final int AddPictureButton=0x7f080042;
+        public static final int CreateAccountButton=0x7f080029;
+        public static final int ExitApplicationButton=0x7f08002a;
+        public static final int ForgotPasswordButton=0x7f080028;
+        public static final int FriendSearchButton=0x7f08002e;
+        public static final int LogInButton=0x7f080026;
+        public static final int Main=0x7f080022;
+        public static final int MapButton=0x7f08003d;
+        public static final int Password=0x7f080025;
+        public static final int SkipLoginButton=0x7f080027;
+        public static final int Username=0x7f080024;
+        public static final int action_settings=0x7f080046;
         public static final int addPictureTitle=0x7f080000;
         public static final int attachImageButton=0x7f080004;
         public static final int browseImagesButton=0x7f080002;
         public static final int cancelCreateAccount=0x7f08000b;
-        public static final int checkInButton=0x7f08003d;
+        public static final int checkInButton=0x7f080040;
         public static final int confirmPasswordText=0x7f080008;
         public static final int createAccountTitle=0x7f080005;
         public static final int currentFriendsTitle=0x7f080011;
-        public static final int deleteFriend=0x7f08001b;
+        public static final int deleteFriend=0x7f08001e;
         public static final int displayImageView=0x7f080003;
+        public static final int emailAddress=0x7f08001b;
         public static final int emailText=0x7f080009;
         public static final int findFriendTitle=0x7f080013;
-        public static final int findFriends=0x7f080033;
-        public static final int findRestaurants=0x7f080028;
+        public static final int findFriends=0x7f080036;
+        public static final int findRestaurants=0x7f08002b;
+        public static final int forgotPasswordTitle=0x7f08001a;
         public static final int friendSearchButton=0x7f080015;
-        public static final int friendTitle=0x7f08001a;
+        public static final int friendTitle=0x7f08001d;
         public static final int friendsList=0x7f080012;
         public static final int keywordText=0x7f080016;
-        public static final int logInTitle=0x7f080020;
+        public static final int logInTitle=0x7f080023;
+        public static final int logOut=0x7f08001c;
         public static final int loginPersist=0x7f08000a;
-        public static final int manageAccount=0x7f08002a;
-        public static final int manageAccountTitle=0x7f08002c;
-        public static final int manageFriends=0x7f080029;
-        public static final int manageFriendsTitle=0x7f080031;
-        public static final int menu_settings=0x7f080042;
-        public static final int messageFriend=0x7f08001c;
+        public static final int manageAccount=0x7f08002d;
+        public static final int manageAccountTitle=0x7f08002f;
+        public static final int manageFriends=0x7f08002c;
+        public static final int manageFriendsTitle=0x7f080034;
+        public static final int menu_settings=0x7f080045;
+        public static final int messageFriend=0x7f08001f;
         public static final int messageText=0x7f08000f;
-        public static final int newPasswordConfirmText=0x7f08002f;
-        public static final int newPasswordText=0x7f08002e;
-        public static final int notificationsList=0x7f080036;
-        public static final int notificationsTitle=0x7f080035;
-        public static final int oldPasswordText=0x7f08002d;
+        public static final int newPasswordConfirmText=0x7f080032;
+        public static final int newPasswordText=0x7f080031;
+        public static final int notificationsList=0x7f080039;
+        public static final int notificationsTitle=0x7f080038;
+        public static final int oldPasswordText=0x7f080030;
         public static final int passwordText=0x7f080007;
-        public static final int postToFacebook=0x7f080041;
-        public static final int readReviewsButton=0x7f08003b;
-        public static final int restaurantsListTitle=0x7f08001d;
-        public static final int restaurantsListView=0x7f08001e;
-        public static final int reviewPhoneNumber=0x7f080038;
-        public static final int reviewRestaurantAddressText=0x7f080037;
+        public static final int postToFacebook=0x7f080044;
+        public static final int readReviewsButton=0x7f08003e;
+        public static final int restaurantsListTitle=0x7f080020;
+        public static final int restaurantsListView=0x7f080021;
+        public static final int reviewPhoneNumber=0x7f08003b;
+        public static final int reviewRestaurantAddressText=0x7f08003a;
         public static final int reviewRestaurantName=0x7f08000d;
-        public static final int reviewText=0x7f08003e;
-        public static final int reviewsList=0x7f080039;
+        public static final int reviewText=0x7f080041;
+        public static final int reviewsList=0x7f08003c;
         public static final int searchButton=0x7f080019;
         public static final int searchNearby=0x7f080018;
         public static final int sendMessageButton=0x7f080010;
         public static final int sendMessageNameText=0x7f08000e;
-        public static final int showFriends=0x7f080032;
+        public static final int showFriends=0x7f080035;
         public static final int submitCreateAccount=0x7f08000c;
-        public static final int submitReviewButton=0x7f080040;
+        public static final int submitReviewButton=0x7f080043;
         public static final int takePictureButton=0x7f080001;
-        public static final int updatePasswordButton=0x7f080030;
+        public static final int updatePasswordButton=0x7f080033;
         public static final int usernameSearch=0x7f080014;
         public static final int usernameText=0x7f080006;
-        public static final int viewNotifications=0x7f080034;
-        public static final int writeReviewsButton=0x7f08003c;
+        public static final int viewNotifications=0x7f080037;
+        public static final int writeReviewsButton=0x7f08003f;
         public static final int zipCodeText=0x7f080017;
     }
     public static final class layout {
@@ -100,16 +103,17 @@ public final class R {
         public static final int activity_current_friends=0x7f030003;
         public static final int activity_find_friend=0x7f030004;
         public static final int activity_find_restaurants=0x7f030005;
-        public static final int activity_friend=0x7f030006;
-        public static final int activity_list_restaurants=0x7f030007;
-        public static final int activity_main=0x7f030008;
-        public static final int activity_main_menu=0x7f030009;
-        public static final int activity_manage_account=0x7f03000a;
-        public static final int activity_manage_friends=0x7f03000b;
-        public static final int activity_notifications=0x7f03000c;
-        public static final int activity_read_review=0x7f03000d;
-        public static final int activity_restaurant=0x7f03000e;
-        public static final int activity_write_review=0x7f03000f;
+        public static final int activity_forgot_password=0x7f030006;
+        public static final int activity_friend=0x7f030007;
+        public static final int activity_list_restaurants=0x7f030008;
+        public static final int activity_main=0x7f030009;
+        public static final int activity_main_menu=0x7f03000a;
+        public static final int activity_manage_account=0x7f03000b;
+        public static final int activity_manage_friends=0x7f03000c;
+        public static final int activity_notifications=0x7f03000d;
+        public static final int activity_read_review=0x7f03000e;
+        public static final int activity_restaurant=0x7f03000f;
+        public static final int activity_write_review=0x7f030010;
     }
     public static final class menu {
         public static final int activity_add_picture=0x7f070000;
@@ -128,9 +132,10 @@ public final class R {
         public static final int activity_restaurant=0x7f07000d;
         public static final int activity_write_review=0x7f07000e;
         public static final int create_message=0x7f07000f;
+        public static final int forgot_password=0x7f070010;
     }
     public static final class string {
-        public static final int action_settings=0x7f050047;
+        public static final int action_settings=0x7f05004a;
         public static final int add_picture_button=0x7f05002a;
         public static final int add_picture_title=0x7f050041;
         public static final int app_name=0x7f050001;
@@ -154,8 +159,10 @@ public final class R {
         public static final int find_friends=0x7f05001e;
         public static final int find_restaurants_button=0x7f050012;
         public static final int forgot_password_button=0x7f05000e;
+        /**  Forgot Password Activity 
+         */
+        public static final int forgot_password_title=0x7f050047;
         public static final int friend_text=0x7f050033;
-        public static final int hello_world=0x7f050048;
         public static final int imageview_desc=0x7f050045;
         public static final int log_in_button=0x7f05000c;
         /**  Log In Activity 
@@ -168,8 +175,8 @@ public final class R {
         public static final int manage_friends_title=0x7f05001c;
         public static final int menu_settings=0x7f050000;
         public static final int message_friend_button=0x7f050035;
-        public static final int message_text=0x7f05004b;
-        public static final int messagename=0x7f05004a;
+        public static final int message_text=0x7f05004d;
+        public static final int messagename=0x7f05004c;
         public static final int name_keyword_text=0x7f050017;
         public static final int new_password_confirm_text=0x7f05003e;
         public static final int new_password_text=0x7f05003d;
@@ -191,10 +198,11 @@ public final class R {
         public static final int review_text=0x7f050029;
         public static final int search_button=0x7f05001a;
         public static final int search_nearby_button=0x7f050019;
-        public static final int send_message=0x7f05004c;
-        public static final int send_message_to_=0x7f050049;
+        public static final int send_message=0x7f05004e;
+        public static final int send_message_to_=0x7f05004b;
         public static final int show_friends=0x7f05001d;
         public static final int skip_log_in_button=0x7f05000d;
+        public static final int submit_button=0x7f050048;
         public static final int submit_create_account=0x7f050008;
         public static final int submit_review_button=0x7f05002b;
         public static final int take_picture_button=0x7f050042;
@@ -204,7 +212,9 @@ public final class R {
         /**  Create Activity 
          */
         public static final int title_activity_create=0x7f050002;
-        public static final int title_activity_create_message=0x7f050046;
+        /** <string name="email_text">Email</string> 
+         */
+        public static final int title_activity_create_message=0x7f050049;
         /**  Current Friends Activity 
          */
         public static final int title_activity_current_friends=0x7f050030;
@@ -214,6 +224,7 @@ public final class R {
         /**  Find Restaurants Activity 
          */
         public static final int title_activity_find_restaurants=0x7f050016;
+        public static final int title_activity_forgot_password=0x7f050046;
         /**  Friend Activity 
          */
         public static final int title_activity_friend=0x7f050032;

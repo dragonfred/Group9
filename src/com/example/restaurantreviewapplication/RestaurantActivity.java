@@ -47,7 +47,6 @@ public class RestaurantActivity extends Activity {
 		
 //		Intent intent = new Intent(this, ManageFriendsActivity.class);
 //		startActivity(intent);
-		
 	}
 	
 	public void readReviewsButtonHandler(View v){
@@ -61,10 +60,11 @@ public class RestaurantActivity extends Activity {
 		
 		Intent intent = new Intent(this, WriteReviewActivity.class);
 		startActivity(intent);
-		
 	}
 	
 	public void checkInButtonHandler(View v){
+		
+		//check if logged in to facebook account and make post..also increment # check-ins for restaurant by 1
 		
 //		Intent intent = new Intent(this, ManageFriendsActivity.class);
 //		startActivity(intent);

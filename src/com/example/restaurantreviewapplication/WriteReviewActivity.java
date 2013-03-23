@@ -34,6 +34,9 @@ public class WriteReviewActivity extends Activity {
 		restaurantNameText.setText(current.getName());
 		restaurantAddressText.setText(current.getAddress());
 		restaurantPhoneNumberText.setText(current.getPhone());
+		
+		
+		
 	}
 
 	@Override
@@ -77,5 +80,4 @@ public class WriteReviewActivity extends Activity {
 		postToFacebook = (Button)findViewById(R.id.postToFacebook);
 	}
 	
-
 }

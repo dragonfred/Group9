@@ -7,9 +7,14 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import android.widget.TextView;
 
+import com.example.restaurantreviewapplication.Review;
+
+
 public class ReadReviewActivity extends Activity{
+
 
 //	String[] reviews = {"Review 1","Review 2","Review 3","Review 4",
 //						"Review 5","Review 6","Review 7","Review 8"};
@@ -17,6 +22,12 @@ public class ReadReviewActivity extends Activity{
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
+
+		
+	private ArrayList<Review> reviews;
+	ArrayAdapter<Review> adapter;
+	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,11 +40,15 @@ public class ReadReviewActivity extends Activity{
 		restaurantAddressText.setText(restaurant.getAddress());
 		restaurantPhoneNumberText.setText(restaurant.getPhone());
 		
-		ArrayList<Review> reviews = Server.getReviews(restaurant);
+
+		reviews = Server.getReviews(restaurant);
 		
 		ListView reviewList = (ListView) findViewById(R.id.reviewsList);
-		ArrayAdapter<Review> adapter = new ArrayAdapter<Review>(this, android.R.layout.simple_list_item_1, reviews);				
+	
+		adapter = new ArrayAdapter<Review>(this, android.R.layout.simple_list_item_1, reviews);	
+
 		reviewList.setAdapter(adapter);
+		
 	}
 
 	@Override
@@ -50,3 +65,6 @@ public class ReadReviewActivity extends Activity{
 	}
 
 }
+
+
+

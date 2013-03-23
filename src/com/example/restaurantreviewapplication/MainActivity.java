@@ -25,11 +25,13 @@ public class MainActivity extends Activity {
 	private AlertDialog alert;
 	UserApplication app;
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		app = (UserApplication) getApplication();
+
 
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
@@ -39,9 +41,11 @@ public class MainActivity extends Activity {
 		exitButton = (Button) findViewById(R.id.ExitApplicationButton);
 		createButton = (Button) findViewById(R.id.CreateAccountButton);
 
+
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you would like to exit the application?");
 		builder.setCancelable(false);
+		
 		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
 			@Override
@@ -64,7 +68,6 @@ public class MainActivity extends Activity {
 
 		usernameText.setSingleLine();
 		passwordText.setSingleLine();
-
 	}
 
 	@Override
