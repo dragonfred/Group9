@@ -107,7 +107,7 @@ public class FriendActivity extends Activity {
 	
 	//needs to be implemented
 	public void messageFriendButtonHandler(View v){
-		Intent intent = new Intent(this, CreateMessage.class);
+		Intent intent = new Intent(this, CreateMessageActivity.class);
 		startActivity(intent);
 	}
 	

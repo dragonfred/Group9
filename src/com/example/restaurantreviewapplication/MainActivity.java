@@ -65,9 +65,6 @@ public class MainActivity extends Activity {
 		});
 
 		alert = builder.create();
-
-		usernameText.setSingleLine();
-		passwordText.setSingleLine();
 	}
 
 	@Override

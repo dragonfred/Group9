@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="4dp"
+        android:textSize="20sp"
         android:text="@string/restaurant_name_text" >
       
    </TextView> 

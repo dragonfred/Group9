@@ -9,7 +9,7 @@
     <string name="create_account_title">Create Account</string>
     <!--
     <string name="username_text">Username</string>
-    <string name="password_text">Password</string>
+    <string name="password_text">Password</string>
     -->
     <string name="confirm_password_text">Confirm Password</string>
     <string name="email_text">Email</string>
@@ -60,10 +60,15 @@
 
     <!-- Write Review Activity -->
     <string name="title_activity_write_review">WriteReviewActivity</string>
+    <string name="taste_rating_text">Taste</string>
+    <string name="service_rating_text">Service</string>
+    <string name="cleanliness_rating_text">Cleanliness</string>
+    <string name="overall_rating_text">Overall</string>
+
     <!--
     <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
-    <string name="restaurant_address_text">[Restaurant Address]</string>
+    <string name="restaurant_address_text">[Restaurant Address]</string>
     -->
     <string name="review_text">Review</string>
     <string name="add_picture_button">Add Picture</string>
@@ -75,7 +80,7 @@
     <!--
     <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
-    <string name="restaurant_address_text">[Restaurant Address]</string>
+    <string name="restaurant_address_text">[Restaurant Address]</string>
     -->
 
 
@@ -123,12 +128,17 @@
     <!-- Forgot Password Activity -->
     <string name="forgot_password_title">Forgot Password?</string>
     <string name="submit_button">Submit</string>
-<!--<string name="email_text">Email</string> -->
+    <!-- <string name="email_text">Email</string> -->
     <string name="title_activity_create_message">CreateMessage</string>
     <string name="action_settings">Settings</string>
     <string name="send_message_to_">Send Message To:</string>
     <string name="messagename">MessageName</string>
     <string name="message_text">message_Text</string>
     <string name="send_message">Send Message</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- Create Message Activity -->
+    <string name="cancel_message_button">Cancel</string>
+    <string name="send_message_button">Send Message</string>
 
 </resources>
