@@ -51,10 +51,10 @@ public class AddPictureActivity extends Activity {
 	}
 	
 	private void setupViews(){
-		takePictureButton = (Button) findViewById(R.id.takePictureButton);
-		browseImagesButton = (Button) findViewById(R.id.browseImagesButton);
-		attachImageButton = (Button) findViewById(R.id.attachImageButton);
-		displayImageView = (ImageView) findViewById(R.id.displayImageView);
+		takePictureButton = (Button) findViewById(R.id.TakePictureButton);
+		browseImagesButton = (Button) findViewById(R.id.BrowseImagesButton);
+		attachImageButton = (Button) findViewById(R.id.AttachImageButton);
+		displayImageView = (ImageView) findViewById(R.id.DisplayImageView);
 					
 	}
 

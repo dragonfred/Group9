@@ -8,23 +8,23 @@
     tools:context=".CreateActivity">
 
    <TextView
-       android:id="@+id/createAccountTitle"
+       android:id="@+id/CreateMessageTitle"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
-       android:text="@string/create_account_title"
+       android:text="@string/create_message_title"
        android:padding="4dp"
        android:gravity="center">      
    </TextView>
 	    
    <EditText
-       android:id="@+id/emailText"
+       android:id="@+id/messageText"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
-       android:inputType="textMultiLine" 
+       android:inputType="textMultiLine"
+       android:lines="10" 
        android:gravity="left"
-       android:hint="@string/message_text"
-       android:padding="4dp"
-       android:textColor="#888888">
+       android:hint="@string/compose_message_text"
+       android:padding="4dp">
    </EditText>
 	   
    <LinearLayout

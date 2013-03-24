@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +21,14 @@ public class WriteReviewActivity extends Activity {
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
 	private EditText reviewText;
-	private Button AddPictureButton;
+	private TextView charactersRemaining;
+	private Button addPictureButton;
 	private Button submitReviewButton;
 	private Button postToFacebook;
 	UserApplication app;
+	
+	private int maxChars = 200;
+	private int charsLeft= maxChars;
 	
 	private AlertDialog.Builder builder;
 	private AlertDialog alert;
@@ -72,8 +79,32 @@ public class WriteReviewActivity extends Activity {
 		restaurantNameText.setText(current.getName());
 		restaurantAddressText.setText(current.getAddress());
 		restaurantPhoneNumberText.setText(current.getPhone());
+		
+		reviewText.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				charsLeft = maxChars - reviewText.length();
+				charactersRemaining.setText(charsLeft + "characters remaining");
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -100,13 +131,14 @@ public class WriteReviewActivity extends Activity {
 	}
 	
 	private void setupViews(){
-		restaurantNameText = (TextView) findViewById(R.id.reviewRestaurantName);
-		restaurantAddressText = (TextView) findViewById(R.id.reviewRestaurantAddressText);
-		restaurantPhoneNumberText = (TextView) findViewById(R.id.reviewPhoneNumber);
-		reviewText = (EditText)findViewById(R.id.reviewText);
-		AddPictureButton = (Button)findViewById(R.id.AddPictureButton);
-		submitReviewButton = (Button)findViewById(R.id.submitReviewButton);
-		postToFacebook = (Button)findViewById(R.id.postToFacebook);
+		restaurantNameText = (TextView)findViewById(R.id.RestaurantNameText);
+		restaurantAddressText = (TextView)findViewById(R.id.RestaurantAddressText);
+		restaurantPhoneNumberText = (TextView)findViewById(R.id.RestaurantPhoneNumberText);
+		reviewText = (EditText)findViewById(R.id.ReviewText);
+		charactersRemaining = (TextView)findViewById(R.id.CharsLeftText);
+		addPictureButton = (Button)findViewById(R.id.AddPictureButton);
+		submitReviewButton = (Button)findViewById(R.id.SubmitReviewButton);
+		postToFacebook = (Button)findViewById(R.id.PostToFacebook);
 	}
 	
 }

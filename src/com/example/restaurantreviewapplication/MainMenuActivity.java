@@ -39,6 +39,11 @@ public class MainMenuActivity extends Activity {
 	public void logOutButtonHandler(View v){
 		Server.LogOut(app.getCurrentUser());
 		app.setCurrentUser(null);
+		
+		//end activity
+		finish();
+		
+		//call MainActivity.class
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}

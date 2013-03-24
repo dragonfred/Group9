@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +27,7 @@
    </TextView> 
   
     <TextView
-       android:id="@+id/restaurantPhoneNumberText"
+       android:id="@+id/RestaurantPhoneNumberText"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/restaurant_phone_number_text"
@@ -35,14 +36,24 @@
    </TextView> 
   
     <EditText
-        android:id="@+id/reviewText"
+        android:id="@+id/ReviewText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/review_text"
         android:inputType="textMultiLine"
+        android:maxLength="200"
         android:lines="5"
         android:padding="4dp">
     </EditText>
+  	    		
+    <TextView
+        android:id="@+id/CharsLeftText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chars_left_text"
+        android:padding="2dp"
+        android:gravity="left">
+    </TextView>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -166,7 +177,7 @@
     </Button>
 
     <Button
-        android:id="@+id/submitReviewButton"
+        android:id="@+id/SubmitReviewButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/submit_review_button"
@@ -174,7 +185,7 @@
    	</Button>
 
     <Button
-        android:id="@+id/postToFacebook"
+        android:id="@+id/PostToFacebook"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/post_to_facebook_button"

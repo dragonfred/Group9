@@ -12,8 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class CreateActivity extends Activity {
-
-
+	
 	private EditText  username_text;
 	private EditText passwordText;
 	private EditText confirmPasswordText;
@@ -27,8 +26,7 @@ public class CreateActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create);
 		setupViews();
-		app = (UserApplication)getApplication();
-		
+		app = (UserApplication)getApplication();	
 	}
 
 	@Override

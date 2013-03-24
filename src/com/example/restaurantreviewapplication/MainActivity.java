@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you would like to exit the application?");
 		builder.setCancelable(false);
+		builder.setTitle("Exit Application?");
 		
 		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 

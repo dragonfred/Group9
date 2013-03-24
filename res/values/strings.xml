@@ -71,6 +71,7 @@
     <string name="restaurant_address_text">[Restaurant Address]</string>
     -->
     <string name="review_text">Review</string>
+    <string name="chars_left_text">200 characters remaining</string>
     <string name="add_picture_button">Add Picture</string>
     <string name="submit_review_button">Submit Review</string>
     <string name="post_to_facebook_button">Post to Facebook</string>
@@ -82,8 +83,6 @@
     <string name="restaurant_name_text">[Restaurant Name]</string>
     <string name="restaurant_address_text">[Restaurant Address]</string>
     -->
-
-
     <!-- List Restaurants Activity -->
     <string name="title_activity_list_restaurants">ListRestaurantsActivity</string>
     <string name="restaurants_list_title">Restaurants List</string>
@@ -138,6 +137,8 @@
     <string name="hello_world">Hello world!</string>
     
     <!-- Create Message Activity -->
+    <string name="create_message_title">Create Message</string>
+    <string name="compose_message_text">Compose Message</string>
     <string name="cancel_message_button">Cancel</string>
     <string name="send_message_button">Send Message</string>
 
