@@ -59,6 +59,7 @@ public class Server {
     
     public static void LogOut(User currentUser){
     	// log user out of server
+    	/* The server is not stateful. There is no "log out." */ 
     }
     
     public static int deleteFriend(User currentUser, Friend friend){
@@ -156,7 +157,8 @@ public class Server {
 		postData.put("password", password);
 		postData.put("email", email);
 		postData.put("action", "newUser");
-		
+		postData.put("object", "");
+		postData.put("uuid", UUID.randomUUID().toString());
 		return postToServer(postData);	
 	}
 	/**
