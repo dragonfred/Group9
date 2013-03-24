@@ -44,6 +44,8 @@ public class Server {
     //Location has latitude and longitude in it.
     public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
+    	double lati = location.getLatitude();
+    	double longi = location.getLongitude();
     	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
     	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
     	return result;
@@ -152,15 +154,19 @@ public class Server {
 	public static String createAccount(String email) {
 		HashMap<String, String> postData;
 		postData = new HashMap<String, String>();
-		
+		User user;
+		user = new User();
+		user.setPassword(Server.password);
+		user.setUsername(Server.username);
 		postData.put("username", username);
 		postData.put("password", password);
 		postData.put("email", email);
 		postData.put("action", "newUser");
-		postData.put("object", "");
-		postData.put("uuid", UUID.randomUUID().toString());
+		postData.put("object", objectToString(user));
+		postData.put("uuid", user.getUuid().toString());
 		return postToServer(postData);	
 	}
+	
 	/**
 	 * @param o An object returned from getObject
 	 * @return True if this object is an error. 
