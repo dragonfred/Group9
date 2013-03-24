@@ -71,14 +71,6 @@
         android:text="@string/create_account_button"
    		android:onClick="createAccountButtonHandler">
     </Button>
-
-    <Button
-        android:id="@+id/ExitApplicationButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/exit_application_button"
-        android:onClick="exitButtonHandler">
-    </Button>
     
 </LinearLayout>
 </ScrollView>

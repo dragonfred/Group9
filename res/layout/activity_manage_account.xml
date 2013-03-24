@@ -1,63 +1,70 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="6dp"
-    tools:context=".ManageAccountActivity" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:isScrollContainer="true">
 
-    <TextView
-        android:id="@+id/manageAccountTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="4dp"
-        android:text="@string/manage_account_title">
-    </TextView>
-    
-    <EditText
-        android:id="@+id/usernameText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username_text"
-        android:inputType="text"
-        android:padding="4dp">
-    </EditText>
-    
-    <EditText
-        android:id="@+id/oldPasswordText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/password_text"
-        android:padding="4dp">
-    </EditText>
-    
-    <EditText
-        android:id="@+id/newPasswordText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/new_password_text"
-        android:inputType="textPassword"
-        android:padding="4dp">
-    </EditText>
-    
-    <EditText
-        android:id="@+id/newPasswordConfirmText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/new_password_confirm_text"
-        android:inputType="textPassword"
-        android:padding="4dp">
-    </EditText>
-
-	<Button
-        android:id="@+id/updatePasswordButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-		android:padding="4dp"
-       	android:text="@string/update_password_button"
-       	android:onClick="updatePasswordButtonHandler">
-	</Button>
-    
-</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="6dp"
+	    tools:context=".ManageAccountActivity" >
+	
+	    <TextView
+	        android:id="@+id/manageAccountTitle"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:padding="4dp"
+	        android:text="@string/manage_account_title">
+	    </TextView>
+	    
+	    <EditText
+	        android:id="@+id/usernameText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/username_text"
+	        android:inputType="text"
+	        android:padding="4dp">
+	    </EditText>
+	    
+	    <EditText
+	        android:id="@+id/oldPasswordText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:inputType="textPassword"
+	        android:hint="@string/password_text"
+	        android:padding="4dp">
+	    </EditText>
+	    
+	    <EditText
+	        android:id="@+id/newPasswordText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/new_password_text"
+	        android:inputType="textPassword"
+	        android:padding="4dp">
+	    </EditText>
+	    
+	    <EditText
+	        android:id="@+id/newPasswordConfirmText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/new_password_confirm_text"
+	        android:inputType="textPassword"
+	        android:padding="4dp">
+	    </EditText>
+	
+		<Button
+	        android:id="@+id/updatePasswordButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+			android:padding="4dp"
+	       	android:text="@string/update_password_button"
+	       	android:onClick="updatePasswordButtonHandler">
+		</Button>
+	    
+	</LinearLayout>
+</ScrollView>

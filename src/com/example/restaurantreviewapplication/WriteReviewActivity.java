@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -56,7 +57,7 @@ public class WriteReviewActivity extends Activity {
 				Server.addReview(app.getSelectedRestaurant(), review);
 				
 				Toast.makeText(getApplicationContext(), 
-						"Thank You for your review!", 
+						"Thank you for your review!", 
 						Toast.LENGTH_SHORT).show();	
 			}
 		});
@@ -85,20 +86,28 @@ public class WriteReviewActivity extends Activity {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				charsLeft = maxChars - reviewText.length();
-				charactersRemaining.setText(charsLeft + "characters remaining");
+				charactersRemaining.setText(charsLeft + " characters remaining");
+				
+				if (charsLeft <= 25)
+				{
+					charactersRemaining.setTextColor(Color.RED);
+				}
+				else
+					charactersRemaining.setTextColor(Color.BLACK);
 			}
 			
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
+				// NOT IMPLEMENTED
 				
 			}
 			
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				
+				// NOT IMPLEMENTED
 			}
 		});
 	}

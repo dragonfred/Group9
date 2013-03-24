@@ -3,13 +3,17 @@ package com.example.restaurantreviewapplication;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import com.example.restaurantreviewapplication.Message;
 
 public class CreateMessageActivity extends Activity {
 
+	Message newMessage = new Message();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_message);
+		
 	}
 
 	@Override

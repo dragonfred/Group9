@@ -1,38 +1,45 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="6dp"
-    tools:context=".FindFriendActivity" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:isScrollContainer="true">
 
-    <TextView
-        android:id="@+id/findFriendTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="4dp"
-        android:text="@string/find_friend_text">
-    </TextView>
-    
-    <EditText
-        android:id="@+id/usernameSearch"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username_search_text"
-        android:inputType="text"
-        android:padding="4dp"
-        android:textColor="#888888">
-    </EditText>
-
-	<Button
-	    android:id="@+id/friendSearchButton"
-	    android:layout_width="fill_parent"
+	<LinearLayout
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:onClick="friendSearchButtonHandler"
-	    android:padding="4dp"
-	    android:text="@string/search_button" >
->
-	</Button>
-    
-</LinearLayout>
+	    android:orientation="vertical"
+	    android:padding="6dp"
+	    tools:context=".FindFriendActivity" >
+	
+	    <TextView
+	        android:id="@+id/findFriendTitle"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:padding="4dp"
+	        android:text="@string/find_friend_text">
+	    </TextView>
+	    
+	    <EditText
+	        android:id="@+id/usernameSearch"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/username_search_text"
+	        android:inputType="text"
+	        android:padding="4dp"
+	        android:textColor="#888888">
+	    </EditText>
+	
+		<Button
+		    android:id="@+id/friendSearchButton"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:onClick="friendSearchButtonHandler"
+		    android:padding="4dp"
+		    android:text="@string/search_button">
+		</Button>
+	    
+	</LinearLayout>
+	
+</ScrollView>

@@ -18,11 +18,11 @@ public class Message {
 	 * 
 	 */
 	public Message() {
-		// TODO Auto-generated constructor stub
+		senderUserId = "";
+		receiverUserId = "";
+		textField = "";
 	}
 
-	
-	
 	public Message(String senderUserId, String receiverUserId, String textField) {
 		super();
 		this.senderUserId = senderUserId;

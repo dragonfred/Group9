@@ -1,49 +1,56 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="6dp"
-    tools:context=".FindRestaurantsActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:isScrollContainer="true">
 
-    <EditText
-        android:id="@+id/keywordText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/name_keyword_text"
-        android:inputType="text"
-        android:padding="4dp"
-        android:textColor="#888888">
-    </EditText>
-    
-    <EditText
-        android:id="@+id/zipCodeText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/zip_code_text"
-        android:padding="4dp"
-        android:textColor="#888888">
-    </EditText>
-        
-    <Button
-        android:id="@+id/searchNearby"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="@string/search_nearby_button"
-        android:onClick="searchNearbyButtonHandler">
-
-	</Button>
-    
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="@string/search_button"
-        android:onClick="searchButtonHandler">
-
-	</Button>
-    
-</LinearLayout>
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="6dp"
+	    tools:context=".FindRestaurantsActivity">
+	
+	    <EditText
+	        android:id="@+id/keywordText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/name_keyword_text"
+	        android:inputType="text"
+	        android:padding="4dp"
+	        android:textColor="#888888">
+	    </EditText>
+	    
+	    <EditText
+	        android:id="@+id/zipCodeText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:inputType="number"
+	        android:hint="@string/zip_code_text"
+	        android:padding="4dp"
+	        android:textColor="#888888">
+	    </EditText>
+	        
+	    <Button
+	        android:id="@+id/searchNearby"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="4dp"
+	        android:text="@string/search_nearby_button"
+	        android:onClick="searchNearbyButtonHandler">
+	
+		</Button>
+	    
+	    <Button
+	        android:id="@+id/searchButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="4dp"
+	        android:text="@string/search_button"
+	        android:onClick="searchButtonHandler">
+	
+		</Button>
+	    
+	</LinearLayout>
+</ScrollView>

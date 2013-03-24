@@ -19,12 +19,8 @@ public class MainActivity extends Activity {
 	private Button loginButton;
 	private Button skipLoginButton;
 	private Button forgotPassword;
-	private Button exitButton;
 	private Button createButton;
-	private AlertDialog.Builder builder;
-	private AlertDialog alert;
 	UserApplication app;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,40 +28,12 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		app = (UserApplication) getApplication();
 
-
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
 		loginButton = (Button) findViewById(R.id.LogInButton);
 		skipLoginButton = (Button) findViewById(R.id.SkipLoginButton);
 		forgotPassword = (Button) findViewById(R.id.ForgotPasswordButton);
-		exitButton = (Button) findViewById(R.id.ExitApplicationButton);
 		createButton = (Button) findViewById(R.id.CreateAccountButton);
-
-
-		builder = new AlertDialog.Builder(this);
-		builder.setMessage("Are you sure you would like to exit the application?");
-		builder.setCancelable(false);
-		builder.setTitle("Exit Application?");
-		
-		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				finish();
-				System.exit(0);
-			}
-		});
-
-		builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				dialog.cancel();
-			}
-		});
-
-		alert = builder.create();
 	}
 
 	@Override
@@ -137,11 +105,6 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
-	// OnClickListener for "Exit" Button
-	public void exitButtonHandler(View V) {
-		alert.show();
-	}
-
 	// OnClickListener for "Login" Button
 	public void logInButtonHandler(View v) {
 		User currentUser;
@@ -164,6 +127,7 @@ public class MainActivity extends Activity {
 			User fake = new User();
 			fake.setUserId("john");
 			app.setCurrentUser(fake);
+			
 			/*
 			 * Having trouble getting below code to work.  Doesn't find
 			 * a user.  Not sure if bad username/password or bad
