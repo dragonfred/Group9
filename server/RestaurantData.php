@@ -3,6 +3,8 @@
 http://calgary.rasc.ca/latlong.htm
 It's approximately 70 miles per degree latitude/longitude.
 (0.016667 degrees/mile)
+class is lat 28.601936 longi -81.198444
+reci is at lat 28.600810 longi -81.200145
 */
 
 class RestaurantData {
@@ -40,7 +42,7 @@ class RestaurantData {
 			$latmax = $lati + $degdist;
 			$longmin = $longi - $degdist;
 			$longmax = $longi + $degdist;
-			$query .= "AND Latitude > $longmin AND Latitude < $longmax AND Longitude > $longmin AND Longitude < $longmax ";
+			$query .= "AND Latitude > $latmin AND Latitude < $latmax AND Longitude > $longmin AND Longitude < $longmax ";
 		}
 		if(isset($post['zip'])) {
 			$validQuery = TRUE;
@@ -54,6 +56,9 @@ class RestaurantData {
 			foreach($keywords as $key => $val) {
 				$query .= "AND Keywords LIKE '%".$val."%' ";
 			}
+		}
+		if($validQuery === FALSE) {
+			die("ERR: Invalid set of criteria to select restaurant.");
 		}
 		$qs = '';
 		$qr = $db->squery($query);
