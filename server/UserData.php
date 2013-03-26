@@ -2,13 +2,31 @@
 
 class UserData extends ObjectData {
   function newUser($post, $db) {
-    $sqluuid = $db->uuidStrToSql($post['uuid']);
 
+
+    if(!isset($post['username'])) {
+    	die("ERR: Username not supplied");
+    }
+    if(!isset($post['password'])) {
+    	die("ERR: Password not supplied");
+    }
+    if(!isset($post['object'])) {
+    	die("ERR: User object not supplied");
+    }
+    if(!isset($post['email'])) {
+    	die("ERR: User email not supplied");
+    }
+    if(!isset($post['uuid'])) {
+    	die("ERR: UUID not supplied");
+    }
+    
+    $sqluuid = $db->uuidStrToSql($post['uuid']);
     $username = $db->san($post['username']);
     $password = $db->san($post['password']);
     $object = $db->san($post['object']);
-
-    $query = "SELECT Users.Login, Objects.UUID, Users.UUID FROM Users, Objects WHERE ".
+	$email = $db->san($post['email']);
+	
+    $query = "SELECT Users.Login, Objects.UUID, Users.UUID, Users.Email FROM Users, Objects WHERE ".
       "Users.Login = '$username' OR ". 
       "Objects.UUID = $sqluuid OR ".
       "Users.UUID = $sqluuid";
@@ -22,8 +40,8 @@ class UserData extends ObjectData {
       die("ERR: Password length bad.");
 
 
-    $query = "INSERT INTO Users (`Login`, `Password`, `UUID`) VALUES (".
-      "'$username', '$password', $sqluuid)";
+    $query = "INSERT INTO Users (`Login`, `Password`, `UUID`, `Email`) VALUES (".
+      "'$username', '$password', $sqluuid, '$email')";
     $db->squery($query);
     $query = "INSERT INTO Objects (`UUID`, `ownerUUID`, `Visibility`, `Object`) VALUES (".
       "$sqluuid, $sqluuid, '".$db->objectToSql($object)."', 'private')";

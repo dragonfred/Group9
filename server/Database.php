@@ -79,4 +79,5 @@ class Database extends mysqli {
   function san($s) {
     return $this->real_escape_string($s);
   }
+  
 }

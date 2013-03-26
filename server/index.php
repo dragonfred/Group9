@@ -78,16 +78,16 @@ case 'newUser':
   $userdata->newUser($_POST, $database); break;
 case 'getRestaurants':
   $restaurantdata = new RestaurantData();
-  $restaurantdata->getRestaurants($_POST, $user, $database); break;
+  echo $restaurantdata->getRestaurants($_POST, $user, $database); break;
 case 'getUserReviews':
   $reviewdata = new RestaurantData();
-  $reviewdata->getUserReviews($_POST, $user, $database); break;
+  echo $reviewdata->getUserReviews($_POST, $user, $database); break;
 case 'getRestaurantReviews':
   $reviewdata = new RestaurantData();
-  $reviewdata->getRestaurantReviews($_POST, $user, $database); break;
+  echo $reviewdata->getRestaurantReviews($_POST, $user, $database); break;
 case 'putRestaurantReview':
   $reviewdata = new RestaurantData();
-  $reviewdata->putRestaurantReview($_POST, $user, $database); break;
+  echo $reviewdata->putRestaurantReview($_POST, $user, $database); break;
 default: die("ERR: Invalid command"); break;
 }
 
