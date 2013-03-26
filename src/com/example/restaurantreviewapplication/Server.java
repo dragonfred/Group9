@@ -41,23 +41,71 @@ public class Server {
     // Stubs  / Tests
     ////////////////////////////////////////////////////////////////////////////////////////////
    
-    public static void LogOut(User currentUser){
-    	// log user out of server
-    	/* The server is not stateful. There is no "log out." */ 
+
+    
+    public static Friend findFriend(String friendID){
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("action", "findFriend");
+    	postData.put("friend", friendID);
+    	
+    	String res = postToServer(postData);
+    	Log.i("Server.findFriend", res);
+
+    	Friend result;
+    	result = new Friend();
+    	result.setUserId("New Friend");
+    	return result; //return null for not found
+    	
     }
     
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public static void addFriend(User user, Friend newFriend){
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("action", "addFriend");
+    	postData.put("friend", newFriend.getUserId());
+    	
+    	String res = postToServer(postData);
+    	Log.i("Server.findFriend", res);
+    }
+    
+    
     public static int deleteFriend(User currentUser, Friend friend){
-    	int result;
     	// 0 for good, 1 for bad
-    	result = 0;
-    	return result;
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("action", "deletefriend");
+    	postData.put("delete", friend.getUserId());
+    	String res = postToServer(postData);
+    	Log.i("Server.deleteFriend", res);
+    	if(res.equals("MSG: Friend Deleted.")) return 0;
+    	else return 1;
     }
     
     public static int messageFriend(User currentUser, Friend friend, String message){
-    	int result;
     	// 0 for good, 1 for bad
-    	result = 0;
-    	return result;
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("action", "messageFriend");
+    	postData.put("friend", friend.getUserId());
+    	postData.put("message", message);
+    	String res = postToServer(postData);
+    	Log.i("Server.messageFriend", res);
+    	if(res.equals("MSG: Friend Deleted.")) return 0;
+    	else return 1;
+    }
+    public static void LogOut(User currentUser){
+    	// log user out of server
+    	Server.username="";
+    	Server.password="";
     }
     
     public static ArrayList<Review> getReviews(Restaurant restaurant){
@@ -96,6 +144,21 @@ public class Server {
     	return reviews;
     }
     
+    public static int changePassword(String newPassword){
+    	HashMap<String, String> postData = new HashMap<String, String>();
+
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("action", "changePassword");
+    	postData.put("newpassword", newPassword);
+    	
+    	String res = postToServer(postData);
+    	Log.i("Server.changePassword", res);
+    	if(res.equals("MSG: Password changed.")) return 0;
+    	else return 1;
+    	// 0 for good, 1 for bad
+    }
+    
     public static void addReview(Restaurant restaurant, Review review){
     	HashMap<String, String> postData = new HashMap<String, String>();
     	String res;
@@ -110,26 +173,6 @@ public class Server {
     	res = postToServer(postData);
     	Log.i("Server.addReview", res);
     }
-    
-    public static Friend findFriend(String friendID){
-    	Friend result;
-    	result = new Friend();
-    	result.setUserId("New Friend");
-    	return result; //return null for not found
-    	
-    }
-    
-    public static void addFriend(User user, Friend newFriend){
-    	// new friend to user
-    }
-    
-    public static int changePassword(String newPassword){
-    	int result;
-    	// 0 for good, 1 for bad
-    	result = 0;
-    	return result;
-    }
-    ////////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * @param serverURL Set the URL of the server. It is set by default, hardcoded in this class.
 	 */
