@@ -4,20 +4,27 @@
 package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author Matt
  *
  */
-public class Restaurant {
+public class Restaurant implements Storable {
 
+	private static final long serialVersionUID = -1186267143188274159L;
 	private String restaurantId;
 	private String name;
 	private String address;
 	private String phone;
 	private String location;
 	private ArrayList<Review> reviews;
-	
+	private UUID uuid;
+	  
+	public UUID getUuid() {
+		if(this.uuid==null) this.uuid = UUID.randomUUID();
+		return this.uuid;
+	}
 	/**
 	 * 
 	 */

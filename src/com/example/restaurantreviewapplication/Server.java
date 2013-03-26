@@ -40,25 +40,7 @@ public class Server {
     ////////////////////////////////////////////////////////////////////////////////////////////
     // Stubs  / Tests
     ////////////////////////////////////////////////////////////////////////////////////////////
-    
-    //Location has latitude and longitude in it.
-    public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
-    	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
-    	double lati = location.getLatitude();
-    	double longi = location.getLongitude();
-    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
-    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
-    	return result;
-    }
-    
-    //Zip is "0" (zero) if no zip entered
-    public static ArrayList<Restaurant> getRestaurantsByZipKeyword(int zip, String keyword) {
-    	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
-    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
-    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
-    	return result;
-    }
-    
+   
     public static void LogOut(User currentUser){
     	// log user out of server
     	/* The server is not stateful. There is no "log out." */ 
@@ -80,6 +62,23 @@ public class Server {
     
     public static ArrayList<Review> getReviews(Restaurant restaurant){
     	ArrayList<Review> reviews = new ArrayList<Review>();
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	String sresp;
+    	String[] srespArray;
+    	ArrayList<UUID> uuidresult = new ArrayList<UUID>();
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("action", "getRestaurantReviews");
+    	postData.put("uuid", restaurant.getUuid().toString());
+    	sresp = postToServer(postData);
+    	
+    	srespArray = sresp.split("\n");
+    	for(String sr : srespArray) {
+    		uuidresult.add(UUID.fromString(sr));
+    	}
+    	for(UUID u : uuidresult) {
+    		reviews.add((Review) getObject(u));
+    	}
     	
     	Review aReview = new Review();
     	aReview.setReview("This place rocks!");
@@ -96,8 +95,18 @@ public class Server {
     	return reviews;
     }
     
-    public static void addReview(Restaurant restaurant, String Review){
-    	// add review to server
+    public static void addReview(Restaurant restaurant, Review review){
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	String res;
+    	postData.put("username", username);
+    	postData.put("password", password);
+    	postData.put("visibility", "public");
+    	postData.put("action", "putRestaurantReview");
+    	postData.put("reviewuuid", review.getUuid().toString());
+    	postData.put("restaurantuuid", restaurant.getUuid().toString());
+    	postData.put("object", objectToString(review));
+    	res = postToServer(postData);
+    	Log.i("Server.addReview", res);
     }
     
     public static Friend findFriend(String friendID){
@@ -151,13 +160,37 @@ public class Server {
 		user = new User();
 		user.setPassword(Server.password);
 		user.setUsername(Server.username);
+		user.getUuid();
 		postData.put("username", username);
 		postData.put("password", password);
 		postData.put("email", email);
 		postData.put("action", "newUser");
-		postData.put("object", objectToString(user));
+
 		postData.put("uuid", user.getUuid().toString());
-		return postToServer(postData);	
+		postData.put("object", objectToString(user));
+		Log.i("createAccount real", objectToString(user));
+		Log.i("createAccount postob",postData.get("object"));
+
+		if(objectToString(user).equals(postData.get("object"))) {
+			Log.i("createAccount", "Matched objects");
+		} else {
+			Log.e("createAccount", "Unmatched objects");
+		}
+		postToServer(postData);
+		// begin test
+		HashMap<String, String> vars = new HashMap<String, String>();
+		String sq;
+		vars.put("username", Server.username);
+		vars.put("password", Server.password);
+		vars.put("action", "getUserData");
+		sq=postToServer(vars);
+		Log.i("createAccount test orig",objectToString(user));
+		Log.i("createAccount test retr", sq);
+		if(objectToString(user).equals(sq))
+			Log.i("compare", "Match");
+		else
+			Log.i("compare", "NO MATCH");
+		return "ok";
 	}
 	
     public static int resetPassword(){
@@ -171,6 +204,60 @@ public class Server {
       	else return 1;
     }
 	
+    public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
+    	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
+    	UUID[] RestaurantUuids;
+    	RestaurantUuids = getRestaurantUuids(0, "", location, 1);
+    	for(UUID r: RestaurantUuids) {
+    		result.add((Restaurant) getObject(r));
+    	}
+    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
+    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
+    	return result;
+    }
+    
+    //Zip is "0" (zero) if no zip entered
+    public static ArrayList<Restaurant> getRestaurantsByZipKeyword(int zip, String keyword) {
+    	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
+    	UUID[] RestaurantUuids;
+    	RestaurantUuids = getRestaurantUuids(zip, keyword, null, 0);
+    	for(UUID r: RestaurantUuids) {
+    		result.add((Restaurant) getObject(r));
+    	}
+    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
+    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
+    	return result;
+    }
+    
+    public static UUID[] getRestaurantUuids(int zip, String keyword, Location location, int miles) {
+    	HashMap<String, String> postData;
+    	ArrayList<UUID> uuidresult;
+    	String sresp;
+    	String[] srespArray;
+    	uuidresult = new ArrayList<UUID>();
+    	postData = new HashMap<String, String>();
+    	postData.put("username",username);
+    	postData.put("password",password);
+    	
+    	if(location != null && miles != 0) {
+    		postData.put("longi", Double.toString(location.getLongitude()));
+    		postData.put("lati", Double.toString(location.getLatitude()));
+    		postData.put("miles", Integer.toString(miles));
+    	}
+    	if(zip != 0) {
+    		postData.put("zip", Integer.toString(zip));
+    	}
+    	if(!keyword.equals("")) {
+    		postData.put("keywords", keyword);
+    	}
+    	sresp = postToServer(postData);
+    	if(checkError(sresp) != null) Log.e("Server.getRestaurantUuids",sresp);
+    	srespArray = sresp.split("\n");
+    	for(String sr : srespArray) {
+    		uuidresult.add(UUID.fromString(sr));
+    	}
+    	return (UUID[]) uuidresult.toArray();
+    }
 	/**
 	 * @param o An object returned from getObject
 	 * @return True if this object is an error. 
@@ -180,6 +267,10 @@ public class Server {
 		return (o == null) || str.substring(0,4).equals("ERR");
 	}
 	
+	public static String checkError(String s) {
+		if(s.substring(0,4).equals("ERR")) return s;
+		else return null;
+	}
 	/**
 	 * @param o An object that is an error.
 	 * @return A string containing the error.
@@ -193,16 +284,19 @@ public class Server {
 
 	public static User getUser() {
 		HashMap<String, String> vars = new HashMap<String, String>();
-		Object o;
+		String sret;
+		User o;
 		vars.put("username", Server.username);
 		vars.put("password", Server.password);
 		vars.put("action", "getUserData");
-		o = stringToObject(postToServer(vars));
-		if(isError(o)) {
-			Log.e("Server", getError(o));
+		sret = postToServer(vars);
+		if(checkError(sret) != null) {
+			Log.e("Server.getUser", sret);
 			return null;
 		}
-		return (User) stringToObject(postToServer(vars));
+		o = (User) stringToObject(sret);
+		Log.i("Server.getUser", "Logged in as "+o.getUsername());
+		return o;
 	}
 	
     /**
@@ -311,6 +405,7 @@ public class Server {
     			sb.append("&");
     		}
     	}
+    	Log.i("mapToPost",sb.toString());
     	return sb.toString();
     }
     
@@ -318,13 +413,13 @@ public class Server {
      * @param b64in A base-64 encoded string
      * @return An object
      */
-    private static Object stringToObject(String b64in) {
-            Object o = null;
+    private static Storable stringToObject(String b64in) {
+            Storable o = null;
             byte[] s2 = fromB64(b64in);
             try {
                 ObjectInputStream is = new ObjectInputStream
                     (new ByteArrayInputStream(s2));
-                o = is.readObject();
+                o = (Storable) is.readObject();
                 is.close();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -370,7 +465,7 @@ public class Server {
             connection.setUseCaches(false);
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream ());
-            Log.e("Server.sendServerInternal", "Sent: "+urlParameters);
+            Log.i("Server.sendServerInternal", "Sent: "+urlParameters);
             wr.writeBytes(urlParameters);
             wr.flush();
             wr.close();

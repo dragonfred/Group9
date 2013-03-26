@@ -3,19 +3,31 @@
  */
 package com.example.restaurantreviewapplication;
 
+import java.util.UUID;
+
 /**
  * @author Matt
  *
  */
-public class Review {
+public class Review implements Storable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6399639411788272690L;
 	private String review;
 	private float tasteRating;
 	private float serviceRating;
 	private float cleanlinessRating;
 	private float overallRating;
 
-
+	private UUID uuid;
+	  
+	public UUID getUuid() {
+		if(this.uuid==null) this.uuid = UUID.randomUUID();
+		return this.uuid;
+	}
+	
 	public Review() {
 		this.review = "";
 		this.tasteRating = 0.0f;

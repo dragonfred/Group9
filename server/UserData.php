@@ -44,7 +44,7 @@ class UserData extends ObjectData {
       "'$username', '$password', $sqluuid, '$email')";
     $db->squery($query);
     $query = "INSERT INTO Objects (`UUID`, `ownerUUID`, `Visibility`, `Object`) VALUES (".
-      "$sqluuid, $sqluuid, '".$db->objectToSql($object)."', 'private')";
+      "$sqluuid, $sqluuid, 'private', '".$db->objectToSql($object)."')";
     $db->squery($query);
     return TRUE;
   }

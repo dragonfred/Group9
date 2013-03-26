@@ -54,7 +54,9 @@ public class WriteReviewActivity extends Activity {
 				
 				//submit review to server
 				String review = reviewText.getText().toString();
-				Server.addReview(app.getSelectedRestaurant(), review);
+				Review reviewObj = new Review();
+				reviewObj.setReview(review);
+				Server.addReview(app.getSelectedRestaurant(), reviewObj);
 				
 				Toast.makeText(getApplicationContext(), 
 						"Thank you for your review!", 
