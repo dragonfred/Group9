@@ -25,7 +25,7 @@ class Database extends mysqli {
     return($s);
   } 
 
-  function binToUuidStr($x) {
+  function uuidBinToStr($x) {
     $x = $this->BinToHex($x);
     $x = strtolower($x);
     $x = 
@@ -36,7 +36,13 @@ class Database extends mysqli {
       substr($x, 20, 12);
     return($x);
   }
-
+  function genUuidBin() {
+    $randval = openssl_random_pseudo_bytes(16);
+    $query = "SELECT * FROM Objects WHERE UUID=".$this->uuidBinToSql($randval);
+    $res = $this->squery($query);
+    if($res->num_rows != 0) return $this->genUuidBin();
+    else return $randval;
+  } 
   function uuidStrToHex($x) {
     return strtoupper(str_replace('-','',$x));
   }

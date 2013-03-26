@@ -13,7 +13,7 @@ class RestaurantData {
 		$qs = '';
 		$qr = $db->squery("SELECT ReviewUUID FROM Reviews where UserUUID=".$db->uuidBinToSql($uuid));
 		while($qr->fetch_assoc()) {
-			$qs .= $db->binToUuidStr($qr['ReviewUUID'])."\n";
+			$qs .= $db->uuidBinToStr($qr['ReviewUUID'])."\n";
 		}
 		return $qs;
 	}
@@ -23,7 +23,7 @@ class RestaurantData {
 		$qs='';
 		$qr = $db->squery("SELECT ReviewUUID FROM Reviews WHERE RestaurantUUID=".$db->uuidStrToSql($restaurant));
 		while($row = $qr->fetch_assoc()) {
-			$qs .= $db->binToUuidStr($row['ReviewUUID'])."\n";
+			$qs .= $db->uuidBinToStr($row['ReviewUUID'])."\n";
 		}
 		return $qs;
 	}
@@ -63,7 +63,7 @@ class RestaurantData {
 		$qs = '';
 		$qr = $db->squery($query);
 		while($row = $qr->fetch_assoc()) {
-			$qs .= $db->binToUuidStr($row['UUID'])."\n";
+			$qs .= $db->uuidBinToStr($row['UUID'])."\n";
 		}
 		return $qs;
 	}

@@ -7,6 +7,7 @@ require('ObjectData.php');
 require('UserData.php');
 require('RestaurantData.php');
 require('PWReset.php');
+require('Friends.php');
 require('cred.php');
 $database = new Database($DB_HOST, $DB_USER, $DB_PASS, $DB_DB);
 
@@ -22,6 +23,12 @@ if(isset($_GET['pwreset'])) {
   exit();
 }
 
+if(isset($_GET['genUUID'])) {
+  $binUuid = $database->genUuidBin();
+  echo("<pre>\nUUID sql:\n".$database->uuidBinToSql($binUuid).
+       "\nUUID str:\n".$database->uuidBinToStr($binUuid)."\n</pre>");
+  exit();
+}
 
 if(!isset($_POST['username']) || !isset($_POST['password'])) {
   die("ERR: no login");
@@ -76,6 +83,9 @@ case 'putUserData':
 case 'newUser':
   $userdata = new UserData();
   $userdata->newUser($_POST, $database); break;
+case 'changePassword':
+  $userdata = new UserData();
+  $userdata->changePassword($_POST, $user, $database); break;
 case 'getRestaurants':
   $restaurantdata = new RestaurantData();
   echo $restaurantdata->getRestaurants($_POST, $user, $database); break;
@@ -88,6 +98,16 @@ case 'getRestaurantReviews':
 case 'putRestaurantReview':
   $reviewdata = new RestaurantData();
   echo $reviewdata->putRestaurantReview($_POST, $user, $database); break;
+case 'addFriend':
+  $frienddata = new FriendData();
+  echo $frienddata->addFriend($_POST, $user, $database); break;
+case 'deleteFriend':
+  $frienddata = new FriendData();
+  echo $frienddata->deleteFriend($_POST, $user, $database); break;
+case 'messageFriend':
+  $frienddata = new FriendData();
+  echo $frienddata->messageFriend($_POST, $user, $database); break;
+  
 default: die("ERR: Invalid command"); break;
 }
 
