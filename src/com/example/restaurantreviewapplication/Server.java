@@ -78,13 +78,6 @@ public class Server {
     	return result;
     }
     
-    public static int resetPassword(){
-      	int result;
-    	// 0 for good, 1 for bad
-    	result = 0;
-    	return result;
-    }
-    
     public static ArrayList<Review> getReviews(Restaurant restaurant){
     	ArrayList<Review> reviews = new ArrayList<Review>();
     	
@@ -166,6 +159,17 @@ public class Server {
 		postData.put("uuid", user.getUuid().toString());
 		return postToServer(postData);	
 	}
+	
+    public static int resetPassword(){
+      	Log.i("Server.resetPassword", "Called");
+      	HashMap<String, String> postData;
+      	postData = new HashMap<String, String>();
+      	postData.put("pwreset", username);
+      	String sret = postToServer(postData);
+      	
+      	if(sret.equals("MSG: Mail sent successfully.")) return 0;
+      	else return 1;
+    }
 	
 	/**
 	 * @param o An object returned from getObject
