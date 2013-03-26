@@ -66,6 +66,7 @@ public class Server {
     	String sresp;
     	String[] srespArray;
     	ArrayList<UUID> uuidresult = new ArrayList<UUID>();
+    	Log.i("getReviews", "called");
     	postData.put("username", username);
     	postData.put("password", password);
     	postData.put("action", "getRestaurantReviews");
@@ -98,6 +99,7 @@ public class Server {
     public static void addReview(Restaurant restaurant, Review review){
     	HashMap<String, String> postData = new HashMap<String, String>();
     	String res;
+    	Log.i("addReview", "called");
     	postData.put("username", username);
     	postData.put("password", password);
     	postData.put("visibility", "public");
@@ -207,6 +209,8 @@ public class Server {
     public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
     	UUID[] RestaurantUuids;
+    	Log.i("getRestaurantsByLocation", "called");
+    	// When distance is implemented, replace 1 in the line below.
     	RestaurantUuids = getRestaurantUuids(0, "", location, 1);
     	for(UUID r: RestaurantUuids) {
     		result.add((Restaurant) getObject(r));
@@ -220,6 +224,7 @@ public class Server {
     public static ArrayList<Restaurant> getRestaurantsByZipKeyword(int zip, String keyword) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
     	UUID[] RestaurantUuids;
+    	Log.i("getRestaurantsByZipKeyword", "called");
     	RestaurantUuids = getRestaurantUuids(zip, keyword, null, 0);
     	for(UUID r: RestaurantUuids) {
     		result.add((Restaurant) getObject(r));
@@ -230,12 +235,12 @@ public class Server {
     }
     
     public static UUID[] getRestaurantUuids(int zip, String keyword, Location location, int miles) {
-    	HashMap<String, String> postData;
-    	ArrayList<UUID> uuidresult;
+    	HashMap<String, String> postData = new HashMap<String, String>();
+    	ArrayList<UUID> uuidresult = new ArrayList<UUID>();
     	String sresp;
     	String[] srespArray;
-    	uuidresult = new ArrayList<UUID>();
-    	postData = new HashMap<String, String>();
+
+    	Log.i("getRestaurantUuids", "Called");
     	postData.put("username",username);
     	postData.put("password",password);
     	

@@ -51,7 +51,7 @@ class RestaurantData {
 		}
 		if(isset($post['keywords'])) {
 			$validQuery = TRUE;
-			$keywords = $db->san($post['keywords']);
+			$keywords = $db->san(strtoupper($post['keywords']));
 			$keywordArray = explode(",",$keywords);
 			foreach($keywords as $key => $val) {
 				$query .= "AND Keywords LIKE '%".$val."%' ";
