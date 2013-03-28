@@ -16,11 +16,13 @@ import java.util.Iterator;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+import android.app.Application;
 import android.location.Location;
 import android.os.AsyncTask;
 //import android.os.StrictMode;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * 
@@ -34,7 +36,7 @@ public class Server {
 			"http://cop4331.atmdvdusa.com/server/";
 	private static String username = "anonymous";
 	private static String password = "none";
-	
+	private static String error;
 	private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base64.URL_SAFE;
     private static boolean isReady = true;
     
@@ -122,7 +124,14 @@ public class Server {
     	postData.put("uuid", restaurant.getUuid().toString());
     	sresp = postToServer(postData);
     	
-    	srespArray = sresp.split("\n");
+    	srespArray = sresp.split(",");
+    	Log.i("getReviews", "Response: ["+sresp+"]");
+    	Log.i("getReviews", "Response count: "+srespArray.length);
+    	if(sresp.length() == 0) return reviews; // no reviews
+    	if(Server.checkError(sresp) != null) {
+    		Log.e("Server.getReviews", sresp);
+    		return reviews;
+    	}
     	for(String sr : srespArray) {
     		uuidresult.add(UUID.fromString(sr));
     	}
@@ -322,6 +331,7 @@ public class Server {
     			return null;
     	}
     	ro = new Restaurant(r.get("name"), r.get("address"), r.get("phone"), r.get("lat")+","+r.get("lng"));
+    	ro.setUuid(uuid);
     	return ro;
     }
     
@@ -349,6 +359,9 @@ public class Server {
     	sresp = postToServer(postData);
     	if(checkError(sresp) != null) Log.e("Server.getRestaurantUuids",sresp);
     	srespArray = sresp.split(",");
+    	if(sresp.length() == 0) { //nothing
+    		return uuidresult;
+    	}
     	for(String sr : srespArray) {
     		uuidresult.add(UUID.fromString(sr));
     	}
@@ -364,7 +377,7 @@ public class Server {
 	}
 	
 	public static String checkError(String s) {
-		if(s.substring(0,3).equals("ERR")) {
+		if(s.length() >= 3 && s.substring(0,3).equals("ERR")) {
 			Log.i("Server.checkError", "Found an error.");
 			return s;
 		}
@@ -590,7 +603,7 @@ public class Server {
         	Log.e("Server.sendServerInternal", e.toString());
         }
         Log.i("Server.sendServer", "Got: "+sb.toString());
-        return sb.toString();
+        return sb.toString().replaceAll("$@.*@$", "");
     }
    
     public static String sendServer(String urlParameters) {
@@ -607,7 +620,15 @@ public class Server {
 			Log.e("Server.sendServer", e.toString());
 			return "ERR: Execution Exception";
 		}
+    	if(checkError(r) != null) {
+    		error = r;
+    		Log.e("sendServer ERR: ", r);
+    	}
     	return r;
+    }
+    
+    public static String error() {
+    	return Server.error;
     }
     
     private static void setReady(Boolean stat) {
@@ -629,6 +650,7 @@ public class Server {
              Server.setReady(true);
          }
     }
+    
     
     public static void createTestUser(String username, String password) {
     	User user = new User();

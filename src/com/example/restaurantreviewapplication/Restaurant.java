@@ -25,6 +25,9 @@ public class Restaurant implements Storable {
 		if(this.uuid==null) this.uuid = UUID.randomUUID();
 		return this.uuid;
 	}
+	public void setUuid(UUID u) {
+		this.uuid = u;
+	}
 	/**
 	 * 
 	 */

@@ -23,7 +23,7 @@ class RestaurantData {
 		$qs='';
 		$qr = $db->squery("SELECT ReviewUUID FROM Reviews WHERE RestaurantUUID=".$db->uuidStrToSql($restaurant));
 		while($row = $qr->fetch_assoc()) {
-			$qs .= $db->uuidBinToStr($row['ReviewUUID'])."\n";
+			$qs .= $db->uuidBinToStr($row['ReviewUUID']).",";
 		}
 		return $qs;
 	}
@@ -70,6 +70,7 @@ class RestaurantData {
 				$query .= "AND Keywords LIKE '%".$val."%' ";
 			}
 		}
+		$query .= " LIMIT 100";
 		if($validQuery === FALSE) {
 			die("ERR: Invalid set of criteria to select restaurant.");
 		}
@@ -101,13 +102,15 @@ class RestaurantData {
 				$db->uuidStrToSql($restaurantuuid).', '.
 				$db->uuidBinToSql($user['UUID']).', '.
 				$db->uuidStrToSql($reviewuuid).')';
+		echo "$@".$q1."@$";
 		$db->squery($q1);
 		$q2 = "INSERT INTO Objects (UUID, Object, OwnerUUID, Visibility) VALUES (".
 				$db->uuidStrToSql($reviewuuid).', '.
 				"'".$db->objectToSql($review)."', ".
 				$db->uuidBinToSql($user['UUID']).', '.
-				$db->uuidStrToSql($visibility).')';
-		$db->squery($q1);
+				"'".$visibility."')";
+		echo "$@".$q2."@$";
+		$db->squery($q2);
 		return "MSG: Review Added.";
 	}
 
