@@ -357,7 +357,10 @@ public class Server {
     		postData.put("keywords", keyword);
     	}
     	sresp = postToServer(postData);
-    	if(checkError(sresp) != null) Log.e("Server.getRestaurantUuids",sresp);
+    	if(checkError(sresp) != null) {
+    		Log.e("Server.getRestaurantUuids",sresp);
+    		return uuidresult;
+    	}
     	srespArray = sresp.split(",");
     	if(sresp.length() == 0) { //nothing
     		return uuidresult;

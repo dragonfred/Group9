@@ -67,10 +67,11 @@ class RestaurantData {
 			$keywords = $db->san(strtoupper($post['keywords']));
 			$keywordArray = explode(",",$keywords);
 			foreach($keywordArray as $key => $val) {
-				$query .= "AND Keywords LIKE '%".$val."%' ";
+				$query .= "AND (Keywords LIKE '%$val%' OR Name LIKE '%$val%') ";
 			}
 		}
 		$query .= " LIMIT 100";
+		
 		if($validQuery === FALSE) {
 			die("ERR: Invalid set of criteria to select restaurant.");
 		}
@@ -102,14 +103,12 @@ class RestaurantData {
 				$db->uuidStrToSql($restaurantuuid).', '.
 				$db->uuidBinToSql($user['UUID']).', '.
 				$db->uuidStrToSql($reviewuuid).')';
-		echo "$@".$q1."@$";
 		$db->squery($q1);
 		$q2 = "INSERT INTO Objects (UUID, Object, OwnerUUID, Visibility) VALUES (".
 				$db->uuidStrToSql($reviewuuid).', '.
 				"'".$db->objectToSql($review)."', ".
 				$db->uuidBinToSql($user['UUID']).', '.
 				"'".$visibility."')";
-		echo "$@".$q2."@$";
 		$db->squery($q2);
 		return "MSG: Review Added.";
 	}
