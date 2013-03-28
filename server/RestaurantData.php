@@ -27,7 +27,20 @@ class RestaurantData {
 		}
 		return $qs;
 	}
-	
+	function getOneRestaurant($post, $user, $db) {
+		$uuid = $db->san($post['uuid']);
+		$query = "SELECT * FROM Restaurants WHERE UUID = ".$db->uuidStrToSql($uuid);
+		$row = $db->oneRow($query);
+		if($row === FALSE) {
+			die("ERR: Restaurant not found.");
+		}
+		$res = 	'name|'.$row['Name'].'*'.
+				'address|'.$row['Address'].'*'.
+				'phone|'.$row['Phone'].'*'.
+				'lat|'.$row['Latitude'].'*'.
+				'lng|'.$row['Longitude'];
+		return $res;
+	}
 	function getRestaurants($post, $user, $db) {
 		$query = "SELECT UUID FROM Restaurants WHERE 1=1 ";
 		$degmile = 0.016667;
@@ -53,7 +66,7 @@ class RestaurantData {
 			$validQuery = TRUE;
 			$keywords = $db->san(strtoupper($post['keywords']));
 			$keywordArray = explode(",",$keywords);
-			foreach($keywords as $key => $val) {
+			foreach($keywordArray as $key => $val) {
 				$query .= "AND Keywords LIKE '%".$val."%' ";
 			}
 		}
@@ -63,7 +76,7 @@ class RestaurantData {
 		$qs = '';
 		$qr = $db->squery($query);
 		while($row = $qr->fetch_assoc()) {
-			$qs .= $db->uuidBinToStr($row['UUID'])."\n";
+			$qs .= $db->uuidBinToStr($row['UUID']).",";
 		}
 		return $qs;
 	}

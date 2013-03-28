@@ -93,7 +93,6 @@ public class FindRestaurantsActivity extends Activity {
 				zip = Integer.parseInt(rawzip);
 			}
 			//serverConnection.getRestaurants(zip, keyword);
-			
 			restaurants = Server.getRestaurantsByZipKeyword(zip, keyword);
 			if(restaurants != null){
 				app.setRestaurants(restaurants);

@@ -32,8 +32,9 @@ import android.util.Log;
 public class Server {
 	private static String serverURL = 
 			"http://cop4331.atmdvdusa.com/server/";
-	private static String username;
-	private static String password;
+	private static String username = "anonymous";
+	private static String password = "none";
+	
 	private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base64.URL_SAFE;
     private static boolean isReady = true;
     
@@ -104,8 +105,8 @@ public class Server {
     }
     public static void LogOut(User currentUser){
     	// log user out of server
-    	Server.username="";
-    	Server.password="";
+    	Server.username="anonymous";
+    	Server.password="none";
     }
     
     public static ArrayList<Review> getReviews(Restaurant restaurant){
@@ -251,12 +252,17 @@ public class Server {
 	
     public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
-    	UUID[] RestaurantUuids;
+    	ArrayList<UUID> RestaurantUuids;
     	Log.i("getRestaurantsByLocation", "called");
     	// When distance is implemented, replace 1 in the line below.
     	RestaurantUuids = getRestaurantUuids(0, "", location, 1);
     	for(UUID r: RestaurantUuids) {
-    		result.add((Restaurant) getObject(r));
+    		Restaurant toAdd = restaurantFromUuid(r);
+    		if(toAdd != null) {
+    			result.add(toAdd);
+    		} else {
+    			Log.e("getRestaurantsByZipKeyword", "Got a null response");
+    		}
     	}
     	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
     	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
@@ -266,26 +272,68 @@ public class Server {
     //Zip is "0" (zero) if no zip entered
     public static ArrayList<Restaurant> getRestaurantsByZipKeyword(int zip, String keyword) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
-    	UUID[] RestaurantUuids;
+    	ArrayList<UUID> RestaurantUuids;
     	Log.i("getRestaurantsByZipKeyword", "called");
     	RestaurantUuids = getRestaurantUuids(zip, keyword, null, 0);
     	for(UUID r: RestaurantUuids) {
-    		result.add((Restaurant) getObject(r));
+    		Restaurant toAdd = restaurantFromUuid(r);
+    		if(toAdd != null) {
+    			result.add(toAdd);
+    		} else {
+    			Log.e("getRestaurantsByZipKeyword", "Got a null response");
+    		}
     	}
     	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
     	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
     	return result;
     }
     
-    public static UUID[] getRestaurantUuids(int zip, String keyword, Location location, int miles) {
+    public static Restaurant restaurantFromUuid(UUID uuid) {
+    	Restaurant ro;
+    	HashMap<String, String> vars = new HashMap<String, String>();
+    	vars.put("username", Server.username);
+    	vars.put("password", Server.password);
+    	vars.put("action", "getOneRestaurant");
+    	vars.put("uuid", uuid.toString());
+    	String result = Server.postToServer(vars);
+    	if(result.substring(0, 3).equals("ERR")) {
+    		Log.e("Server restaurantFromUUID", result);
+    		return null;
+    	}
+    	/* Format:
+    	 * name|Joe's Restaurant%address|123 Fake St
+    	 */
+    	String [] args = result.split("[*]"); // Array of arguments
+    	HashMap<String, String> r = new HashMap<String, String>(); // will be k:v eg name -> Joe's Rest.
+    	for(String kvp : args) {
+    		String[] kva = kvp.split("[|]");
+    		if(kva.length != 2) {
+    			Log.e("restaurantFromUuid", "Invalid k/v pair: "+kva.toString());
+    			return null;
+    		}
+    		r.put(kva[0], kva[1]);
+    	}
+    	if((r.get("name") == null) || 
+    	   (r.get("address") == null) || 
+    	   (r.get("phone") == null) || 
+    	   (r.get("lat") == null) ||
+           (r.get("lng") == null)) {
+    			Log.e("restaurantFromUuid", "A restaurant is missing data:" + result);
+    			return null;
+    	}
+    	ro = new Restaurant(r.get("name"), r.get("address"), r.get("phone"), r.get("lat")+","+r.get("lng"));
+    	return ro;
+    }
+    
+    public static ArrayList<UUID> getRestaurantUuids(int zip, String keyword, Location location, int miles) {
     	HashMap<String, String> postData = new HashMap<String, String>();
     	ArrayList<UUID> uuidresult = new ArrayList<UUID>();
     	String sresp;
     	String[] srespArray;
-
     	Log.i("getRestaurantUuids", "Called");
     	postData.put("username",username);
     	postData.put("password",password);
+    	postData.put("action", "getRestaurants");
     	
     	if(location != null && miles != 0) {
     		postData.put("longi", Double.toString(location.getLongitude()));
@@ -300,11 +348,11 @@ public class Server {
     	}
     	sresp = postToServer(postData);
     	if(checkError(sresp) != null) Log.e("Server.getRestaurantUuids",sresp);
-    	srespArray = sresp.split("\n");
+    	srespArray = sresp.split(",");
     	for(String sr : srespArray) {
     		uuidresult.add(UUID.fromString(sr));
     	}
-    	return (UUID[]) uuidresult.toArray();
+    	return uuidresult;
     }
 	/**
 	 * @param o An object returned from getObject
@@ -312,12 +360,18 @@ public class Server {
 	 */
 	public static boolean isError(Object o) {
 		String str = (String) o;
-		return (o == null) || str.substring(0,4).equals("ERR");
+		return (o == null) || str.substring(0,3).equals("ERR");
 	}
 	
 	public static String checkError(String s) {
-		if(s.substring(0,4).equals("ERR")) return s;
-		else return null;
+		if(s.substring(0,3).equals("ERR")) {
+			Log.i("Server.checkError", "Found an error.");
+			return s;
+		}
+		else {
+			Log.i("Server.checkError", "Found no error.");
+			return null;
+		}
 	}
 	/**
 	 * @param o An object that is an error.
@@ -339,12 +393,14 @@ public class Server {
 		vars.put("action", "getUserData");
 		sret = postToServer(vars);
 		if(checkError(sret) != null) {
-			Log.e("Server.getUser", sret);
+			Log.e("Server.getUser", checkError(sret));
 			return null;
+		} else {
+			Log.i("getUser decode", sret);
+			o = (User) stringToObject(sret);
+			Log.i("Server.getUser", "Logged in as "+o.getUsername());
+			return o;
 		}
-		o = (User) stringToObject(sret);
-		Log.i("Server.getUser", "Logged in as "+o.getUsername());
-		return o;
 	}
 	
     /**
@@ -378,7 +434,7 @@ public class Server {
     	vars.put("action", "readObject");
     	vars.put("uuid", uuid.toString());
     	String result = Server.postToServer(vars);
-    	if(result.substring(0, 4).equals("ERR")) {
+    	if(result.substring(0, 3).equals("ERR")) {
     		Log.e("Server", result);
     		return result;
     	}
@@ -406,7 +462,12 @@ public class Server {
      */
     public static String postToServer(HashMap<String, String> vars) {
     	String postData = mapToPost(vars);
-    	return sendServer(postData);
+    	String res = sendServer(postData);
+    	//String stub = res.substring(0,3);
+    	//if(stub.equals("ERR") || stub.equals("MSG")) {
+        //		new AlertDialog.Builder(null).setTitle("Argh").setMessage("Watch out!").setNeutralButton("Close", null).show();  
+        //	}
+        return res;
     }
     
     
@@ -470,7 +531,7 @@ public class Server {
                 o = (Storable) is.readObject();
                 is.close();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("Server.stringToObject", e.toString());
             }
             return o;
     }
@@ -486,7 +547,7 @@ public class Server {
             o.writeObject(ob);
             o.close();
         } catch (IOException e) {
-            Log.e("Server", e.toString());
+            Log.e("Server.objectToString", e.toString());
         }
         return toB64(b.toByteArray());    
     }

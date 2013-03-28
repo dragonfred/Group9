@@ -89,6 +89,9 @@ case 'changePassword':
 case 'getRestaurants':
   $restaurantdata = new RestaurantData();
   echo $restaurantdata->getRestaurants($_POST, $user, $database); break;
+case 'getOneRestaurant':
+	$restaurantdata = new RestaurantData();
+	echo $restaurantdata->getOneRestaurant($_POST, $user, $database); break;
 case 'getUserReviews':
   $reviewdata = new RestaurantData();
   echo $reviewdata->getUserReviews($_POST, $user, $database); break;
