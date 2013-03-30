@@ -7,6 +7,11 @@ import com.example.restaurantreviewapplication.Friend;
 import com.example.restaurantreviewapplication.Restaurant;
 
 import android.app.Application;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
 
 public class UserApplication extends Application {
 	private User currentUser;

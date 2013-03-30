@@ -9,6 +9,8 @@ package com.example.restaurantreviewapplication;
 
 public final class Manifest {
     public static final class permission {
-        public static final String MAPS_RECEIVE="com.dragonfred.permission.MAPS_RECEIVE";
+        /**  End of copy. 
+         */
+        public static final String MAPS_RECEIVE="com.example.restaurantreviewapplication.permission.MAPS_RECEIVE";
     }
 }
