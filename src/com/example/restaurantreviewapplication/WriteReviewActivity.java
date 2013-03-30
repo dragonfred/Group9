@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +25,18 @@ public class WriteReviewActivity extends Activity {
 	private TextView restaurantPhoneNumberText;
 	private EditText reviewText;
 	private TextView charactersRemaining;
+	
 	private Button addPictureButton;
 	private Button submitReviewButton;
 	private Button postToFacebook;
+	
+	private RatingBar tasteRatingBar;
+	private RatingBar serviceRatingBar;
+	private RatingBar cleanlinessRatingBar;
+	private RatingBar overallRatingBar;
+	private float overallRating = 0.0f;
+	private final float maxRating = 12.0f;
+	
 	UserApplication app;
 	
 	private int maxChars = 200;
@@ -72,6 +83,8 @@ public class WriteReviewActivity extends Activity {
 			}
 		});
 		
+		addListenerOnRatingBar();
+		
 		alert = builder.create();
 		
 		//connect to global data
@@ -114,13 +127,50 @@ public class WriteReviewActivity extends Activity {
 		});
 	}
 
-	
+	public void addListenerOnRatingBar() {
+		 
+		tasteRatingBar = (RatingBar) findViewById(R.id.tasteRating);
+		serviceRatingBar = (RatingBar) findViewById(R.id.serviceRating);
+		cleanlinessRatingBar = (RatingBar) findViewById(R.id.cleanlinessRating);
+		overallRatingBar = (RatingBar) findViewById(R.id.overallRating);
+	 
+		//if taste rating value is changed, calculate and update overall rating.
+		tasteRatingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+					
+				overallRatingBar.setRating(CalculateRating());
+			}
+		});
+		
+		serviceRatingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+					
+				overallRatingBar.setRating(CalculateRating());
+			}
+		});
+		
+		cleanlinessRatingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+					
+				overallRatingBar.setRating(CalculateRating());
+			}
+		});
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_write_review, menu);
 		return true;
+	}
+	
+	private float CalculateRating()
+	{
+		overallRating = ((tasteRatingBar.getRating() + serviceRatingBar.getRating() + cleanlinessRatingBar.getRating()) / maxRating) * 4.0f;
+		return overallRating;
 	}
 	
 	public void addPictureButtonHandler(View v){

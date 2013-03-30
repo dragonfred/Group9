@@ -85,9 +85,9 @@
 			        android:id="@+id/tasteRating"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:layout_gravity="right"
 			        android:numStars="4"
-			        android:gravity="center">
+			        android:gravity="center"
+			        android:stepSize="0.5">
 			    </RatingBar>
 			   
 			</LinearLayout>
@@ -112,7 +112,8 @@
 		   	        android:layout_width="wrap_content"
 		   	        android:layout_height="wrap_content"
 		   	        android:numStars="4"
-		   	        android:gravity="center">
+		   	        android:gravity="center"
+		   	        android:stepSize="0.5">
 		   	    </RatingBar>
 			    
 			</LinearLayout>
@@ -137,7 +138,8 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:gravity="center"
-			        android:numStars="4">
+			        android:numStars="4"
+			        android:stepSize="0.5">
 			    </RatingBar>
 			    
 			</LinearLayout>
@@ -162,7 +164,8 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:isIndicator="true"
-			        android:numStars="4">
+			        android:numStars="4"
+			        android:stepSize="0.11">
 			    </RatingBar>
 				   	
 			</LinearLayout>	
