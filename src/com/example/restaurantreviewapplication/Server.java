@@ -260,16 +260,8 @@ public class Server {
 
 		postData.put("uuid", user.getUuid().toString());
 		postData.put("object", objectToString(user));
-		Log.i("createAccount real", objectToString(user));
-		Log.i("createAccount postob",postData.get("object"));
 
-		if(objectToString(user).equals(postData.get("object"))) {
-			Log.i("createAccount", "Matched objects");
-		} else {
-			Log.e("createAccount", "Unmatched objects");
-		}
-		return postToServer(postData);
-		 
+		return postToServer(postData);		 
 	}
 	
     /**
