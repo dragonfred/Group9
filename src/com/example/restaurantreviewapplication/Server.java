@@ -16,13 +16,11 @@ import java.util.Iterator;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
-import android.app.Application;
 import android.location.Location;
 import android.os.AsyncTask;
 //import android.os.StrictMode;
 import android.util.Base64;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * 
@@ -67,6 +65,10 @@ public class Server {
 
     ////////////////////////////////////////////////////////////////////////////////////////////
     
+    /**
+     * @param user
+     * @param newFriend
+     */
     public static void addFriend(User user, Friend newFriend){
     	HashMap<String, String> postData = new HashMap<String, String>();
     	postData.put("username", username);
@@ -79,6 +81,11 @@ public class Server {
     }
     
     
+    /**
+     * @param currentUser
+     * @param friend
+     * @return 0 for good, 1 for bad
+     */
     public static int deleteFriend(User currentUser, Friend friend){
     	// 0 for good, 1 for bad
     	HashMap<String, String> postData = new HashMap<String, String>();
@@ -92,6 +99,12 @@ public class Server {
     	else return 1;
     }
     
+    /**
+     * @param currentUser
+     * @param friend
+     * @param message
+     * @return 0 for good, 1 for bad
+     */
     public static int messageFriend(User currentUser, Friend friend, String message){
     	// 0 for good, 1 for bad
     	HashMap<String, String> postData = new HashMap<String, String>();
@@ -105,12 +118,20 @@ public class Server {
     	if(res.equals("MSG: Friend Deleted.")) return 0;
     	else return 1;
     }
+    
+    /**
+     * @param currentUser
+     */
     public static void LogOut(User currentUser){
     	// log user out of server
     	Server.username="anonymous";
     	Server.password="none";
     }
     
+    /**
+     * @param restaurant
+     * @return List of reviews for this restaurant. 
+     */
     public static ArrayList<Review> getReviews(Restaurant restaurant){
     	ArrayList<Review> reviews = new ArrayList<Review>();
     	HashMap<String, String> postData = new HashMap<String, String>();
@@ -154,6 +175,10 @@ public class Server {
     	return reviews;
     }
     
+    /**
+     * @param newPassword
+     * @return 0 for good, 1 for bad
+     */
     public static int changePassword(String newPassword){
     	HashMap<String, String> postData = new HashMap<String, String>();
 
@@ -169,6 +194,10 @@ public class Server {
     	// 0 for good, 1 for bad
     }
     
+    /**
+     * @param restaurant the Restaurant being reviewed
+     * @param review The Review. 
+     */
     public static void addReview(Restaurant restaurant, Review review){
     	HashMap<String, String> postData = new HashMap<String, String>();
     	String res;
@@ -186,13 +215,14 @@ public class Server {
 	/**
 	 * @param serverURL Set the URL of the server. It is set by default, hardcoded in this class.
 	 */
+
 	public static void setServer(String serverURL) {
 		Log.i("Server.getServer", "Server URL changed to "+serverURL);
 		Server.serverURL = serverURL;
 	}
 	
 	/**
-	 * Set the username. It is important to do this before using the server.
+	 * Set the username.
 	 * @param username The user's username. 
 	 */
 	public static void setUsername(String username) {
@@ -200,7 +230,8 @@ public class Server {
 		Server.username = username;
 	}
 	
-	/** Set the password. It is important to do this before using the server.
+	/** 
+	 * Set the password. 
 	 * @param password The user's password.
 	 */
 	public static void setPassword(String password) {
@@ -208,6 +239,12 @@ public class Server {
 		Server.password = password;
 	}
 	
+	/**
+	 * Create an account on the server. Make sure to specify the
+	 * username/password first with setUsername and setPassword.
+	 * @param email the user's email address
+	 * @return
+	 */
 	public static String createAccount(String email) {
 		HashMap<String, String> postData;
 		postData = new HashMap<String, String>();
@@ -231,23 +268,14 @@ public class Server {
 		} else {
 			Log.e("createAccount", "Unmatched objects");
 		}
-		postToServer(postData);
-		// begin test
-		HashMap<String, String> vars = new HashMap<String, String>();
-		String sq;
-		vars.put("username", Server.username);
-		vars.put("password", Server.password);
-		vars.put("action", "getUserData");
-		sq=postToServer(vars);
-		Log.i("createAccount test orig",objectToString(user));
-		Log.i("createAccount test retr", sq);
-		if(objectToString(user).equals(sq))
-			Log.i("compare", "Match");
-		else
-			Log.i("compare", "NO MATCH");
-		return "ok";
+		return postToServer(postData);
+		
 	}
 	
+    /**
+     * Initiate a password reset for the user. 
+     * @return 0 for good, 1 for bad
+     */
     public static int resetPassword(){
       	Log.i("Server.resetPassword", "Called");
       	HashMap<String, String> postData;
@@ -259,12 +287,18 @@ public class Server {
       	else return 1;
     }
 	
+    /**
+     * This searches restaurants within a five mile radius of the user. It should
+     * probably be changed to take an argument specifying the maximum distance. 
+     * @param location a Location of the user
+     * @return list of restaurants
+     */
     public static ArrayList<Restaurant> getRestaurantsByLocation(Location location) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
     	ArrayList<UUID> RestaurantUuids;
     	Log.i("getRestaurantsByLocation", "called");
     	// When distance is implemented, replace 1 in the line below.
-    	RestaurantUuids = getRestaurantUuids(0, "", location, 1);
+    	RestaurantUuids = getRestaurantUuids(0, "", location, 5);
     	for(UUID r: RestaurantUuids) {
     		Restaurant toAdd = restaurantFromUuid(r);
     		if(toAdd != null) {
@@ -279,6 +313,11 @@ public class Server {
     }
     
     //Zip is "0" (zero) if no zip entered
+    /**
+     * @param zip 0 if not entered, otherwise the zip code. 
+     * @param keyword A keyword/name of a restaurant. 
+     * @return
+     */
     public static ArrayList<Restaurant> getRestaurantsByZipKeyword(int zip, String keyword) {
     	ArrayList<Restaurant> result = new ArrayList<Restaurant>();
     	ArrayList<UUID> RestaurantUuids;
@@ -297,7 +336,12 @@ public class Server {
     	return result;
     }
     
-    public static Restaurant restaurantFromUuid(UUID uuid) {
+    /**
+     * Create a Restaurant object for the given UUID. 
+     * @param uuid the UUID of a Restaurant "object"
+     * @return a Restaurant. 
+     */
+    private static Restaurant restaurantFromUuid(UUID uuid) {
     	Restaurant ro;
     	HashMap<String, String> vars = new HashMap<String, String>();
     	vars.put("username", Server.username);
@@ -335,6 +379,13 @@ public class Server {
     	return ro;
     }
     
+    /**
+     * @param zip The zip to search for, or 0 to ignore. 
+     * @param keyword The keywords, or null to ignore. 
+     * @param location the Location of the restaurant, or null to ignore. 
+     * @param miles The number of miles to search by location. 
+     * @return
+     */
     public static ArrayList<UUID> getRestaurantUuids(int zip, String keyword, Location location, int miles) {
     	HashMap<String, String> postData = new HashMap<String, String>();
     	ArrayList<UUID> uuidresult = new ArrayList<UUID>();
@@ -353,7 +404,7 @@ public class Server {
     	if(zip != 0) {
     		postData.put("zip", Integer.toString(zip));
     	}
-    	if(!keyword.equals("")) {
+    	if((keyword != null) && (!keyword.equals(""))) {
     		postData.put("keywords", keyword);
     	}
     	sresp = postToServer(postData);
@@ -379,6 +430,10 @@ public class Server {
 		return (o == null) || str.substring(0,3).equals("ERR");
 	}
 	
+	/**
+	 * @param s The response from the server
+	 * @return The error, or null if no error. 
+	 */
 	public static String checkError(String s) {
 		if(s.length() >= 3 && s.substring(0,3).equals("ERR")) {
 			Log.i("Server.checkError", "Found an error.");
@@ -400,6 +455,10 @@ public class Server {
 		return str;
 	}
 
+	/**
+	 * Get the User object for the current username/password. 
+	 * @return the User object
+	 */
 	public static User getUser() {
 		HashMap<String, String> vars = new HashMap<String, String>();
 		String sret;
@@ -548,6 +607,7 @@ public class Server {
                 is.close();
             } catch (Exception e) {
                 Log.e("Server.stringToObject", e.toString());
+                return null;
             }
             return o;
     }
@@ -564,6 +624,7 @@ public class Server {
             o.close();
         } catch (IOException e) {
             Log.e("Server.objectToString", e.toString());
+            return "";
         }
         return toB64(b.toByteArray());    
     }
@@ -609,6 +670,10 @@ public class Server {
         return sb.toString().replaceAll("$@.*@$", "");
     }
    
+    /**
+     * @param urlParameters The serialized URL parameters to send
+     * @return The server's response. 
+     */
     public static String sendServer(String urlParameters) {
     	setReady(false);
     	String r;
@@ -630,18 +695,31 @@ public class Server {
     	return r;
     }
     
+    /**
+     * @return The last error message from the server. 
+     */
     public static String error() {
     	return Server.error;
     }
     
+    /**
+     * @param stat True if server is ready, false otherwise. 
+     */
     private static void setReady(Boolean stat) {
     	isReady=stat;
     }
     
+    /**
+     * @return True if server ready, false otherwise. 
+     */
     public static boolean getReady() {
     	return isReady;
     }
     
+    /**
+     * @author phil
+     * Asynchronous server task. 
+     */
     public static class ServerTask extends AsyncTask<String, Void, String> {
     	@Override
     	protected String doInBackground(String... args) {
@@ -652,23 +730,5 @@ public class Server {
          protected void onPostExecute(String result) {
              Server.setReady(true);
          }
-    }
-    
-    
-    public static void createTestUser(String username, String password) {
-    	User user = new User();
-    	Server.setPassword(password);
-    	Server.setUsername(username);
-
-    	user.setUsername(username);
-    	user.setPassword(password);
-    	
-    	HashMap<String, String> vars = new HashMap<String, String>();
-    	vars.put("username", Server.username);
-    	vars.put("password", Server.password);
-    	vars.put("action", "newUser");
-    	vars.put("object", objectToString(user));
-    	vars.put("uuid", user.getUuid().toString());
-    	postToServer(vars);
     }
 }
