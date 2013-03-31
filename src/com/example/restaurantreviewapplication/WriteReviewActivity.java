@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +14,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +27,22 @@ public class WriteReviewActivity extends Activity {
 	private TextView restaurantPhoneNumberText;
 	private EditText reviewText;
 	private TextView charactersRemaining;
-	private Button addPictureButton;
-	private Button submitReviewButton;
-	private Button postToFacebook;
+	
+	private RatingBar tasteRatingBar;
+	private RatingBar serviceRatingBar;
+	private RatingBar cleanlinessRatingBar;
+	private RatingBar overallRatingBar;
+	private float overallRating = 0.0f;
+	private final float maxRating = 12.0f;
+	
+	private Button takePictureButton;
+	private Button attachImageButton;
+	private ImageView displayImageView;
+	
+	private static final int CAMERA_REQUEST= 1888;
+    
+    private Bitmap photo = null; 
+	
 	UserApplication app;
 	
 	private int maxChars = 200;
@@ -41,6 +58,12 @@ public class WriteReviewActivity extends Activity {
 		
 		//setup buttons and text views
 		setupViews();
+		
+		if (savedInstanceState != null)
+        {
+     	   photo = savedInstanceState.getParcelable("bitmap");
+     	   displayImageView.setImageBitmap(photo);
+        }		
 		
 		builder = new AlertDialog.Builder(this);
 		builder.setMessage("Submit Review?");
@@ -72,12 +95,16 @@ public class WriteReviewActivity extends Activity {
 			}
 		});
 		
+		addListenerOnRatingBar();
+		
 		alert = builder.create();
 		
 		//connect to global data
 		app = (UserApplication)getApplication();
+		
 		//get the restaurant selected in previous screen
 		Restaurant current = app.getSelectedRestaurant();	
+		
 		//output restaurant info onto screen
 		restaurantNameText.setText(current.getName());
 		restaurantAddressText.setText(current.getAddress());
@@ -114,7 +141,56 @@ public class WriteReviewActivity extends Activity {
 		});
 	}
 
+	public void addListenerOnRatingBar() {
+		 
+		tasteRatingBar = (RatingBar) findViewById(R.id.tasteRating);
+		serviceRatingBar = (RatingBar) findViewById(R.id.serviceRating);
+		cleanlinessRatingBar = (RatingBar) findViewById(R.id.cleanlinessRating);
+		overallRatingBar = (RatingBar) findViewById(R.id.overallRating);
+	 
+		//if taste rating value is changed, calculate and update overall rating.
+		tasteRatingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+					
+				overallRatingBar.setRating(CalculateRating());
+			}
+		});
+		
+		serviceRatingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+					
+				overallRatingBar.setRating(CalculateRating());
+			}
+		});
+		
+		cleanlinessRatingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+					
+				overallRatingBar.setRating(CalculateRating());
+			}
+		});
+	}
 	
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+    	super.onSaveInstanceState(outState);
+        outState.putParcelable("bitmap", photo);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+           
+    	super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == CAMERA_REQUEST && resultCode == RESULT_OK){
+            photo = (Bitmap)data.getExtras().get("data");
+            displayImageView.setImageBitmap(photo);
+        }
+
+    }
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -123,14 +199,21 @@ public class WriteReviewActivity extends Activity {
 		return true;
 	}
 	
-	public void addPictureButtonHandler(View v){
+	private float CalculateRating()
+	{
+		overallRating = ((tasteRatingBar.getRating() + serviceRatingBar.getRating() + cleanlinessRatingBar.getRating()) / maxRating) * 4.0f;
+		return overallRating;
+	}
 		
-		Intent intent = new Intent(this, AddPictureActivity.class);
-		startActivity(intent);
-		
+	public void capturePictureButtonHandler(View v){
+		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    	startActivityForResult(cameraIntent, CAMERA_REQUEST);
 	}
 	
 	public void submitReviewButtonHandler(View v){
+		
+		//generate Review object and submit review to servers.
+		
 		alert.show();
 	}
 	
@@ -147,9 +230,7 @@ public class WriteReviewActivity extends Activity {
 		restaurantPhoneNumberText = (TextView)findViewById(R.id.RestaurantPhoneNumberText);
 		reviewText = (EditText)findViewById(R.id.ReviewText);
 		charactersRemaining = (TextView)findViewById(R.id.CharsLeftText);
-		addPictureButton = (Button)findViewById(R.id.AddPictureButton);
-		submitReviewButton = (Button)findViewById(R.id.SubmitReviewButton);
-		postToFacebook = (Button)findViewById(R.id.PostToFacebook);
+		displayImageView = (ImageView)findViewById(R.id.DisplayImageView);
 	}
 	
 }

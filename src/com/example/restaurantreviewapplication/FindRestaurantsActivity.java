@@ -2,6 +2,7 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class FindRestaurantsActivity extends Activity {
 
@@ -49,37 +51,32 @@ public class FindRestaurantsActivity extends Activity {
 	
 	// needs work	
 	public void searchNearbyButtonHandler(View V){
-		searchNearby.setText("Waiting on GPS");
+		searchNearby.setText("Waiting on Location");
+	
 		// Acquire a reference to the system Location Manager
-		LocationManager locationManager = (LocationManager) this
-				.getSystemService(Context.LOCATION_SERVICE);
+		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
 		// Define a listener that responds to location updates
 		LocationListener locationListener = new LocationListener() {
-			public void onLocationChanged(Location location) {
-				// Called when a new location is found by the network location
-				// provider.
-				makeUseOfNewLocation(location);
-			}
+		    public void onLocationChanged(Location location) {
+		      // Called when a new location is found by the network location provider.
+		      makeUseOfNewLocation(location);
+		      
+		    }
 
-			public void onStatusChanged(String provider, int status,
-					Bundle extras) {
-			}
+		    public void onStatusChanged(String provider, int status, Bundle extras) {}
 
-			public void onProviderEnabled(String provider) {
-			}
+		    public void onProviderEnabled(String provider) {}
 
-			public void onProviderDisabled(String provider) {
-			}
-		};
+		    public void onProviderDisabled(String provider) {}
+		  };
 
-		// Register the listener with the Location Manager to receive location
-		// updates
-		locationManager.requestLocationUpdates(
-				LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		// Register the listener with the Location Manager to receive location updates
+		locationManager.requestLocationUpdates(locationManager.getBestProvider(new Criteria(), true), 0, 0, locationListener);
 	}
 
 	public void searchButtonHandler(View V){
+		searchButton.setText("Searching...");
 		String keyword;
 		int zip = 0;
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
@@ -87,6 +84,7 @@ public class FindRestaurantsActivity extends Activity {
 		keyword = keywordText.getText().toString();
 
 		if (!(keyword.trim().length() == 0)) {
+			
 			String rawzip = zipCodeText.getText().toString();
 
 			if (!(rawzip.trim().length() == 0)) {
@@ -95,14 +93,22 @@ public class FindRestaurantsActivity extends Activity {
 			//serverConnection.getRestaurants(zip, keyword);
 			restaurants = Server.getRestaurantsByZipKeyword(zip, keyword);
 			if(restaurants != null){
+				searchButton.setText("Search");
 				app.setRestaurants(restaurants);
 				Intent intent = new Intent(this, ListRestaurantsActivity.class);
 				startActivity(intent);
 			}else{
-				//pop up no restaurants found
+				Toast.makeText(getApplicationContext(),
+						"No Restaurants Found.", Toast.LENGTH_SHORT)
+						.show();
+				searchButton.setText("Search");
 			}
 		}else{
 			//pop up please enter keyword
+			Toast.makeText(getApplicationContext(),
+					"Please enter keyword.", Toast.LENGTH_SHORT)
+					.show();
+			searchButton.setText("Search");
 		}
 		
 	}

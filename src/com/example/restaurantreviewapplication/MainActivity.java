@@ -120,20 +120,8 @@ public class MainActivity extends Activity {
 			Server.setUsername(usernameText.getText().toString());
 			Server.setPassword(passwordText.getText().toString());
 			currentUser = Server.getUser();
-
-			// this is in place of code below
-			Intent intent = new Intent(this, MainMenuActivity.class);
-			startActivity(intent);
-			User fake = new User();
-			fake.setUserId("john");
-			app.setCurrentUser(fake);
 			
-			/*
-			 * Having trouble getting below code to work.  Doesn't find
-			 * a user.  Not sure if bad username/password or bad
-			 * connection.
-			 */
-			/*
+			
 			// if user found continue else pop up dialog saying no user found
 			if (currentUser != null) {
 				app.setCurrentUser(currentUser);
@@ -157,7 +145,7 @@ public class MainActivity extends Activity {
 				AlertDialog alert = builder.create();
 				alert.show();
 			}
-			*/
+			
 		}
 	}
 }

@@ -141,5 +141,6 @@
     <string name="compose_message_text">Compose Message</string>
     <string name="cancel_message_button">Cancel</string>
     <string name="send_message_button">Send Message</string>
+    <string name="open_in_google_maps">Open in Google Maps</string>
 
 </resources>
