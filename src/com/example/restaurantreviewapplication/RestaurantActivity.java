@@ -45,8 +45,8 @@ public class RestaurantActivity extends Activity {
 
 	public void viewMapButtonHandler(View v){
 		
-		Intent intent = new Intent(this, MapActivity.class);
-		startActivity(intent);
+		//Intent intent = new Intent(this, MapActivity.class);
+		//startActivity(intent);
 	}
 	
 	public void readReviewsButtonHandler(View v){
