@@ -10,16 +10,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
 	private EditText usernameText;
 	private EditText passwordText;
-	private Button loginButton;
-	private Button skipLoginButton;
-	private Button forgotPassword;
-	private Button createButton;
+	private ImageButton  loginButton;
+	private ImageButton  skipLoginButton;
+	private ImageButton  forgotPassword;
+	private ImageButton  createButton;
 	UserApplication app;
 
 	@Override
@@ -30,10 +31,10 @@ public class MainActivity extends Activity {
 
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
-		loginButton = (Button) findViewById(R.id.LogInButton);
-		skipLoginButton = (Button) findViewById(R.id.SkipLoginButton);
-		forgotPassword = (Button) findViewById(R.id.ForgotPasswordButton);
-		createButton = (Button) findViewById(R.id.CreateAccountButton);
+		loginButton = (ImageButton) findViewById(R.id.LogInButton);
+		skipLoginButton = (ImageButton) findViewById(R.id.SkipLoginButton);
+		forgotPassword = (ImageButton) findViewById(R.id.ForgotPasswordButton);
+		createButton = (ImageButton) findViewById(R.id.CreateAccountButton);
 	}
 
 	@Override

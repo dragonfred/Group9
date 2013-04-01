@@ -20,9 +20,7 @@ public class UserApplication extends Application {
 	private boolean verified;
 	private Restaurant selectedRestaurant;
 	private ArrayList<Message> messages;
-	
-	//testing map - need to change restaurant to get a location
-	public Location a;
+	private Review selectedReview;
 	
 	@Override
 	public void onCreate() {
@@ -102,6 +100,14 @@ public class UserApplication extends Application {
 
 	public void setCurrentUser(User currentUser) {
 		this.currentUser = currentUser;
+	}
+
+	public Review getSelectedReview() {
+		return selectedReview;
+	}
+
+	public void setSelectedReview(Review selectedReview) {
+		this.selectedReview = selectedReview;
 	}
 	
 }

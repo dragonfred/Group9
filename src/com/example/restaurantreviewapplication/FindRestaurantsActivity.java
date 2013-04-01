@@ -24,6 +24,8 @@ public class FindRestaurantsActivity extends Activity {
 	private EditText keywordText;
 	private UserApplication app;
 	private Boolean buttonClick;
+	private LocationManager locationManager;
+	private LocationListener locationListener;
 	//private Server2 serverConnection;
 	
 	@Override
@@ -55,10 +57,10 @@ public class FindRestaurantsActivity extends Activity {
 		searchNearby.setText("Waiting on Location");
 		buttonClick = true;
 		// Acquire a reference to the system Location Manager
-		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
 		// Define a listener that responds to location updates
-		LocationListener locationListener = new LocationListener() {
+		locationListener = new LocationListener() {
 		    public void onLocationChanged(Location location) {
 		      // Called when a new location is found by the network location provider.
 		    	if(buttonClick){
@@ -122,7 +124,7 @@ public class FindRestaurantsActivity extends Activity {
 		restaurants = Server.getRestaurantsByLocation(location);
 
 		//this is for testing
-		app.a = location;
+		//app.a = location;
 		
 		searchNearby.setText("Search Nearby");
 		
@@ -131,6 +133,9 @@ public class FindRestaurantsActivity extends Activity {
 
 			Intent intent = new Intent(this, ListRestaurantsActivity.class);
 			startActivity(intent);
+			
+			// Remove the listener you previously added
+			locationManager.removeUpdates(locationListener);
 		} else {
 			// pop up message saying no restaurants found
 

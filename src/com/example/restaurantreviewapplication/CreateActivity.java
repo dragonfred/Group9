@@ -49,8 +49,7 @@ public class CreateActivity extends Activity {
 	}
 
 	public void cancelAccountButtonHandler(View v) {
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
+		//close the current activity and go back to calling activity
 		finish();
 	}
 

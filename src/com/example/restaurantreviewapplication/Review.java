@@ -5,6 +5,8 @@ package com.example.restaurantreviewapplication;
 
 import java.util.UUID;
 
+import android.graphics.Bitmap;
+
 /**
  * @author Matt
  *
@@ -15,11 +17,13 @@ public class Review implements Storable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6399639411788272690L;
+	private String reviewer;
 	private String review;
 	private float tasteRating;
 	private float serviceRating;
 	private float cleanlinessRating;
 	private float overallRating;
+	private Bitmap image;
 
 	private UUID uuid;
 	  
@@ -52,54 +56,70 @@ public class Review implements Storable {
 		this.overallRating = overallRating;
 	}
 	
+	public String getReviewer() {
+		return reviewer;
+	}
+
+	public void setReviewer(String reviewer) {
+		this.reviewer = reviewer;
+	}
+
 	/**
 	 * @return the review
 	 */
 	protected String getReview() {
 		return review;
 	}
+	
 	/**
 	 * @param review the review to set
 	 */
 	protected void setReview(String review) {
 		this.review = review;
 	}
+	
 	/**
 	 * @return the tasteRating
 	 */
 	protected float getTasteRating() {
 		return tasteRating;
 	}
+	
 	/**
 	 * @param tasteRating the tasteRating to set
 	 */
 	protected void setTasteRating(float tasteRating) {
 		this.tasteRating = tasteRating;
 	}
+	
 	/**
 	 * @return the serviceRating
 	 */
 	protected float getServiceRating() {
 		return serviceRating;
 	}
+	
 	/**
 	 * @param serviceRating the serviceRating to set
 	 */
 	protected void setServiceRating(float serviceRating) {
 		this.serviceRating = serviceRating;
 	}
+	
 	/**
 	 * @return the cleanlinessRating
 	 */
 	protected float getCleanlinessRating() {
 		return cleanlinessRating;
 	}
+	
 	/**
 	 * @param cleanlinessRating the cleanlinessRating to set
 	 */
 	protected void setCleanlinessRating(float cleanlinessRating) {
 		this.cleanlinessRating = cleanlinessRating;
 	}
+	
 	/**
 	 * @return the overallRating
 	 */
@@ -110,13 +130,19 @@ public class Review implements Storable {
 	public String toString() {
 		return review;
 	}
-
-	
 	
 	/**
 	 * @param overallRating the overallRating to set
 	 */
 	protected void setOverallRating(float overallRating) {
 		this.overallRating = overallRating;
+	}
+
+	public Bitmap getImage() {
+		return image;
+	}
+
+	public void setImage(Bitmap image) {
+		this.image = image;
 	}	
 }

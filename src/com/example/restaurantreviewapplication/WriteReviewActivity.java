@@ -35,6 +35,8 @@ public class WriteReviewActivity extends Activity {
 	private float overallRating = 0.0f;
 	private final float maxRating = 12.0f;
 	
+	private Review review;
+	
 	private Button takePictureButton;
 	private Button attachImageButton;
 	private ImageView displayImageView;
@@ -59,6 +61,8 @@ public class WriteReviewActivity extends Activity {
 		//setup buttons and text views
 		setupViews();
 		
+		review = new Review();
+		
 		if (savedInstanceState != null)
         {
      	   photo = savedInstanceState.getParcelable("bitmap");
@@ -66,8 +70,9 @@ public class WriteReviewActivity extends Activity {
         }		
 		
 		builder = new AlertDialog.Builder(this);
-		builder.setMessage("Submit Review?");
+		builder.setMessage("Are you sure?");
 		builder.setCancelable(false);
+		builder.setTitle("Submit Review?");
 		
 		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			
@@ -75,11 +80,16 @@ public class WriteReviewActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {		
 				finish();				
 				
-				//submit review to server
-				String review = reviewText.getText().toString();
-				Review reviewObj = new Review();
-				reviewObj.setReview(review);
-				Server.addReview(app.getSelectedRestaurant(), reviewObj);
+				review.setReviewer(app.getUsername());
+				review.setReview(reviewText.getText().toString());
+				review.setTasteRating(tasteRatingBar.getRating());
+				review.setServiceRating(serviceRatingBar.getRating());
+				review.setCleanlinessRating(cleanlinessRatingBar.getRating());
+				review.setOverallRating(overallRatingBar.getRating());
+				review.setImage(photo);
+					
+				//submit review to server.
+				Server.addReview(app.getSelectedRestaurant(), review);
 				
 				Toast.makeText(getApplicationContext(), 
 						"Thank you for your review!", 
@@ -211,11 +221,9 @@ public class WriteReviewActivity extends Activity {
 	}
 	
 	public void submitReviewButtonHandler(View v){
-		
-		//generate Review object and submit review to servers.
-		
 		alert.show();
 	}
+	
 	
 	public void postToFacebookHandler(View v){
 		
