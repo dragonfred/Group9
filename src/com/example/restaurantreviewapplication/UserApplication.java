@@ -21,6 +21,9 @@ public class UserApplication extends Application {
 	private Restaurant selectedRestaurant;
 	private ArrayList<Message> messages;
 	
+	//testing map - need to change restaurant to get a location
+	public Location a;
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();

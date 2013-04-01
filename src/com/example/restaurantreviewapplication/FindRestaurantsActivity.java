@@ -23,6 +23,7 @@ public class FindRestaurantsActivity extends Activity {
 	private EditText zipCodeText;
 	private EditText keywordText;
 	private UserApplication app;
+	private Boolean buttonClick;
 	//private Server2 serverConnection;
 	
 	@Override
@@ -52,7 +53,7 @@ public class FindRestaurantsActivity extends Activity {
 	// needs work	
 	public void searchNearbyButtonHandler(View V){
 		searchNearby.setText("Waiting on Location");
-	
+		buttonClick = true;
 		// Acquire a reference to the system Location Manager
 		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
@@ -60,7 +61,10 @@ public class FindRestaurantsActivity extends Activity {
 		LocationListener locationListener = new LocationListener() {
 		    public void onLocationChanged(Location location) {
 		      // Called when a new location is found by the network location provider.
-		      makeUseOfNewLocation(location);
+		    	if(buttonClick){
+		    		makeUseOfNewLocation(location);
+		    		buttonClick = false;
+		    	}
 		      
 		    }
 
@@ -116,7 +120,10 @@ public class FindRestaurantsActivity extends Activity {
 	protected void makeUseOfNewLocation(Location location) {
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 		restaurants = Server.getRestaurantsByLocation(location);
-	
+
+		//this is for testing
+		app.a = location;
+		
 		searchNearby.setText("Search Nearby");
 		
 		if (restaurants != null) {
@@ -131,20 +138,20 @@ public class FindRestaurantsActivity extends Activity {
 		
 	}
 
-	// Dummy data for testing.  Replace with call to server
-	public void getRestaurants(int zip, String keyword) {
-		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
-		int i;
-
-		Restaurant a;
-
-		
-		for (i = 0; i < 10; i++) {
-			a = new Restaurant("Restaurant " + i, i*2 + " Main St", "407-555-1212", "GPS Coords");
-			restaurants.add(a);
-		}
-		
-		app.setRestaurants(restaurants);
-//		return restaurants;
-	}
+//	// Dummy data for testing.  Replace with call to server
+//	public void getRestaurants(int zip, String keyword) {
+//		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+//		int i;
+//
+//		Restaurant a;
+//
+//		
+//		for (i = 0; i < 10; i++) {
+//			a = new Restaurant("Restaurant " + i, i*2 + " Main St", "407-555-1212", "GPS Coords");
+//			restaurants.add(a);
+//		}
+//		
+//		app.setRestaurants(restaurants);
+////		return restaurants;
+//	}
 }
