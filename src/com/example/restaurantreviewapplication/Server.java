@@ -273,8 +273,8 @@ public class Server {
     			Log.e("getRestaurantsByZipKeyword", "Got a null response");
     		}
     	}
-    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
-    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
+    	//result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
+    	//result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
     	return result;
     }
     
@@ -292,8 +292,8 @@ public class Server {
     			Log.e("getRestaurantsByZipKeyword", "Got a null response");
     		}
     	}
-    	result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
-    	result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
+    	//result.add(new Restaurant("Joe's Restaurant", "123 Fake St", "123-123-1233", "Here"));
+    	//result.add(new Restaurant("Bob's Restaurant", "234 fake st", "234-234-2344", "There"));
     	return result;
     }
     
