@@ -160,17 +160,17 @@ public class Server {
     		reviews.add((Review) getObject(u));
     	}
     	
-    	Review aReview = new Review();
-    	aReview.setReview("This place rocks!");
-    	reviews.add(aReview);
-    	
-    	aReview = new Review();
-    	aReview.setReview("This place sucks!");
-    	reviews.add(aReview);
-    	
-    	aReview = new Review();
-    	aReview.setReview("This place smells funny!");
-    	reviews.add(aReview);
+//    	Review aReview = new Review();
+//    	aReview.setReview("This place rocks!");
+//    	reviews.add(aReview);
+//    	
+//    	aReview = new Review();
+//    	aReview.setReview("This place sucks!");
+//    	reviews.add(aReview);
+//    	
+//    	aReview = new Review();
+//    	aReview.setReview("This place smells funny!");
+//    	reviews.add(aReview);
     	
     	return reviews;
     }
