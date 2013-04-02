@@ -157,7 +157,9 @@ private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base
      uuidresult.add(UUID.fromString(sr));
      }
      for(UUID u : uuidresult) {
-     reviews.add((Review) getObject(u));
+    	 Object ob = getObject(u);
+    	 if(!isError(ob))
+    		 reviews.add((Review) getObject(u));
      }
     
 // Review aReview = new Review();
@@ -418,8 +420,13 @@ return postToServer(postData);
 * @return True if this object is an error.
 */
 public static boolean isError(Object o) {
-String str = (String) o;
-return (o == null) || str.substring(0,3).equals("ERR");
+	String str;
+	try {
+		str = (String) o;
+	} catch (ClassCastException e) {
+		return (o == null);
+	}
+	return str.substring(0,3).equals("ERR");
 }
 
 /**
