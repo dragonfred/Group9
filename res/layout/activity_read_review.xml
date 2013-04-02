@@ -14,7 +14,8 @@
         android:gravity="center"
         android:padding="4dp"
         android:textSize="20sp"
-        android:text="@string/restaurant_name_text" >
+        android:text="@string/restaurant_name_text"
+        android:textColor="#FFFFFF">
       
    </TextView> 
    
@@ -24,7 +25,9 @@
        android:layout_height="wrap_content"
        android:gravity="center"
        android:padding="4dp"
-       android:text="@string/restaurant_address_text" >
+       android:textSize="16sp"
+       android:text="@string/restaurant_address_text" 
+       android:textColor="#FFFFFF">
       
    </TextView> 
   
@@ -34,7 +37,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="4dp"
-        android:text="@string/restaurant_phone_number_text" >
+        android:textSize="16sp"
+        android:text="@string/restaurant_phone_number_text" 
+        android:textColor="#FFFFFF">
       
    </TextView> 
 	      

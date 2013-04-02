@@ -17,8 +17,10 @@
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
 	       android:text="@string/create_message_title"
-	       android:padding="4dp"
-	       android:gravity="center">      
+	       android:textSize="20sp"
+	       android:padding="8dp"
+	       android:gravity="center"
+	       android:textColor="#FFFFFF">      
 	   </TextView>
 		    
 	   <EditText
@@ -37,15 +39,18 @@
 	       android:layout_height="wrap_content"
 	       android:orientation="horizontal">
 		   
-		   <Button
+		   <ImageButton
 		       android:id="@+id/cancelMessageButton"
 		       android:layout_width="fill_parent"
-		       android:layout_height="wrap_content"
-		       android:text="@string/cancel_message_button"
+		       android:layout_height="45dp"
+		       android:src="@drawable/cancel_button"
 		       android:onClick="cancelAccountButtonHandler"
 		       android:layout_weight="1"
-		       android:padding="4dp">
-		   </Button>
+		       android:padding="4dp"
+		       android:scaleType="fitXY"
+		       android:layout_gravity="center"
+		       android:background="@null">
+		   </ImageButton>
 		    
 		   <Button
 		       android:id="@+id/sendMessageButton"
@@ -55,7 +60,6 @@
 		       android:text="@string/send_message_button" 
 		       android:layout_weight="1"
 		       android:padding="4dp">
-	   		
 		   </Button>
 	
 		</LinearLayout>

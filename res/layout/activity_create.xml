@@ -17,8 +17,10 @@
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
 	       android:text="@string/create_account_title"
-	       android:padding="4dp"
-	       android:gravity="center">      
+	       android:padding="8dp"
+	       android:textSize="20sp"
+	       android:gravity="center"
+	       android:textColor="#FFFFFF">      
 	   </TextView> 
 	    
 	   <EditText 
@@ -75,26 +77,42 @@
 	       <CheckBox 
 		       android:id="@+id/loginPersist"
 		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
+		       android:layout_height="fill_parent"
 		       android:text="@string/remember_me">
 		   </CheckBox>
 		   
-		   <Button
-		       android:id="@+id/cancelCreateAccount"
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:text="@string/cancel_create_account"
-		       android:onClick="cancelAccountButtonHandler">
-		   </Button>
-		    
-		   <Button
-		       android:id="@+id/submitCreateAccount"
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:onClick="submitCreateAccountHandler"
-		       android:text="@string/submit_create_account" >
-	   		
-		   </Button>
+	       <LinearLayout
+	           android:layout_width="fill_parent"
+	       	   android:layout_height="wrap_content"
+	           android:orientation="vertical">
+	           
+			   <ImageButton
+			       android:id="@+id/CancelCreateAccountButton"
+			       android:layout_width="fill_parent"
+			       android:layout_height="45dp"
+			       android:src="@drawable/cancel_button"
+			       android:onClick="cancelAccountButtonHandler"
+			       android:layout_weight="1"
+			       android:padding="4dp"
+			       android:scaleType="fitXY"
+			       android:layout_gravity="center"
+			       android:background="@null">
+			   </ImageButton>
+			    
+			   <ImageButton
+			       android:id="@+id/SubmitCreateAccountButton"
+			       android:layout_width="wrap_content"
+			       android:layout_height="45dp"
+			       android:src="@drawable/submit_button"
+			       android:onClick="submitCreateAccountHandler"
+			       android:layout_weight="1"
+			       android:padding="4dp"
+			       android:scaleType="fitXY"
+			       android:layout_gravity="center"
+			       android:background="@null">
+			    </ImageButton>
+			    
+			</LinearLayout>
 	
 		</LinearLayout>
 		

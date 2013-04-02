@@ -13,71 +13,96 @@
 	    tools:context=".RestaurantActivity" >
 	  
 	    <TextView
-	       android:id="@+id/reviewRestaurantName"
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:text="@string/restaurant_name_text"
-	       android:gravity="center"
-	       android:padding="4dp"
-	       android:textSize="20sp">      
-	   </TextView> 
+	        android:id="@+id/reviewRestaurantName"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/restaurant_name_text"
+	        android:gravity="center"
+	        android:padding="4dp"
+	        android:textSize="20sp"
+	        android:textColor="#FFFFFF">      
+	    </TextView> 
 	   
-	   <TextView
-	       android:id="@+id/reviewRestaurantAddressText"
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:text="@string/restaurant_address_text"
-	       android:gravity="center"
-	       android:padding="4dp">      
-	   </TextView> 
+	    <TextView
+	        android:id="@+id/reviewRestaurantAddressText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/restaurant_address_text"
+	        android:gravity="center"
+	        android:padding="4dp"
+	        android:textSize="16sp"
+	        android:textColor="#FFFFFF">      
+	    </TextView> 
 	  
 	    <TextView
-	       android:id="@+id/reviewPhoneNumber"
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:text="@string/restaurant_phone_number_text"
-	       android:gravity="center"
-	       android:padding="4dp">      
-	   </TextView> 
+	        android:id="@+id/reviewPhoneNumber"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/restaurant_phone_number_text"
+	        android:gravity="center"
+	        android:padding="4dp"
+	        android:textSize="16sp"
+	        android:textColor="#FFFFFF">      
+	    </TextView> 
 	   
-	   <Button
-	       android:id="@+id/MapButton"
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:padding="4dp"
-	       android:text="@string/view_map_button"
-	       android:onClick="viewMapButtonHandler">
-		</Button>
+	    <ImageButton
+		    android:id="@+id/MapButton"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="viewMapButtonHandler"
+		    android:src="@drawable/map_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">        
+	    </ImageButton>
 		
-	    <Button
+	    
+<!-- waiting on read reviews button -->
+<!-- 		<ImageButton -->
+<!-- 		    android:id="@+id/readReviewsButton" -->
+<!-- 		    android:layout_width="fill_parent" -->
+<!-- 		    android:layout_height="45dp" -->
+<!-- 		    android:onClick="readReviewsButtonHandler" -->
+<!-- 		    android:src="@drawable/read_reviews_button" -->
+<!-- 		    android:padding="4dp" -->
+<!-- 		    android:scaleType="fitXY" -->
+<!-- 			android:layout_gravity="center" -->
+<!-- 			android:background="@null">         -->
+<!-- 	    </ImageButton> -->
+	   
+	   	<Button
 	        android:id="@+id/readReviewsButton"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:padding="4dp"
 	        android:text="@string/read_reviews_button"
 	        android:onClick="readReviewsButtonHandler">
-	
 		</Button>
 		
-		<Button
+	   	<ImageButton
 		    android:id="@+id/writeReviewsButton"
 		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
+		    android:layout_height="45dp"
+		    android:onClick="writeReviewsButtonHandler"
+		    android:src="@drawable/write_review_button"
 		    android:padding="4dp"
-		    android:text="@string/write_reviews_button"
-		    android:onClick="writeReviewsButtonHandler">
-	
-		</Button>
-		
-	    <Button
-	        android:id="@+id/checkInButton"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:padding="4dp"
-	        android:text="@string/check_in_button"
-	        android:onClick="checkInButtonHandler">
-	
-		</Button>
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">        
+	    </ImageButton>
+
+	   	<ImageButton
+		    android:id="@+id/checkInButton"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="checkInButtonHandler"
+		    android:src="@drawable/check_in_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">        
+	    </ImageButton>		
 		
 	</LinearLayout>
 

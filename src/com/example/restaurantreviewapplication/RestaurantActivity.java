@@ -7,15 +7,16 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class RestaurantActivity extends Activity {
 
 	
-	private Button viewMapButton;
+	private ImageButton viewMapButton;
 	private Button readReviewsButton;
-	private Button writeReviewsButton;
-	private Button checkInButton;
+	private ImageButton writeReviewsButton;
+	private ImageButton checkInButton;
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
@@ -77,10 +78,10 @@ public class RestaurantActivity extends Activity {
 		restaurantNameText = (TextView) findViewById(R.id.reviewRestaurantName);
 		restaurantAddressText = (TextView) findViewById(R.id.reviewRestaurantAddressText);
 		restaurantPhoneNumberText = (TextView) findViewById(R.id.reviewPhoneNumber);
-		viewMapButton = (Button) findViewById(R.id.MapButton);
+		viewMapButton = (ImageButton) findViewById(R.id.MapButton);
 		readReviewsButton = (Button) findViewById(R.id.readReviewsButton);
-		writeReviewsButton = (Button) findViewById(R.id.writeReviewsButton);
-		checkInButton = (Button) findViewById(R.id.checkInButton);
+		writeReviewsButton = (ImageButton) findViewById(R.id.writeReviewsButton);
+		checkInButton = (ImageButton) findViewById(R.id.checkInButton);
 		
 	}
 	

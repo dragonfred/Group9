@@ -15,12 +15,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class FindRestaurantsActivity extends Activity {
 
-	private Button searchNearby;
-	private Button searchButton;
+	private ImageButton searchNearby;
+	private ImageButton searchButton;
 	private EditText zipCodeText;
 	private EditText keywordText;
 	private UserApplication app;
@@ -47,15 +48,15 @@ public class FindRestaurantsActivity extends Activity {
 	}
 	
 	private void setupViews(){
-		searchNearby = (Button) findViewById(R.id.searchNearby);
-		searchButton = (Button) findViewById(R.id.searchButton);
+		searchNearby = (ImageButton) findViewById(R.id.searchNearby);
+		searchButton = (ImageButton) findViewById(R.id.searchButton);
 		zipCodeText = (EditText) findViewById(R.id.zipCodeText);
 		keywordText = (EditText) findViewById(R.id.keywordText);
 	}
 	
 	// needs work	
 	public void searchNearbyButtonHandler(View V){
-		searchNearby.setText("Waiting on Location");
+		//searchNearby.setText("Waiting on Location");
 		buttonClick = true;
 		// Acquire a reference to the system Location Manager
 		locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -83,7 +84,7 @@ public class FindRestaurantsActivity extends Activity {
 	}
 
 	public void searchButtonHandler(View V){
-		searchButton.setText("Searching...");
+		//searchButton.setText("Searching...");
 		String keyword;
 		int zip = 0;
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
@@ -100,7 +101,7 @@ public class FindRestaurantsActivity extends Activity {
 			//serverConnection.getRestaurants(zip, keyword);
 			restaurants = Server.getRestaurantsByZipKeyword(zip, keyword);
 			if(restaurants != null){
-				searchButton.setText("Search");
+				//searchButton.setText("Search");
 				app.setRestaurants(restaurants);
 				Intent intent = new Intent(this, ListRestaurantsActivity.class);
 				startActivity(intent);
@@ -108,14 +109,14 @@ public class FindRestaurantsActivity extends Activity {
 				Toast.makeText(getApplicationContext(),
 						"No Restaurants Found.", Toast.LENGTH_SHORT)
 						.show();
-				searchButton.setText("Search");
+				//searchButton.setText("Search");
 			}
 		}else{
 			//pop up please enter keyword
 			Toast.makeText(getApplicationContext(),
 					"Please enter keyword.", Toast.LENGTH_SHORT)
 					.show();
-			searchButton.setText("Search");
+			//searchButton.setText("Search");
 		}
 		
 	}
@@ -127,7 +128,7 @@ public class FindRestaurantsActivity extends Activity {
 		//this is for testing
 		//app.a = location;
 		
-		searchNearby.setText("Search Nearby");
+		//searchNearby.setText("Search Nearby");
 		
 		if (restaurants != null) {
 			app.setRestaurants(restaurants);

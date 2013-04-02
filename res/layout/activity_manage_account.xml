@@ -17,8 +17,10 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
-	        android:padding="4dp"
-	        android:text="@string/manage_account_title">
+	        android:padding="8dp"
+	        android:textSize="20sp"
+	        android:text="@string/manage_account_title"
+	        android:textColor="#FFFFFF">
 	    </TextView>
 	    
 	    <EditText
@@ -57,6 +59,19 @@
 	        android:padding="4dp">
 	    </EditText>
 	
+<!-- need update password button -->
+<!-- 		<ImageButton -->
+<!-- 		    android:id="@+id/updatePasswordButton" -->
+<!-- 		    android:layout_width="fill_parent" -->
+<!-- 		    android:layout_height="45dp" -->
+<!-- 		    android:onClick="updatePasswordButtonHandler" -->
+<!-- 		    android:src="@drawable/update_password_button" -->
+<!-- 		    android:padding="4dp" -->
+<!-- 		    android:scaleType="fitXY" -->
+<!-- 			android:layout_gravity="center" -->
+<!-- 			android:background="@null"> -->
+<!-- 		</ImageButton> -->
+	    
 		<Button
 	        android:id="@+id/updatePasswordButton"
 	        android:layout_width="fill_parent"

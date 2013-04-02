@@ -7,12 +7,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ManageFriendsActivity extends Activity {
 
-	private Button showFriendsButton;
-	private Button findFriendsButton;
+	private ImageButton showFriendsButton;
+	private ImageButton findFriendsButton;
 	private Button viewNotificationsButton;
 
 	
@@ -53,8 +54,8 @@ public class ManageFriendsActivity extends Activity {
 	}
 
 	private void setupViews(){
-		showFriendsButton = (Button) findViewById(R.id.showFriends);
-		findFriendsButton = (Button) findViewById(R.id.findFriends);
+		showFriendsButton = (ImageButton) findViewById(R.id.showFriendsButton);
+		findFriendsButton = (ImageButton) findViewById(R.id.findFriendsButton);
 		viewNotificationsButton = (Button) findViewById(R.id.viewNotifications);
 		
 	}

@@ -13,40 +13,66 @@
 	    android:gravity="center_vertical"
 	    tools:context=".MainMenuActivity" >
 	
-	    <Button
-	        android:id="@+id/findRestaurants"
+	    <TextView
+	        android:id="@+id/mainMenuTitle"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/find_restaurants_button"
-	        android:onClick="findRestaurantsButtonHandler">
-	
-		</Button>
+	        android:gravity="center"
+	        android:padding="8dp"
+	        android:textSize="20sp"
+	        android:text="@string/main_menu_title"
+	        android:textColor="#FFFFFF">
+	    </TextView>
+	    
+	    
+	    <ImageButton
+		    android:id="@+id/findRestaurants"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="findRestaurantsButtonHandler"
+		    android:src="@drawable/find_restaurants_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	   
-	    <Button
-	        android:id="@+id/manageFriends"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/manage_friends_button" 
-	        android:onClick="manageFriendsButtonHandler">
-	
-		</Button>
+	    <ImageButton
+		    android:id="@+id/manageFriends"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="manageFriendsButtonHandler"
+		    android:src="@drawable/manage_friends_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	    
-	    <Button
-	        android:id="@+id/manageAccount"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/manage_account_button"
-	        android:onClick="manageAccountButtonHandler">
-	
-		</Button>
+	    <ImageButton
+		    android:id="@+id/manageAccount"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="manageAccountButtonHandler"
+		    android:src="@drawable/manage_account_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	    
-	    <Button
-	        android:id="@+id/FriendSearchButton"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/log_out_button"
-	        android:onClick="logOutButtonHandler">
-		</Button>
+
+	    <ImageButton
+		    android:id="@+id/LogoutButton"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="logOutButtonHandler"
+		    android:src="@drawable/logout_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	
 	</LinearLayout>
 

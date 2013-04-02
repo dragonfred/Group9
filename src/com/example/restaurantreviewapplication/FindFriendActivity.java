@@ -10,12 +10,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class FindFriendActivity extends Activity {
 	private EditText usernameSearch;
-	private Button friendSearchButton;
+	private ImageButton friendSearchButton;
 	private Friend foundFriend;
 	private UserApplication app;
 
@@ -99,7 +100,7 @@ public class FindFriendActivity extends Activity {
 
 	private void setupViews() {
 		usernameSearch = (EditText) findViewById(R.id.UsernameSearch);
-		friendSearchButton = (Button) findViewById(R.id.FriendSearchButton);
+		friendSearchButton = (ImageButton) findViewById(R.id.FriendSearchButton);
 
 	}
 }

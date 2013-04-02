@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ManageAccountActivity extends Activity {
@@ -18,7 +19,7 @@ public class ManageAccountActivity extends Activity {
 	private EditText oldPasswordText;
 	private EditText newPasswordText;
 	private EditText newPasswordConfirmText;
-	private Button updatePasswordButton;
+	private ImageButton updatePasswordButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,7 @@ public class ManageAccountActivity extends Activity {
 		oldPasswordText = (EditText) findViewById(R.id.oldPasswordText);
 		newPasswordText = (EditText) findViewById(R.id.newPasswordText);
 		newPasswordConfirmText = (EditText) findViewById(R.id.newPasswordConfirmText);
-		updatePasswordButton = (Button) findViewById(R.id.updatePasswordButton);
+		updatePasswordButton = (ImageButton) findViewById(R.id.updatePasswordButton);
 			
 	}
 

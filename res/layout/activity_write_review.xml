@@ -19,7 +19,8 @@
 	       android:text="@string/restaurant_name_text"
 	       android:textSize="20sp"
 	       android:gravity="center"
-	       android:padding="4dp">      
+	       android:padding="4dp"
+	       android:textColor="#FFFFFF">      
 	   </TextView> 
 	   
 	   <TextView
@@ -28,7 +29,9 @@
 	       android:layout_height="wrap_content"
 	       android:text="@string/restaurant_address_text"
 	       android:gravity="center"
-	       android:padding="4dp">      
+	       android:padding="4dp"
+	       android:textSize="16sp"
+	       android:textColor="#FFFFFF">      
 	   </TextView> 
 	  
 	    <TextView
@@ -37,7 +40,9 @@
 	       android:layout_height="wrap_content"
 	       android:text="@string/restaurant_phone_number_text"
 	       android:gravity="center"
-	       android:padding="4dp">      
+	       android:padding="4dp"
+	       android:textSize="16sp"
+	       android:textColor="#FFFFFF">      
 	   </TextView> 
 	  
 	    <EditText
@@ -180,15 +185,31 @@
 		</ImageView>  	
 		   	
 	    </LinearLayout>
-	    
-	    <Button
+
+	    <ImageButton
 	        android:id="@+id/CapturePictureButton"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/add_picture_button"
-	        android:onClick="capturePictureButtonHandler">
-	    </Button>
+	        android:layout_width="wrap_content"
+	        android:layout_height="45dp"
+	        android:src="@drawable/add_picture_button"
+	        android:scaleType="fitXY"
+	        android:onClick="capturePictureButtonHandler"
+	        android:padding="4dp"
+	        android:layout_gravity="center"
+	        android:background="@null">
+	   	</ImageButton>
 	
+<!-- 	    <ImageButton -->
+<!-- 	        android:id="@+id/SubmitReviewButton" -->
+<!-- 	        android:layout_width="wrap_content" -->
+<!-- 	        android:layout_height="45dp" -->
+<!-- 	        android:src="@drawable/submit_review_button" -->
+<!-- 	        android:scaleType="fitXY" -->
+<!-- 	        android:onClick="submitReviewButtonHandler" -->
+<!-- 	        android:padding="4dp" -->
+<!-- 	        android:layout_gravity="center" -->
+<!-- 	        android:background="@null"> -->
+<!-- 	   	</ImageButton> -->
+	    
 	    <Button
 	        android:id="@+id/SubmitReviewButton"
 	        android:layout_width="fill_parent"
@@ -197,14 +218,18 @@
 	        android:onClick="submitReviewButtonHandler">
 	   	</Button>
 	
-	    <Button
+	    <ImageButton
 	        android:id="@+id/PostToFacebook"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/post_to_facebook_button"
-	        android:onClick="postToFacebookButtonHandler">
-	   	</Button>
-	   	
+	        android:layout_width="wrap_content"
+	        android:layout_height="45dp"
+	        android:src="@drawable/post_to_facebook_button"
+	        android:scaleType="fitXY"
+	        android:onClick="postToFacebookButtonHandler"
+	        android:padding="4dp"
+	        android:layout_gravity="center"
+	        android:background="@null">
+	   	</ImageButton>
+	    
 	</LinearLayout>
 
 </ScrollView>

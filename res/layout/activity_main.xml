@@ -5,95 +5,102 @@
     android:layout_height="fill_parent"
     android:isScrollContainer="true">
         
-<LinearLayout 
-	android:orientation="vertical"
-    android:id="@+id/Main"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="6dp">
-
-    <ImageView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:src="@drawable/edibles_logo">
-        
-    </ImageView>
-    
-    <TextView
-       android:id="@+id/logInTitle"
-       android:textColor="#FFFFFF"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:text="@string/log_in_title"
-       android:textSize="16sp"
-       android:padding="4dp"
-       android:gravity="center">      
-   </TextView> 
-       
-    <EditText
-        android:id="@+id/Username"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-		android:hint="@string/username_text">
-   		<requestFocus />
-   	</EditText>
-    
-    <EditText
-        android:id="@+id/Password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:longClickable="false"
-        android:inputType="textPassword"
-		android:hint="@string/password_text">
-   	</EditText>
-	        	    
-    <ImageButton
-        android:id="@+id/LogInButton"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:src="@drawable/login_button"        
-        android:onClick="logInButtonHandler"
-        android:scaleType="fitXY"
-        android:padding="4dp"
-        android:background="@null"
-        >
-    </ImageButton>
-
-    <ImageButton
-        android:id="@+id/SkipLoginButton"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:src="@drawable/skip_login_button"
-        android:scaleType="fitXY"
-        android:onClick="skipLoginButtonHandler"
-        android:padding="4dp"
-        android:background="@null">
-   	</ImageButton>
-
-    <ImageButton
-        android:id="@+id/ForgotPasswordButton"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:src="@drawable/forgot_password_button"
-        android:scaleType="fitXY"
-        android:padding="4dp"
-        android:background="@null"
-        android:onClick="forgotPasswordButtonHandler">
-
-   	</ImageButton>
-
-    <ImageButton
-        android:id="@+id/CreateAccountButton"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:src="@drawable/create_account_button"
-        android:scaleType="fitXY"
-        android:padding="4dp"
-        android:background="@null"
-   		android:onClick="createAccountButtonHandler">
-    </ImageButton>
-    
-</LinearLayout>
+	<LinearLayout 
+		android:orientation="vertical"
+	    android:id="@+id/Main"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="6dp">
+	
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:padding="10dp"
+	        android:src="@drawable/edibles_logo"
+	        android:layout_gravity="center">
+	    </ImageView>
+	    
+	    <TextView
+	       android:id="@+id/logInTitle"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@string/log_in_title"
+	       android:textColor="#FFFFFF"
+	       android:textSize="20sp"
+	       android:padding="8dp"
+	       android:layout_gravity="center">      
+	   </TextView> 
+	       
+	    <EditText
+	        android:id="@+id/Username"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/username_text"
+	        android:inputType="text" 
+	        android:layout_gravity="center">
+	   		<requestFocus />
+	   	</EditText>
+	    
+	    <EditText
+	        android:id="@+id/Password"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/password_text"
+	        android:inputType="textPassword"
+	        android:longClickable="false"
+	        android:layout_gravity="center"
+	        android:minWidth="@dimen/activity_horizontal_margin" >
+	
+	   	</EditText>
+		        	    
+	    <ImageButton
+	        android:id="@+id/LogInButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="45dp"
+	        android:src="@drawable/login_button"        
+	        android:onClick="logInButtonHandler"
+	        android:scaleType="fitXY"
+	        android:padding="4dp"
+	        android:layout_gravity="center"
+	        android:background="@null">
+	    </ImageButton>
+	
+	    <ImageButton
+	        android:id="@+id/SkipLoginButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="45dp"
+	        android:src="@drawable/skip_login_button"
+	        android:scaleType="fitXY"
+	        android:onClick="skipLoginButtonHandler"
+	        android:padding="4dp"
+	        android:layout_gravity="center"
+	        android:background="@null">
+	   	</ImageButton>
+	
+	    <ImageButton
+	        android:id="@+id/ForgotPasswordButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="45dp"
+	        android:src="@drawable/forgot_password_button"
+	        android:scaleType="fitXY"
+	        android:padding="4dp"
+	        android:background="@null"
+	        android:layout_gravity="center"
+	        android:onClick="forgotPasswordButtonHandler">
+	
+	   	</ImageButton>
+	
+	    <ImageButton
+	        android:id="@+id/CreateAccountButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="45dp"
+	        android:src="@drawable/create_account_button"
+	        android:scaleType="fitXY"
+	        android:padding="4dp"
+	        android:background="@null"
+	        android:layout_gravity="center"
+	   		android:onClick="createAccountButtonHandler">
+	    </ImageButton>
+	    
+	</LinearLayout>
 </ScrollView>

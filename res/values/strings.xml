@@ -28,6 +28,7 @@
     <string name="exit_application_button">Exit</string>
 
     <!-- Main Menu Activity -->
+    <string name="main_menu_title">Main Menu</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="find_restaurants_button">Find Restaurants</string>
     <string name="manage_friends_button">Manage Friends</string>
@@ -35,6 +36,7 @@
     <string name="log_out_button">Logout</string>
 
     <!-- Find Restaurants Activity -->
+    <string name="find_restaurants_title">Find Restaurants</string>
     <string name="title_activity_find_restaurants">FindRestaurantsActivity</string>
     <string name="name_keyword_text">Name/Keyword</string>
     <string name="zip_code_text">Zip code(optional)</string>

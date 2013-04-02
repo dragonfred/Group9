@@ -17,28 +17,36 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
-	        android:padding="4dp"
-	        android:text="@string/friend_text">
+	        android:padding="8dp"
+	        android:textSize="20sp"
+	        android:text="@string/friend_text"
+	        android:textColor="#FFFFFF">
 	    </TextView>
 	    
-	    <Button
-	        android:id="@+id/deleteFriend"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:padding="4dp"
-	        android:text="@string/delete_friend_button"
-	        android:onClick="deleteFriendButtonHandler">
-		</Button>
+	    <ImageButton
+		    android:id="@+id/deleteFriend"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="deleteFriendButtonHandler"
+		    android:src="@drawable/delete_friend_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	   
-	    <Button
+	    <ImageButton
 		    android:id="@+id/messageFriend"
 		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
+		    android:layout_height="45dp"
+		    android:onClick="messageFriendButtonHandler"
+		    android:src="@drawable/message_friend_button"
 		    android:padding="4dp"
-		    android:text="@string/message_friend_button"
-		    android:onClick="messageFriendButtonHandler">
-		</Button>
-	    
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		 </ImageButton>	    
+		 
 	</LinearLayout>
 	
 </ScrollView>

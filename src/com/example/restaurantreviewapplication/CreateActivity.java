@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class CreateActivity extends Activity {
@@ -20,8 +21,8 @@ public class CreateActivity extends Activity {
 	private EditText confirmPasswordText;
 	private EditText emailText;
 	private CheckBox loginPersist;
-	private Button cancelCreateAccount;
-	private Button submitCreateAccount;
+	private ImageButton cancelCreateAccount;
+	private ImageButton submitCreateAccount;
 	UserApplication app;
 
 	@Override
@@ -46,8 +47,8 @@ public class CreateActivity extends Activity {
 		confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText);
 		emailText = (EditText) findViewById(R.id.emailText);
 		loginPersist = (CheckBox) findViewById(R.id.loginPersist);
-		cancelCreateAccount = (Button) findViewById(R.id.cancelCreateAccount);
-		submitCreateAccount = (Button) findViewById(R.id.submitCreateAccount);
+		cancelCreateAccount = (ImageButton)findViewById(R.id.CancelCreateAccountButton);
+		submitCreateAccount = (ImageButton)findViewById(R.id.SubmitCreateAccountButton);
 	}
 
 	public void cancelAccountButtonHandler(View v) {

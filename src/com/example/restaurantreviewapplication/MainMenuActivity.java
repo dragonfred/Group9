@@ -1,18 +1,18 @@
 package com.example.restaurantreviewapplication;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainMenuActivity extends Activity {
-	private Button findRestaurantsButton;
-	private Button manageFriendsButton;
-	private Button manageAccountButton;
-	private Button logOutButton;
+	private ImageButton findRestaurantsButton;
+	private ImageButton manageFriendsButton;
+	private ImageButton manageAccountButton;
+	private ImageButton logOutButton;
 	UserApplication app;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +59,10 @@ public class MainMenuActivity extends Activity {
 	
 	//setup buttons
 	private void setupViews(){
-		findRestaurantsButton = (Button) findViewById(R.id.findRestaurants);
-		manageFriendsButton = (Button) findViewById(R.id.manageFriends);
-		manageAccountButton = (Button) findViewById(R.id.manageAccount);
-		logOutButton = (Button) findViewById(R.id.FriendSearchButton);
+		findRestaurantsButton = (ImageButton) findViewById(R.id.findRestaurants);
+		manageFriendsButton = (ImageButton) findViewById(R.id.manageFriends);
+		manageAccountButton = (ImageButton) findViewById(R.id.manageAccount);
+		logOutButton = (ImageButton) findViewById(R.id.FriendSearchButton);
 		
 	}
 }

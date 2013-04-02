@@ -9,12 +9,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FriendActivity extends Activity {
 
-	private Button deleteFriend;
-	private Button messageFriendButton;
+	private ImageButton deleteFriend;
+	private ImageButton messageFriendButton;
 	private TextView friendTitle;
 	UserApplication app;
 	Friend currentFriend;
@@ -120,8 +121,8 @@ public class FriendActivity extends Activity {
 	
 	private void setupViews(){
 		friendTitle = (TextView) findViewById(R.id.friendTitle);
-		deleteFriend = (Button) findViewById(R.id.deleteFriend);
-		messageFriendButton = (Button) findViewById(R.id.messageFriend);
+		deleteFriend = (ImageButton) findViewById(R.id.deleteFriend);
+		messageFriendButton = (ImageButton) findViewById(R.id.messageFriend);
 		
 	}
 

@@ -11,8 +11,10 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/notifications_title"
-       android:layout_margin="4dp"
-       android:gravity="center">      
+       android:padding="8dp"
+       android:textSize="20sp"
+       android:gravity="center"
+       android:textColor="#FFFFFF">      
    	</TextView>
    
     <ListView
