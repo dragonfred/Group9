@@ -140,10 +140,11 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int create_account_button=0x7f020000;
-        public static final int forgot_password_button=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int login_button=0x7f020003;
-        public static final int skip_login_button=0x7f020004;
+        public static final int edibles_logo=0x7f020001;
+        public static final int forgot_password_button=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int login_button=0x7f020004;
+        public static final int skip_login_button=0x7f020005;
     }
     public static final class id {
         public static final int CapturePictureButton=0x7f04004a;

@@ -4,13 +4,21 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:isScrollContainer="true">
-    
+        
 <LinearLayout 
 	android:orientation="vertical"
     android:id="@+id/Main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp">
+
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:src="@drawable/edibles_logo">
+        
+    </ImageView>
     
     <TextView
        android:id="@+id/logInTitle"

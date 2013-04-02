@@ -3,6 +3,8 @@ package com.example.restaurantreviewapplication;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.Window;
+
 import com.example.restaurantreviewapplication.Message;
 
 public class CreateMessageActivity extends Activity {
@@ -11,6 +13,7 @@ public class CreateMessageActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_message);
 		
