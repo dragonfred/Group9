@@ -96,8 +96,8 @@ public class FindFriendActivity extends Activity {
 	}
 
 	private void setupViews() {
-		usernameSearch = (EditText) findViewById(R.id.usernameSearch);
-		friendSearchButton = (Button) findViewById(R.id.friendSearchButton);
+		usernameSearch = (EditText) findViewById(R.id.UsernameSearch);
+		friendSearchButton = (Button) findViewById(R.id.FriendSearchButton);
 
 	}
 }

@@ -1,0 +1,192 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:isScrollContainer="true">
+
+	<LinearLayout 	    
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="6dp"
+	    android:orientation="vertical"
+	    tools:context=".ReviewDetailsActivity" >
+	
+	    <TextView
+	       android:id="@+id/RestaurantNameText"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/restaurant_name_text"
+	       android:textSize="20sp"
+	       android:gravity="center"
+	       android:padding="4dp">      
+	   </TextView> 
+	   
+	   <TextView
+	       android:id="@+id/RestaurantAddressText"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/restaurant_address_text"
+	       android:gravity="center"
+	       android:padding="4dp">      
+	   </TextView> 
+	  
+	    <TextView
+	       android:id="@+id/RestaurantPhoneNumberText"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:text="@string/restaurant_phone_number_text"
+	       android:gravity="center"
+	       android:padding="4dp">      
+	   </TextView> 
+	  
+	    <TextView
+	        android:id="@+id/ReviewText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/review_text"
+	        android:maxLength="200"
+	        android:lines="5"
+	        android:padding="4dp"
+	        android:gravity="center_vertical"
+	        android:textIsSelectable="true">
+	    </TextView>
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:gravity="center">
+	    
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:gravity="center">
+		                
+			    <TextView
+			        android:layout_width="0dp"
+			        android:layout_height="wrap_content"
+			        android:text="@string/taste_rating_text"
+			        android:padding="2dp"
+			        android:gravity="center"
+			        android:layout_weight="3">
+			    </TextView>
+			    
+			    <RatingBar
+			        android:id="@+id/tasteRating"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:numStars="4"
+			        android:isIndicator="true"
+			        android:gravity="center"
+			        android:stepSize="0.5">
+			    </RatingBar>
+			   
+			</LinearLayout>
+	
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:gravity="center">
+		    		
+			    <TextView
+			        android:layout_width="0dp"
+			        android:layout_height="wrap_content"
+			        android:text="@string/service_rating_text"
+			        android:padding="2dp"
+			        android:gravity="center"
+			        android:layout_weight="3">
+			    </TextView>
+			    
+			    <RatingBar
+		   	        android:id="@+id/serviceRating"
+		   	        android:layout_width="wrap_content"
+		   	        android:layout_height="wrap_content"
+		   	        android:numStars="4"
+		   	        android:isIndicator="true"
+		   	        android:gravity="center"
+		   	        android:stepSize="0.5">
+		   	    </RatingBar>
+			    
+			</LinearLayout>
+			
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		      	android:orientation="horizontal"
+		      	android:gravity="center">
+			    
+			    <TextView
+			        android:layout_width="0dp"
+			        android:layout_height="wrap_content"
+			        android:text="@string/cleanliness_rating_text"
+			        android:padding="2dp"
+			        android:gravity="center"
+			        android:layout_weight="3">
+			    </TextView>
+			    
+			    <RatingBar
+			        android:id="@+id/cleanlinessRating"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:gravity="center"
+			        android:isIndicator="true"
+			        android:numStars="4"
+			        android:stepSize="0.5">
+			    </RatingBar>
+			    
+			</LinearLayout>
+			
+		   	<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		      	android:orientation="horizontal"
+		      	android:gravity="center">
+		    	
+		    	<TextView
+			        android:layout_width="0dp"
+			        android:layout_height="wrap_content"
+			        android:text="@string/overall_rating_text"
+			        android:padding="2dp"
+			        android:gravity="center"
+			        android:layout_weight="3">
+			    </TextView>		
+			    
+				<RatingBar
+			        android:id="@+id/overallRating"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:isIndicator="true"
+			        android:numStars="4"
+			        android:stepSize="0.11">
+			    </RatingBar>
+				   	
+			</LinearLayout>	
+	   
+			<ImageView
+			    android:id="@+id/DisplayImageView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:padding="4dp" 
+			    android:scaleType="fitXY">
+	
+			</ImageView>
+			
+			<TextView
+	       		android:id="@+id/ratingText"
+	       		android:layout_width="fill_parent"
+	       		android:layout_height="wrap_content"
+	       		android:text="[Rating] out of 4 stars"
+	       		android:textSize="16sp"
+	       		android:gravity="center"
+	       		android:padding="4dp">      
+	   		</TextView> 
+	   	
+			   	
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>
+
+

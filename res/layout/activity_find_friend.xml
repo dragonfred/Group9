@@ -22,7 +22,7 @@
 	    </TextView>
 	    
 	    <EditText
-	        android:id="@+id/usernameSearch"
+	        android:id="@+id/UsernameSearch"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/username_search_text"
@@ -32,7 +32,7 @@
 	    </EditText>
 	
 		<Button
-		    android:id="@+id/friendSearchButton"
+		    android:id="@+id/FriendSearchButton"
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:onClick="friendSearchButtonHandler"

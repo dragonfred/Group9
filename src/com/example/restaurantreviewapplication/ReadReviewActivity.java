@@ -2,30 +2,26 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import android.widget.TextView;
-
-import com.example.restaurantreviewapplication.Review;
 
 
 public class ReadReviewActivity extends Activity{
 
-
-//	String[] reviews = {"Review 1","Review 2","Review 3","Review 4",
-//						"Review 5","Review 6","Review 7","Review 8"};
 	private UserApplication app;
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
-
-		
 	private ArrayList<Review> reviews;
-	ArrayAdapter<Review> adapter;
+	private ArrayAdapter<Review> adapter;
 	
 
 	@Override
@@ -49,6 +45,22 @@ public class ReadReviewActivity extends Activity{
 
 		reviewList.setAdapter(adapter);
 		
+		reviewList.setOnItemClickListener(
+			new OnItemClickListener(){
+				
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+					nextScreen(position);
+				}
+			}
+		);
+			
+	}
+
+	private void nextScreen(int position){
+		app.setSelectedReview(reviews.get(position));
+		Intent intent = new Intent(this, ReviewDetailsActivity.class);
+		startActivity(intent);
 	}
 
 	@Override

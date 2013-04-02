@@ -49,7 +49,6 @@ public class FindRestaurantsActivity extends Activity {
 		searchButton = (Button) findViewById(R.id.searchButton);
 		zipCodeText = (EditText) findViewById(R.id.zipCodeText);
 		keywordText = (EditText) findViewById(R.id.keywordText);
-		
 	}
 	
 	// needs work	

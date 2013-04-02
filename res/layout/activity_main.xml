@@ -39,38 +39,51 @@
 		android:hint="@string/password_text">
    	</EditText>
 	        	    
-    <Button
+    <ImageButton
         android:id="@+id/LogInButton"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/log_in_button"
-        android:onClick="logInButtonHandler">
-    </Button>
+        android:layout_height="45dp"
+        android:src="@drawable/login_button"        
+        android:onClick="logInButtonHandler"
+        android:scaleType="fitXY"
+        android:padding="4dp"
+        android:background="@null"
+        >
+    </ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/SkipLoginButton"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/skip_log_in_button"
-        android:onClick="skipLoginButtonHandler">
-   	</Button>
+        android:layout_height="45dp"
+        android:src="@drawable/skip_login_button"
+        android:scaleType="fitXY"
+        android:onClick="skipLoginButtonHandler"
+        android:padding="4dp"
+        android:background="@null">
+   	</ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/ForgotPasswordButton"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/forgot_password_button"
+        android:layout_height="45dp"
+        android:src="@drawable/forgot_password_button"
+        android:scaleType="fitXY"
+        android:padding="4dp"
+        android:background="@null"
         android:onClick="forgotPasswordButtonHandler">
 
-   	</Button>
+   	</ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/CreateAccountButton"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_account_button"
+        android:layout_height="45dp"
+        android:src="@drawable/create_account_button"
+        android:scaleType="fitXY"
+        android:padding="4dp"
+        android:background="@null"
    		android:onClick="createAccountButtonHandler">
-    </Button>
+    </ImageButton>
     
 </LinearLayout>
 </ScrollView>

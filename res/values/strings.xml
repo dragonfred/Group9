@@ -9,7 +9,7 @@
     <string name="create_account_title">Create Account</string>
     <!--
     <string name="username_text">Username</string>
-    <string name="password_text">Password</string>
+    <string name="password_text">Password</string>
     -->
     <string name="confirm_password_text">Confirm Password</string>
     <string name="email_text">Email</string>
@@ -68,7 +68,7 @@
     <!--
     <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
-    <string name="restaurant_address_text">[Restaurant Address]</string>
+    <string name="restaurant_address_text">[Restaurant Address]</string>
     -->
     <string name="review_text">Review</string>
     <string name="chars_left_text">200 characters remaining</string>
@@ -81,7 +81,7 @@
     <!--
     <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="restaurant_name_text">[Restaurant Name]</string>
-    <string name="restaurant_address_text">[Restaurant Address]</string>
+    <string name="restaurant_address_text">[Restaurant Address]</string>
     -->
     <!-- List Restaurants Activity -->
     <string name="title_activity_list_restaurants">ListRestaurantsActivity</string>
@@ -135,12 +135,13 @@
     <string name="message_text">message_Text</string>
     <string name="send_message">Send Message</string>
     <string name="hello_world">Hello world!</string>
-    
+
     <!-- Create Message Activity -->
     <string name="create_message_title">Create Message</string>
     <string name="compose_message_text">Compose Message</string>
     <string name="cancel_message_button">Cancel</string>
     <string name="send_message_button">Send Message</string>
     <string name="open_in_google_maps">Open in Google Maps</string>
+    <string name="title_activity_review_details">ReviewDetailsActivity</string>
 
 </resources>

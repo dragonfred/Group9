@@ -128,43 +128,57 @@ containing a value of this type.
          */
         public static final int zOrderOnTop=0x7f01000d;
     }
+    public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    
+         */
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
+    }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int create_account_button=0x7f020000;
+        public static final int forgot_password_button=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int login_button=0x7f020003;
+        public static final int skip_login_button=0x7f020004;
     }
     public static final class id {
         public static final int CapturePictureButton=0x7f04004a;
-        public static final int CharsLeftText=0x7f040044;
+        public static final int CharsLeftText=0x7f040049;
         public static final int CreateAccountButton=0x7f040026;
         public static final int CreateMessageTitle=0x7f04000d;
-        public static final int DisplayImageView=0x7f040049;
+        public static final int DisplayImageView=0x7f040047;
         public static final int ForgotPasswordButton=0x7f040025;
-        public static final int FriendSearchButton=0x7f04002a;
+        public static final int FriendSearchButton=0x7f040015;
         public static final int LogInButton=0x7f040023;
         public static final int Main=0x7f04001f;
-        public static final int MapButton=0x7f04003c;
+        public static final int MapButton=0x7f04003b;
         public static final int Password=0x7f040022;
         public static final int PostToFacebook=0x7f04004c;
-        public static final int RestaurantAddressText=0x7f040041;
-        public static final int RestaurantNameText=0x7f040040;
-        public static final int RestaurantPhoneNumberText=0x7f040042;
-        public static final int ReviewText=0x7f040043;
+        public static final int RestaurantAddressText=0x7f040040;
+        public static final int RestaurantNameText=0x7f04003f;
+        public static final int RestaurantPhoneNumberText=0x7f040041;
+        public static final int ReviewText=0x7f040042;
         public static final int SkipLoginButton=0x7f040024;
         public static final int SubmitReviewButton=0x7f04004b;
         public static final int Username=0x7f040021;
+        public static final int UsernameSearch=0x7f040014;
         public static final int action_settings=0x7f04004e;
         public static final int cancelCreateAccount=0x7f04000b;
         public static final int cancelMessageButton=0x7f04000f;
-        public static final int checkInButton=0x7f04003f;
-        public static final int cleanlinessRating=0x7f040047;
+        public static final int checkInButton=0x7f04003e;
+        public static final int cleanlinessRating=0x7f040045;
         public static final int confirmPasswordText=0x7f040008;
         public static final int createAccountTitle=0x7f040005;
         public static final int currentFriendsTitle=0x7f040011;
         public static final int deleteFriend=0x7f04001b;
         public static final int emailText=0x7f040009;
         public static final int findFriendTitle=0x7f040013;
-        public static final int findFriends=0x7f040032;
+        public static final int findFriends=0x7f040031;
         public static final int findRestaurants=0x7f040027;
-        public static final int friendSearchButton=0x7f040015;
         public static final int friendTitle=0x7f04001a;
         public static final int friendsList=0x7f040012;
         public static final int hybrid=0x7f040004;
@@ -172,44 +186,44 @@ containing a value of this type.
         public static final int logInTitle=0x7f040020;
         public static final int loginPersist=0x7f04000a;
         public static final int manageAccount=0x7f040029;
-        public static final int manageAccountTitle=0x7f04002b;
+        public static final int manageAccountTitle=0x7f04002a;
         public static final int manageFriends=0x7f040028;
-        public static final int manageFriendsTitle=0x7f040030;
-        public static final int map=0x7f040035;
-        public static final int mapExternalButton=0x7f040034;
+        public static final int manageFriendsTitle=0x7f04002f;
+        public static final int map=0x7f040034;
+        public static final int mapExternalButton=0x7f040033;
         public static final int menu_settings=0x7f04004d;
         public static final int messageFriend=0x7f04001c;
         public static final int messageText=0x7f04000e;
-        public static final int newPasswordConfirmText=0x7f04002e;
-        public static final int newPasswordText=0x7f04002d;
+        public static final int newPasswordConfirmText=0x7f04002d;
+        public static final int newPasswordText=0x7f04002c;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
-        public static final int notificationsList=0x7f040037;
-        public static final int notificationsTitle=0x7f040036;
-        public static final int oldPasswordText=0x7f04002c;
-        public static final int overallRating=0x7f040048;
+        public static final int notificationsList=0x7f040036;
+        public static final int notificationsTitle=0x7f040035;
+        public static final int oldPasswordText=0x7f04002b;
+        public static final int overallRating=0x7f040046;
         public static final int passwordText=0x7f040007;
-        public static final int readReviewsButton=0x7f04003d;
+        public static final int ratingText=0x7f040048;
+        public static final int readReviewsButton=0x7f04003c;
         public static final int restaurantsListTitle=0x7f04001d;
         public static final int restaurantsListView=0x7f04001e;
-        public static final int reviewPhoneNumber=0x7f04003a;
-        public static final int reviewRestaurantAddressText=0x7f040039;
-        public static final int reviewRestaurantName=0x7f040038;
-        public static final int reviewsList=0x7f04003b;
+        public static final int reviewPhoneNumber=0x7f040039;
+        public static final int reviewRestaurantAddressText=0x7f040038;
+        public static final int reviewRestaurantName=0x7f040037;
+        public static final int reviewsList=0x7f04003a;
         public static final int satellite=0x7f040002;
         public static final int searchButton=0x7f040019;
         public static final int searchNearby=0x7f040018;
         public static final int sendMessageButton=0x7f040010;
-        public static final int serviceRating=0x7f040046;
-        public static final int showFriends=0x7f040031;
+        public static final int serviceRating=0x7f040044;
+        public static final int showFriends=0x7f040030;
         public static final int submitCreateAccount=0x7f04000c;
-        public static final int tasteRating=0x7f040045;
+        public static final int tasteRating=0x7f040043;
         public static final int terrain=0x7f040003;
-        public static final int updatePasswordButton=0x7f04002f;
-        public static final int usernameSearch=0x7f040014;
+        public static final int updatePasswordButton=0x7f04002e;
         public static final int usernameText=0x7f040006;
-        public static final int viewNotifications=0x7f040033;
-        public static final int writeReviewsButton=0x7f04003e;
+        public static final int viewNotifications=0x7f040032;
+        public static final int writeReviewsButton=0x7f04003d;
         public static final int zipCodeText=0x7f040017;
     }
     public static final class layout {
@@ -228,26 +242,28 @@ containing a value of this type.
         public static final int activity_notifications=0x7f03000c;
         public static final int activity_read_review=0x7f03000d;
         public static final int activity_restaurant=0x7f03000e;
-        public static final int activity_write_review=0x7f03000f;
+        public static final int activity_review_details=0x7f03000f;
+        public static final int activity_write_review=0x7f030010;
     }
     public static final class menu {
-        public static final int activity_add_picture=0x7f070000;
-        public static final int activity_create=0x7f070001;
-        public static final int activity_current_friends=0x7f070002;
-        public static final int activity_find_friend=0x7f070003;
-        public static final int activity_find_restaurants=0x7f070004;
-        public static final int activity_friend=0x7f070005;
-        public static final int activity_list_restaurants=0x7f070006;
-        public static final int activity_main=0x7f070007;
-        public static final int activity_main_menu=0x7f070008;
-        public static final int activity_manage_account=0x7f070009;
-        public static final int activity_manage_friends=0x7f07000a;
-        public static final int activity_notifications=0x7f07000b;
-        public static final int activity_read_review=0x7f07000c;
-        public static final int activity_restaurant=0x7f07000d;
-        public static final int activity_write_review=0x7f07000e;
-        public static final int create_message=0x7f07000f;
-        public static final int forgot_password=0x7f070010;
+        public static final int activity_add_picture=0x7f080000;
+        public static final int activity_create=0x7f080001;
+        public static final int activity_current_friends=0x7f080002;
+        public static final int activity_find_friend=0x7f080003;
+        public static final int activity_find_restaurants=0x7f080004;
+        public static final int activity_friend=0x7f080005;
+        public static final int activity_list_restaurants=0x7f080006;
+        public static final int activity_main=0x7f080007;
+        public static final int activity_main_menu=0x7f080008;
+        public static final int activity_manage_account=0x7f080009;
+        public static final int activity_manage_friends=0x7f08000a;
+        public static final int activity_notifications=0x7f08000b;
+        public static final int activity_read_review=0x7f08000c;
+        public static final int activity_restaurant=0x7f08000d;
+        public static final int activity_write_review=0x7f08000e;
+        public static final int create_message=0x7f08000f;
+        public static final int forgot_password=0x7f080010;
+        public static final int review_details=0x7f080011;
     }
     public static final class string {
         public static final int action_settings=0x7f050060;
@@ -328,6 +344,7 @@ containing a value of this type.
     <string name="username_text">Username</string>
     <string name="password_text">Password</string>
 
+
     
          */
         public static final int confirm_password_text=0x7f050015;
@@ -382,6 +399,7 @@ containing a value of this type.
     <string name="restaurant_name_text">[Restaurant Name]</string>
     <string name="restaurant_address_text">[Restaurant Address]</string>
 
+
     
          */
         public static final int review_text=0x7f05003e;
@@ -425,6 +443,7 @@ containing a value of this type.
     <string name="restaurant_name_text">[Restaurant Name]</string>
     <string name="restaurant_address_text">[Restaurant Address]</string>
 
+
     
  List Restaurants Activity 
          */
@@ -448,6 +467,7 @@ containing a value of this type.
         /**  Restaurant Activity 
          */
         public static final int title_activity_restaurant=0x7f050031;
+        public static final int title_activity_review_details=0x7f05006b;
         /**  Write Review Activity 
          */
         public static final int title_activity_write_review=0x7f050039;
@@ -481,11 +501,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
