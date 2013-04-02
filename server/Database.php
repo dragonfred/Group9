@@ -3,7 +3,7 @@
 class Database extends mysqli {
 
   public static $connection;
-  
+  public static $user;
   public function __construct($DB_HOST, $DB_USER, $DB_PASS, $DB_DB)  {
     parent::__construct($DB_HOST, $DB_USER, $DB_PASS, $DB_DB);
     if (mysqli_connect_error()) {
@@ -11,8 +11,7 @@ class Database extends mysqli {
 	  . mysqli_connect_error());
     }
   }
-
-
+  
   function hexToBin($x) {
     $s='';
     foreach(explode("\n",trim(chunk_split($x,2))) as $h) $s.=chr(hexdec($h));
@@ -57,11 +56,13 @@ class Database extends mysqli {
     return '0x'.$this->BinToHex($x);
   }
   function verifyUser($username, $password) {
-    return $this->oneRow("SELECT * FROM Users WHERE Login = '".
+    $valid = $this->oneRow("SELECT * FROM Users WHERE Login = '".
 			$this->san($username).
 			"' AND Password = '".
 			$this->san($password).
 			"' LIMIT 1");
+    if($valid) self::$user = $valid['Login'];
+    
   }
 
   function sqlToObject($x) {
@@ -77,7 +78,12 @@ class Database extends mysqli {
   }
 
   function squery($query) {
-    $res = $this->query($query);
+    if(self::$user=='anonymous' &&
+    	(!preg_match('/^SELECT/',strtoupper($query)))) {
+    	die("ERR: Anonymous user denied access.");
+    }
+    	
+  	$res = $this->query($query);
     if($res) return $res;
     else die("ERR: ".$this->error);
   }
