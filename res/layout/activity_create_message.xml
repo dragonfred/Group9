@@ -51,16 +51,19 @@
 		       android:layout_gravity="center"
 		       android:background="@null">
 		   </ImageButton>
-		    
-		   <Button
+		   
+		   	<ImageButton
 		       android:id="@+id/sendMessageButton"
 		       android:layout_width="fill_parent"
-		       android:layout_height="wrap_content"
+		       android:layout_height="45dp"
+		       android:src="@drawable/send_message_button"
 		       android:onClick="sendMessageAccountHandler"
-		       android:text="@string/send_message_button" 
 		       android:layout_weight="1"
-		       android:padding="4dp">
-		   </Button>
+		       android:padding="4dp"
+		       android:scaleType="fitXY"
+		       android:layout_gravity="center"
+		       android:background="@null">
+		   </ImageButton>
 	
 		</LinearLayout>
 		

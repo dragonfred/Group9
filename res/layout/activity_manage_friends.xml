@@ -47,28 +47,18 @@
 			android:layout_gravity="center"
 			android:background="@null">
 		</ImageButton>
-	   
-<!-- waiting on view notifications button -->
-<!-- 	    <ImageButton -->
-<!-- 		    android:id="@+id/viewNotificationsButton" -->
-<!-- 		    android:layout_width="fill_parent" -->
-<!-- 		    android:layout_height="45dp" -->
-<!-- 		    android:onClick="viewNotificationsButtonHandler" -->
-<!-- 		    android:src="@drawable/view_notifications_button" -->
-<!-- 		    android:padding="4dp" -->
-<!-- 		    android:scaleType="fitXY" -->
-<!-- 			android:layout_gravity="center" -->
-<!-- 			android:background="@null"> -->
-<!-- 		</ImageButton> -->
-	   
-	    <Button
-		       android:id="@+id/viewNotifications"
-		       android:layout_width="fill_parent"
-		       android:layout_height="wrap_content"
-		       android:layout_marginBottom="4dp"
-		       android:text="@string/view_notifications"
-		       android:onClick="viewNotificationsButtonHandler">
-		</Button>
+
+	    <ImageButton
+		    android:id="@+id/viewNotificationsButton"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="viewNotificationsButtonHandler"
+		    android:src="@drawable/view_notification_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	
 	</LinearLayout>
 	

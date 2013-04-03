@@ -59,27 +59,17 @@
 	        android:padding="4dp">
 	    </EditText>
 	
-<!-- need update password button -->
-<!-- 		<ImageButton -->
-<!-- 		    android:id="@+id/updatePasswordButton" -->
-<!-- 		    android:layout_width="fill_parent" -->
-<!-- 		    android:layout_height="45dp" -->
-<!-- 		    android:onClick="updatePasswordButtonHandler" -->
-<!-- 		    android:src="@drawable/update_password_button" -->
-<!-- 		    android:padding="4dp" -->
-<!-- 		    android:scaleType="fitXY" -->
-<!-- 			android:layout_gravity="center" -->
-<!-- 			android:background="@null"> -->
-<!-- 		</ImageButton> -->
-	    
-		<Button
-	        android:id="@+id/updatePasswordButton"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-			android:padding="4dp"
-	       	android:text="@string/update_password_button"
-	       	android:onClick="updatePasswordButtonHandler">
-		</Button>
+		<ImageButton
+		    android:id="@+id/updatePasswordButton"
+		    android:layout_width="fill_parent"
+		    android:layout_height="45dp"
+		    android:onClick="updatePasswordButtonHandler"
+		    android:src="@drawable/update_password_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
 	    
 	</LinearLayout>
 </ScrollView>

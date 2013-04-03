@@ -14,7 +14,7 @@ public class RestaurantActivity extends Activity {
 
 	
 	private ImageButton viewMapButton;
-	private Button readReviewsButton;
+	private ImageButton readReviewsButton;
 	private ImageButton writeReviewsButton;
 	private ImageButton checkInButton;
 	private TextView restaurantNameText;
@@ -79,7 +79,7 @@ public class RestaurantActivity extends Activity {
 		restaurantAddressText = (TextView) findViewById(R.id.reviewRestaurantAddressText);
 		restaurantPhoneNumberText = (TextView) findViewById(R.id.reviewPhoneNumber);
 		viewMapButton = (ImageButton) findViewById(R.id.MapButton);
-		readReviewsButton = (Button) findViewById(R.id.readReviewsButton);
+		readReviewsButton = (ImageButton) findViewById(R.id.readReviewsButton);
 		writeReviewsButton = (ImageButton) findViewById(R.id.writeReviewsButton);
 		checkInButton = (ImageButton) findViewById(R.id.checkInButton);
 		

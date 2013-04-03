@@ -37,7 +37,6 @@ public class WriteReviewActivity extends Activity {
 	private final float maxRating = 12.0f;
 	
 	private Review review;
-
 	private ImageView displayImageView;
 	
 	private static final int CAMERA_REQUEST= 1888;

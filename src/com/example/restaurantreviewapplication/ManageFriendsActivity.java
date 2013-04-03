@@ -14,7 +14,7 @@ public class ManageFriendsActivity extends Activity {
 
 	private ImageButton showFriendsButton;
 	private ImageButton findFriendsButton;
-	private Button viewNotificationsButton;
+	private ImageButton viewNotificationsButton;
 
 	
 	@Override
@@ -56,7 +56,7 @@ public class ManageFriendsActivity extends Activity {
 	private void setupViews(){
 		showFriendsButton = (ImageButton) findViewById(R.id.showFriendsButton);
 		findFriendsButton = (ImageButton) findViewById(R.id.findFriendsButton);
-		viewNotificationsButton = (Button) findViewById(R.id.viewNotifications);
+		viewNotificationsButton = (ImageButton) findViewById(R.id.viewNotificationsButton);
 		
 	}
 }

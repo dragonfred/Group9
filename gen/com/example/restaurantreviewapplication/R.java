@@ -139,29 +139,45 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-        public static final int add_picture_button=0x7f020000;
-        public static final int cancel_button=0x7f020001;
-        public static final int check_in_button=0x7f020002;
-        public static final int create_account_button=0x7f020003;
-        public static final int delete_friend_button=0x7f020004;
-        public static final int edibles_logo=0x7f020005;
-        public static final int find_friends_button=0x7f020006;
-        public static final int find_restaurants_button=0x7f020007;
-        public static final int forgot_password_button=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int login_button=0x7f02000a;
-        public static final int logout_button=0x7f02000b;
-        public static final int manage_account_button=0x7f02000c;
-        public static final int manage_friends_button=0x7f02000d;
-        public static final int map_button=0x7f02000e;
-        public static final int message_friend_button=0x7f02000f;
-        public static final int post_to_facebook_button=0x7f020010;
-        public static final int search_button=0x7f020011;
-        public static final int search_nearby_button=0x7f020012;
-        public static final int show_friends_button=0x7f020013;
-        public static final int skip_login_button=0x7f020014;
-        public static final int submit_button=0x7f020015;
-        public static final int write_review_button=0x7f020016;
+        public static final int accept_button=0x7f020000;
+        public static final int add_picture_button=0x7f020001;
+        public static final int attach_button=0x7f020002;
+        public static final int cancel_button=0x7f020003;
+        public static final int check_in_on_facebook_button=0x7f020004;
+        public static final int create_account_button=0x7f020005;
+        public static final int decline_button=0x7f020006;
+        public static final int delete_friend_button=0x7f020007;
+        public static final int edibles_logo=0x7f020008;
+        public static final int find_button=0x7f020009;
+        public static final int find_friends_button=0x7f02000a;
+        public static final int find_restaurants_button=0x7f02000b;
+        public static final int find_reviews_button=0x7f02000c;
+        public static final int forgot_password_button=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int log_in_button=0x7f02000f;
+        public static final int logout_button=0x7f020010;
+        public static final int manage_account_button=0x7f020011;
+        public static final int manage_friends_button=0x7f020012;
+        public static final int map_button=0x7f020013;
+        public static final int message_friend_button=0x7f020014;
+        public static final int read_reviews_button=0x7f020015;
+        public static final int register_button=0x7f020016;
+        public static final int search_button=0x7f020017;
+        public static final int search_by_zip_button=0x7f020018;
+        public static final int search_closest_button=0x7f020019;
+        public static final int search_nearby_button=0x7f02001a;
+        public static final int see_notifications_button=0x7f02001b;
+        public static final int send_friend_request_button=0x7f02001c;
+        public static final int send_message_button=0x7f02001d;
+        public static final int show_friends_button=0x7f02001e;
+        public static final int sign_in_button=0x7f02001f;
+        public static final int skip_login_button=0x7f020020;
+        public static final int submit_and_post_to_facebook_button=0x7f020021;
+        public static final int submit_button=0x7f020022;
+        public static final int submit_review_button=0x7f020023;
+        public static final int update_password_button=0x7f020024;
+        public static final int view_notification_button=0x7f020025;
+        public static final int write_review_button=0x7f020026;
     }
     public static final class id {
         public static final int CancelCreateAccountButton=0x7f04000b;
@@ -243,7 +259,7 @@ containing a value of this type.
         public static final int terrain=0x7f040003;
         public static final int updatePasswordButton=0x7f040031;
         public static final int usernameText=0x7f040006;
-        public static final int viewNotifications=0x7f040035;
+        public static final int viewNotificationsButton=0x7f040035;
         public static final int writeReviewsButton=0x7f040040;
         public static final int zipCodeText=0x7f040018;
     }
