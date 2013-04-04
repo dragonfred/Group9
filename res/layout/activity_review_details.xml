@@ -180,11 +180,11 @@
 			</ImageView>
 			
 			<TextView
-	       		android:id="@+id/ratingText"
+	       		android:id="@+id/RatingText"
 	       		android:layout_width="fill_parent"
 	       		android:layout_height="wrap_content"
 	       		android:text="[Rating] out of 4 stars"
-	       		android:textSize="16sp"
+	       		android:textSize="20sp"
 	       		android:gravity="center"
 	       		android:padding="4dp">      
 	   		</TextView> 
