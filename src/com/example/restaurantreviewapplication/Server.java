@@ -743,7 +743,7 @@ public class Server {
 			wr.close();
 
 			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					connection.getInputStream()));
+					connection.getInputStream()), 8192);
 			String line;
 			while ((line = rd.readLine()) != null) {
 				sb.append(line);
