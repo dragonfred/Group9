@@ -1,0 +1,40 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_marginBottom="5dp">
+	
+	<ImageView 
+   		android:id="@+id/photo"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+		android:paddingRight="15dp"
+		android:paddingTop="10dp">
+	</ImageView>
+	
+	<TextView android:id="@+id/restaurant_name"
+		android:textSize="20sp" 
+		android:textStyle="bold" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/photo">
+	</TextView>
+	
+	<TextView android:id="@+id/restaurant_address"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@id/restaurant_name"
+		android:layout_toRightOf="@id/photo">
+	</TextView>
+	
+	<TextView android:id="@+id/restaurant_phone" 
+		android:textSize="16sp" 
+		android:textStyle="bold" 
+		android:textColor="#1BC229" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@id/restaurant_address"
+		android:layout_toRightOf="@id/photo">
+	</TextView>
+	
+</RelativeLayout>
