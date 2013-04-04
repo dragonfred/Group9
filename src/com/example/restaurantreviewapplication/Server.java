@@ -144,6 +144,18 @@ public class Server {
 		Server.password = "none";
 	}
 
+	public static void logOut() {
+		LogOut(null);
+	}
+	
+	/**
+	 * Whether a valid user is logged in.
+	 * 
+	 * @return true if logged in, false if not.
+	 */
+	public static Boolean loggedIn() {
+		return (! username.equals("anonymous"));
+	}
 	/**
 	 * @param restaurant
 	 * @return List of reviews for this restaurant.

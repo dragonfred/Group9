@@ -101,6 +101,7 @@ public class MainActivity extends Activity {
 
 	// OnClickListener for "Skip Login" Button
 	public void skipLoginButtonHandler(View V) {
+		Server.logOut();
 		Intent intent = new Intent(this, FindRestaurantsActivity.class);
 		startActivity(intent);
 	}
