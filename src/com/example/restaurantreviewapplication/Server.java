@@ -30,6 +30,11 @@ import android.util.Log;
  */
 public class Server {
 	private static String serverURL = "http://cop4331.atmdvdusa.com/server/";
+	
+	// BACKUP SERVER
+	//private static String serverURL = "http://71.226.94.202/restaurant/";
+	
+	
 	private static String username = "anonymous";
 	private static String password = "none";
 	private static String error;
