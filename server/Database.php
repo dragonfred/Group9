@@ -61,8 +61,11 @@ class Database extends mysqli {
 			"' AND Password = '".
 			$this->san($password).
 			"' LIMIT 1");
-    if($valid) self::$user = $valid['Login'];
-    
+    if($valid) {
+    	self::$user = $valid['Login'];
+    	return $valid;
+    }
+    else return FALSE;
   }
 
   function sqlToObject($x) {

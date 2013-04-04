@@ -85,7 +85,7 @@ case 'newUser':
   $userdata->newUser($_POST, $database); break;
 case 'changePassword':
   $userdata = new UserData();
-  $userdata->changePassword($_POST, $user, $database); break;
+  echo $userdata->changePassword($_POST, $user, $database); break;
 case 'getRestaurants':
   $restaurantdata = new RestaurantData();
   echo $restaurantdata->getRestaurants($_POST, $user, $database); break;

@@ -69,7 +69,9 @@ class UserData extends ObjectData {
   
   function changePassword($post, $user, $db) {
   	$newpassword = $db->san($post['newpassword']);
-  	$query = "UPDATE Users SET Password='$newpassword' WHERE UUID=".$db->uuidBinToSQL($user['UUID']);
+  	$login = $user['Login'];
+  	$query = "UPDATE Users SET Password='$newpassword' WHERE Login='$login'";
+  	echo "$@$query@$";
   	$db->squery($query);
   	return "MSG: Password changed.";
   }
