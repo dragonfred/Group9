@@ -101,6 +101,9 @@ case 'getRestaurantReviews':
 case 'putRestaurantReview':
   $reviewdata = new RestaurantData();
   echo $reviewdata->putRestaurantReview($_POST, $user, $database); break;
+case 'findFriend':
+	$frienddata = new FriendData();
+	echo $frienddata->findFriend($_POST, $user, $database); break;
 case 'addFriend':
   $frienddata = new FriendData();
   echo $frienddata->addFriend($_POST, $user, $database); break;

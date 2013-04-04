@@ -43,23 +43,7 @@ private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base
     ////////////////////////////////////////////////////////////////////////////////////////////
    
 
-    
-    public static Friend findFriend(String friendID){
-     HashMap<String, String> postData = new HashMap<String, String>();
-     postData.put("username", username);
-     postData.put("password", password);
-     postData.put("action", "findFriend");
-     postData.put("friend", friendID);
-    
-     String res = postToServer(postData);
-     Log.i("Server.findFriend", res);
 
-     Friend result;
-     result = new Friend();
-     result.setUserId("New Friend");
-     return result; //return null for not found
-    
-    }
     
 
 
@@ -79,6 +63,7 @@ private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base
      String res = postToServer(postData);
      Log.i("Server.findFriend", res);
     }
+    
     
     
     /**
@@ -119,6 +104,30 @@ private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP | Base
      else return 1;
     }
     
+    /**
+     * Search for someone by ID.
+     * 
+     * @param friendID Username of friend to search for
+     * @return Friend object if found, otherwise null
+     */
+    public static Friend findFriend(String friendID){
+     HashMap<String, String> postData = new HashMap<String, String>();
+     postData.put("username", username);
+     postData.put("password", password);
+     postData.put("action", "findFriend");
+     postData.put("friend", friendID);
+    
+     String res = postToServer(postData);
+     Log.i("Server.findFriend", res);
+     if(res.substring(0, 3).equals("MSG")) {
+    	 Friend result;
+    	 result = new Friend();
+    	 result.setUserId(friendID);
+    	 return result;
+     }
+     else return null; //return null for not found
+    
+    }
     /**
 * @param currentUser
 */
@@ -664,6 +673,7 @@ return Base64.decode(in, BASE64_OPTS);
             connection.disconnect();
         } catch (Exception e) {
          Log.e("Server.sendServerInternal", e.toString());
+         return "ERR: Server not accessible";
         }
         Log.i("Server.sendServer", "Got: "+sb.toString());
         return sb.toString().replaceAll("$@.*@$", "");
