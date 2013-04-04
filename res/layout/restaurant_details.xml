@@ -37,4 +37,19 @@
 		android:layout_toRightOf="@id/photo">
 	</TextView>
 	
+	<RatingBar
+        android:id="@+id/OverallRestaurantRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
+        android:numStars="4"
+        android:layout_toRightOf="@id/restaurant_phone"
+        android:layout_below="@id/restaurant_address"
+		android:layout_alignBottom="@id/restaurant_phone"
+        android:stepSize="0.11"
+       	style="?android:attr/ratingBarStyleSmall"
+       	android:paddingLeft="2dp">
+    </RatingBar>
+	
 </RelativeLayout>
+
