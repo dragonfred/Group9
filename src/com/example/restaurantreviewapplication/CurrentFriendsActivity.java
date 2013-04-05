@@ -11,13 +11,14 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class CurrentFriendsActivity extends Activity {
 
-	
 	private UserApplication app;
 	private ArrayList<Friend> friends;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -38,13 +39,17 @@ public class CurrentFriendsActivity extends Activity {
 		ListView reviewList = (ListView) findViewById(R.id.friendsList);
 		//friends = app.getFriendList();
 		friends = app.getCurrentUser().getFriendList();
+		
 		ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this,
 				android.R.layout.simple_list_item_1, friends);
 		
 		if(friends == null){
 			// show message "no new messages"
-			Intent intent = new Intent(this, ManageFriendsActivity.class);
-			startActivity(intent);
+			Toast.makeText(getApplicationContext(), "You do not currently have any friends.",
+					Toast.LENGTH_SHORT).show();
+			
+			finish();
+			
 		}else{
 			reviewList.setAdapter(adapter);
 		}

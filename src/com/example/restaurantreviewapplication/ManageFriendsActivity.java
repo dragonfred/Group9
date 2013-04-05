@@ -33,7 +33,6 @@ public class ManageFriendsActivity extends Activity {
 	}
 	
 	public void showFriendsButtonHandler(View v){
-		
 		Intent intent = new Intent(this, CurrentFriendsActivity.class);
 		startActivity(intent);
 		
