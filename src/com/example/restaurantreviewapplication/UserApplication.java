@@ -25,7 +25,7 @@ public class UserApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		currentUser = new User();
+		currentUser = null;
 		restaurants = new Restaurants();
 		//friendList = new ArrayList<Friend>();
 		verified = false;

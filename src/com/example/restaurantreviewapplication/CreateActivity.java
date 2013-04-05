@@ -69,8 +69,8 @@ public class CreateActivity extends Activity {
 			response = Server.createAccount(email);
 
 			//commented out error handling until find out how to get server message
-//			if (response.compareToIgnoreCase("MSG: User created.") == 0) {
-//
+			if (response.compareToIgnoreCase("MSG: User created.") == 0) {
+
 //				Toast.makeText(getApplicationContext(),
 //						response, Toast.LENGTH_SHORT)
 //						.show();
@@ -78,39 +78,39 @@ public class CreateActivity extends Activity {
 				if (loginPersist.isChecked()) {
 					app.setCurrentUser(Server.getUser());
 				}
-//				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//				builder.setTitle("Account Created")
-//				.setMessage("Account Created")
-//				.setCancelable(false)
-//				.setPositiveButton("OK", 
-//						new DialogInterface.OnClickListener() {
-//							
-//							@Override
-//							public void onClick(DialogInterface dialog, int which) {
-//								// TODO Auto-generated method stub
-//								dialog.cancel();								
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("Account Created")
+				.setMessage("Account Created")
+				.setCancelable(false)
+				.setPositiveButton("OK", 
+						new DialogInterface.OnClickListener() {
+							
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								dialog.cancel();								
 								returnHome();
-//							}
-//						});
-//				AlertDialog alert = builder.create();
-//				alert.show();				
-//			} else {
-//				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//				builder.setTitle(response)
-//						.setMessage(response)
-//						.setCancelable(false)
-//						.setPositiveButton("OK",
-//								new DialogInterface.OnClickListener() {
-//
-//									@Override
-//									public void onClick(DialogInterface dialog,	int which) {
-//										// TODO Auto-generated method stub
-//										dialog.cancel();
-//									}
-//								});
-//				AlertDialog alert = builder.create();
-//				alert.show();
-//			}
+							}
+						});
+				AlertDialog alert = builder.create();
+				alert.show();				
+			} else {
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle(response)
+						.setMessage(response)
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,	int which) {
+										// TODO Auto-generated method stub
+										dialog.cancel();
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+			}
 		} else {
 
 			// pop up "passwords don't match"
