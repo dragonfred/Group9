@@ -33,7 +33,11 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		app = (UserApplication) getApplication();
-
+		if(app.getCurrentUser() != null){
+			Intent intent = new Intent(this, MainMenuActivity.class); // not sure on
+			startActivity(intent);
+			finish();
+		} 
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
 		loginButton = (ImageButton) findViewById(R.id.LogInButton);
@@ -110,6 +114,7 @@ public class MainActivity extends Activity {
 	public void createAccountButtonHandler(View v) {
 		Intent intent = new Intent(this, CreateActivity.class);
 		startActivity(intent);
+		finish();
 	}
 
 	// OnClickListener for "Login" Button
