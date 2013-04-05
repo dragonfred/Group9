@@ -34,7 +34,6 @@ public class Server {
 	// BACKUP SERVER
 	//private static String serverURL = "http://71.226.94.202/restaurant/";
 	
-	
 	private static String username = "anonymous";
 	private static String password = "none";
 	private static String error;
@@ -116,6 +115,7 @@ public class Server {
 	 */
 	public static Friend findFriend(String friendID) {
 		HashMap<String, String> postData = new HashMap<String, String>();
+		if(friendID.equals(username)) return null;
 		postData.put("username", username);
 		postData.put("password", password);
 		postData.put("action", "findFriend");
@@ -135,6 +135,28 @@ public class Server {
 		}
 	}
 
+	public ArrayList<Friend> getFriends(String friendID) {
+		HashMap<String, String> postData = new HashMap<String, String>();
+		ArrayList<Friend> flist = new ArrayList<Friend>();
+
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "getFriends");
+		String res = postToServer(postData);
+		
+		String[] friendIds = res.split(",");
+		
+		return flist;
+	}
+	
+	public static void confirmFriend(String friendID) {
+		
+	}
+	
+	public static ArrayList<Friend> getUnconfirmedFriends() {
+		ArrayList<Friend> flist = new ArrayList<Friend>();
+		return flist;
+	}
 	/**
 	 * @param currentUser
 	 */
