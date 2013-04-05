@@ -141,9 +141,10 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 				finish();
 			} else {
+				String message = Server.error();
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setTitle("No user found")
-						.setMessage("Cannot find username/password on server")
+				builder.setTitle("Invalid information")
+						.setMessage(message)
 						.setCancelable(false)
 						.setPositiveButton("OK",
 								new DialogInterface.OnClickListener() {

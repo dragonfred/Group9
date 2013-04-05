@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -20,6 +22,7 @@ public class NotificationsActivity extends Activity {
 			"Notification 6", "Notification 7", "Notification 8" };
 
 	private UserApplication app;
+	private ArrayList<Message> messages;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +30,31 @@ public class NotificationsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_notifications);
 		app = (UserApplication) getApplication();
-		seedNotification();
+		//seedNotification();
 		ListView reviewList = (ListView) findViewById(R.id.notificationsList);
-		ArrayList<Message> messages = app.getMessages();
+		app.setMessages(Server.getMessages());
+		messages = app.getMessages();
+		
 		ArrayAdapter<Message> adapter = new ArrayAdapter<Message>(this,
 				android.R.layout.simple_list_item_1, messages);
 		
 		if(messages == null){
-			// show message "no new messages"
-			Intent intent = new Intent(this, ManageFriendsActivity.class);
-			startActivity(intent);
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("No Messages")
+					.setMessage("No messages found.")
+					.setCancelable(false)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+									returnBackToMenu();
+								}
+							});
+			AlertDialog alert = builder.create();
+			alert.show();
 		}else{
 			reviewList.setAdapter(adapter);
 		}
@@ -52,6 +70,11 @@ public class NotificationsActivity extends Activity {
 
 	}
 
+	private void returnBackToMenu(){
+		Intent intent = new Intent(this, ManageFriendsActivity.class);
+		startActivity(intent);
+	}
+	
 	private void nextScreen(int position) {
 		//app.setSelectedRestaurant(restaurants.get(position));
 		//Intent intent = new Intent(this, RestaurantActivity.class);

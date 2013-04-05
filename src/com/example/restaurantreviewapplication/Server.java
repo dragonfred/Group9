@@ -47,6 +47,27 @@ public class Server {
 
 	// //////////////////////////////////////////////////////////////////////////////////////////
 
+	
+	// //////////////////////////////////////////////////////////////////////////////////////////
+	// Please Add
+	// //////////////////////////////////////////////////////////////////////////////////////////
+	public static ArrayList<Message> getMessages(){
+		ArrayList<Message> listOfMessages = new ArrayList<Message>();
+		Message aMessage;
+		String string1, string2;
+		String string3 = "";
+		
+		for(int i = 0 ; i < 3 ; i++){
+			string1 = "" + i*2;
+			string2 = "" + i*3;
+			string3 = string3 + "yo ";
+			aMessage = new Message(string1, string2, string3);
+			listOfMessages.add(aMessage);
+		}
+		return listOfMessages;
+		
+	}
+	// //////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * @param user
 	 * @param newFriend
@@ -564,6 +585,7 @@ public class Server {
 		sret = postToServer(vars);
 		if (checkError(sret) != null) {
 			Log.e("Server.getUser", checkError(sret));
+			error = sret;
 			return null;
 		} else {
 			Log.i("getUser decode", sret);
