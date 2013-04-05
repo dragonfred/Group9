@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
@@ -80,6 +81,13 @@ public class FindRestaurantsActivity extends Activity {
 		  };
 
 		// Register the listener with the Location Manager to receive location updates
+		String p = locationManager.getBestProvider(new Criteria(), true);
+		if(p == null) {
+			Toast.makeText(getApplicationContext(),
+					"No Location Services Available", Toast.LENGTH_SHORT)
+					.show();
+			return;
+		}
 		locationManager.requestLocationUpdates(locationManager.getBestProvider(new Criteria(), true), 0, 0, locationListener);
 	}
 
