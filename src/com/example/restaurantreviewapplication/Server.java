@@ -67,6 +67,19 @@ public class Server {
 		return listOfMessages;
 		
 	}
+	
+	public static void confirmFriend(Friend friendID) {
+		
+	}
+	
+	//Return null for none found
+	public static ArrayList<Friend> getUnconfirmedFriends() {
+		ArrayList<Friend> flist = new ArrayList<Friend>();
+		Friend aFriend = new Friend();
+		aFriend.setUserId("hello");
+		flist.add(aFriend);
+		return flist;
+	}
 	// //////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * @param user
@@ -170,14 +183,7 @@ public class Server {
 		return flist;
 	}
 	
-	public static void confirmFriend(String friendID) {
-		
-	}
-	
-	public static ArrayList<Friend> getUnconfirmedFriends() {
-		ArrayList<Friend> flist = new ArrayList<Friend>();
-		return flist;
-	}
+
 	/**
 	 * @param currentUser
 	 */

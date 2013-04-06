@@ -59,6 +59,16 @@
 			android:layout_gravity="center"
 			android:background="@null">
 		</ImageButton>
+		
+		<ImageButton
+            android:id="@+id/viewFriendRequestsButton"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:onClick="viewFriendRequestsButtonHandler"
+            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/view_notification_button" />
 	
 	</LinearLayout>
 	

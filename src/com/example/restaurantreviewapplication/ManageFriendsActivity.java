@@ -15,6 +15,7 @@ public class ManageFriendsActivity extends Activity {
 	private ImageButton showFriendsButton;
 	private ImageButton findFriendsButton;
 	private ImageButton viewNotificationsButton;
+	private ImageButton viewFriendRequests;
 
 	
 	@Override
@@ -51,11 +52,18 @@ public class ManageFriendsActivity extends Activity {
 		startActivity(intent);
 		
 	}
+	
+	public void viewFriendRequestsButtonHandler(View v){
+		
+		Intent intent = new Intent(this, ListFriendRequests.class);
+		startActivity(intent);
+		
+	}
 
 	private void setupViews(){
 		showFriendsButton = (ImageButton) findViewById(R.id.showFriendsButton);
 		findFriendsButton = (ImageButton) findViewById(R.id.findFriendsButton);
 		viewNotificationsButton = (ImageButton) findViewById(R.id.viewNotificationsButton);
-		
+		viewFriendRequests = (ImageButton) findViewById(R.id.viewFriendRequestsButton);
 	}
 }
