@@ -45,7 +45,7 @@ public class Server {
 	// Stubs / Tests
 	// //////////////////////////////////////////////////////////////////////////////////////////
 
-	public static ArrayList<Message> getMessages(){
+	public static ArrayList<Message> getMessagesOld(){
 		ArrayList<Message> listOfMessages = new ArrayList<Message>();
 		Message aMessage;
 		String string1, string2;
@@ -62,6 +62,29 @@ public class Server {
 		
 	}
 	
+	public static ArrayList<Message> getMessages() {
+		HashMap<String, String> postData = new HashMap<String, String>();
+		ArrayList<Message> mlist = new ArrayList<Message>();
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "getMessages");
+		String res = postToServer(postData);
+		if(noResult(res)) return mlist;
+		String[] messageUnits = res.split(":&:");
+		for(String m : messageUnits) {
+			String[] mparts = m.split("!#!");
+			if(mparts.length != 2) continue;
+			Message n = new Message(mparts[0], username, mparts[1]);
+			mlist.add(n);
+		}
+		
+		return mlist;
+	}
+
+	
+	// //////////////////////////////////////////////////////////////////////////////////////////
+
+	
 	public ArrayList<Friend> getFriends(String friendID) {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Friend> flist = new ArrayList<Friend>();
@@ -70,29 +93,45 @@ public class Server {
 		postData.put("password", password);
 		postData.put("action", "getFriends");
 		String res = postToServer(postData);
-		
+		if(noResult(res)) return flist;
 		String[] friendIds = res.split(",");
-		
-		// stub
-		Friend f = new Friend();
-		f.setUserId("Friend1");
-		flist.add(f);
+		for(String id : friendIds) {
+			Friend f = new Friend();
+			f.setUserId(id);
+			flist.add(f);
+		}
 		return flist;
+
 	}
 	
-	public static void confirmFriend(String friendID) {
-		
-	}
 	
 	public static ArrayList<Friend> getUnconfirmedFriends() {
+		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Friend> flist = new ArrayList<Friend>();
-		Friend f = new Friend();
-		f.setUserId("Friend1");
-		flist.add(f);
+
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "getUnconfirmedFriends");
+		String res = postToServer(postData);
+		if(noResult(res)) return flist;
+		String[] friendIds = res.split(",");
+		for(String id : friendIds) {
+			Friend f = new Friend();
+			f.setUserId(id);
+			flist.add(f);
+		}
 		return flist;
 	}
-	// //////////////////////////////////////////////////////////////////////////////////////////
-
+	
+	public static void confirmFriend(Friend f) {
+		HashMap<String, String> postData = new HashMap<String, String>();
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "confirmFriend");
+		postData.put("friend", f.getUserId());
+		postToServer(postData);
+	}
+	
 	/**
 	 * @param user
 	 * @param newFriend
@@ -560,6 +599,23 @@ public class Server {
 		}
 	}
 
+	public static String checkMsg(String s) {
+		if (s.length() >= 3 && s.substring(0, 3).equals("MSG")) {
+			Log.i("Server.checkError", "Found a message.");
+			return s;
+		} else {
+			Log.i("Server.checkError", "Found a message.");
+			return null;
+		}
+	}
+	
+	public static Boolean noResult(String s) {
+		if (s.length() == 0) return true;
+		if (s.length() >= 3) {
+			if(s.substring(0,3).equals("MSG") || s.substring(0,3).equals("ERR")) return true;
+		}
+		return false;
+	}
 	/**
 	 * @param o
 	 *            An object that is an error.
