@@ -11,7 +11,7 @@ class RestaurantData {
 	function getUserReviews($post, $user, $db) {
 		$uuid = $user['UUID'];
 		$qs = '';
-		$qr = $db->squery("SELECT ReviewUUID FROM Reviews where UserUUID=".$db->uuidBinToSql($uuid));
+		$qr = $db->squery("SELECT ReviewUUID FROM Reviews where UserUUID=".$db->uuidBinToSql($uuid)." LIMIT 50");
 		while($qr->fetch_assoc()) {
 			$qs .= $db->uuidBinToStr($qr['ReviewUUID'])."\n";
 		}
@@ -21,7 +21,7 @@ class RestaurantData {
 	function getRestaurantReviews($post, $user, $db) {
 		$restaurant = $db->san($post['uuid']);
 		$qs='';
-		$qr = $db->squery("SELECT ReviewUUID FROM Reviews WHERE RestaurantUUID=".$db->uuidStrToSql($restaurant));
+		$qr = $db->squery("SELECT ReviewUUID FROM Reviews WHERE RestaurantUUID=".$db->uuidStrToSql($restaurant)." LIMIT 50");
 		while($row = $qr->fetch_assoc()) {
 			$qs .= $db->uuidBinToStr($row['ReviewUUID']).",";
 		}
@@ -70,7 +70,7 @@ class RestaurantData {
 				$query .= "AND (Keywords LIKE '%$val%' OR Name LIKE '%$val%') ";
 			}
 		}
-		$query .= " LIMIT 100";
+		$query .= " LIMIT 50";
 		
 		if($validQuery === FALSE) {
 			die("ERR: Invalid set of criteria to select restaurant.");

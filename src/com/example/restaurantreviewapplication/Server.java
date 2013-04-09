@@ -45,12 +45,6 @@ public class Server {
 	// Stubs / Tests
 	// //////////////////////////////////////////////////////////////////////////////////////////
 
-	// //////////////////////////////////////////////////////////////////////////////////////////
-
-	
-	// //////////////////////////////////////////////////////////////////////////////////////////
-	// Please Add
-	// //////////////////////////////////////////////////////////////////////////////////////////
 	public static ArrayList<Message> getMessages(){
 		ArrayList<Message> listOfMessages = new ArrayList<Message>();
 		Message aMessage;
@@ -68,19 +62,37 @@ public class Server {
 		
 	}
 	
-	public static void confirmFriend(Friend friendID) {
+	public ArrayList<Friend> getFriends(String friendID) {
+		HashMap<String, String> postData = new HashMap<String, String>();
+		ArrayList<Friend> flist = new ArrayList<Friend>();
+
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "getFriends");
+		String res = postToServer(postData);
+		
+		String[] friendIds = res.split(",");
+		
+		// stub
+		Friend f = new Friend();
+		f.setUserId("Friend1");
+		flist.add(f);
+		return flist;
+	}
+	
+	public static void confirmFriend(String friendID) {
 		
 	}
 	
-	//Return null for none found
 	public static ArrayList<Friend> getUnconfirmedFriends() {
 		ArrayList<Friend> flist = new ArrayList<Friend>();
-		Friend aFriend = new Friend();
-		aFriend.setUserId("hello");
-		flist.add(aFriend);
+		Friend f = new Friend();
+		f.setUserId("Friend1");
+		flist.add(f);
 		return flist;
 	}
 	// //////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 * @param user
 	 * @param newFriend
@@ -168,21 +180,6 @@ public class Server {
 			return null;
 		}
 	}
-
-	public ArrayList<Friend> getFriends(String friendID) {
-		HashMap<String, String> postData = new HashMap<String, String>();
-		ArrayList<Friend> flist = new ArrayList<Friend>();
-
-		postData.put("username", username);
-		postData.put("password", password);
-		postData.put("action", "getFriends");
-		String res = postToServer(postData);
-		
-		String[] friendIds = res.split(",");
-		
-		return flist;
-	}
-	
 
 	/**
 	 * @param currentUser
@@ -591,7 +588,6 @@ public class Server {
 		sret = postToServer(vars);
 		if (checkError(sret) != null) {
 			Log.e("Server.getUser", checkError(sret));
-			error = sret;
 			return null;
 		} else {
 			Log.i("getUser decode", sret);
