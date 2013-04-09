@@ -42,26 +42,14 @@ public class Server {
 	private static boolean isReady = true;
 
 	// //////////////////////////////////////////////////////////////////////////////////////////
-	// Stubs / Tests
+	// Place Stubs / Tests Here.
 	// //////////////////////////////////////////////////////////////////////////////////////////
 
-	public static ArrayList<Message> getMessagesOld(){
-		ArrayList<Message> listOfMessages = new ArrayList<Message>();
-		Message aMessage;
-		String string1, string2;
-		String string3 = "";
-		
-		for(int i = 0 ; i < 3 ; i++){
-			string1 = "" + i*2;
-			string2 = "" + i*3;
-			string3 = string3 + "yo ";
-			aMessage = new Message(string1, string2, string3);
-			listOfMessages.add(aMessage);
-		}
-		return listOfMessages;
-		
-	}
+
+
 	
+	// //////////////////////////////////////////////////////////////////////////////////////////
+
 	public static ArrayList<Message> getMessages() {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Message> mlist = new ArrayList<Message>();
@@ -77,12 +65,8 @@ public class Server {
 			Message n = new Message(mparts[0], username, mparts[1]);
 			mlist.add(n);
 		}
-		
 		return mlist;
 	}
-	
-	// //////////////////////////////////////////////////////////////////////////////////////////
-
 	
 	public ArrayList<Friend> getFriends(String friendID) {
 		HashMap<String, String> postData = new HashMap<String, String>();
@@ -100,7 +84,6 @@ public class Server {
 			flist.add(f);
 		}
 		return flist;
-
 	}
 	
 	
@@ -213,7 +196,7 @@ public class Server {
 				result.setUserId(friendID);
 				return result;
 			} else
-				return null; // return null for not found
+				return null; // not found
 		} catch (Exception e) {
 			return null;
 		}
@@ -274,19 +257,6 @@ public class Server {
 			if (!isError(ob))
 				reviews.add((Review) getObject(u));
 		}
-
-		// Review aReview = new Review();
-		// aReview.setReview("This place rocks!");
-		// reviews.add(aReview);
-		//
-		// aReview = new Review();
-		// aReview.setReview("This place sucks!");
-		// reviews.add(aReview);
-		//
-		// aReview = new Review();
-		// aReview.setReview("This place smells funny!");
-		// reviews.add(aReview);
-
 		return reviews;
 	}
 
@@ -308,7 +278,6 @@ public class Server {
 			password = newPassword;
 			return 0;
 		} else return 1;
-		// 0 for good, 1 for bad
 	}
 
 	/**
@@ -434,14 +403,9 @@ public class Server {
 				Log.e("getRestaurantsByZipKeyword", "Got a null response");
 			}
 		}
-		// result.add(new Restaurant("Joe's Restaurant", "123 Fake St",
-		// "123-123-1233", "Here"));
-		// result.add(new Restaurant("Bob's Restaurant", "234 fake st",
-		// "234-234-2344", "There"));
 		return result;
 	}
 
-	// Zip is "0" (zero) if no zip entered
 	/**
 	 * @param zip
 	 *            0 if not entered, otherwise the zip code.
@@ -463,10 +427,6 @@ public class Server {
 				Log.e("getRestaurantsByZipKeyword", "Got a null response");
 			}
 		}
-		// result.add(new Restaurant("Joe's Restaurant", "123 Fake St",
-		// "123-123-1233", "Here"));
-		// result.add(new Restaurant("Bob's Restaurant", "234 fake st",
-		// "234-234-2344", "There"));
 		return result;
 	}
 
@@ -493,11 +453,7 @@ public class Server {
 		 * Format: name|Joe's Restaurant%address|123 Fake St
 		 */
 		String[] args = result.split("[*]"); // Array of arguments
-		HashMap<String, String> r = new HashMap<String, String>(); // will be
-																	// k:v eg
-																	// name ->
-																	// Joe's
-																	// Rest.
+		HashMap<String, String> r = new HashMap<String, String>(); 
 		for (String kvp : args) {
 			String[] kva = kvp.split("[|]");
 			if (kva.length != 2) {
@@ -611,7 +567,8 @@ public class Server {
 	public static Boolean noResult(String s) {
 		if (s.length() == 0) return true;
 		if (s.length() >= 3) {
-			if(s.substring(0,3).equals("MSG") || s.substring(0,3).equals("ERR")) return true;
+			if(s.substring(0,3).equals("MSG") || 
+					s.substring(0,3).equals("ERR")) return true;
 		}
 		return false;
 	}
@@ -716,12 +673,7 @@ public class Server {
 	public static String postToServer(HashMap<String, String> vars) {
 		String postData = mapToPost(vars);
 		String res = sendServer(postData);
-		// String stub = res.substring(0,3);
-		// if(stub.equals("ERR") || stub.equals("MSG")) {
-		// new
-		// AlertDialog.Builder(null).setTitle("Argh").setMessage("Watch out!").setNeutralButton("Close",
-		// null).show();
-		// }
+
 		return res;
 	}
 
