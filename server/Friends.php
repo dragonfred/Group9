@@ -54,6 +54,17 @@ class FriendData {
 		$query = "INSERT INTO Messages (`From`, `To`, Message, Time) VALUES ('$thisUser', '$friendID', '$message', '$time'";
 		$db->squery($query);
 		return("MSG: Sent");
+	}
+	function confirmFriend($post, $user, $db) {
+		
+	}
+	function getUnconfirmedFriends($post, $user, $db) {
+		
+	}
+	function getMessages($post, $user, $db) {
+		
+	}
+	function getFriends($post, $user, $db) {
 		
 	}
 }

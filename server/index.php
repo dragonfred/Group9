@@ -74,6 +74,7 @@ case 'writeObject':
 case 'deleteObject': 
   $objectdata = new ObjectData();
   $objectdata->deleteObjectPOST($_POST, $user, $database); break;
+  
 case 'getUserData': 
   $userdata = new UserData();
   echo $userdata->getUser($_POST, $database); break;
@@ -86,6 +87,7 @@ case 'newUser':
 case 'changePassword':
   $userdata = new UserData();
   echo $userdata->changePassword($_POST, $user, $database); break;
+
 case 'getRestaurants':
   $restaurantdata = new RestaurantData();
   echo $restaurantdata->getRestaurants($_POST, $user, $database); break;
@@ -101,6 +103,7 @@ case 'getRestaurantReviews':
 case 'putRestaurantReview':
   $reviewdata = new RestaurantData();
   echo $reviewdata->putRestaurantReview($_POST, $user, $database); break;
+  
 case 'findFriend':
 	$frienddata = new FriendData();
 	echo $frienddata->findFriend($_POST, $user, $database); break;
@@ -113,7 +116,19 @@ case 'deleteFriend':
 case 'messageFriend':
   $frienddata = new FriendData();
   echo $frienddata->messageFriend($_POST, $user, $database); break;
-  
+case 'confirmFriend':
+	$frienddata = new FriendData();
+	echo $frienddata->confirmFriend($_POST, $user, $database); break;
+case 'getUnconfirmedFriends':
+	$frienddata = new FriendData();
+	echo $frienddata->getUnconfirmedFriends($_POST, $user, $database); break;
+case 'getMessages':
+	$frienddata = new FriendData();
+	echo $frienddata->getMessages($_POST, $user, $database); break;	
+case 'getFriends': 
+	$frienddata = new FriendData();
+	echo $frienddata->getFriends($_POST, $user, $database); break;
+	
 default: die("ERR: Invalid command"); break;
 }
 
