@@ -50,6 +50,9 @@ public class Server {
 	
 	// //////////////////////////////////////////////////////////////////////////////////////////
 
+	/** Get messages sent to our user.
+	 * @return An ArrayList of messages for the user.
+	 */
 	public static ArrayList<Message> getMessages() {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Message> mlist = new ArrayList<Message>();
@@ -68,6 +71,10 @@ public class Server {
 		return mlist;
 	}
 	
+	/** Get a list of confirmed friends.
+	 * @param friendID I have no idea. 
+	 * @return A list of friends.
+	 */
 	public ArrayList<Friend> getFriends(String friendID) {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Friend> flist = new ArrayList<Friend>();
@@ -87,6 +94,9 @@ public class Server {
 	}
 	
 	
+	/** Get a list of unconfirmed friends.
+	 * @return List of unconfirmed friends.
+	 */
 	public static ArrayList<Friend> getUnconfirmedFriends() {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Friend> flist = new ArrayList<Friend>();
@@ -105,6 +115,9 @@ public class Server {
 		return flist;
 	}
 	
+	/** Confirm a friend by ID.
+	 * @param f The friend to confirm (ID)
+	 */
 	public static void confirmFriend(Friend f) {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		postData.put("username", username);
@@ -114,7 +127,7 @@ public class Server {
 		postToServer(postData);
 	}
 	
-	/**
+	/** Add a new (unconfirmed) friend.
 	 * @param user
 	 * @param newFriend
 	 */
@@ -130,7 +143,7 @@ public class Server {
 		// [MSG: Sent Request] on success
 	}
 
-	/**
+	/** Delete a friend. 
 	 * @param currentUser
 	 * @param friend
 	 * @return 0 for good, 1 for bad
@@ -150,7 +163,7 @@ public class Server {
 			return 1;
 	}
 
-	/**
+	/** Send a message to a friend.
 	 * @param currentUser
 	 * @param friend
 	 * @param message
@@ -173,8 +186,7 @@ public class Server {
 			return 1;
 	}
 
-	/**
-	 * Search for someone by ID.
+	/** Search for someone by ID.
 	 * 
 	 * @param friendID
 	 *            Username of friend to search for
@@ -202,7 +214,7 @@ public class Server {
 		}
 	}
 
-	/**
+	/** Log out (remove stored account info)
 	 * @param currentUser
 	 */
 	public static void LogOut(User currentUser) {
@@ -211,19 +223,21 @@ public class Server {
 		Server.password = "none";
 	}
 
+	/** Log out (remove stored account info)
+	 * 
+	 */
 	public static void logOut() {
 		LogOut(null);
 	}
 	
-	/**
-	 * Whether a valid user is logged in.
+	/** Whether a valid user is logged in.
 	 * 
 	 * @return true if logged in, false if not.
 	 */
 	public static Boolean loggedIn() {
 		return (! username.equals("anonymous"));
 	}
-	/**
+	/** Get a list of reviews for a single restaurant.
 	 * @param restaurant
 	 * @return List of reviews for this restaurant.
 	 */
@@ -260,8 +274,8 @@ public class Server {
 		return reviews;
 	}
 
-	/**
-	 * @param newPassword
+	/** Change the user's password to the new password. 
+	 * @param newPassword the new password.
 	 * @return 0 for good, 1 for bad
 	 */
 	public static int changePassword(String newPassword) {
@@ -280,7 +294,7 @@ public class Server {
 		} else return 1;
 	}
 
-	/**
+	/** Add a review to a restaurant.
 	 * @param restaurant
 	 *            the Restaurant being reviewed
 	 * @param review
@@ -301,7 +315,7 @@ public class Server {
 		Log.i("Server.addReview", res);
 	}
 
-	/**
+	/** Change the server's URL.
 	 * @param serverURL
 	 *            Set the URL of the server. It is set by default, hardcoded in
 	 *            this class.
@@ -312,8 +326,7 @@ public class Server {
 		Server.serverURL = serverURL;
 	}
 
-	/**
-	 * Set the username.
+	/** Set the username.
 	 * 
 	 * @param username
 	 *            The user's username.
@@ -323,8 +336,7 @@ public class Server {
 		Server.username = username;
 	}
 
-	/**
-	 * Set the password.
+	/** Set the password.
 	 * 
 	 * @param password
 	 *            The user's password.
@@ -334,7 +346,7 @@ public class Server {
 		Server.password = password;
 	}
 
-	/**
+	/** Create an account on the server.
 	 * Create an account on the server. Make sure to specify the
 	 * username/password first with setUsername and setPassword.
 	 * 
@@ -361,7 +373,7 @@ public class Server {
 		return postToServer(postData);
 	}
 
-	/**
+	/** Initiate a password reset (web-based)
 	 * Initiate a password reset for the user.
 	 * 
 	 * @return 0 for good, 1 for bad
@@ -379,7 +391,7 @@ public class Server {
 			return 1;
 	}
 
-	/**
+	/** Search for restaurants near current location.
 	 * This searches restaurants within a five mile radius of the user. It
 	 * should probably be changed to take an argument specifying the maximum
 	 * distance.
@@ -406,7 +418,7 @@ public class Server {
 		return result;
 	}
 
-	/**
+	/** Search by Zip and/or Keyword.
 	 * @param zip
 	 *            0 if not entered, otherwise the zip code.
 	 * @param keyword
@@ -430,8 +442,7 @@ public class Server {
 		return result;
 	}
 
-	/**
-	 * Create a Restaurant object for the given UUID.
+	/** Create a Restaurant object for the given UUID.
 	 * 
 	 * @param uuid
 	 *            the UUID of a Restaurant "object"
@@ -476,7 +487,7 @@ public class Server {
 		return ro;
 	}
 
-	/**
+	/** Get the Restaurant UUID's based on the criteria.
 	 * @param zip
 	 *            The zip to search for, or 0 to ignore.
 	 * @param keyword
@@ -524,7 +535,7 @@ public class Server {
 		return uuidresult;
 	}
 
-	/**
+	/** Check if an object returned is due to an error. 
 	 * @param o
 	 *            An object returned from getObject
 	 * @return True if this object is an error.
@@ -539,7 +550,7 @@ public class Server {
 		return str.substring(0, 3).equals("ERR");
 	}
 
-	/**
+	/** Check if a string response is an error. 
 	 * @param s
 	 *            The response from the server
 	 * @return The error, or null if no error.
@@ -554,6 +565,10 @@ public class Server {
 		}
 	}
 
+	/** Check if a string response is a message. 
+	 * @param s The response from the server
+	 * @return The error, or null if no error.
+	 */
 	public static String checkMsg(String s) {
 		if (s.length() >= 3 && s.substring(0, 3).equals("MSG")) {
 			Log.i("Server.checkError", "Found a message.");
@@ -564,6 +579,10 @@ public class Server {
 		}
 	}
 	
+	/** Check if the server returned a result.
+	 * @param s The response from the server
+	 * @return True if the response was blank, error or a message, false otherwise.
+	 */
 	public static Boolean noResult(String s) {
 		if (s.length() == 0) return true;
 		if (s.length() >= 3) {
@@ -572,7 +591,7 @@ public class Server {
 		}
 		return false;
 	}
-	/**
+	/** Get an error from the server response object. 
 	 * @param o
 	 *            An object that is an error.
 	 * @return A string containing the error.
@@ -585,8 +604,7 @@ public class Server {
 		return str;
 	}
 
-	/**
-	 * Get the User object for the current username/password.
+	/** Get the User object for the current username/password.
 	 * 
 	 * @return the User object
 	 */
@@ -609,8 +627,7 @@ public class Server {
 		}
 	}
 
-	/**
-	 * Put a Storable object on the server.
+	/** Put a Storable object on the server.
 	 * 
 	 * @param o
 	 *            a Storable object.
@@ -630,8 +647,7 @@ public class Server {
 		return postToServer(vars);
 	}
 
-	/**
-	 * Get a Storable object from the server.
+	/** Get a Storable object from the server.
 	 * 
 	 * @param uuid
 	 *            The UUID of the object.
@@ -652,7 +668,7 @@ public class Server {
 			return stringToObject(result);
 	}
 
-	/**
+	/** Send a raw request to the server. 
 	 * 
 	 * Send a POST request to the server and return the response. This can be
 	 * used to do anything, but it's the hard way. It's recommended to add a
@@ -684,8 +700,7 @@ public class Server {
 	 * ****************************************************************
 	 */
 
-	/**
-	 * Wrapper for Android's Base64 conversion. Converts binary to string.
+	/** Wrapper for Android's Base64 conversion. Converts binary to string.
 	 * 
 	 * @param in
 	 *            a byte array
@@ -695,8 +710,7 @@ public class Server {
 		return Base64.encodeToString(in, BASE64_OPTS);
 	}
 
-	/**
-	 * Wrapper for Android's Base64 conversion. Converts string to binary.
+	/** Wrapper for Android's Base64 conversion. Converts string to binary.
 	 * 
 	 * @param in
 	 *            A string encoded in URL safe Base64
@@ -706,7 +720,7 @@ public class Server {
 		return Base64.decode(in, BASE64_OPTS);
 	}
 
-	/**
+	/** Map a hashmap to a HttpURLConnection string.
 	 * Convert a HashMap of POST vars/vals to a string usable with
 	 * HttpURLConnection.
 	 * 
@@ -728,7 +742,7 @@ public class Server {
 		return sb.toString();
 	}
 
-	/**
+	/** Convert a string to an object. 
 	 * @param b64in
 	 *            A base-64 encoded string
 	 * @return An object
@@ -748,7 +762,7 @@ public class Server {
 		return o;
 	}
 
-	/**
+	/** Convert an object to a string. 
 	 * @param ob
 	 *            a Storable object.
 	 * @return A base-64 encoded string that represents the object.
@@ -766,7 +780,7 @@ public class Server {
 		return toB64(b.toByteArray());
 	}
 
-	/**
+	/** Used internally by the asynchronous server task to make the connection.
 	 * @param urlParameters
 	 *            A string containing POST vars/vals.
 	 * @return The response from the server.
@@ -810,7 +824,7 @@ public class Server {
 		return sb.toString().replaceAll("\\$@.*@\\$", "");
 	}
 
-	/**
+	/** Send the parameters and obtain response from server (wraps async)
 	 * @param urlParameters
 	 *            The serialized URL parameters to send
 	 * @return The server's response.
@@ -836,14 +850,14 @@ public class Server {
 		return r;
 	}
 
-	/**
+	/** The last error message from the server. 
 	 * @return The last error message from the server.
 	 */
 	public static String error() {
 		return Server.error;
 	}
 
-	/**
+	/** Set the server to be ready or not ready. 
 	 * @param stat
 	 *            True if server is ready, false otherwise.
 	 */
@@ -851,14 +865,14 @@ public class Server {
 		isReady = stat;
 	}
 
-	/**
+	/** Check if server is ready. 
 	 * @return True if server ready, false otherwise.
 	 */
 	public static boolean getReady() {
 		return isReady;
 	}
 
-	/**
+	/** Asynchronous server task. 
 	 * @author phil Asynchronous server task.
 	 */
 	public static class ServerTask extends AsyncTask<String, Void, String> {
