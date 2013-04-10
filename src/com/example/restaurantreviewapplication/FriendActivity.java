@@ -68,9 +68,9 @@ public class FriendActivity extends Activity {
 	}
 	
 	private void deleteFriend(){
-		int response = Server.deleteFriend(app.getCurrentUser(), currentFriend);
+		String response = Server.deleteFriend(app.getCurrentUser(), currentFriend);
 
-		if (response == 0) {
+		if (response.equals("MSG: Friend deleted")) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Friend Deleted")
 					.setMessage("You are no longer friends with: " + currentFriend.getUserId())
@@ -91,7 +91,7 @@ public class FriendActivity extends Activity {
 		} else {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Problem deleting friend")
-					.setMessage("There was a problem deleting this friend")
+					.setMessage(response)
 					.setCancelable(false)
 					.setPositiveButton("OK",
 							new DialogInterface.OnClickListener() {

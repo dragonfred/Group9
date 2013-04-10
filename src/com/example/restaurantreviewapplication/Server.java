@@ -44,7 +44,9 @@ public class Server {
 	// //////////////////////////////////////////////////////////////////////////////////////////
 	// Place Stubs / Tests Here.
 	// //////////////////////////////////////////////////////////////////////////////////////////
-
+	public static void deleteMessage(Message theMessage){
+		
+	}
 
 
 	
@@ -75,7 +77,7 @@ public class Server {
 	 * @param friendID I have no idea. 
 	 * @return A list of friends.
 	 */
-	public ArrayList<Friend> getFriends(String friendID) {
+	public static ArrayList<Friend> getFriends() {
 		HashMap<String, String> postData = new HashMap<String, String>();
 		ArrayList<Friend> flist = new ArrayList<Friend>();
 
@@ -148,7 +150,7 @@ public class Server {
 	 * @param friend
 	 * @return 0 for good, 1 for bad
 	 */
-	public static int deleteFriend(User currentUser, Friend friend) {
+	public static String deleteFriend(User currentUser, Friend friend) {
 		// 0 for good, 1 for bad
 		HashMap<String, String> postData = new HashMap<String, String>();
 		postData.put("username", username);
@@ -157,10 +159,11 @@ public class Server {
 		postData.put("delete", friend.getUserId());
 		String res = postToServer(postData);
 		Log.i("Server.deleteFriend", res);
-		if (res.equals("MSG: Friend Deleted"))
-			return 0;
-		else
-			return 1;
+		return res;
+//		if (res.equals("MSG: Friend deleted"))
+//			return 0;
+//		else
+//			return 1;
 	}
 
 	/** Send a message to a friend.
@@ -169,21 +172,21 @@ public class Server {
 	 * @param message
 	 * @return 0 for good, 1 for bad
 	 */
-	public static int messageFriend(User currentUser, Friend friend,
-			String message) {
+	public static String messageFriend(Message theMessage) {
 		// 0 for good, 1 for bad
 		HashMap<String, String> postData = new HashMap<String, String>();
 		postData.put("username", username);
 		postData.put("password", password);
 		postData.put("action", "messageFriend");
-		postData.put("friend", friend.getUserId());
-		postData.put("message", message);
+		postData.put("friend", theMessage.getReceiverUserId());
+		postData.put("message", theMessage.getTextField());
 		String res = postToServer(postData);
 		Log.i("Server.messageFriend", res);
-		if (res.equals("MSG: Sent"))
-			return 0;
-		else
-			return 1;
+		return res;
+//		if (res.equals("MSG: Sent"))
+//			return 0;
+//		else
+//			return 1;
 	}
 
 	/** Search for someone by ID.

@@ -23,6 +23,7 @@ public class NotificationsActivity extends Activity {
 
 	private UserApplication app;
 	private ArrayList<Message> messages;
+	int position;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,11 +77,65 @@ public class NotificationsActivity extends Activity {
 	}
 	
 	private void nextScreen(int position) {
+		this.position = position;
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Message")
+				//.setMessage("Would you like to reply?")
+				.setCancelable(false)
+				.setPositiveButton("Reply",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.cancel();
+								replyMessage();
+							}
+						});
+		builder.setNeutralButton("Delete",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						// TODO Auto-generated method stub
+						dialog.cancel();
+						deleteMessage();
+					}
+				});
+		builder.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						// TODO Auto-generated method stub
+						dialog.cancel();
+					}
+				});
+
+		AlertDialog alert = builder.create();
+		alert.show();
 		//app.setSelectedRestaurant(restaurants.get(position));
 		//Intent intent = new Intent(this, RestaurantActivity.class);
 		//startActivity(intent);
 	}
 
+	private void replyMessage(){
+		Friend sender = new Friend();
+		sender.setUserId(messages.get(position).getSenderUserId());
+		app.setSelectedFriend(sender);
+		Intent intent = new Intent(this, CreateMessageActivity.class);
+		startActivity(intent);
+	}
+	
+	private void deleteMessage(){
+		Server.deleteMessage(messages.get(position));
+		finish();
+		Intent intent = new Intent(this, NotificationsActivity.class);
+		startActivity(intent);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

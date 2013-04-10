@@ -94,8 +94,8 @@ public class ListFriendRequests extends Activity {
 	}
 	
 	public void confirmAndReload(){
-		int position = selectedFriend;
-		Server.confirmFriend(friendRequests.get(position));
+		Friend newFriend = friendRequests.get(selectedFriend);
+		Server.confirmFriend(newFriend);
 		finish();
 		Intent intent = new Intent(this, ListFriendRequests.class);
 		startActivity(intent);

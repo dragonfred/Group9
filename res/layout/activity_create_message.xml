@@ -44,7 +44,7 @@
 		       android:layout_width="fill_parent"
 		       android:layout_height="45dp"
 		       android:src="@drawable/cancel_button"
-		       android:onClick="cancelAccountButtonHandler"
+		       android:onClick="cancelMessageButtonHandler"
 		       android:layout_weight="1"
 		       android:padding="4dp"
 		       android:scaleType="fitXY"

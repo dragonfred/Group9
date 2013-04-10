@@ -35,11 +35,11 @@ public class CurrentFriendsActivity extends Activity {
 //		setContentView(R.layout.activity_list_restaurants);
 				
 		app = (UserApplication) getApplication();
-		//seedFriends();
-		
+
+		friends = Server.getFriends();
+		app.setFriendList(friends);
 		ListView reviewList = (ListView) findViewById(R.id.friendsList);
-		//friends = app.getFriendList();
-		friends = app.getCurrentUser().getFriendList();
+
 		ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this,
 				android.R.layout.simple_list_item_1, friends);
 		
