@@ -44,14 +44,25 @@ public class Server {
 	// //////////////////////////////////////////////////////////////////////////////////////////
 	// Place Stubs / Tests Here.
 	// //////////////////////////////////////////////////////////////////////////////////////////
-	public static void deleteMessage(Message theMessage){
-		
-	}
+
 
 
 	
 	// //////////////////////////////////////////////////////////////////////////////////////////
 
+	/** Delete a message on the server.
+	 * @param theMessage message to be deleted
+	 */
+	public static void deleteMessage(Message theMessage){
+		HashMap<String, String> postData = new HashMap<String, String>();
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("sender", theMessage.getSenderUserId());
+		postData.put("message", theMessage.getTextField());
+		postData.put("action", "deleteMessage");
+		postToServer(postData);
+	}
+	
 	/** Get messages sent to our user.
 	 * @return An ArrayList of messages for the user.
 	 */

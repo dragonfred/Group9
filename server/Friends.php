@@ -142,4 +142,11 @@ class FriendData {
 		$list = substr($list, 0, -1);
 		return $list;
 	}
+	function deleteMessage($post, $user, $db) {
+		$thisUser = $user['Login'];
+		$sender = $db->san($post['sender']);
+		$message = $db->san($post['message']);
+		$query = "DELETE FROM Messages WHERE `To`='$thisUser' AND `From`='$sender' AND `Message`='$message'";
+		$db->squery($query);
+	}
 }

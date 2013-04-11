@@ -128,7 +128,9 @@ case 'getMessages':
 case 'getFriends': 
 	$frienddata = new FriendData();
 	echo $frienddata->getFriends($_POST, $user, $database); break;
-	
+case 'deleteMessage':
+	$frienddata = new FriendData();
+	echo $frienddata->deleteMessage($_POST, $user, $database); break;
 default: die("ERR: Invalid command"); break;
 }
 
