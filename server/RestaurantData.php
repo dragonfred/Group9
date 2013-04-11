@@ -34,11 +34,13 @@ class RestaurantData {
 		if($row === FALSE) {
 			die("ERR: Restaurant not found.");
 		}
-		$res = 	'name|'.$row['Name'].'*'.
+		$res = 'name|'.$row['Name'].'*'.
 				'address|'.$row['Address'].'*'.
 				'phone|'.$row['Phone'].'*'.
 				'lat|'.$row['Latitude'].'*'.
-				'lng|'.$row['Longitude'];
+				'lng|'.$row['Longitude'].'*'.
+				'rating|'.$row['Rating'].'*'.
+				'count|'.$row['RatingCount'];
 		return $res;
 	}
 	function getRestaurants($post, $user, $db) {
@@ -83,17 +85,31 @@ class RestaurantData {
 		return $qs;
 	}
 	
+	function newRating($row, $rating, $db) {
+		$uuid = $db->uuidBinToSql($row['UUID']);
+		$oldRating = $row['Rating'];
+		$oldCount = $row['RatingCount'];
+		$newCount = $oldCount + 1;
+		if($oldCount == 0) $oldCount = 1;
+		$newRating = $oldRating * ($oldCount / $newCount) + $rating * (1 / $newCount);
+		$query = "UPDATE Restaurants SET `Rating`='$newRating', `RatingCount`='$newCount' WHERE UUID = $uuid";
+		echo '$@'.$query.'@$';
+		$db->query($query);
+	}
+	
 	function putRestaurantReview($post, $user, $db) {
 		$useruuid = $user['UUID'];
 		$visibility = $db->san($post['visibility']);
 		$restaurantuuid = $db->san($post['restaurantuuid']);
 		$reviewuuid = $db->san($post['reviewuuid']);
 		$review = $db->san($post['object']);
+		$rating = $db->san($post['rating']);
 		
 		$r1 = $db->onerow("SELECT * FROM Restaurants WHERE UUID=".$db->uuidStrToSql($restaurantuuid));
 		if($r1 === FALSE) {
 			die("ERR: Restaurant not found.");
 		}
+		$this->newRating($r1, $rating, $db);
 		$r1 = $db->onerow("SELECT * FROM Reviews WHERE ReviewUUID=".$db->uuidStrToSql($reviewuuid));
 		if($r1 !== FALSE) {
 			die("ERR: Review UUID already exists.");

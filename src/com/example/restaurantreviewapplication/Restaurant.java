@@ -20,7 +20,16 @@ public class Restaurant implements Storable {
 	private String location;
 	private ArrayList<Review> reviews;
 	private UUID uuid;
+	private Float rating;
 	  
+	public Float getRating() {
+		return rating;
+	}
+	
+	public void setRating(Float rating) {
+		this.rating = rating;
+	}
+	
 	public UUID getUuid() {
 		if(this.uuid==null) this.uuid = UUID.randomUUID();
 		return this.uuid;
