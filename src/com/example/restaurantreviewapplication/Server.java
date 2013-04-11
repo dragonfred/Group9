@@ -216,7 +216,7 @@ public class Server {
 		try {
 			String res = postToServer(postData);
 			Log.i("Server.findFriend", res);
-			if (res.substring(0, 3).equals("MSG")) {
+			if (checkMsg(res) != null) {
 				Friend result;
 				result = new Friend();
 				result.setUserId(friendID);
@@ -470,7 +470,7 @@ public class Server {
 		vars.put("action", "getOneRestaurant");
 		vars.put("uuid", uuid.toString());
 		String result = Server.postToServer(vars);
-		if (result.substring(0, 3).equals("ERR")) {
+		if (checkError(result) != null) {
 			Log.e("Server restaurantFromUUID", result);
 			return null;
 		}
@@ -561,8 +561,7 @@ public class Server {
 		} catch (ClassCastException e) {
 			return (o == null);
 		}
-		return (str == null ||
-			   (str.length() > 2 && str.substring(0, 3).equals("ERR")));
+		return (checkError(str) != null);
 	}
 
 	/** Check if a string response is an error. 
@@ -571,9 +570,9 @@ public class Server {
 	 * @return The error, or null if no error.
 	 */
 	public static String checkError(String s) {
-		if (s.length() >= 3 && s.substring(0, 3).equals("ERR")) {
+		if (s == null || (s.length() >= 3 && s.substring(0, 3).equals("ERR"))) {
 			Log.i("Server.checkError", "Found an error.");
-			return s;
+			return ""+s;
 		} else {
 			Log.i("Server.checkError", "Found no error.");
 			return null;
@@ -585,11 +584,11 @@ public class Server {
 	 * @return The error, or null if no error.
 	 */
 	public static String checkMsg(String s) {
-		if (s.length() >= 3 && s.substring(0, 3).equals("MSG")) {
+		if (s != null && s.length() >= 3 && s.substring(0, 3).equals("MSG")) {
 			Log.i("Server.checkError", "Found a message.");
 			return s;
 		} else {
-			Log.i("Server.checkError", "Found a message.");
+			Log.i("Server.checkError", "Found no message.");
 			return null;
 		}
 	}
@@ -599,7 +598,7 @@ public class Server {
 	 * @return True if the response was blank, error or a message, false otherwise.
 	 */
 	public static Boolean noResult(String s) {
-		if (s.length() == 0) return true;
+		if (s == null || s.length() == 0) return true;
 		if (s.length() >= 3) {
 			if(s.substring(0,3).equals("MSG") || 
 					s.substring(0,3).equals("ERR")) return true;
@@ -676,7 +675,7 @@ public class Server {
 		vars.put("action", "readObject");
 		vars.put("uuid", uuid.toString());
 		String result = Server.postToServer(vars);
-		if (result.length() > 2 && result.substring(0, 3).equals("ERR")) {
+		if (checkError(result) != null) {
 			Log.e("Server", result);
 			return result;
 		} else
