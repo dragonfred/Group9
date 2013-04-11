@@ -500,7 +500,8 @@ public class Server {
 		}
 		if ((r.get("name") == null) || (r.get("address") == null)
 				|| (r.get("phone") == null) || (r.get("lat") == null)
-				|| (r.get("lng") == null) || r.get("rating") == null) {
+				|| (r.get("lng") == null) || r.get("rating") == null
+				|| (r.get("count") == null)) {
 			Log.e("restaurantFromUuid", "A restaurant is missing data:"
 					+ result);
 			return null;
@@ -509,8 +510,10 @@ public class Server {
 				r.get("lat") + "," + r.get("lng"));
 		try {
 			ro.setRating(Float.parseFloat(r.get("rating")));
+			ro.setRatingCount(Integer.parseInt(r.get("count")));
 		} catch (Exception e) {
 			ro.setRating((float) 0.0);
+			ro.setRatingCount(0);
 		}
 		ro.setUuid(uuid);
 		return ro;

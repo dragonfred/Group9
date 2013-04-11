@@ -21,7 +21,15 @@ public class Restaurant implements Storable {
 	private ArrayList<Review> reviews;
 	private UUID uuid;
 	private Float rating;
-	  
+	private int ratingCount;
+	public int getRatingCount() {
+		return ratingCount;
+	}
+
+	public void setRatingCount(int ratingCount) {
+		this.ratingCount = ratingCount;
+	}
+
 	public Float getRating() {
 		return rating;
 	}
