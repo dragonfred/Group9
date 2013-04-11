@@ -43,6 +43,9 @@ class FriendData {
 		$thisUser = $user['Login'];
 		$query = "DELETE FROM FriendMap WHERE (`From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
 		$db->squery($query);
+		$query = "DELETE FROM Messages WHERE (``From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
+		$db->squery($query);
+		
 		return "MSG: Friend deleted";
 	}
 	
