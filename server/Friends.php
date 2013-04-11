@@ -41,9 +41,13 @@ class FriendData {
 	function deleteFriend($post, $user, $db){
 		$friendID = $db->san($post['delete']);
 		$thisUser = $user['Login'];
+		$query = "SELECT * FROM FriendMap WHERE (`From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
+		echo $query;
+		$res = $db->squery($query);
+		if($res->num_rows == 0) return "ERR: Not your friend.";
 		$query = "DELETE FROM FriendMap WHERE (`From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
 		$db->squery($query);
-		$query = "DELETE FROM Messages WHERE (``From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
+		$query = "DELETE FROM Messages WHERE (`From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
 		$db->squery($query);
 		
 		return "MSG: Friend deleted";
@@ -93,6 +97,17 @@ class FriendData {
 		}
 		
 		return("MSG: Confirmed ".$friendID);
+	}
+	
+	function rejectFriend($post, $user, $db) {
+		$friendID = $db->san($post['friend']);
+		$thisUser = $user['Login'];
+		$query = "SELECT * FROM FriendMap WHERE (`From` = '$friendID') AND (`To` = '$thisUser') AND Status = 'req'";
+		$res = $db->squery($query);
+		if($res->num_rows == 0) return "ERR: No open request.";
+		$query = "DELETE FROM FriendMap WHERE (`From` = '$friendID') AND (`To` = '$thisUser') AND Status = 'req'";
+		$db->squery($query);
+		return ("MSG: Rejected ".$friendID);
 	}
 	function getUnconfirmedFriends($post, $user, $db) {
 		/* action = getUnconfirmedFriends

@@ -120,6 +120,9 @@ case 'messageFriend':
 case 'confirmFriend':
 	$frienddata = new FriendData();
 	echo $frienddata->confirmFriend($_POST, $user, $database); break;
+case 'rejectFriend':
+	$frienddata = new FriendData();
+	echo $frienddata->rejectFriend($_POST, $user, $database); break;
 case 'getUnconfirmedFriends':
 	$frienddata = new FriendData();
 	echo $frienddata->getUnconfirmedFriends($_POST, $user, $database); break;

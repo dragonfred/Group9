@@ -140,6 +140,15 @@ public class Server {
 		postToServer(postData);
 	}
 	
+	public static void rejectFriend(Friend f) {
+		HashMap<String, String> postData = new HashMap<String, String>();
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "rejectFriend");
+		postData.put("friend", f.getUserId());
+		postToServer(postData);		
+	}
+	
 	/** Add a new (unconfirmed) friend.
 	 * @param user
 	 * @param newFriend
