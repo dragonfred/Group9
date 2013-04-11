@@ -1,6 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
+error_reporting(E_ALL); // testing
+//error_reporting(0); // production
 ini_set("display_errors", 1);
 require('Database.php');
 require('ObjectData.php');
