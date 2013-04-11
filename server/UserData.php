@@ -26,7 +26,7 @@ class UserData extends ObjectData {
     $object = $db->san($post['object']);
 	$email = $db->san($post['email']);
 	
-	if(preg_match(',',$username) !== FALSE) die ("ERR: Invalid character in username.");
+	if(strstr($username, ',') !== FALSE) die ("ERR: Invalid character in username.");
     $query = "SELECT Users.Login, Objects.UUID, Users.UUID, Users.Email FROM Users, Objects WHERE ".
       "Users.Login = '$username' OR ". 
       "Objects.UUID = $sqluuid OR ".
