@@ -561,7 +561,8 @@ public class Server {
 		} catch (ClassCastException e) {
 			return (o == null);
 		}
-		return str.substring(0, 3).equals("ERR");
+		return (str == null ||
+			   (str.length() > 2 && str.substring(0, 3).equals("ERR")));
 	}
 
 	/** Check if a string response is an error. 
@@ -675,7 +676,7 @@ public class Server {
 		vars.put("action", "readObject");
 		vars.put("uuid", uuid.toString());
 		String result = Server.postToServer(vars);
-		if (result.substring(0, 3).equals("ERR")) {
+		if (result.length() > 2 && result.substring(0, 3).equals("ERR")) {
 			Log.e("Server", result);
 			return result;
 		} else
