@@ -27,8 +27,8 @@
 	    
 	    <ImageButton
 		    android:id="@+id/findRestaurants"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="findRestaurantsButtonHandler"
 		    android:src="@drawable/find_restaurants_button"
 		    android:padding="4dp"
@@ -39,8 +39,8 @@
 	   
 	    <ImageButton
 		    android:id="@+id/manageFriends"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="manageFriendsButtonHandler"
 		    android:src="@drawable/manage_friends_button"
 		    android:padding="4dp"
@@ -51,8 +51,8 @@
 	    
 	    <ImageButton
 		    android:id="@+id/manageAccount"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="manageAccountButtonHandler"
 		    android:src="@drawable/manage_account_button"
 		    android:padding="4dp"
@@ -64,8 +64,8 @@
 
 	    <ImageButton
 		    android:id="@+id/LogoutButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="logOutButtonHandler"
 		    android:src="@drawable/logout_button"
 		    android:padding="4dp"

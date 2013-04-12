@@ -56,7 +56,7 @@
 	    <ImageButton
 	        android:id="@+id/LogInButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/log_in_button"        
 	        android:onClick="logInButtonHandler"
 	        android:scaleType="fitXY"
@@ -68,7 +68,7 @@
 	    <ImageButton
 	        android:id="@+id/SkipLoginButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/skip_login_button"
 	        android:scaleType="fitXY"
 	        android:onClick="skipLoginButtonHandler"
@@ -80,7 +80,7 @@
 	    <ImageButton
 	        android:id="@+id/ForgotPasswordButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/forgot_password_button"
 	        android:scaleType="fitXY"
 	        android:padding="4dp"
@@ -93,7 +93,7 @@
 	    <ImageButton
 	        android:id="@+id/CreateAccountButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/create_account_button"
 	        android:scaleType="fitXY"
 	        android:padding="4dp"

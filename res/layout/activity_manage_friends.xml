@@ -14,7 +14,7 @@
 	
 	    <TextView
 	        android:id="@+id/manageFriendsTitle"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:padding="8dp"
 	        android:textSize="20sp"
@@ -26,8 +26,8 @@
 	    
 	    <ImageButton
 		    android:id="@+id/showFriendsButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="showFriendsButtonHandler"
 		    android:src="@drawable/show_friends_button"
 		    android:padding="4dp"
@@ -38,8 +38,8 @@
 		
 	    <ImageButton
 		    android:id="@+id/findFriendsButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="findFriendsButtonHandler"
 		    android:src="@drawable/find_friends_button"
 		    android:padding="4dp"
@@ -50,8 +50,8 @@
 
 	    <ImageButton
 		    android:id="@+id/viewNotificationsButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="viewNotificationsButtonHandler"
 		    android:src="@drawable/view_notification_button"
 		    android:padding="4dp"
@@ -62,8 +62,8 @@
 		
 		<ImageButton
             android:id="@+id/viewFriendRequestsButton"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@null"
             android:onClick="viewFriendRequestsButtonHandler"
             android:padding="4dp"

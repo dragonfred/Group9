@@ -35,8 +35,8 @@
 	
 		<ImageButton
 		    android:id="@+id/FriendSearchButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="friendSearchButtonHandler"
 		    android:src="@drawable/search_button"
 		    android:padding="4dp"

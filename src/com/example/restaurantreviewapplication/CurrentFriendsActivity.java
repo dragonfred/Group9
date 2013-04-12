@@ -17,9 +17,9 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class CurrentFriendsActivity extends Activity {
 
-	
 	private UserApplication app;
 	private ArrayList<Friend> friends;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);

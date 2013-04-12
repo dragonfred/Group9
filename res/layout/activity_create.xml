@@ -88,8 +88,8 @@
 	           
 			   <ImageButton
 			       android:id="@+id/CancelCreateAccountButton"
-			       android:layout_width="fill_parent"
-			       android:layout_height="45dp"
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"
 			       android:src="@drawable/cancel_button"
 			       android:onClick="cancelAccountButtonHandler"
 			       android:layout_weight="1"
@@ -102,7 +102,7 @@
 			   <ImageButton
 			       android:id="@+id/SubmitCreateAccountButton"
 			       android:layout_width="wrap_content"
-			       android:layout_height="45dp"
+			       android:layout_height="wrap_content"
 			       android:src="@drawable/submit_button"
 			       android:onClick="submitCreateAccountHandler"
 			       android:layout_weight="1"

@@ -47,8 +47,8 @@
 	   
 	    <ImageButton
 		    android:id="@+id/MapButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="viewMapButtonHandler"
 		    android:src="@drawable/map_button"
 		    android:padding="4dp"
@@ -59,8 +59,8 @@
 
 		<ImageButton
 		    android:id="@+id/readReviewsButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="readReviewsButtonHandler"
 		    android:src="@drawable/read_reviews_button"
 		    android:padding="4dp"
@@ -71,8 +71,8 @@
 		
 	   	<ImageButton
 		    android:id="@+id/writeReviewsButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="writeReviewsButtonHandler"
 		    android:src="@drawable/write_review_button"
 		    android:padding="4dp"
@@ -83,8 +83,8 @@
 
 	   	<ImageButton
 		    android:id="@+id/checkInButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="checkInButtonHandler"
 		    android:src="@drawable/check_in_on_facebook_button"
 		    android:padding="4dp"

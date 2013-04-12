@@ -189,7 +189,7 @@
 	    <ImageButton
 	        android:id="@+id/CapturePictureButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/add_picture_button"
 	        android:scaleType="fitXY"
 	        android:onClick="capturePictureButtonHandler"
@@ -201,7 +201,7 @@
 	    <ImageButton
 	        android:id="@+id/SubmitReviewButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/submit_review_button"
 	        android:scaleType="fitXY"
 	        android:onClick="submitReviewButtonHandler"
@@ -213,7 +213,7 @@
 	    <ImageButton
 	        android:id="@+id/PostToFacebook"
 	        android:layout_width="wrap_content"
-	        android:layout_height="45dp"
+	        android:layout_height="wrap_content"
 	        android:src="@drawable/submit_and_post_to_facebook_button"
 	        android:scaleType="fitXY"
 	        android:onClick="postToFacebookButtonHandler"

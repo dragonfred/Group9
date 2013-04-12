@@ -45,8 +45,8 @@
 	        
 	    <ImageButton
 	        android:id="@+id/searchNearby"
-	        android:layout_width="fill_parent"
-	        android:layout_height="45dp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
 	        android:padding="4dp"
 	        android:src="@drawable/search_nearby_button"
 	        android:onClick="searchNearbyButtonHandler"
@@ -58,8 +58,8 @@
 	    
 	    <ImageButton
 		    android:id="@+id/searchButton"
-		    android:layout_width="fill_parent"
-		    android:layout_height="45dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:onClick="searchButtonHandler"
 		    android:src="@drawable/search_button"
 		    android:padding="4dp"
