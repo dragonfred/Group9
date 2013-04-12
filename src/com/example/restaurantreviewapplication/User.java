@@ -19,6 +19,7 @@ public class User implements Storable {
 	private String userId;
 	private String username;
 	private String password;
+	private String email;
 	private String facebookUserID;
 	private String facebookPassword;
 	private ArrayList<Friend> friendList;
@@ -86,6 +87,20 @@ public class User implements Storable {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	/**

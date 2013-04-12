@@ -88,7 +88,10 @@ case 'newUser':
 case 'changePassword':
   $userdata = new UserData();
   echo $userdata->changePassword($_POST, $user, $database); break;
-
+case 'changeEmail':
+  $userdata = new UserData();
+  echo $userdata->changeEmail($_POST, $user, $database); break;
+  
 case 'getRestaurants':
   $restaurantdata = new RestaurantData();
   echo $restaurantdata->getRestaurants($_POST, $user, $database); break;

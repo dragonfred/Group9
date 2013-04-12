@@ -36,7 +36,7 @@ public class Restaurants {
 		this.restaurants = restaurants;
 	}
 
-	//find restaurants using gps
+	//find restaurants using GPS
 	public ArrayList<Restaurant> FindRestaurants()
 	{
 		return restaurants;

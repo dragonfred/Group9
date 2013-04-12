@@ -87,7 +87,6 @@ public class CreateActivity extends Activity {
 							
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-								// TODO Auto-generated method stub
 								dialog.cancel();								
 								returnHome();
 							}
@@ -104,7 +103,6 @@ public class CreateActivity extends Activity {
 
 									@Override
 									public void onClick(DialogInterface dialog,	int which) {
-										// TODO Auto-generated method stub
 										dialog.cancel();
 									}
 								});
@@ -122,9 +120,7 @@ public class CreateActivity extends Activity {
 							new DialogInterface.OnClickListener() {
 
 								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									// TODO Auto-generated method stub
+								public void onClick(DialogInterface dialog, int which) {
 									dialog.cancel();
 								}
 							});

@@ -22,7 +22,8 @@
 	        android:text="@string/manage_account_title"
 	        android:textColor="#FFFFFF">
 	    </TextView>
-	    
+		
+		<!--
 	    <EditText
 	        android:id="@+id/usernameText"
 	        android:layout_width="fill_parent"
@@ -31,6 +32,7 @@
 	        android:inputType="text"
 	        android:padding="4dp">
 	    </EditText>
+	    -->
 	    
 	    <EditText
 	        android:id="@+id/oldPasswordText"
@@ -64,6 +66,46 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="updatePasswordButtonHandler"
+		    android:src="@drawable/update_password_button"
+		    android:padding="4dp"
+		    android:scaleType="fitXY"
+			android:layout_gravity="center"
+			android:background="@null">
+		</ImageButton>
+		
+		<EditText
+	        android:id="@+id/oldEmailText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/email_text"
+	        android:inputType="textEmailAddress"
+	        android:padding="4dp">
+	    </EditText>
+	    
+		<EditText
+	        android:id="@+id/newEmailText"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/new_email_text"
+	        android:inputType="textEmailAddress"
+	        android:padding="4dp">
+	    </EditText>
+	    
+		<EditText
+		    android:id="@+id/newEmailConfirmText"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:hint="@string/new_email_confirm_text"
+		    android:inputType="textEmailAddress"
+		    android:padding="4dp" >
+
+	    </EditText>
+	    
+		<ImageButton
+		    android:id="@+id/updateEmailButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:onClick="updateEmailButtonHandler"
 		    android:src="@drawable/update_password_button"
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
