@@ -17,6 +17,7 @@ public class ReviewDetailsActivity extends Activity {
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
 	private TextView reviewText;
+	private TextView reviewByText;
 
 	private RatingBar tasteRatingBar;
 	private RatingBar serviceRatingBar;
@@ -47,6 +48,7 @@ public class ReviewDetailsActivity extends Activity {
 		Review currentReview = app.getSelectedReview();
 		
 		reviewText.setText(currentReview.getReview());
+		reviewByText.setText("Reviewed by: " + currentReview.getReviewer());
 		tasteRatingBar.setRating(currentReview.getTasteRating());
 		serviceRatingBar.setRating(currentReview.getServiceRating());
 		cleanlinessRatingBar.setRating(currentReview.getCleanlinessRating());
@@ -77,7 +79,8 @@ public class ReviewDetailsActivity extends Activity {
 		restaurantNameText = (TextView)findViewById(R.id.RestaurantNameText);
 		restaurantAddressText = (TextView)findViewById(R.id.RestaurantAddressText);
 		restaurantPhoneNumberText = (TextView)findViewById(R.id.RestaurantPhoneNumberText);
-		
+		reviewByText = (TextView)findViewById(R.id.ReviewByText);
+
 		reviewText = (TextView)findViewById(R.id.ReviewText);
 		
 		tasteRatingBar = (RatingBar) findViewById(R.id.tasteRating);
