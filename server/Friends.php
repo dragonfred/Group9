@@ -42,7 +42,6 @@ class FriendData {
 		$friendID = $db->san($post['delete']);
 		$thisUser = $user['Login'];
 		$query = "SELECT * FROM FriendMap WHERE (`From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
-		echo $query;
 		$res = $db->squery($query);
 		if($res->num_rows == 0) return "ERR: Not your friend.";
 		$query = "DELETE FROM FriendMap WHERE (`From`='$thisUser' AND `To`='$friendID') OR (`From`='$friendID' AND `To`='$thisUser')";
