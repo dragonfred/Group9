@@ -16,11 +16,12 @@
 	       android:id="@+id/createAccountTitle"
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
-	       android:text="@string/create_account_title"
+	       android:layout_gravity="center"
 	       android:padding="8dp"
 	       android:textSize="20sp"
 	       android:gravity="center"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#FFFFFF"
+	       android:text="@string/create_account_title">      
 	   </TextView> 
 	    
 	   <EditText 

@@ -1,12 +1,29 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical" 
-	android:layout_width="fill_parent"
- 	android:layout_height="fill_parent">
-	
-	 <ListView 
-	 	android:layout_height="wrap_content"
-	 	android:layout_width="fill_parent" 
-	 	android:id="@+id/friend_request_list">
-	 </ListView>
+	android:layout_width="match_parent"
+ 	android:layout_height="match_parent"
+ 	android:padding="10dp"
+ 	tools:context=".ListFriendRequests" >
+
+    <TextView
+        android:id="@+id/friendRequestsTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/friend_requests_title"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" >
+  	</TextView>
+
+    <ListView
+        android:id="@+id/friend_request_list"
+        android:padding="4dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
 	 
 </LinearLayout>

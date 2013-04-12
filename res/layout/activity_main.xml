@@ -26,7 +26,7 @@
 	       android:layout_height="wrap_content"
 	       android:text="@string/log_in_title"
 	       android:textColor="#FFFFFF"
-	       android:textSize="20sp"
+	       android:textSize="24sp"
 	       android:padding="8dp"
 	       android:layout_gravity="center">      
 	   </TextView> 

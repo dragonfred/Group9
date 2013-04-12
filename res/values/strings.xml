@@ -145,5 +145,7 @@
     <string name="send_message_button">Send Message</string>
     <string name="open_in_google_maps">Open in Google Maps</string>
     <string name="title_activity_review_details">ReviewDetailsActivity</string>
+    <string name="friend_requests_title">Friend Requests</string>
+    <string name="or_text">OR</string>
 
 </resources>
