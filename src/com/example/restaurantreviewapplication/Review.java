@@ -23,8 +23,8 @@ public class Review implements Storable {
 	private float serviceRating;
 	private float cleanlinessRating;
 	private float overallRating;
-	private Bitmap image;
-
+	//private Bitmap image;
+	private byte[] imageByteArray;
 	private UUID uuid;
 	  
 	public UUID getUuid() {
@@ -139,10 +139,12 @@ public class Review implements Storable {
 	}
 
 	public Bitmap getImage() {
-		return image;
+		//return image;
+		return Server.byteArrayToBitmap(imageByteArray);
 	}
 
 	public void setImage(Bitmap image) {
-		this.image = image;
+		//this.image = image;
+		this.imageByteArray = Server.bitmapToByteArray(image);
 	}	
 }

@@ -16,6 +16,8 @@ import java.util.Iterator;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Base64;
@@ -654,7 +656,8 @@ public class Server {
 		} else {
 			Log.i("getUser decode", sret);
 			o = (User) stringToObject(sret);
-			Log.i("Server.getUser", "Logged in as " + o.getUsername());
+			if(o != null)
+				Log.i("Server.getUser", "Logged in as " + o.getUsername());
 			return o;
 		}
 	}
@@ -749,7 +752,11 @@ public class Server {
 	 * @return the byte array encoded in the string
 	 */
 	private static byte[] fromB64(String in) {
-		return Base64.decode(in, BASE64_OPTS);
+		try {
+			return Base64.decode(in, BASE64_OPTS);
+		} catch (Exception e) {
+			return new byte[0];
+		}
 	}
 
 	/** Map a hashmap to a HttpURLConnection string.
@@ -811,6 +818,29 @@ public class Server {
 		}
 		return toB64(b.toByteArray());
 	}
+	
+	/**
+	 * @param b A bitmap.
+	 * @return A byte array. 
+	 */
+	public static byte[] bitmapToByteArray(Bitmap b) {
+		// convert b to a byteArray and store it
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		b.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+		return baos.toByteArray();
+	}
+	
+	
+	/**
+	 * @param b A byte array
+	 * @return a bitmap.
+	 */
+	public static Bitmap byteArrayToBitmap(byte[] b) {
+		if(b == null) return null; 
+		
+		return BitmapFactory.decodeByteArray(b, 0, b.length); 
+	}
+
 
 	/** Used internally by the asynchronous server task to make the connection.
 	 * @param urlParameters
