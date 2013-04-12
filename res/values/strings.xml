@@ -2,7 +2,7 @@
 <resources>
 
     <string name="menu_settings">Settings</string>
-    <string name="app_name">Restaurant Review</string>
+    <string name="app_name">Edibles</string>
 
     <!-- Create Activity -->
     <string name="title_activity_create">CreateActivity</string>
