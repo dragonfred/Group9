@@ -88,6 +88,15 @@ public class ListFriendRequests extends Activity {
 								
 							}
 						});
+		builder.setNegativeButton("Deny", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.cancel();
+				denyAndReload();
+			}
+		});
 		AlertDialog alert = builder.create();
 		alert.show();
 		
@@ -96,6 +105,13 @@ public class ListFriendRequests extends Activity {
 	public void confirmAndReload(){
 		Friend newFriend = friendRequests.get(selectedFriend);
 		Server.confirmFriend(newFriend);
+		finish();
+		Intent intent = new Intent(this, ListFriendRequests.class);
+		startActivity(intent);
+	}
+	public void denyAndReload(){
+		Friend newFriend = friendRequests.get(selectedFriend);
+		Server.rejectFriend(newFriend);
 		finish();
 		Intent intent = new Intent(this, ListFriendRequests.class);
 		startActivity(intent);
