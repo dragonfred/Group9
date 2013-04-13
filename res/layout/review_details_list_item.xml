@@ -9,34 +9,25 @@
    		android:layout_width="100dp"
    		android:layout_height="100dp"
    		android:src="@drawable/no_image"
-		android:padding="15dp">
+		android:padding="6dp">
 	</ImageView>
-	
-	<RelativeLayout
-	    android:id="@+id/reviewText"
-	    android:layout_toRightOf="@id/reviewPhoto"
-	    android:layout_width="wrap_content"
-	    android:layout_height="fill_parent"
-	    android:orientation="vertical">
-	    
+		    
 		<TextView 
 		    android:id="@+id/reviewerName"
 			android:textSize="20sp" 
 			android:textStyle="bold" 
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
-			android:layout_toRightOf="@id/photo">
+			android:layout_toRightOf="@id/reviewPhoto">
 		</TextView>
 		
 		<TextView 
 		    android:id="@+id/restaurantReview"
 			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
+			android:layout_height="fill_parent"
 			android:layout_below="@id/reviewerName"
-			android:layout_toRightOf="@id/photo">
+			android:layout_toRightOf="@id/reviewPhoto">
 		</TextView>
-	
-	</RelativeLayout>
 	
 	<RatingBar
         android:id="@+id/reviewRating"
@@ -44,10 +35,11 @@
         android:layout_height="wrap_content"
         android:isIndicator="true"
         android:numStars="4"
-        android:layout_toRightOf="@id/reviewText"
+        android:layout_toRightOf="@id/reviewerName"
         android:stepSize="0.11"
        	style="?android:attr/ratingBarStyleSmall"
-       	android:paddingLeft="2dp">
+       	android:paddingLeft="2dp"
+       	android:layout_gravity="center">
     </RatingBar>
 	
 </RelativeLayout>
