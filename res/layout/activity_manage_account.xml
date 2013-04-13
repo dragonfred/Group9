@@ -25,38 +25,47 @@
 	    
 	    <EditText
 	        android:id="@+id/usernameText"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/username_text"
 	        android:inputType="text"
+	        android:ems="20"
+	        android:layout_gravity="center"
 	        android:padding="4dp">
 	    </EditText>
 	    
 	    <EditText
 	        android:id="@+id/oldPasswordText"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:inputType="textPassword"
 	        android:hint="@string/password_text"
+	        android:ems="20"
+	        android:layout_gravity="center"
 	        android:padding="4dp">
 	    </EditText>
 	    
 	    <EditText
 	        android:id="@+id/newPasswordText"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/new_password_text"
 	        android:inputType="textPassword"
+	        android:layout_gravity="center"
+	        android:ems="20"
 	        android:padding="4dp">
 	    </EditText>
 	    
 	    <EditText
 	        android:id="@+id/newPasswordConfirmText"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/new_password_confirm_text"
 	        android:inputType="textPassword"
+	        android:layout_gravity="center"
+	        android:ems="20"
 	        android:padding="4dp">
+	        
 	    </EditText>
 	
 		<ImageButton

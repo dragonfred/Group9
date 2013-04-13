@@ -33,22 +33,23 @@
 	       
 	    <EditText
 	        android:id="@+id/Username"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/username_text"
 	        android:inputType="text" 
+	        android:ems="20"
 	        android:layout_gravity="center">
-	   		<requestFocus />
 	   	</EditText>
 	    
 	    <EditText
 	        android:id="@+id/Password"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/password_text"
 	        android:inputType="textPassword"
 	        android:longClickable="false"
 	        android:layout_gravity="center"
+	        android:ems="20"
 	        android:minWidth="@dimen/activity_horizontal_margin" >
 	
 	   	</EditText>

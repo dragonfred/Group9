@@ -25,22 +25,24 @@
 	    
 	    <EditText
 	        android:id="@+id/keywordText"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/name_keyword_text"
 	        android:inputType="text"
 	        android:padding="4dp"
-	        android:textColor="#888888">
+	        android:ems="20"
+	        android:layout_gravity="center">
 	    </EditText>
 	    
 	    <EditText
 	        android:id="@+id/zipCodeText"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:inputType="number"
 	        android:hint="@string/zip_code_text"
 	        android:padding="4dp"
-	        android:textColor="#888888">
+	        android:ems="20"
+	        android:layout_gravity="center">
 	    </EditText>    
 	    
 	    <ImageButton
