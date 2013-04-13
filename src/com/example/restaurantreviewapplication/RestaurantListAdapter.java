@@ -52,10 +52,9 @@ public class RestaurantListAdapter extends BaseAdapter {
 		
 		holder.txt_restaurant_name.setText(restaurantDetailsArrayList.get(position).getName());
 		holder.txt_restaurant_address.setText(restaurantDetailsArrayList.get(position).getAddress());
-		holder.txt_restaurant_phone.setText(restaurantDetailsArrayList.get(position).getPhone());
+		holder.txt_restaurant_phone.setText(restaurantDetailsArrayList.get(position).getPhone());				
+		holder.rat_restaurant_rating.setRating(restaurantDetailsArrayList.get(position).getRating());
 		
-		float overallRestaurantRating = 0.0f;
-				
 		/*ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 		restaurants = app.getRestaurants();
 		
@@ -67,7 +66,6 @@ public class RestaurantListAdapter extends BaseAdapter {
 			overallRestaurantRating += reviews.get(i).getOverallRating();
 		}*/
 		
-		holder.rat_restaurant_rating.setRating(overallRestaurantRating);
 		//holder.restaurant_image.setImageResource(imgid[restaurantDetailsArrayList.get(position).getImage());
 //		imageLoader.DisplayImage("http://192.168.1.28:8082/ANDROID/images/BEVE.jpeg", holder.itemImage);
 

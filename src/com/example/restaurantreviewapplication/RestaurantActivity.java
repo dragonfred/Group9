@@ -1,13 +1,13 @@
 package com.example.restaurantreviewapplication;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class RestaurantActivity extends Activity {
@@ -20,6 +20,8 @@ public class RestaurantActivity extends Activity {
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
+	private RatingBar overallRestaurantRating;
+	
 	UserApplication app;
 	
 	@Override
@@ -37,6 +39,8 @@ public class RestaurantActivity extends Activity {
 		restaurantNameText.setText(current.getName());
 		restaurantAddressText.setText(current.getAddress());
 		restaurantPhoneNumberText.setText(current.getPhone());
+		overallRestaurantRating.setRating(current.getRating());
+		
 	}
 
 	@Override
@@ -82,6 +86,7 @@ public class RestaurantActivity extends Activity {
 		readReviewsButton = (ImageButton) findViewById(R.id.readReviewsButton);
 		writeReviewsButton = (ImageButton) findViewById(R.id.writeReviewsButton);
 		checkInButton = (ImageButton) findViewById(R.id.checkInButton);
+		overallRestaurantRating = (RatingBar) findViewById(R.id.overallRestaurantRating);
 		
 	}
 	

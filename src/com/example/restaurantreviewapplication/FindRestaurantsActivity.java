@@ -2,19 +2,18 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -29,6 +28,8 @@ public class FindRestaurantsActivity extends Activity {
 	private Boolean buttonClick;
 	private LocationManager locationManager;
 	private LocationListener locationListener;
+	
+	private ProgressDialog dialog;
 	//private Server2 serverConnection;
 	
 	@Override
@@ -39,6 +40,9 @@ public class FindRestaurantsActivity extends Activity {
 		//serverConnection = new Server2(this);
 		setContentView(R.layout.activity_find_restaurants);
 		setupViews();
+		
+		dialog = new ProgressDialog(FindRestaurantsActivity.this);
+		dialog.setMessage("Loading...");
 	}
 
 	@Override
@@ -57,6 +61,9 @@ public class FindRestaurantsActivity extends Activity {
 	
 	// needs work	
 	public void searchNearbyButtonHandler(View V){
+		
+		dialog.show();
+		
 		//searchNearby.setText("Waiting on Location");
 		buttonClick = true;
 		// Acquire a reference to the system Location Manager
@@ -92,6 +99,7 @@ public class FindRestaurantsActivity extends Activity {
 	}
 
 	public void searchButtonHandler(View V){
+				
 		//searchButton.setText("Searching...");
 		String keyword;
 		int zip = 0;
@@ -100,6 +108,8 @@ public class FindRestaurantsActivity extends Activity {
 		keyword = keywordText.getText().toString();
 
 		if (!(keyword.trim().length() == 0)) {
+			
+			dialog.show();
 			
 			String rawzip = zipCodeText.getText().toString();
 
@@ -113,6 +123,8 @@ public class FindRestaurantsActivity extends Activity {
 				app.setRestaurants(restaurants);
 				Intent intent = new Intent(this, ListRestaurantsActivity.class);
 				startActivity(intent);
+				
+				dialog.dismiss();
 			}else{
 				Toast.makeText(getApplicationContext(),
 						"No Restaurants Found.", Toast.LENGTH_SHORT)
@@ -125,8 +137,7 @@ public class FindRestaurantsActivity extends Activity {
 					"Please enter keyword.", Toast.LENGTH_SHORT)
 					.show();
 			//searchButton.setText("Search");
-		}
-		
+		}	
 	}
 	
 	protected void makeUseOfNewLocation(Location location) {
@@ -143,6 +154,8 @@ public class FindRestaurantsActivity extends Activity {
 
 			Intent intent = new Intent(this, ListRestaurantsActivity.class);
 			startActivity(intent);
+			
+			dialog.dismiss();
 			
 			// Remove the listener you previously added
 			locationManager.removeUpdates(locationListener);

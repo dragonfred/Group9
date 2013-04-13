@@ -85,7 +85,9 @@ public class WriteReviewActivity extends Activity {
 				review.setServiceRating(serviceRatingBar.getRating());
 				review.setCleanlinessRating(cleanlinessRatingBar.getRating());
 				review.setOverallRating(overallRatingBar.getRating());
-				review.setImage(photo);
+				
+				if (photo != null)
+					review.setImage(photo);
 					
 				//submit review to server.
 				Server.addReview(app.getSelectedRestaurant(), review);

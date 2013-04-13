@@ -5,10 +5,9 @@
     android:layout_height="fill_parent"
     android:isScrollContainer="true">
 
-	<LinearLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
 	    android:padding="6dp"
 	    tools:context=".RestaurantActivity" >
 	  
@@ -31,20 +30,36 @@
 	        android:gravity="center"
 	        android:padding="4dp"
 	        android:textSize="16sp"
+	        android:layout_below="@id/reviewRestaurantName"
 	        android:textColor="#FFFFFF">      
 	    </TextView> 
-	  
+	    
 	    <TextView
 	        android:id="@+id/reviewPhoneNumber"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/restaurant_phone_number_text"
 	        android:gravity="center"
 	        android:padding="4dp"
 	        android:textSize="16sp"
+	        android:layout_below="@id/reviewRestaurantAddressText"
 	        android:textColor="#FFFFFF">      
 	    </TextView> 
-	   
+	  
+		<RatingBar
+	        android:id="@+id/overallRestaurantRating"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:isIndicator="true"
+	        android:numStars="4"
+	        android:layout_toLeftOf="@id/reviewPhoneNumber"
+	        android:layout_below="@id/reviewRestaurantAddressText"
+			android:layout_alignBottom="@id/reviewPhoneNumber"
+	        android:stepSize="0.11"
+	       	style="?android:attr/ratingBarStyleSmall"
+	       	android:paddingLeft="2dp">
+		</RatingBar>
+	    	   
 	    <ImageButton
 		    android:id="@+id/MapButton"
 		    android:layout_width="wrap_content"
@@ -54,6 +69,7 @@
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
 			android:layout_gravity="center"
+			android:layout_below="@id/reviewPhoneNumber"
 			android:background="@null">        
 	    </ImageButton>
 
@@ -66,6 +82,7 @@
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
 			android:layout_gravity="center"
+			android:layout_below="@id/MapButton"
 			android:background="@null">        
 	    </ImageButton>
 		
@@ -78,6 +95,7 @@
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
 			android:layout_gravity="center"
+			android:layout_below="@id/readReviewsButton"
 			android:background="@null">        
 	    </ImageButton>
 
@@ -90,9 +108,10 @@
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
 			android:layout_gravity="center"
+			android:layout_below="@id/writeReviewsButton"
 			android:background="@null">        
 	    </ImageButton>		
 		
-	</LinearLayout>
+	</RelativeLayout>
 
 </ScrollView>

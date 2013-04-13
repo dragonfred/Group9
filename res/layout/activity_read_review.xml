@@ -42,12 +42,11 @@
         android:textColor="#FFFFFF">
       
    </TextView> 
-	      
-   <ListView
-       android:id="@+id/reviewsList"
-       android:layout_width="fill_parent"
-       android:layout_height="fill_parent"
-       android:padding="4dp">
-   </ListView>
+
+	<ListView 
+	 	android:layout_height="wrap_content"
+	 	android:layout_width="fill_parent" 
+	 	android:id="@+id/reviews_list">
+	</ListView>
    
 </LinearLayout>
