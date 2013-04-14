@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:isScrollContainer="true">
+    android:isScrollContainer="true"
+    android:background="#FFFFFF">
 
 	<LinearLayout 	    
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:padding="6dp"
 	    android:orientation="vertical"
-	    tools:context=".ReviewDetailsActivity" >
+	    tools:context=".ReviewDetailsActivity">
 
 	    <TextView
 	       android:id="@+id/RestaurantNameText"
@@ -20,7 +21,7 @@
 	       android:textSize="20sp"
 	       android:gravity="center"
 	       android:padding="4dp"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#000000">      
 	   </TextView> 
 	   
 	   <TextView
@@ -31,7 +32,7 @@
 	       android:gravity="center"
 	       android:padding="4dp"
 	       android:textSize="16sp"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#000000">      
 	   </TextView> 
 	  
 	    <TextView
@@ -43,7 +44,7 @@
 	       android:padding="4dp"
 	       android:layout_marginBottom="15dp"
 	       android:textSize="16sp"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#000000">      
 	   </TextView> 
 	  
 	    <TextView
@@ -56,7 +57,8 @@
 	        android:ems="20"
 	        android:padding="4dp"
 	        android:gravity="center_vertical"
-	        android:textIsSelectable="true">
+	        android:textIsSelectable="true"
+	        android:textColor="#000000">
 	    </TextView>
 	    
 	    <TextView
@@ -68,7 +70,8 @@
 	        android:padding="4dp"
 	        android:layout_marginBottom="15dp"
 	        android:gravity="center_vertical"
-	        android:textIsSelectable="true">
+	        android:textIsSelectable="true"
+	        android:textColor="#000000">
 	    </TextView>
 	
 	    <LinearLayout
@@ -89,7 +92,8 @@
 			        android:layout_height="wrap_content"
 			        android:text="@string/taste_rating_text"
 			        android:textSize="20sp" 
-			        android:layout_gravity="left">
+			        android:layout_gravity="left"
+			        android:textColor="#000000">
 			    </TextView>
 			    
 			    <RatingBar
@@ -116,7 +120,8 @@
 			        android:layout_height="wrap_content"
 			        android:text="@string/service_rating_text"
 			        android:textSize="20sp" 
-			        android:layout_gravity="left">
+			        android:layout_gravity="left"
+			        android:textColor="#000000">
 			    </TextView>
 			    
 			    <RatingBar
@@ -143,7 +148,8 @@
 			        android:layout_height="wrap_content"
 			        android:text="@string/cleanliness_rating_text"
 			        android:textSize="20sp" 
-			        android:layout_gravity="left">
+			        android:layout_gravity="left"
+			        android:textColor="#000000">
 			    </TextView>
 			    
 			    <RatingBar
@@ -170,7 +176,8 @@
 			        android:layout_height="wrap_content"
 			        android:text="@string/overall_rating_text"
 			        android:textSize="20sp" 
-			        android:layout_gravity="left">
+			        android:layout_gravity="left"
+			        android:textColor="#000000">
 			    </TextView>		
 			    
 				<RatingBar
@@ -192,7 +199,8 @@
 	       		android:textSize="16sp"
 	       		android:layout_marginBottom="15dp"
 	       		android:gravity="center"
-	       		android:padding="4dp">      
+	       		android:padding="4dp"
+	       		android:textColor="#000000">      
 	   		</TextView>
 		   	
 			<ImageView
@@ -205,5 +213,3 @@
 		</LinearLayout>
 	</LinearLayout>
 </ScrollView>
-
-

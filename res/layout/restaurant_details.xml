@@ -2,7 +2,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:layout_marginBottom="5dp">
+	android:layout_marginBottom="5dp"
+	android:background="#FFFFFF">
 	
 	<ImageView 
    		android:id="@+id/photo"
@@ -17,14 +18,16 @@
 		android:textStyle="bold" 
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content"
-		android:layout_toRightOf="@id/photo">
+		android:layout_toRightOf="@id/photo"
+		android:textColor="#000000">
 	</TextView>
 	
 	<TextView android:id="@+id/restaurant_address"
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content"
 		android:layout_below="@id/restaurant_name"
-		android:layout_toRightOf="@id/photo">
+		android:layout_toRightOf="@id/photo"
+		android:textColor="#000000">
 	</TextView>
 	
 	<TextView android:id="@+id/restaurant_phone" 

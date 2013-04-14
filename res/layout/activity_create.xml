@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:isScrollContainer="true">
+    android:isScrollContainer="true"
+    android:background="#FFFFFF">
 
 	<LinearLayout 
 	    android:layout_width="match_parent"
@@ -20,9 +21,9 @@
 	       android:padding="8dp"
 	       android:textSize="24sp"
 	       android:gravity="center"
-	       android:textColor="#FFFFFF"
 	       android:layout_marginBottom="10dp"
-	       android:text="@string/create_account_title">      
+	       android:text="@string/create_account_title"
+	       android:textColor="#000000">      
 	   </TextView> 
 	    
 	   <EditText 
@@ -34,7 +35,8 @@
 	       android:hint="@string/username_text"
 	       android:layout_marginBottom="10dp"
 	       android:padding="4dp"
-	       android:ems="20">
+	       android:ems="20"
+	       android:textColor="#000000">
 		</EditText> 
 	    
 	   <EditText
@@ -46,7 +48,8 @@
 	       android:hint="@string/password_text"
 	       android:layout_marginBottom="10dp"
 	       android:padding="4dp"
-	       android:ems="20">
+	       android:ems="20"
+	       android:textColor="#000000">
 	
 		</EditText>
 	    
@@ -59,7 +62,8 @@
 	       android:layout_marginBottom="10dp"
 	       android:hint="@string/confirm_password_text"
 	       android:padding="4dp"
-	       android:ems="20">
+	       android:ems="20"
+	       android:textColor="#000000">
 	
 		</EditText>
 		    
@@ -72,7 +76,8 @@
 	       android:hint="@string/email_text"
 	       android:padding="4dp"
 	       android:layout_marginBottom="10dp"
-	       android:ems="20">
+	       android:ems="20"
+	       android:textColor="#000000">
 	   </EditText>
            
 	   <ImageButton

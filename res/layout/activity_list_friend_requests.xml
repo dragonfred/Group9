@@ -5,7 +5,8 @@
 	android:layout_width="match_parent"
  	android:layout_height="match_parent"
  	android:padding="10dp"
- 	tools:context=".ListFriendRequests" >
+ 	tools:context=".ListFriendRequests"
+ 	android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/friendRequestsTitle"
@@ -15,8 +16,8 @@
         android:gravity="center"
         android:padding="8dp"
         android:text="@string/friend_requests_title"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" >
+        android:textSize="24sp"
+        android:textColor="#000000">
   	</TextView>
 
     <ListView

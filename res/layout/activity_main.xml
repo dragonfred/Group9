@@ -4,15 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:isScrollContainer="true"
-    android:background="#545B5C">
+    android:background="#FFFFFF">
         
 	<LinearLayout 
 		android:orientation="vertical"
 	    android:id="@+id/Main"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:padding="6dp"
-	    android:background="#FFFFFF">
+	    android:padding="6dp">
 	
 	    <ImageView 
 	        android:layout_width="wrap_content"
@@ -20,7 +19,6 @@
 	        android:padding="10dp"
 	        android:src="@drawable/edibles_logo"
 	        android:layout_marginBottom="10dp"
-	        android:scaleType="fitXY"
 	        android:layout_gravity="center"
 	        android:contentDescription="@string/app_name">
 	    </ImageView>
@@ -30,11 +28,11 @@
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
 	       android:text="@string/log_in_title"
-	       android:textColor="#000000"
 	       android:textSize="24sp"
 	       android:padding="8dp"
 	       android:layout_marginBottom="15dp"
-	       android:layout_gravity="center">      
+	       android:layout_gravity="center"
+	       android:textColor="#000000">      
 	   </TextView> 
 
 	    <RelativeLayout
@@ -49,7 +47,8 @@
 		        android:hint="@string/username_text"
 		        android:inputType="text" 
 		        android:ems="20"
-		        android:layout_gravity="center">
+		        android:layout_gravity="center"
+		        android:textColor="#000000">
 		   	</EditText>
 		    
 		    <EditText
@@ -62,7 +61,8 @@
 		        android:layout_gravity="center"
 		        android:layout_below="@id/Username"
 		        android:ems="20"
-		        android:minWidth="@dimen/activity_horizontal_margin" >
+		        android:minWidth="@dimen/activity_horizontal_margin" 
+		        android:textColor="#000000">
 		   	</EditText>
 	   	
 		    <CheckBox 
@@ -72,8 +72,8 @@
 		       android:layout_below="@id/Password"
 		       android:layout_alignLeft="@id/Password"
 		       android:layout_marginBottom="10dp"
-		       android:textColor="#000000"
-		       android:text="@string/remember_me">
+		       android:text="@string/remember_me"
+		       android:textColor="#000000">
 		   	</CheckBox>
 		   	
 		</RelativeLayout>
@@ -84,7 +84,6 @@
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/log_in_button"        
 	        android:onClick="logInButtonHandler"
-	        android:scaleType="fitXY"
 	        android:padding="4dp"
 	        android:layout_marginBottom="10dp"
 	        android:layout_gravity="center"
@@ -96,7 +95,6 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/skip_login_button"
-	        android:scaleType="fitXY"
 	        android:onClick="skipLoginButtonHandler"
 	        android:padding="4dp"
 	        android:layout_marginBottom="10dp"
@@ -109,7 +107,6 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/forgot_password_button"
-	        android:scaleType="fitXY"
 	        android:padding="4dp"
 	        android:layout_marginBottom="10dp"
 	        android:background="@null"
@@ -123,7 +120,6 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/create_account_button"
-	        android:scaleType="fitXY"
 	        android:padding="4dp"
 	        android:layout_marginBottom="10dp"
 	        android:background="@null"

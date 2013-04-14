@@ -1,15 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" 
 	android:layout_width="fill_parent"
- 	android:layout_height="fill_parent">
+ 	android:layout_height="fill_parent"
+ 	android:background="#FFFFFF">
 	
     <TextView
         android:id="@+id/SearchResultsText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:padding="6dp"
-        android:text="Search results for [Search Text]">
+        android:text="Search results for [Search Text]"
+        android:textColor="#000000">
     </TextView>
     
 	<ListView 

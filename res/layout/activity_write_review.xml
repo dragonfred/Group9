@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:isScrollContainer="true">
+    android:isScrollContainer="true"
+    android:background="#FFFFFF">
 
 	<LinearLayout
 	    android:layout_width="match_parent"
@@ -20,7 +21,7 @@
 	       android:textSize="20sp"
 	       android:gravity="center"
 	       android:padding="4dp"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#000000">      
 	   </TextView> 
 	   
 	   <TextView
@@ -31,7 +32,7 @@
 	       android:gravity="center"
 	       android:padding="4dp"
 	       android:textSize="16sp"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#000000">      
 	   </TextView> 
 	  
 	    <TextView
@@ -43,7 +44,7 @@
 	       android:padding="4dp"
 	       android:textSize="16sp"
 	       android:layout_marginBottom="15dp"
-	       android:textColor="#FFFFFF">      
+	       android:textColor="#000000">      
 	   </TextView> 
 	  
 	    <EditText
@@ -54,7 +55,8 @@
 	        android:inputType="textMultiLine"
 	        android:maxLength="200"
 	        android:lines="5"
-	        android:padding="4dp">
+	        android:padding="4dp"
+	        android:textColor="#000000">
 	    </EditText>
 	  	    		
 	    <TextView
@@ -64,7 +66,7 @@
 	        android:text="@string/chars_left_text"
 	        android:padding="2dp"
 	        android:gravity="left"
-	        android:textColor="#FFFFFF">
+	        android:textColor="#000000">
 	    </TextView>
 	
 	    <LinearLayout
@@ -89,7 +91,8 @@
 	                android:layout_gravity="left"
 	                android:padding="4dp"
 	                android:text="@string/taste_rating_text"
-	                android:textSize="20sp" >
+	                android:textSize="20sp"
+	                android:textColor="#000000">
 	            </TextView>
 
 	            <RatingBar
@@ -115,7 +118,8 @@
 	                android:layout_gravity="left"
 	                android:padding="4dp"
 	                android:text="@string/service_rating_text"
-	                android:textSize="20sp" >
+	                android:textSize="20sp"
+	                android:textColor="#000000">
 	            </TextView>
 
 	            <RatingBar
@@ -142,7 +146,8 @@
 	                android:layout_gravity="left"
 	                android:padding="4dp"
 	                android:text="@string/cleanliness_rating_text"
-	                android:textSize="20sp" >
+	                android:textSize="20sp"
+	                android:textColor="#000000">
 	            </TextView>
 
 	            <RatingBar
@@ -168,7 +173,8 @@
 	                android:layout_gravity="left"
 	                android:padding="4dp"
 	                android:text="@string/overall_rating_text"
-	                android:textSize="20sp" >
+	                android:textSize="20sp"
+	                android:textColor="#000000">
 	            </TextView>
 
 	            <RatingBar
@@ -185,8 +191,7 @@
 	            android:id="@+id/DisplayImageView"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:padding="4dp"
-	            android:scaleType="fitXY" >
+	            android:padding="4dp">
 	        </ImageView>
 	    </LinearLayout>
 

@@ -2,7 +2,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:layout_marginBottom="5dp">
+	android:layout_marginBottom="5dp"
+	android:background="#FFFFFF">
 	
 	<ImageView 
    		android:id="@+id/reviewPhoto"
@@ -18,7 +19,8 @@
 			android:textStyle="bold" 
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
-			android:layout_toRightOf="@id/reviewPhoto">
+			android:layout_toRightOf="@id/reviewPhoto"
+			android:textColor="#000000">
 		</TextView>
 		
 		<TextView 
@@ -26,7 +28,8 @@
 			android:layout_width="wrap_content" 
 			android:layout_height="fill_parent"
 			android:layout_below="@id/reviewerName"
-			android:layout_toRightOf="@id/reviewPhoto">
+			android:layout_toRightOf="@id/reviewPhoto"
+			android:textColor="#000000">
 		</TextView>
 	
 	<RatingBar

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="6dp"
-    tools:context=".ReadReviewActivity" >
+    tools:context=".ReadReviewActivity"
+    android:background="#FFFFFF">
         
   	<RelativeLayout
        android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
 	        android:layout_centerHorizontal="true"
 	        android:textSize="20sp"
 	        android:padding="4dp"
-	        android:textColor="#FFFFFF">      
+	        android:textColor="#000000">      
 	    </TextView> 
 	    
 		<LinearLayout
@@ -49,7 +50,8 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:padding="4dp"
-		        android:text="[num stars] out of 4 stars">
+		        android:text="[num stars] out of 4 stars"
+		        android:textColor="#000000">
 		    </TextView>
 		    
   		</LinearLayout>
@@ -62,8 +64,8 @@
        android:gravity="center"
        android:padding="4dp"
        android:textSize="16sp"
-       android:text="@string/restaurant_address_text" 
-       android:textColor="#FFFFFF">
+       android:text="@string/restaurant_address_text"
+       android:textColor="#000000">
       
    </TextView> 
   
@@ -75,8 +77,8 @@
         android:padding="4dp"
         android:textSize="16sp"
         android:layout_marginBottom="15dp"
-        android:text="@string/restaurant_phone_number_text" 
-        android:textColor="#FFFFFF">
+        android:text="@string/restaurant_phone_number_text"
+        android:textColor="#000000">
       
    </TextView> 
 
