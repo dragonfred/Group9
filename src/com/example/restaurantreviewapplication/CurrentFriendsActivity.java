@@ -25,21 +25,13 @@ public class CurrentFriendsActivity extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_current_friends);
-	//	ListView reviewList = (ListView)findViewById(R.id.restaurantsList);
-		
-//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-//				this, android.R.layout.simple_list_item_1, friends);
-//		
-////		reviewList.setAdapter(adapter);
-//		
-//		setContentView(R.layout.activity_list_restaurants);
 				
 		app = (UserApplication) getApplication();
 
 		friends = Server.getFriends();
 		app.setFriendList(friends);
 		ListView reviewList = (ListView) findViewById(R.id.friendsList);
-
+				
 		ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this,
 				android.R.layout.simple_list_item_1, friends);
 		

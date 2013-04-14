@@ -10,12 +10,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/mapExternalButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="mapButtonHandler"
-            android:text="@string/open_in_google_maps" />
+            android:src="@drawable/open_in_google_maps_button"
+            android:text="@string/open_in_google_maps"
+            android:background="@null">
+        </ImageButton>
+        
     </LinearLayout>
 
     <LinearLayout
