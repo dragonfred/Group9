@@ -1,5 +1,6 @@
 package com.example.restaurantreviewapplication;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -23,6 +24,8 @@ public class ReadReviewActivity extends Activity{
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
+	private TextView numStarsText;
+	private RatingBar overallRestaurantRating;
 	//private RatingBar overallRatingBar;
 	
 	private UserApplication app;
@@ -45,6 +48,11 @@ public class ReadReviewActivity extends Activity{
 		restaurantNameText.setText(restaurant.getName());
 		restaurantAddressText.setText(restaurant.getAddress());
 		restaurantPhoneNumberText.setText(restaurant.getPhone());
+		
+		overallRestaurantRating.setRating(restaurant.getRating());
+		
+		DecimalFormat df = new DecimalFormat("#.#");
+		numStarsText.setText(df.format(restaurant.getRating()) + " out of 4 stars");
 		
 		final ListView list = (ListView) findViewById(R.id.reviews_list);
         list.setAdapter(new ReviewListAdapter(this, reviews));
@@ -74,6 +82,8 @@ public class ReadReviewActivity extends Activity{
 		restaurantNameText = (TextView)findViewById(R.id.reviewRestaurantName);
 		restaurantAddressText = (TextView)findViewById(R.id.reviewRestaurantAddressText);
 		restaurantPhoneNumberText = (TextView)findViewById(R.id.reviewPhoneNumber);
+		numStarsText = (TextView) findViewById(R.id.numStarsText);
+		overallRestaurantRating = (RatingBar) findViewById(R.id.overallRestaurantRating);
 		//overallRatingBar = (RatingBar) findViewById(R.id.overallRating);
 		
 	}

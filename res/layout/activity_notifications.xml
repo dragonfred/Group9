@@ -14,6 +14,7 @@
        android:text="@string/notifications_title"
        android:padding="8dp"
        android:textSize="20sp"
+       android:layout_marginBottom="15dp"
        android:gravity="center"
        android:textColor="#FFFFFF">      
    	</TextView>

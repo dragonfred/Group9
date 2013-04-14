@@ -12,16 +12,16 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:padding="6dp"
-	    android:background="#545B5C"
-	    android:layout_gravity="center">
+	    android:background="#FFFFFF">
 	
 	    <ImageView 
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:padding="10dp"
 	        android:src="@drawable/edibles_logo"
-	        android:layout_gravity="center"
 	        android:layout_marginBottom="10dp"
+	        android:scaleType="fitXY"
+	        android:layout_gravity="center"
 	        android:contentDescription="@string/app_name">
 	    </ImageView>
 	    
@@ -30,45 +30,54 @@
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
 	       android:text="@string/log_in_title"
-	       android:textColor="#FFFFFF"
+	       android:textColor="#000000"
 	       android:textSize="24sp"
 	       android:padding="8dp"
 	       android:layout_marginBottom="15dp"
 	       android:layout_gravity="center">      
 	   </TextView> 
-	       
-	    <EditText
-	        android:id="@+id/Username"
+
+	    <RelativeLayout
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:hint="@string/username_text"
-	        android:inputType="text" 
-	        android:ems="20"
 	        android:layout_gravity="center">
-	   	</EditText>
-	    
-	    <EditText
-	        android:id="@+id/Password"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:hint="@string/password_text"
-	        android:inputType="textPassword"
-	        android:longClickable="false"
-	        android:layout_gravity="center"
-	        android:ems="20"
-	        android:minWidth="@dimen/activity_horizontal_margin" >
-	
-	   	</EditText>
+	        
+		    <EditText
+		        android:id="@+id/Username"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/username_text"
+		        android:inputType="text" 
+		        android:ems="20"
+		        android:layout_gravity="center">
+		   	</EditText>
+		    
+		    <EditText
+		        android:id="@+id/Password"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/password_text"
+		        android:inputType="textPassword"
+		        android:longClickable="false"
+		        android:layout_gravity="center"
+		        android:layout_below="@id/Username"
+		        android:ems="20"
+		        android:minWidth="@dimen/activity_horizontal_margin" >
+		   	</EditText>
 	   	
-	    <CheckBox 
-	       android:id="@+id/loginPersist"
-	       android:layout_width="wrap_content"
-	       android:layout_height="wrap_content"
-	       android:padding="4dp"
-	       android:layout_marginBottom="10dp"
-	       android:text="@string/remember_me">
-	   </CheckBox>
-		        	    
+		    <CheckBox 
+		       android:id="@+id/loginPersist"
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:layout_below="@id/Password"
+		       android:layout_alignLeft="@id/Password"
+		       android:layout_marginBottom="10dp"
+		       android:textColor="#000000"
+		       android:text="@string/remember_me">
+		   	</CheckBox>
+		   	
+		</RelativeLayout>
+		
 	    <ImageButton
 	        android:id="@+id/LogInButton"
 	        android:layout_width="wrap_content"

@@ -9,9 +9,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ListRestaurantsActivity extends Activity {
 
+	private TextView searchResultsText;
 	private UserApplication app;
 	
     @Override
@@ -19,10 +21,14 @@ public class ListRestaurantsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_restaurants);
         
+        searchResultsText = (TextView) findViewById(R.id.SearchResultsText);
+        
         ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 		app = (UserApplication)getApplication();
 		restaurants = app.getRestaurants();
         
+		searchResultsText.setText("Search results for \"" + app.getSearchText() + "\"");
+		
         final ListView list = (ListView) findViewById(R.id.restaurants_list);
         list.setAdapter(new RestaurantListAdapter(this, restaurants));
         

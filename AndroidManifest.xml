@@ -4,6 +4,12 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <supports-screens android:smallScreens="true" 
+                      android:normalScreens="true" 
+                      android:largeScreens="true" 
+                      android:anyDensity="true" />
+    
+    
     <!-- Copied from Google Maps Library/AndroidManifest.xml. -->
     <uses-sdk
         android:minSdkVersion="8"

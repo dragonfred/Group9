@@ -21,6 +21,7 @@ public class UserApplication extends Application {
 	private Restaurant selectedRestaurant;
 	private ArrayList<Message> messages;
 	private Review selectedReview;
+	private String searchText;
 	
 	@Override
 	public void onCreate() {
@@ -108,6 +109,14 @@ public class UserApplication extends Application {
 
 	public void setSelectedReview(Review selectedReview) {
 		this.selectedReview = selectedReview;
+	}
+
+	public String getSearchText() {
+		return searchText;
+	}
+
+	public void setSearchText(String searchText) {
+		this.searchText = searchText;
 	}
 	
 }

@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
 			startActivity(intent);
 			finish();
 		} 
+		
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
 		loginPersist = (CheckBox) findViewById(R.id.loginPersist);
@@ -47,7 +48,6 @@ public class MainActivity extends Activity {
 		skipLoginButton = (ImageButton) findViewById(R.id.SkipLoginButton);
 		forgotPassword = (ImageButton) findViewById(R.id.ForgotPasswordButton);
 		createButton = (ImageButton) findViewById(R.id.CreateAccountButton);
-
 	}
 
 	@Override

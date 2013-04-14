@@ -18,9 +18,10 @@
 	       android:layout_height="wrap_content"
 	       android:layout_gravity="center"
 	       android:padding="8dp"
-	       android:textSize="20sp"
+	       android:textSize="24sp"
 	       android:gravity="center"
 	       android:textColor="#FFFFFF"
+	       android:layout_marginBottom="10dp"
 	       android:text="@string/create_account_title">      
 	   </TextView> 
 	    
@@ -31,6 +32,7 @@
 	       android:inputType="text"
 	       android:id="@+id/usernameText"
 	       android:hint="@string/username_text"
+	       android:layout_marginBottom="10dp"
 	       android:padding="4dp"
 	       android:ems="20">
 		</EditText> 
@@ -42,6 +44,7 @@
 	       android:layout_gravity="center"
 	       android:inputType="textPassword"
 	       android:hint="@string/password_text"
+	       android:layout_marginBottom="10dp"
 	       android:padding="4dp"
 	       android:ems="20">
 	
@@ -53,6 +56,7 @@
 	       android:layout_height="wrap_content"
 	       android:layout_gravity="center"
 	       android:inputType="textPassword"
+	       android:layout_marginBottom="10dp"
 	       android:hint="@string/confirm_password_text"
 	       android:padding="4dp"
 	       android:ems="20">
@@ -67,6 +71,7 @@
 	       android:layout_gravity="center"
 	       android:hint="@string/email_text"
 	       android:padding="4dp"
+	       android:layout_marginBottom="10dp"
 	       android:ems="20">
 	   </EditText>
            
@@ -77,8 +82,8 @@
 	       android:src="@drawable/cancel_button"
 	       android:onClick="cancelAccountButtonHandler"
 	       android:padding="4dp"
-	       android:scaleType="fitXY"
 	       android:layout_gravity="center"
+	       android:layout_marginBottom="10dp"
 	       android:background="@null">
 	   </ImageButton>
 	    
@@ -89,7 +94,6 @@
 	       android:src="@drawable/submit_button"
 	       android:onClick="submitCreateAccountHandler"
 	       android:padding="4dp"
-	       android:scaleType="fitXY"
 	       android:layout_gravity="center"
 	       android:background="@null">
 	    </ImageButton>

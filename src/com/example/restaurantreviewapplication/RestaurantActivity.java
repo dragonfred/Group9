@@ -1,5 +1,7 @@
 package com.example.restaurantreviewapplication;
 
+import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ public class RestaurantActivity extends Activity {
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
+	private TextView numStarsText;
 	private RatingBar overallRestaurantRating;
 	
 	UserApplication app;
@@ -41,6 +44,8 @@ public class RestaurantActivity extends Activity {
 		restaurantPhoneNumberText.setText(current.getPhone());
 		overallRestaurantRating.setRating(current.getRating());
 		
+		DecimalFormat df = new DecimalFormat("#.#");
+		numStarsText.setText(df.format(current.getRating()) + " out of 4 stars");
 	}
 
 	@Override
@@ -82,12 +87,12 @@ public class RestaurantActivity extends Activity {
 		restaurantNameText = (TextView) findViewById(R.id.reviewRestaurantName);
 		restaurantAddressText = (TextView) findViewById(R.id.reviewRestaurantAddressText);
 		restaurantPhoneNumberText = (TextView) findViewById(R.id.reviewPhoneNumber);
+		numStarsText = (TextView) findViewById(R.id.numStarsText);
+		overallRestaurantRating = (RatingBar) findViewById(R.id.overallRestaurantRating);
 		viewMapButton = (ImageButton) findViewById(R.id.MapButton);
 		readReviewsButton = (ImageButton) findViewById(R.id.readReviewsButton);
 		writeReviewsButton = (ImageButton) findViewById(R.id.writeReviewsButton);
-		checkInButton = (ImageButton) findViewById(R.id.checkInButton);
-		overallRestaurantRating = (RatingBar) findViewById(R.id.overallRestaurantRating);
-		
+		checkInButton = (ImageButton) findViewById(R.id.checkInButton);		
 	}
 	
 }

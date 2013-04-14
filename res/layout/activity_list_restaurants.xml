@@ -3,10 +3,19 @@
 	android:layout_width="fill_parent"
  	android:layout_height="fill_parent">
 	
-	 <ListView 
-	 	android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/SearchResultsText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:text="Search results for [Search Text]">
+    </TextView>
+    
+	<ListView 
+		android:layout_height="wrap_content"
 	 	android:layout_width="fill_parent" 
 	 	android:id="@+id/restaurants_list">
-	 </ListView>
+	</ListView>
 	 
 </LinearLayout>

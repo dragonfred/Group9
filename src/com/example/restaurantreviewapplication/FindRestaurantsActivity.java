@@ -109,6 +109,8 @@ public class FindRestaurantsActivity extends Activity {
 
 		if (!(keyword.trim().length() == 0)) {
 			
+			app.setSearchText(keyword);
+			
 			dialog.show();
 			
 			String rawzip = zipCodeText.getText().toString();

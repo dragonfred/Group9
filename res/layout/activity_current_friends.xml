@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="8dp"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:text="@string/current_friends_title"
         android:textColor="#FFFFFF">
     </TextView>

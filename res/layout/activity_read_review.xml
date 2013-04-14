@@ -7,18 +7,54 @@
     android:padding="6dp"
     tools:context=".ReadReviewActivity" >
         
-    <TextView
-        android:id="@+id/reviewRestaurantName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="4dp"
-        android:textSize="20sp"
-        android:text="@string/restaurant_name_text"
-        android:textColor="#FFFFFF">
-      
-   </TextView> 
-   
+  	<RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+       android:layout_gravity="center"
+       android:padding="4dp">
+       
+	    <TextView
+	        android:id="@+id/reviewRestaurantName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/restaurant_name_text"
+	        android:layout_centerHorizontal="true"
+	        android:textSize="20sp"
+	        android:padding="4dp"
+	        android:textColor="#FFFFFF">      
+	    </TextView> 
+	    
+		<LinearLayout
+	        android:layout_below="@id/reviewRestaurantName"
+	        android:orientation="horizontal"
+	        android:layout_centerHorizontal="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content">
+	    
+		    <RatingBar
+		        android:id="@+id/overallRestaurantRating"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:isIndicator="true"
+		        android:numStars="4"
+		        android:layout_gravity="center_vertical"
+		        android:stepSize="0.11"
+		        android:paddingTop="4dp"
+		        android:paddingBottom="4dp"
+		       	style="?android:attr/ratingBarStyleSmall">
+			</RatingBar>
+			
+		    <TextView
+		        android:id="@+id/numStarsText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="4dp"
+		        android:text="[num stars] out of 4 stars">
+		    </TextView>
+		    
+  		</LinearLayout>
+   </RelativeLayout>
+    
    <TextView
        android:id="@+id/reviewRestaurantAddressText"
        android:layout_width="fill_parent"
@@ -38,6 +74,7 @@
         android:gravity="center"
         android:padding="4dp"
         android:textSize="16sp"
+        android:layout_marginBottom="15dp"
         android:text="@string/restaurant_phone_number_text" 
         android:textColor="#FFFFFF">
       

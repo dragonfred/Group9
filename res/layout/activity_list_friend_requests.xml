@@ -16,7 +16,7 @@
         android:padding="8dp"
         android:text="@string/friend_requests_title"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" >
+        android:textSize="24sp" >
   	</TextView>
 
     <ListView
