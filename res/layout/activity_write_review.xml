@@ -42,6 +42,7 @@
 	       android:gravity="center"
 	       android:padding="4dp"
 	       android:textSize="16sp"
+	       android:layout_marginBottom="15dp"
 	       android:textColor="#FFFFFF">      
 	   </TextView> 
 	  
@@ -62,136 +63,131 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/chars_left_text"
 	        android:padding="2dp"
-	        android:gravity="left">
+	        android:gravity="left"
+	        android:textColor="#FFFFFF">
 	    </TextView>
 	
 	    <LinearLayout
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
 	        android:orientation="vertical"
+	        android:paddingBottom="5dp"
 	        android:paddingLeft="20dp"
 	        android:paddingRight="20dp"
-	        android:paddingTop="5dp"
-	        android:paddingBottom="5dp"
-	        android:gravity="center">
-	    
-		    <LinearLayout
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:orientation="vertical"
-		        android:gravity="center">
-		                
-			    <TextView
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:textSize="16sp"
-			        android:text="@string/taste_rating_text"
-			        android:paddingTop="4dp"
-			        android:layout_gravity="left"
-			        android:layout_weight="3">
-			    </TextView>
-			    
-			    <RatingBar
-			        android:id="@+id/tasteRating"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:numStars="4"
-			        android:gravity="center"
-			        android:stepSize="0.5">
-			    </RatingBar>
-			   
-			</LinearLayout>
-	
-		    <LinearLayout
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:orientation="vertical"
-		        android:gravity="center">
-		    		
-			    <TextView
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:textSize="16sp"
-			        android:text="@string/service_rating_text"
-			        android:paddingTop="2dp"
-			        android:layout_gravity="left"
-			        android:layout_weight="3">
-			    </TextView>
-			    
-			    <RatingBar
-		   	        android:id="@+id/serviceRating"
-		   	        android:layout_width="wrap_content"
-		   	        android:layout_height="wrap_content"
-		   	        android:numStars="4"
-		   	        android:gravity="center"
-		   	        android:stepSize="0.5">
-		   	    </RatingBar>
-			    
-			</LinearLayout>
-			
-		    <LinearLayout
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		      	android:orientation="vertical"
-		      	android:gravity="center">
-			    
-			    <TextView
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:textSize="16sp"
-			        android:text="@string/cleanliness_rating_text"
-			        android:paddingTop="2dp"
-			        android:layout_gravity="left"
-			        android:layout_weight="3">
-			    </TextView>
-			    
-			    <RatingBar
-			        android:id="@+id/cleanlinessRating"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:gravity="center"
-			        android:numStars="4"
-			        android:stepSize="0.5">
-			    </RatingBar>
-			    
-			</LinearLayout>
-			
-		   	<LinearLayout
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		      	android:orientation="vertical"
-		      	android:gravity="center">
-		    	
-		    	<TextView
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:textSize="16sp"
-			        android:text="@string/overall_rating_text"
-			        android:paddingTop="2dp"
-			        android:layout_gravity="left"
-			        android:layout_weight="3">
-			    </TextView>		
-			    
-				<RatingBar
-			        android:id="@+id/overallRating"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:isIndicator="true"
-			        android:numStars="4"
-			        android:stepSize="0.11">
-			    </RatingBar>
-				   	
-			</LinearLayout>	
-	   
-		<ImageView
-		    android:id="@+id/DisplayImageView"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:padding="4dp" 
-		    android:scaleType="fitXY">
+	        android:paddingTop="5dp" >
 
-		</ImageView>  	
-		   	
+	        <LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_weight="5.69"
+	            android:orientation="vertical" >
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="left"
+	                android:padding="4dp"
+	                android:text="@string/taste_rating_text"
+	                android:textSize="16sp" >
+	            </TextView>
+
+	            <RatingBar
+	                android:id="@+id/tasteRating"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:numStars="4"
+	                android:stepSize="0.5" >
+	            </RatingBar>
+	        </LinearLayout>
+
+	        <LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:orientation="vertical">
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="left"
+	                android:padding="4dp"
+	                android:text="@string/service_rating_text"
+	                android:textSize="16sp" >
+	            </TextView>
+
+	            <RatingBar
+	                android:id="@+id/serviceRating"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:numStars="4"
+	                android:stepSize="0.5" >
+	            </RatingBar>
+	            
+	        </LinearLayout>
+
+	        <LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:orientation="vertical" >
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="left"
+	                android:padding="4dp"
+	                android:text="@string/cleanliness_rating_text"
+	                android:textSize="16sp" >
+	            </TextView>
+
+	            <RatingBar
+	                android:id="@+id/cleanlinessRating"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:numStars="4"
+	                android:stepSize="0.5" >
+	            </RatingBar>
+	        </LinearLayout>
+
+	        <LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_marginBottom="15dp"
+	            android:orientation="vertical" >
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="left"
+	                android:layout_weight="3"
+	                android:padding="4dp"
+	                android:text="@string/overall_rating_text"
+	                android:textSize="16sp" >
+	            </TextView>
+
+	            <RatingBar
+	                android:id="@+id/overallRating"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:isIndicator="true"
+	                android:numStars="4"
+	                android:stepSize="0.11" >
+	            </RatingBar>
+	        </LinearLayout>
+
+	        <ImageView
+	            android:id="@+id/DisplayImageView"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:padding="4dp"
+	            android:scaleType="fitXY" >
+	        </ImageView>
 	    </LinearLayout>
 
 	    <ImageButton

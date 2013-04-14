@@ -48,6 +48,7 @@
 		        android:gravity="center"
 		        android:padding="4dp"
 		        android:textSize="16sp"
+		        android:layout_marginBottom="15dp"
 		        android:textColor="#FFFFFF">      
 		    </TextView>
 	    	  
@@ -72,6 +73,7 @@
 		    android:src="@drawable/map_button"
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
+		    android:layout_marginBottom="10dp"
 			android:layout_gravity="center"
 			android:background="@null">        
 	    </ImageButton>
@@ -84,6 +86,7 @@
 		    android:src="@drawable/read_reviews_button"
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
+		    android:layout_marginBottom="10dp"
 			android:layout_gravity="center"
 			android:background="@null">        
 	    </ImageButton>
@@ -96,6 +99,7 @@
 		    android:src="@drawable/write_review_button"
 		    android:padding="4dp"
 		    android:scaleType="fitXY"
+		    android:layout_marginBottom="10dp"
 			android:layout_gravity="center"
 			android:background="@null">        
 	    </ImageButton>

@@ -20,7 +20,6 @@ public class CreateActivity extends Activity {
 	private EditText passwordText;
 	private EditText confirmPasswordText;
 	private EditText emailText;
-	private CheckBox loginPersist;
 	private ImageButton cancelCreateAccount;
 	private ImageButton submitCreateAccount;
 	UserApplication app;
@@ -46,7 +45,6 @@ public class CreateActivity extends Activity {
 		passwordText = (EditText) findViewById(R.id.passwordText);
 		confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText);
 		emailText = (EditText) findViewById(R.id.emailText);
-		loginPersist = (CheckBox) findViewById(R.id.loginPersist);
 		cancelCreateAccount = (ImageButton)findViewById(R.id.CancelCreateAccountButton);
 		submitCreateAccount = (ImageButton)findViewById(R.id.SubmitCreateAccountButton);
 	}
@@ -75,9 +73,6 @@ public class CreateActivity extends Activity {
 //						response, Toast.LENGTH_SHORT)
 //						.show();
 
-				if (loginPersist.isChecked()) {
-					app.setCurrentUser(Server.getUser());
-				}
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
 				builder.setTitle("Account Created")
 				.setMessage("Account Created")

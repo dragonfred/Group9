@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ public class MainActivity extends Activity {
 
 	private EditText usernameText;
 	private EditText passwordText;
+	private CheckBox loginPersist;
 	private ImageButton  loginButton;
 	private ImageButton  skipLoginButton;
 	private ImageButton  forgotPassword;
@@ -40,10 +42,12 @@ public class MainActivity extends Activity {
 		} 
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
+		loginPersist = (CheckBox) findViewById(R.id.loginPersist);
 		loginButton = (ImageButton) findViewById(R.id.LogInButton);
 		skipLoginButton = (ImageButton) findViewById(R.id.SkipLoginButton);
 		forgotPassword = (ImageButton) findViewById(R.id.ForgotPasswordButton);
 		createButton = (ImageButton) findViewById(R.id.CreateAccountButton);
+
 	}
 
 	@Override
@@ -58,11 +62,12 @@ public class MainActivity extends Activity {
 		String username;
 		int result;
 		username = usernameText.getText().toString();
-
+		
 		if (username.trim().length() == 0) {
 			Toast.makeText(getApplicationContext(), "Please enter a username.",
 					Toast.LENGTH_SHORT).show();
 		} else {
+			
 			Server.setUsername(usernameText.getText().toString());
 			result = Server.resetPassword();
 			if (result == 0) {
@@ -136,6 +141,11 @@ public class MainActivity extends Activity {
 			
 			// if user found continue else pop up dialog saying no user found
 			if (currentUser != null) {
+				
+				if (loginPersist.isChecked()) {
+					app.setCurrentUser(Server.getUser());
+				}
+				
 				app.setCurrentUser(currentUser);
 				Intent intent = new Intent(this, MainMenuActivity.class);
 				startActivity(intent);
