@@ -117,6 +117,7 @@ public class FindRestaurantsActivity extends Activity {
 
 			if (!(rawzip.trim().length() == 0)) {
 				zip = Integer.parseInt(rawzip);
+				app.setSearchText(keyword + " nearby " + zip);
 			}
 			//serverConnection.getRestaurants(zip, keyword);
 			restaurants = Server.getRestaurantsByZipKeyword(zip, keyword);
@@ -152,6 +153,7 @@ public class FindRestaurantsActivity extends Activity {
 		//searchNearby.setText("Search Nearby");
 		
 		if (restaurants != null) {
+			app.setSearchText("nearby");
 			app.setRestaurants(restaurants);
 
 			Intent intent = new Intent(this, ListRestaurantsActivity.class);

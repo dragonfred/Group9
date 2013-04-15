@@ -42,6 +42,7 @@
     <string name="zip_code_text">Zip code(optional)</string>
     <string name="search_nearby_button">Search Nearby</string>
     <string name="search_button">Search</string>
+    <string name="or_text">OR</string>
 
     <!-- Manage Friends Activity -->
     <string name="title_activity_manage_friends">ManageFriendsActivity</string>
@@ -116,6 +117,8 @@
     <string name="new_password_text">New Password</string>
     <string name="new_password_confirm_text">Confirm Password</string>
     <string name="update_password_button">Update Password</string>
+    <string name="new_email_text">New Email</string>
+    <string name="new_email_confirm_text">Confirm Email</string>
 
     <!-- Add Picture Activity -->
     <string name="title_activity_add_picture">AddPictureActivity</string>
@@ -146,8 +149,5 @@
     <string name="open_in_google_maps">Open in Google Maps</string>
     <string name="title_activity_review_details">ReviewDetailsActivity</string>
     <string name="friend_requests_title">Friend Requests</string>
-    <string name="or_text">OR</string>
-    <string name="new_email_text">New Email</string>
-    <string name="new_email_confirm_text">Confirm Email</string>
 
 </resources>
