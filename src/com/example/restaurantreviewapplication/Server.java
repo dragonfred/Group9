@@ -38,6 +38,7 @@ public class Server {
 	
 	private static String username = "anonymous";
 	private static String password = "none";
+	private static String email = "email@example.com";
 	private static String error;
 	private static final int BASE64_OPTS = Base64.NO_PADDING | Base64.NO_WRAP
 			| Base64.URL_SAFE;
@@ -319,6 +320,26 @@ public class Server {
 		} else return 1;
 	}
 
+	/** Change the user's password to the new password. 
+	 * @param newPassword the new password.
+	 * @return 0 for good, 1 for bad
+	 */
+	public static int changeEmail(String newEmail) {
+		HashMap<String, String> postData = new HashMap<String, String>();
+
+		postData.put("username", username);
+		postData.put("password", password);
+		postData.put("action", "changeEmail");
+		postData.put("newemail", newEmail);
+
+		String res = postToServer(postData);
+		Log.i("Server.changeEmail", res);
+		if (res.equals("MSG: Email changed.")) {
+			email = newEmail;
+			return 0;
+		} else return 1;
+	}
+	
 	/** Add a review to a restaurant.
 	 * @param restaurant
 	 *            the Restaurant being reviewed
@@ -371,6 +392,16 @@ public class Server {
 		Log.i("Server.setPassword", "Password changed to " + password);
 		Server.password = password;
 	}
+	
+	/** Set the email.
+	 * 
+	 * @param email
+	 *            The user's email.
+	 */
+	public static void setEmail(String email) {
+		Log.i("Server.setEmail", "Email changed to " + email);
+		Server.email = email;
+	}
 
 	/** Create an account on the server.
 	 * Create an account on the server. Make sure to specify the
@@ -387,6 +418,7 @@ public class Server {
 		user = new User();
 		user.setPassword(Server.password);
 		user.setUsername(Server.username);
+		user.setEmail(email);
 		user.getUuid();
 		postData.put("username", username);
 		postData.put("password", password);

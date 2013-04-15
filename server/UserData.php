@@ -76,4 +76,13 @@ class UserData extends ObjectData {
   	$db->squery($query);
   	return "MSG: Password changed.";
   }
+  
+  function changeEmail($post, $user, $db) {
+  	$newemail = $db->san($post['newemail']);
+  	$login = $user['Login'];
+  	$query = "UPDATE Users SET Email='$newemail' WHERE Login='$login'";
+  	echo "$@$query@$";
+  	$db->squery($query);
+  	return "MSG: Email changed.";
+  }
 }

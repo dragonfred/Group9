@@ -147,5 +147,7 @@
     <string name="title_activity_review_details">ReviewDetailsActivity</string>
     <string name="friend_requests_title">Friend Requests</string>
     <string name="or_text">OR</string>
+    <string name="new_email_text">New Email</string>
+    <string name="new_email_confirm_text">Confirm Email</string>
 
 </resources>
