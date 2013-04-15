@@ -1,29 +1,29 @@
 package com.example.restaurantreviewapplication;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	private String username, password;
 	private EditText usernameText;
 	private EditText passwordText;
 	private CheckBox loginPersist;
-	private ImageButton  loginButton;
-	private ImageButton  skipLoginButton;
-	private ImageButton  forgotPassword;
-	private ImageButton  createButton;
+	private SharedPreferences loginPreferences;
+	private SharedPreferences.Editor loginPrefsEditor;
+	private Boolean saveLogin;
 	UserApplication app;
 
 	@Override
@@ -43,11 +43,18 @@ public class MainActivity extends Activity {
 		
 		usernameText = (EditText) findViewById(R.id.Username);
 		passwordText = (EditText) findViewById(R.id.Password);
-		loginPersist = (CheckBox) findViewById(R.id.loginPersist);
-		loginButton = (ImageButton) findViewById(R.id.LogInButton);
-		skipLoginButton = (ImageButton) findViewById(R.id.SkipLoginButton);
-		forgotPassword = (ImageButton) findViewById(R.id.ForgotPasswordButton);
-		createButton = (ImageButton) findViewById(R.id.CreateAccountButton);
+		loginPersist = (CheckBox) findViewById(R.id.LoginPersist);
+		loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+		loginPrefsEditor = loginPreferences.edit();
+		
+		saveLogin = loginPreferences.getBoolean("saveLogin", false);
+		
+		if (saveLogin)
+		{
+			usernameText.setText(loginPreferences.getString("username", ""));
+			passwordText.setText(loginPreferences.getString("password", ""));
+			loginPersist.setChecked(true);
+		}
 	}
 
 	@Override
@@ -119,12 +126,11 @@ public class MainActivity extends Activity {
 	public void createAccountButtonHandler(View v) {
 		Intent intent = new Intent(this, CreateActivity.class);
 		startActivity(intent);
-		finish();
 	}
 
 	// OnClickListener for "Login" Button
-	public void logInButtonHandler(View v) {
-		User currentUser;
+	public void logInButtonHandler(View v) {	
+		User currentUser;	
 
 		// check user and password is not length zero
 		if ((usernameText.getText().toString().trim().length() == 0)
@@ -133,6 +139,7 @@ public class MainActivity extends Activity {
 					"Please enter a username and password.", Toast.LENGTH_SHORT)
 					.show();
 		} else {
+			
 			// set up server and see if the username and password is valid
 			Server.setUsername(usernameText.getText().toString());
 			Server.setPassword(passwordText.getText().toString());
@@ -142,10 +149,29 @@ public class MainActivity extends Activity {
 			// if user found continue else pop up dialog saying no user found
 			if (currentUser != null) {
 				
-				if (loginPersist.isChecked()) {
-					app.setCurrentUser(Server.getUser());
+				InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+	            imm.hideSoftInputFromWindow(usernameText.getWindowToken(), 0);
+
+				username = Server.getUser().getUsername();
+				password = Server.getUser().getPassword();
+	            
+				if (loginPersist.isChecked())
+				{
+					loginPrefsEditor.putBoolean("saveLogin", true);
+					loginPrefsEditor.putString("username", username);
+					loginPrefsEditor.putString("password", password);
+				} 
+				else
+				{
+					loginPrefsEditor.clear();
+					loginPrefsEditor.commit();
 				}
 				
+//				
+//				if (loginPersist.isChecked()) {
+//					app.setCurrentUser(Server.getUser());
+//				}
+//				
 				app.setCurrentUser(currentUser);
 				Intent intent = new Intent(this, MainMenuActivity.class);
 				startActivity(intent);

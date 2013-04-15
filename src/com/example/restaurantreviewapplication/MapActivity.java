@@ -3,6 +3,16 @@ package com.example.restaurantreviewapplication;
 
 import java.util.Locale;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.view.Window;
+import android.widget.ImageButton;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -10,33 +20,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Menu;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.os.Bundle;
-import android.app.Activity;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
-import android.support.v4.app.Fragment;
-import android.app.Activity;
-import android.os.Bundle;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 public class MapActivity extends FragmentActivity {
 
-	private Button mapButton;
+	private ImageButton mapButton;
 	/**
      * Note that this may be null if the Google Play services APK is not available.
      */
@@ -153,7 +139,7 @@ public class MapActivity extends FragmentActivity {
 	}
 	
 	private void setupViews(){
-		mapButton = (Button) findViewById(R.id.mapExternalButton);
+		mapButton = (ImageButton) findViewById(R.id.mapExternalButton);
 	}
 
 

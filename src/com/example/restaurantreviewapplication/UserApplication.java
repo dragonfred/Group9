@@ -22,6 +22,7 @@ public class UserApplication extends Application {
 	private ArrayList<Message> messages;
 	private Review selectedReview;
 	private String searchText;
+	private boolean searchingByGPS;
 	
 	@Override
 	public void onCreate() {
@@ -117,6 +118,14 @@ public class UserApplication extends Application {
 
 	public void setSearchText(String searchText) {
 		this.searchText = searchText;
+	}
+
+	public boolean isSearchingByGPS() {
+		return searchingByGPS;
+	}
+
+	public void setSearchUsingGPS(boolean searchingByGPS) {
+		this.searchingByGPS = searchingByGPS;
 	}
 	
 }

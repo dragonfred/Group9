@@ -29,6 +29,7 @@ public class ListRestaurantsActivity extends Activity {
 		restaurants = app.getRestaurants();
         
 		searchResultsText.setText("Search results for \"" + app.getSearchText() + "\"");
+		app.setSearchText("");
 		
         final ListView list = (ListView) findViewById(R.id.restaurants_list);
         list.setAdapter(new RestaurantListAdapter(this, restaurants));
