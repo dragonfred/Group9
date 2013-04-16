@@ -6,12 +6,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class ListFriendRequests extends Activity {
 	private UserApplication app;
@@ -30,6 +31,12 @@ public class ListFriendRequests extends Activity {
 		ListView reviewList = (ListView) findViewById(R.id.friend_request_list);
 		//friends = app.getFriendList();
 		friendRequests = Server.getUnconfirmedFriends();
+		
+		if (friendRequests.size() == 0)
+			reviewList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		else
+			reviewList.setBackgroundColor(Color.parseColor("#98ba40"));
+		
 		ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this,
 				android.R.layout.simple_list_item_1, friendRequests);
 		

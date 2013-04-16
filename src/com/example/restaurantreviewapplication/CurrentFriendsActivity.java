@@ -2,18 +2,19 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class CurrentFriendsActivity extends Activity {
 
@@ -30,8 +31,13 @@ public class CurrentFriendsActivity extends Activity {
 
 		friends = Server.getFriends();
 		app.setFriendList(friends);
-		ListView reviewList = (ListView) findViewById(R.id.friendsList);
+		ListView friendList = (ListView) findViewById(R.id.friendsList);
 				
+		if (friends.size() == 0)
+			friendList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		else
+			friendList.setBackgroundColor(Color.parseColor("#98ba40"));
+		
 		ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this,
 				android.R.layout.simple_list_item_1, friends);
 		
@@ -55,9 +61,9 @@ public class CurrentFriendsActivity extends Activity {
 			alert.show();
 			
 		}else{
-			reviewList.setAdapter(adapter);
+			friendList.setAdapter(adapter);
 		}
-		reviewList.setOnItemClickListener(new OnItemClickListener() {
+		friendList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -70,8 +76,7 @@ public class CurrentFriendsActivity extends Activity {
 	}
 
 	private void goBack(){
-		Intent intent = new Intent(this, ManageFriendsActivity.class);
-		startActivity(intent);
+		finish();
 	}
 	
 	private void nextScreen(int position) {

@@ -96,8 +96,7 @@ public class FindFriendActivity extends Activity {
 
 	private void addFriend() {
 		Server.addFriend(app.getCurrentUser(), foundFriend);
-		Intent intent2 = new Intent(this, ManageFriendsActivity.class);
-		startActivity(intent2);
+		finish();
 	}
 
 	private void setupViews() {

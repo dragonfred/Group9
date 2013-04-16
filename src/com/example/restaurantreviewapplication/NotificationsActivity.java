@@ -2,24 +2,21 @@ package com.example.restaurantreviewapplication;
 
 import java.util.ArrayList;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class NotificationsActivity extends Activity {
-
-	String[] notifications = { "Notification 1", "Notification 2",
-			"Notification 3", "Notification 4", "Notification 5",
-			"Notification 6", "Notification 7", "Notification 8" };
 
 	private UserApplication app;
 	private ArrayList<Message> messages;
@@ -35,6 +32,11 @@ public class NotificationsActivity extends Activity {
 		ListView reviewList = (ListView) findViewById(R.id.notificationsList);
 		app.setMessages(Server.getMessages());
 		messages = app.getMessages();
+		
+		if (messages.size() == 0)
+			reviewList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		else
+			reviewList.setBackgroundColor(Color.parseColor("#98ba40"));
 		
 		ArrayAdapter<Message> adapter = new ArrayAdapter<Message>(this,
 				android.R.layout.simple_list_item_1, messages);

@@ -103,8 +103,8 @@ public class CreateMessageActivity extends Activity {
 	}
 	
 	private void goBack(){
-		Intent intent = new Intent(this, FriendActivity.class);
-		startActivity(intent);
+		//close current activity and go back.
+		finish();
 	}
 	
 	private void setupViews(){
