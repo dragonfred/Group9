@@ -44,6 +44,11 @@ public class RestaurantActivity extends Activity {
 		restaurantPhoneNumberText.setText(current.getPhone());
 		overallRestaurantRating.setRating(current.getRating());
 		
+		if (Server.getUser() == null)
+		{
+			writeReviewsButton.setVisibility(View.GONE);
+		}
+		
 		DecimalFormat df = new DecimalFormat("#.#");
 		numStarsText.setText(df.format(current.getRating()) + " out of 4 stars");
 	}

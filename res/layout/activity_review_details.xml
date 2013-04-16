@@ -53,6 +53,7 @@
 	        android:layout_height="wrap_content"
 	        android:hint="@string/review_text"
 	        android:maxLength="200"
+	        android:textSize="20sp"
 	        android:lines="5"
 	        android:ems="20"
 	        android:padding="4dp"

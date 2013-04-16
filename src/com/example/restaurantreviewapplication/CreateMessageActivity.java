@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.restaurantreviewapplication.Message;
 
@@ -40,9 +41,7 @@ public class CreateMessageActivity extends Activity {
 	}
 	
 	public void cancelMessageButtonHandler(View v){
-		Intent intent = new Intent(this, FriendActivity.class);
-		startActivity(intent);
-		
+		finish();
 	}
 	
 	public void sendMessageAccountHandler(View v){
@@ -58,55 +57,68 @@ public class CreateMessageActivity extends Activity {
 		senderUserId = app.getUserId();
 		receiverUserId = app.getSelectedFriend().getUserId();
 		textField = messageText.getText().toString();
-		newMessage.setReceiverUserId(receiverUserId);
-		newMessage.setSenderUserId(senderUserId);
-		newMessage.setTextField(textField);
-		messageSent = Server.messageFriend(newMessage);
 		
-		if (messageSent.equals("MSG: Sent")){
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("Message Sent")
-					.setMessage("Message Sent")
-					.setCancelable(false)
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.cancel();
-									goBack();
-								}
-							});
-			AlertDialog alert = builder.create();
-			alert.show();
-		}else{
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("Error Sending Message")
-					.setMessage(messageSent)
-					.setCancelable(false)
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.cancel();
-									goBack();
-								}
-							});
-			AlertDialog alert = builder.create();
-			alert.show();
+		if (textField.toString().trim().length() != 0)
+		{
+			newMessage.setReceiverUserId(receiverUserId);
+			newMessage.setSenderUserId(senderUserId);
+			newMessage.setTextField(textField);
+			messageSent = Server.messageFriend(newMessage);
+			
+			if (messageSent.equals("MSG: Sent")){
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("Message Sent")
+						.setMessage("Message Sent")
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+	
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.cancel();
+										finish();
+										//not needed
+										//goBack();
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+			}else{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("Error Sending Message")
+						.setMessage(messageSent)
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+	
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.cancel();
+										finish();
+										
+										//not needed;
+										//goBack();
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+			}	
 		}
-		
-
+		else
+		{
+			Toast.makeText(getApplicationContext(),
+					"Please enter a message.", Toast.LENGTH_SHORT)
+					.show();
+		}
 	}
-	
-	private void goBack(){
-		//close current activity and go back.
-		finish();
-	}
-	
+//	
+//	private void goBack(){
+//		//close current activity and go back.
+//		finish();
+//	}
+//	
 	private void setupViews(){
 		cancelMessageButton = (ImageButton) findViewById(R.id.cancelMessageButton);
 		sendMessageAccount = (ImageButton) findViewById(R.id.sendMessageButton);
