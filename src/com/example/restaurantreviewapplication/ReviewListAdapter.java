@@ -51,6 +51,8 @@ public class ReviewListAdapter extends BaseAdapter {
 		
 		if (reviewDetailsArrayList.get(position).getImage() != null)
 			holder.img_review_image.setImageBitmap(reviewDetailsArrayList.get(position).getImage());
+		else
+			holder.img_review_image.setImageResource(R.drawable.no_image);
 		holder.txt_reviewer_name.setText(reviewDetailsArrayList.get(position).getReviewer());
 		holder.txt_restaurant_review.setText(reviewDetailsArrayList.get(position).getReview());				
 		holder.txt_review_rating.setRating(reviewDetailsArrayList.get(position).getOverallRating());
