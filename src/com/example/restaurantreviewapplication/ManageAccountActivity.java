@@ -1,8 +1,11 @@
 package com.example.restaurantreviewapplication;
 
+import java.util.concurrent.*;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
@@ -12,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ManageAccountActivity extends Activity {
 
@@ -43,16 +47,18 @@ public class ManageAccountActivity extends Activity {
 	
 	
 	public void updatePasswordButtonHandler(View v) {
-		String oldpassword = oldPasswordText.getText().toString();
+		String oldPassword = oldPasswordText.getText().toString();
 		String newPassword = newPasswordText.getText().toString();
 		String newConfirmPassword = newPasswordConfirmText.getText().toString();
 		int result;
-		if(newPassword.compareTo(newConfirmPassword) == 0){
-			Server.setPassword(oldpassword);
+		if(newPassword.compareTo(newConfirmPassword) == 0 && oldPassword == app.getPassword()){
+			Server.setPassword(oldPassword);
 			Server.setUsername(app.getUsername());
 			result = Server.changePassword(newPassword);
 			if(result == 0){
 				Intent intent = new Intent(this, MainMenuActivity.class);
+				Toast.makeText(getApplicationContext(), "Password changed successfully!",
+						Toast.LENGTH_SHORT).show();
 				startActivity(intent);
 			}else{
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -72,6 +78,23 @@ public class ManageAccountActivity extends Activity {
 				AlertDialog alert = builder.create();
 				alert.show();
 			}
+		}else if(oldPassword != app.getPassword()) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Incorrect Password")
+					.setMessage(
+							"Your current password was entered incorrectly")
+					.setCancelable(false)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+								}
+							});
+			AlertDialog alert = builder.create();
+			alert.show();
 		}else{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Passwords Mismatch")
@@ -92,18 +115,19 @@ public class ManageAccountActivity extends Activity {
 		}
 	}
 	
-	
-	public void updateEmailButtonHandler(View v) {
-		String oldemail = oldEmailText.getText().toString();
+	public void updateEmailButtonHandler(View v) throws InterruptedException, ExecutionException {
+		String oldEmail = oldEmailText.getText().toString();
 		String newEmail = newEmailText.getText().toString();
 		String newConfirmEmail = newEmailConfirmText.getText().toString();
 		int result;
-		if(newEmail.compareTo(newConfirmEmail) == 0){
-			Server.setEmail(oldemail);
+		if(newEmail.compareTo(newConfirmEmail) == 0 && oldEmail == app.getEmail()){
+			Server.setEmail(oldEmail);
 			Server.setUsername(app.getUsername());
 			result = Server.changeEmail(newEmail);
 			if(result == 0){
 				Intent intent = new Intent(this, MainMenuActivity.class);
+				Toast.makeText(getApplicationContext(), "Email successfully changed to " + newEmail + "!",
+						Toast.LENGTH_SHORT).show();
 				startActivity(intent);
 			}else{
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -123,6 +147,23 @@ public class ManageAccountActivity extends Activity {
 				AlertDialog alert = builder.create();
 				alert.show();
 			}
+		}else if(oldEmail != app.getEmail()) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Incorrect Email")
+					.setMessage(
+							"Your current email address was entered incorrectly")
+					.setCancelable(false)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+								}
+							});
+			AlertDialog alert = builder.create();
+			alert.show();
 		}else{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Email Mismatch")
@@ -142,8 +183,7 @@ public class ManageAccountActivity extends Activity {
 			alert.show();
 		}
 	}
-	
-	
+
 	private void setupViews(){
 		oldPasswordText = (EditText) findViewById(R.id.oldPasswordText);
 		newPasswordText = (EditText) findViewById(R.id.newPasswordText);

@@ -64,7 +64,12 @@ public class UserApplication extends Application {
 	public void setPassword(String password) {
 		this.currentUser.setPassword(password);
 	}
-
+	public String getEmail() {
+		return currentUser.getEmail();
+	}
+	public void setEmail(String email) {
+		this.currentUser.setEmail(email);
+	}
 	public ArrayList<Friend> getFriendList() {
 		return currentUser.getFriendList();
 	}
