@@ -18,7 +18,6 @@ public class RestaurantActivity extends Activity {
 	private ImageButton viewMapButton;
 	private ImageButton readReviewsButton;
 	private ImageButton writeReviewsButton;
-	private ImageButton checkInButton;
 	private TextView restaurantNameText;
 	private TextView restaurantAddressText;
 	private TextView restaurantPhoneNumberText;
@@ -78,16 +77,7 @@ public class RestaurantActivity extends Activity {
 		Intent intent = new Intent(this, WriteReviewActivity.class);
 		startActivity(intent);
 	}
-	
-	public void checkInButtonHandler(View v){
 		
-		//check if logged in to facebook account and make post..also increment # check-ins for restaurant by 1
-		
-//		Intent intent = new Intent(this, ManageFriendsActivity.class);
-//		startActivity(intent);
-		
-	}
-	
 	private void setupViews(){
 		restaurantNameText = (TextView) findViewById(R.id.reviewRestaurantName);
 		restaurantAddressText = (TextView) findViewById(R.id.reviewRestaurantAddressText);
@@ -96,8 +86,7 @@ public class RestaurantActivity extends Activity {
 		overallRestaurantRating = (RatingBar) findViewById(R.id.overallRestaurantRating);
 		viewMapButton = (ImageButton) findViewById(R.id.MapButton);
 		readReviewsButton = (ImageButton) findViewById(R.id.readReviewsButton);
-		writeReviewsButton = (ImageButton) findViewById(R.id.writeReviewsButton);
-		checkInButton = (ImageButton) findViewById(R.id.checkInButton);		
+		writeReviewsButton = (ImageButton) findViewById(R.id.writeReviewsButton);		
 	}
 	
 }

@@ -92,27 +92,5 @@ public class CurrentFriendsActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_current_friends, menu);
 		return true;
 	}
-	
-//	private void seedFriends(){
-//		ArrayList<Friend> l = new ArrayList<Friend>();
-//		Message m;
-//		Friend a = new Friend();
-//		String s1 = "bob";
-//		a.setUserId(s1);
-//		l.add(a);
-//		
-//		a = new Friend();
-//		s1 = "elmo";
-//		a.setUserId(s1);
-//		l.add(a);
-//		
-//		a = new Friend();
-//		s1 = "Yo Mamma";
-//		a.setUserId(s1);
-//		l.add(a);
-//		
-//		app.setFriendList(l);
-//		
-//	
-//	}
+
 }

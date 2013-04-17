@@ -88,7 +88,7 @@
 		        android:gravity="center"
 		        android:padding="4dp"
 		        android:textSize="16sp"
-		        android:layout_marginBottom="15dp"
+		        android:layout_marginBottom="20dp"
 		        android:textColor="#000000">      
 		    </TextView>
 		
@@ -99,11 +99,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="viewMapButtonHandler"
-		    android:src="@drawable/map_button"
 		    android:padding="4dp"
-		    android:layout_marginBottom="10dp"
+		    android:layout_marginBottom="20dp"
 			android:layout_gravity="center"
-			android:background="@null">        
+			android:background="@drawable/event_map_button">        
 	    </ImageButton>
 
 		<ImageButton
@@ -111,11 +110,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="readReviewsButtonHandler"
-		    android:src="@drawable/read_reviews_button"
 		    android:padding="4dp"
-		    android:layout_marginBottom="10dp"
+		    android:layout_marginBottom="20dp"
 			android:layout_gravity="center"
-			android:background="@null">        
+			android:background="@drawable/event_read_reviews_button">        
 	    </ImageButton>
 		
 	   	<ImageButton
@@ -123,23 +121,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="writeReviewsButtonHandler"
-		    android:src="@drawable/write_review_button"
 		    android:padding="4dp"
-		    android:layout_marginBottom="10dp"
 			android:layout_gravity="center"
-			android:background="@null">        
+			android:background="@drawable/event_write_review_button">        
 	    </ImageButton>
-
-	   	<ImageButton
-		    android:id="@+id/checkInButton"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:onClick="checkInButtonHandler"
-		    android:src="@drawable/check_in_on_facebook_button"
-		    android:padding="4dp"
-			android:layout_gravity="center"
-			android:background="@null">        
-	    </ImageButton>		
 		
 	</LinearLayout>
 

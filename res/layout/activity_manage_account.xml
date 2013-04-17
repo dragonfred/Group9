@@ -70,10 +70,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="updatePasswordButtonHandler"
-		    android:src="@drawable/update_password_button"
 		    android:padding="4dp"
+		    android:layout_marginBottom="20dp"
 			android:layout_gravity="center"
-			android:background="@null" >
+			android:background="@drawable/event_update_password_button" >
 		</ImageButton>
 		
 		<EditText
@@ -122,10 +122,9 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="updateEmailButtonHandler"
-		    android:src="@drawable/change_email_button"
 		    android:padding="4dp"
 			android:layout_gravity="center"
-			android:background="@null">
+			android:background="@drawable/event_change_email_button">
 		</ImageButton>
 	    
 	</LinearLayout>

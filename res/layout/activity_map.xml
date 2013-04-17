@@ -15,9 +15,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="mapButtonHandler"
-            android:src="@drawable/open_in_google_maps_button"
             android:text="@string/open_in_google_maps"
-            android:background="@null">
+            android:background="@drawable/event_open_in_google_maps_button">
         </ImageButton>
         
     </LinearLayout>

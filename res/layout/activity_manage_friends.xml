@@ -31,11 +31,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="showFriendsButtonHandler"
-		    android:src="@drawable/show_friends_button"
 		    android:padding="4dp"
-		    android:layout_marginBottom="10dp"
+		    android:layout_marginBottom="20dp"
 			android:layout_gravity="center"
-			android:background="@null">
+			android:background="@drawable/event_show_friends_button">
 		</ImageButton>
 		
 	    <ImageButton
@@ -43,11 +42,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="findFriendsButtonHandler"
-		    android:src="@drawable/find_friends_button"
 		    android:padding="4dp"
-		    android:layout_marginBottom="10dp"
+		    android:layout_marginBottom="20dp"
 			android:layout_gravity="center"
-			android:background="@null">
+			android:background="@drawable/event_find_friends_button">
 		</ImageButton>
 
 	    <ImageButton
@@ -55,11 +53,10 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:onClick="viewNotificationsButtonHandler"
-		    android:src="@drawable/view_messages_button"
 		    android:padding="4dp"
-		    android:layout_marginBottom="10dp"
+		    android:layout_marginBottom="20dp"
 			android:layout_gravity="center"
-			android:background="@null">
+			android:background="@drawable/event_view_messages_button">
 		</ImageButton>
 		
 		<ImageButton
@@ -67,10 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="viewFriendRequestsButtonHandler"
-            android:src="@drawable/view_friend_requests_button"
             android:padding="4dp"
             android:layout_gravity="center"
-            android:background="@null">
+            android:background="@drawable/event_view_friend_requests_button">
 		</ImageButton>
 	
 	</LinearLayout>

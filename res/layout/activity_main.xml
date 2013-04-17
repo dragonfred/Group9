@@ -18,7 +18,7 @@
 	        android:layout_height="wrap_content"
 	        android:padding="10dp"
 	        android:src="@drawable/edibles_logo"
-	        android:layout_marginBottom="10dp"
+	        android:layout_marginBottom="20dp"
 	        android:layout_gravity="center"
 	        android:contentDescription="@string/app_name">
 	    </ImageView>
@@ -71,7 +71,7 @@
 		       android:layout_height="wrap_content"
 		       android:layout_below="@id/Password"
 		       android:layout_alignLeft="@id/Password"
-		       android:layout_marginBottom="10dp"
+		       android:layout_marginBottom="20dp"
 		       android:text="@string/remember_me"
 		       android:textColor="#000000">
 		   	</CheckBox>
@@ -81,37 +81,34 @@
 	    <ImageButton
 	        android:id="@+id/LogInButton"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:src="@drawable/log_in_button"        
+	        android:layout_height="wrap_content"   
 	        android:onClick="logInButtonHandler"
-	        android:padding="4dp"
-	        android:layout_marginBottom="10dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginBottom="20dp"
 	        android:layout_gravity="center"
-	        android:background="@null">
+	        android:background="@drawable/event_login_button">
 	    </ImageButton>
 	
 	    <ImageButton
 	        android:id="@+id/SkipLoginButton"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:src="@drawable/skip_login_button"
 	        android:onClick="skipLoginButtonHandler"
 	        android:padding="4dp"
-	        android:layout_marginBottom="10dp"
+	        android:layout_marginBottom="20dp"
 	        android:layout_gravity="center"
-	        android:background="@null">
+	        android:background="@drawable/event_skip_login_button">
 	   	</ImageButton>
 	
 	    <ImageButton
 	        android:id="@+id/ForgotPasswordButton"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:src="@drawable/forgot_password_button"
 	        android:padding="4dp"
-	        android:layout_marginBottom="10dp"
-	        android:background="@null"
+	        android:layout_marginBottom="20dp"
 	        android:layout_gravity="center"
-	        android:onClick="forgotPasswordButtonHandler">
+	        android:onClick="forgotPasswordButtonHandler"
+	        android:background="@drawable/event_forgot_password_button">
 	
 	   	</ImageButton>
 	
@@ -119,12 +116,11 @@
 	        android:id="@+id/CreateAccountButton"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:src="@drawable/create_account_button"
 	        android:padding="4dp"
-	        android:layout_marginBottom="10dp"
-	        android:background="@null"
+	        android:layout_marginBottom="20dp"
 	        android:layout_gravity="center"
-	   		android:onClick="createAccountButtonHandler">
+	   		android:onClick="createAccountButtonHandler"
+	   		android:background="@drawable/event_create_account_button">
 	    </ImageButton>
 	    
 	</LinearLayout>
