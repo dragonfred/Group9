@@ -230,6 +230,7 @@
 	        android:background="@drawable/event_submit_review_button">
 	   	</ImageButton>
 
+	    <!--  
 	    <ImageButton
 	        android:id="@+id/SubmitAndPostOnFacebookButton"
 	        android:layout_width="wrap_content"
@@ -238,7 +239,7 @@
 	        android:padding="4dp"
 	        android:layout_gravity="center"
 	        android:background="@drawable/event_submit_and_post_to_facebook_button">
-	   	</ImageButton>
+	   	</ImageButton>-->
 	    		    
 	</LinearLayout>
 
