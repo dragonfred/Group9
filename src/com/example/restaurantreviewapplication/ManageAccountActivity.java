@@ -50,8 +50,9 @@ public class ManageAccountActivity extends Activity {
 		String oldPassword = oldPasswordText.getText().toString();
 		String newPassword = newPasswordText.getText().toString();
 		String newConfirmPassword = newPasswordConfirmText.getText().toString();
+		
 		int result;
-		if(newPassword.compareTo(newConfirmPassword) == 0 && oldPassword == app.getPassword()){
+		if(newPassword.compareTo(newConfirmPassword) == 0){// && oldPassword.compareTo(app) == 0){
 			Server.setPassword(oldPassword);
 			Server.setUsername(app.getUsername());
 			result = Server.changePassword(newPassword);
@@ -78,7 +79,7 @@ public class ManageAccountActivity extends Activity {
 				AlertDialog alert = builder.create();
 				alert.show();
 			}
-		}else if(oldPassword != app.getPassword()) {
+		/*}else if(oldPassword != app.getPassword()) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Incorrect Password")
 					.setMessage(
@@ -94,7 +95,7 @@ public class ManageAccountActivity extends Activity {
 								}
 							});
 			AlertDialog alert = builder.create();
-			alert.show();
+			alert.show();*/
 		}else{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Passwords Mismatch")
@@ -120,7 +121,7 @@ public class ManageAccountActivity extends Activity {
 		String newEmail = newEmailText.getText().toString();
 		String newConfirmEmail = newEmailConfirmText.getText().toString();
 		int result;
-		if(newEmail.compareTo(newConfirmEmail) == 0 && oldEmail == app.getEmail()){
+		if(newEmail.compareTo(newConfirmEmail) == 0){// && oldEmail == app.getEmail()){
 			Server.setEmail(oldEmail);
 			Server.setUsername(app.getUsername());
 			result = Server.changeEmail(newEmail);
@@ -147,7 +148,7 @@ public class ManageAccountActivity extends Activity {
 				AlertDialog alert = builder.create();
 				alert.show();
 			}
-		}else if(oldEmail != app.getEmail()) {
+		/*}else if(oldEmail != app.getEmail()) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Incorrect Email")
 					.setMessage(
@@ -163,7 +164,7 @@ public class ManageAccountActivity extends Activity {
 								}
 							});
 			AlertDialog alert = builder.create();
-			alert.show();
+			alert.show();*/
 		}else{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Email Mismatch")
