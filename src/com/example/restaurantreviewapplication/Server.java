@@ -690,6 +690,7 @@ public class Server {
 			o = (User) stringToObject(sret);
 			if(o != null)
 				Log.i("Server.getUser", "Logged in as " + o.getUsername());
+			o.setPassword(password);
 			return o;
 		}
 	}
