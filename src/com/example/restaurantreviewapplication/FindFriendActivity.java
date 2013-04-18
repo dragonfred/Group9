@@ -93,7 +93,10 @@ public class FindFriendActivity extends Activity {
 		}
 
 	}
-
+	public void onBackPressed() {
+    	finish();
+        super.onBackPressed();
+	}
 	private void addFriend() {
 		Server.addFriend(app.getCurrentUser(), foundFriend);
 		finish();

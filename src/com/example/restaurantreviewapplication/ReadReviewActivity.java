@@ -70,6 +70,10 @@ public class ReadReviewActivity extends Activity{
 		Intent intent = new Intent(this, ReviewDetailsActivity.class);
 		startActivity(intent);
 	}
+	
+	 public void onBackPressed() {
+		 finish();
+	 }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

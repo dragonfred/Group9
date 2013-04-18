@@ -75,6 +75,10 @@ public class ReviewDetailsActivity extends Activity {
 		return true;
 	}
 	
+	 public void onBackPressed() {
+		 finish();
+	 }
+	
 	private void setupViews(){
 		restaurantNameText = (TextView)findViewById(R.id.RestaurantNameText);
 		restaurantAddressText = (TextView)findViewById(R.id.RestaurantAddressText);

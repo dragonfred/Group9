@@ -25,6 +25,7 @@ public class FriendActivity extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_friend);
+		FriendBackController.getInstance().setActivity2(this);
 		//setup buttons and text views
 		setupViews();
 		//connect to global data
@@ -65,6 +66,11 @@ public class FriendActivity extends Activity {
 		});
 		AlertDialog alert = builder.create();
 		alert.show();
+	}
+	
+	public void onBackPressed() {
+    	FriendBackController.getInstance().closeAllActivities();
+        super.onBackPressed();
 	}
 	
 	private void deleteFriend(){
@@ -115,8 +121,7 @@ public class FriendActivity extends Activity {
 	}
 	
 	private void returnToMenu(){
-		Intent intent2 = new Intent(this, ManageFriendsActivity.class);
-		startActivity(intent2);
+		FriendBackController.getInstance().closeAllActivities();
 	}
 	
 	private void setupViews(){

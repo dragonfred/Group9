@@ -27,6 +27,7 @@ public class NotificationsActivity extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_notifications);
+		FriendBackController.getInstance().setActivity4(this);
 		app = (UserApplication) getApplication();
 		//seedNotification();
 		ListView reviewList = (ListView) findViewById(R.id.notificationsList);
@@ -41,7 +42,7 @@ public class NotificationsActivity extends Activity {
 		ArrayAdapter<Message> adapter = new ArrayAdapter<Message>(this,
 				android.R.layout.simple_list_item_1, messages);
 		
-		if(messages == null){
+		if(messages.size() == 0){
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("No Messages")
 					.setMessage("No messages found.")
@@ -74,8 +75,12 @@ public class NotificationsActivity extends Activity {
 	}
 
 	private void returnBackToMenu(){
-		Intent intent = new Intent(this, ManageFriendsActivity.class);
-		startActivity(intent);
+		finish();
+	}
+	
+	public void onBackPressed() {
+    	FriendBackController.getInstance().closeAllActivities();
+        super.onBackPressed();
 	}
 	
 	private void nextScreen(int position) {

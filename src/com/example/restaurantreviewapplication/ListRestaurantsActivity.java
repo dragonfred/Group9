@@ -21,7 +21,7 @@ public class ListRestaurantsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_restaurants);
-        
+        RestaurantBackController.getInstance().setActivity2(this);
         searchResultsText = (TextView) findViewById(R.id.SearchResultsText);
         
         ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
@@ -40,6 +40,11 @@ public class ListRestaurantsActivity extends Activity {
         		nextScreen(position);
         	}  
         });
+    }
+    
+    public void onBackPressed() {
+    	RestaurantBackController.getInstance().closeAllActivities();
+        super.onBackPressed();
     }
     
     public void nextScreen(int position)

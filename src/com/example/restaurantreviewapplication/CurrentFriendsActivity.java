@@ -26,7 +26,7 @@ public class CurrentFriendsActivity extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_current_friends);
-				
+		FriendBackController.getInstance().setActivity1(this);		
 		app = (UserApplication) getApplication();
 
 		friends = Server.getFriends();
@@ -77,6 +77,11 @@ public class CurrentFriendsActivity extends Activity {
 
 	private void goBack(){
 		finish();
+	}
+
+	public void onBackPressed() {
+	    	FriendBackController.getInstance().closeAllActivities();
+	        super.onBackPressed();
 	}
 	
 	private void nextScreen(int position) {

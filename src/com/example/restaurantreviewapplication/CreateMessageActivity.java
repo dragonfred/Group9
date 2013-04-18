@@ -29,6 +29,7 @@ public class CreateMessageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_message);
 		app = (UserApplication) getApplication();
+		FriendBackController.getInstance().setActivity3(this);
 		setupViews();
 		
 	}
@@ -38,6 +39,11 @@ public class CreateMessageActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.create_message, menu);
 		return true;
+	}
+	
+	public void onBackPressed() {
+    	FriendBackController.getInstance().closeAllActivities();
+        super.onBackPressed();
 	}
 	
 	public void cancelMessageButtonHandler(View v){
@@ -77,7 +83,7 @@ public class CreateMessageActivity extends Activity {
 									public void onClick(DialogInterface dialog,
 											int which) {
 										dialog.cancel();
-										finish();
+										FriendBackController.getInstance().closeAllActivities();
 										//not needed
 										//goBack();
 									}
@@ -96,7 +102,7 @@ public class CreateMessageActivity extends Activity {
 									public void onClick(DialogInterface dialog,
 											int which) {
 										dialog.cancel();
-										finish();
+										FriendBackController.getInstance().closeAllActivities();
 										
 										//not needed;
 										//goBack();

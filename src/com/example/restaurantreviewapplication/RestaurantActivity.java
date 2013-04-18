@@ -30,6 +30,7 @@ public class RestaurantActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		RestaurantBackController.getInstance().setActivity3(this);
 		setContentView(R.layout.activity_restaurant);
 		//setup buttons and text views
 		setupViews();
@@ -59,6 +60,10 @@ public class RestaurantActivity extends Activity {
 		return true;
 	}
 
+    public void onBackPressed() {
+    	finish();
+    }
+	
 	public void viewMapButtonHandler(View v){
 		
 		Intent intent = new Intent(this, MapActivity.class);

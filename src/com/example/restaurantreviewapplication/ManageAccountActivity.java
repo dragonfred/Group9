@@ -183,6 +183,11 @@ public class ManageAccountActivity extends Activity {
 			alert.show();
 		}
 	}
+	
+	public void onBackPressed() {
+    	finish();
+        super.onBackPressed();
+	}
 
 	private void setupViews(){
 		oldPasswordText = (EditText) findViewById(R.id.oldPasswordText);

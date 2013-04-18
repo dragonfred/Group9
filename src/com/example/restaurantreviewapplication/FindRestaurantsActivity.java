@@ -38,6 +38,7 @@ public class FindRestaurantsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		RestaurantBackController.getInstance().setActivity1(this);
 		app = (UserApplication) getApplication();
 		// serverConnection = new Server2(this);
 		setContentView(R.layout.activity_find_restaurants);
@@ -46,7 +47,12 @@ public class FindRestaurantsActivity extends Activity {
 		dialog = new ProgressDialog(FindRestaurantsActivity.this);
 		dialog.setMessage("Loading...");
 	}
-
+	
+    public void onBackPressed() {
+    	RestaurantBackController.getInstance().closeAllActivities();
+        super.onBackPressed();
+    }
+    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

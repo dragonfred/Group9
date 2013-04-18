@@ -59,6 +59,11 @@ public class ManageFriendsActivity extends Activity {
 		startActivity(intent);
 		
 	}
+	
+	public void onBackPressed() {
+    	finish();
+        super.onBackPressed();
+	}
 
 	private void setupViews(){
 		showFriendsButton = (ImageButton) findViewById(R.id.showFriendsButton);

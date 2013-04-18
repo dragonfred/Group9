@@ -40,7 +40,7 @@ public class ListFriendRequests extends Activity {
 		ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this,
 				android.R.layout.simple_list_item_1, friendRequests);
 		
-		if(friendRequests == null){
+		if(friendRequests.size() == 0){
 			
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("No Friends Found")
