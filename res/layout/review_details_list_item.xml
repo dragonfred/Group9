@@ -20,6 +20,7 @@
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
 			android:layout_toRightOf="@id/reviewPhoto"
+			android:paddingRight="4dp"
 			android:textColor="#000000">
 		</TextView>
 		
@@ -40,8 +41,9 @@
         android:numStars="4"
         android:layout_toRightOf="@id/reviewerName"
         android:stepSize="0.11"
+        android:paddingTop="8dp"
+		android:paddingBottom="4dp"
        	style="?android:attr/ratingBarStyleSmall"
-       	android:paddingLeft="2dp"
        	android:layout_gravity="center">
     </RatingBar>
 	
