@@ -52,7 +52,7 @@ public class ManageAccountActivity extends Activity {
 		String newConfirmPassword = newPasswordConfirmText.getText().toString();
 		
 		int result;
-		if(newPassword.compareTo(newConfirmPassword) == 0){// && oldPassword.compareTo(app) == 0){
+		if(newPassword.compareTo(newConfirmPassword) == 0 && oldPassword.compareTo(app.getPassword()) == 0){
 			Server.setPassword(oldPassword);
 			Server.setUsername(app.getUsername());
 			result = Server.changePassword(newPassword);
@@ -79,7 +79,7 @@ public class ManageAccountActivity extends Activity {
 				AlertDialog alert = builder.create();
 				alert.show();
 			}
-		/*}else if(oldPassword != app.getPassword()) {
+		}else if(oldPassword.compareTo(app.getPassword()) != 0) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Incorrect Password")
 					.setMessage(
@@ -95,7 +95,7 @@ public class ManageAccountActivity extends Activity {
 								}
 							});
 			AlertDialog alert = builder.create();
-			alert.show();*/
+			alert.show();
 		}else{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Passwords Mismatch")

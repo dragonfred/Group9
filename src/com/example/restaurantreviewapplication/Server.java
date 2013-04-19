@@ -691,6 +691,7 @@ public class Server {
 			if(o != null)
 				Log.i("Server.getUser", "Logged in as " + o.getUsername());
 			o.setPassword(password);
+			//o.setEmail(email);
 			return o;
 		}
 	}
